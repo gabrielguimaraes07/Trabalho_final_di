@@ -1,0 +1,169 @@
+.apoio-pagina {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding-block: clamp(var(--space-4), 7vw, var(--space-8));
+}
+
+.formularios-pagina {
+  inline-size: min(42rem, 100% - 2 * var(--space-2));
+}
+
+.apoio-cabecalho {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.apoio-cabecalho h1 {
+  font-size: clamp(var(--font-40), 6vw, var(--font-64));
+  line-height: 1.05;
+  letter-spacing: -.04em;
+  overflow-wrap: anywhere;
+}
+
+.apoio-cabecalho p,
+.apoio-ajuda,
+.glossario-status {
+  color: var(--text-2);
+}
+
+.apoio-form,
+.login-conteudo {
+  display: grid;
+  gap: var(--space-2);
+  min-inline-size: 0;
+}
+
+.apoio-form {
+  padding: var(--space-3);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.apoio-form h2 {
+  margin: 0;
+  font-size: var(--font-28);
+}
+
+.apoio-form :is(input, select, textarea, h2) {
+  scroll-margin-block-start: var(--space-12);
+}
+
+.apoio-form textarea {
+  inline-size: 100%;
+  min-block-size: 7rem;
+  padding: var(--space-1);
+  resize: vertical;
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.apoio-form [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.apoio-erro {
+  color: var(--text-2);
+  font-size: var(--font-14);
+}
+
+.apoio-erro:not(:empty)::before {
+  color: var(--danger);
+  content: "⚠ ";
+}
+
+.apoio-ajuda {
+  font-size: var(--font-14);
+}
+
+.apoio-enviar {
+  justify-self: start;
+}
+
+.login-senha {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.login-senha input {
+  flex: 1 1 11rem;
+  min-inline-size: 0;
+}
+
+.login-email {
+  color: var(--text-2);
+}
+
+.glossario-busca {
+  inline-size: min(100%, 28rem);
+}
+
+.glossario-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.glossario-definicao {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  padding: var(--space-3);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.glossario-definicao h2 {
+  margin: 0;
+  font-size: var(--font-20);
+  scroll-margin-block-start: var(--space-12);
+}
+
+.glossario-definicao:has(h2:target) {
+  border-color: var(--accent);
+}
+
+.glossario-termo {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.glossario-dica {
+  position: fixed;
+  z-index: 3;
+  inset: auto;
+  inline-size: max-content;
+  max-inline-size: min(20rem, 100vw - 16px);
+  max-block-size: calc(100dvh - 16px);
+  padding: var(--space-1) var(--space-2);
+  overflow: auto;
+  overflow-wrap: anywhere;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--font-14);
+}
+
+:root[data-contraste="true"] :is(.apoio-form, .glossario-definicao, .glossario-dica) {
+  border: 2px solid var(--text);
+}
+
+@media (max-width: 32rem) {
+  .apoio-form {
+    padding: var(--space-2);
+  }
+}

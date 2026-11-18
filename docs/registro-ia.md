@@ -60,3 +60,10 @@
 - **Como foi usada** — criou o quiz em três etapas, a sugestão baseada em uso, orçamento e prioridade e as três configurações prontas. O montador guarda a última escolha e confere o estoque antes de adicionar o conjunto ao carrinho. O kit fictício Aura Trio está disponível no catálogo para a opção de visual com RGB.
 - **Revisão** — verificou os preços e a compatibilidade em 72 cenários, além da navegação por teclado e toque. Testou a revisão do orçamento, a retomada após recarregar e o caso em que falta estoque para uma peça do conjunto. O axe apontou zero violações automáticas nos estados auditados do quiz e do resultado.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 10 — Glossário, login e contato
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — criou 29 definições pesquisáveis e ligou os termos do estoque às dicas por mouse e teclado. Implementou as abas de login fictício, o armazenamento de nome e e-mail e o formulário de contato simulado com validação acessível.
+- **Revisão** — verificou foco, Escape e navegação direta para as definições, a alternância de senha e que a simulação de contato confirma o formulário sem transmitir os dados. O axe apontou zero violações automáticas nos estados auditados das três páginas.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

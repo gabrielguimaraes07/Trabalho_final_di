@@ -6,6 +6,18 @@ import { iniciarCarrinho } from './carrinho.js';
 import { iniciarPaginaEstoque } from './pagina-estoque.js';
 import { iniciarMontador } from './montador.js';
 import { iniciarBuildsProntos } from './builds-prontos.js';
+import { iniciarPaginaGlossario } from './glossario.js';
+import { iniciarAcesso } from './login.js';
+import { iniciarContato } from './formularios.js';
+
+const linkConta = document.querySelector('[data-conta]');
+if (linkConta) iniciarAcesso(linkConta, document.querySelector('[data-pagina-login]'));
+
+const paginaContato = document.querySelector('[data-pagina-contato]');
+if (paginaContato) iniciarContato(paginaContato);
+
+const paginaGlossario = document.querySelector('[data-pagina-glossario]');
+if (paginaGlossario) iniciarPaginaGlossario(paginaGlossario);
 
 const botaoCarrinho = document.querySelector('[data-carrinho]');
 if (botaoCarrinho) iniciarCarrinho(botaoCarrinho);
