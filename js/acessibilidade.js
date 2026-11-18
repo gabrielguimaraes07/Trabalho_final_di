@@ -63,6 +63,10 @@ const painel = `
               <span><strong id="pref-movimento">Reduzir movimento</strong><span id="pref-movimento-texto">Pausa o giro do PC e a troca automática de imagens.</span><span id="pref-movimento-sistema" hidden>O dispositivo também solicita menos movimento.</span></span>
               <input type="checkbox" role="switch" name="reduzirMovimento" aria-labelledby="pref-movimento" aria-describedby="pref-movimento-texto pref-movimento-sistema">
             </label>
+            <label class="acessibilidade-interruptor">
+              <span><strong id="pref-atalho">Desativar atalho de busca</strong><span id="pref-atalho-texto">Impede que a tecla / leve o foco à busca.</span></span>
+              <input type="checkbox" role="switch" name="desativarAtalhoBusca" aria-labelledby="pref-atalho" aria-describedby="pref-atalho-texto">
+            </label>
           </fieldset>
         </div>
 
@@ -134,6 +138,11 @@ export function iniciarAcessibilidade(acionador) {
       : 'pref-movimento-texto');
   }
 
+  function fecharPainel() {
+    dialogo.close();
+    acionador.focus({ preventScroll: true });
+  }
+
   formulario.addEventListener('change', () => {
     salvarPreferencias();
     status.textContent = '';
@@ -154,24 +163,20 @@ export function iniciarAcessibilidade(acionador) {
     dialogo.scrollTop = 0;
     fechar.focus();
   });
-  fechar.addEventListener('click', () => dialogo.close());
+  fechar.addEventListener('click', fecharPainel);
   previaLink.addEventListener('click', evento => {
-    if (!evento.metaKey && !evento.ctrlKey && !evento.shiftKey && !evento.altKey) dialogo.close('navegar');
-  });
-  dialogo.addEventListener('close', () => {
-    if (dialogo.returnValue !== 'navegar') acionador.focus({ preventScroll: true });
-    dialogo.returnValue = '';
+    if (!evento.metaKey && !evento.ctrlKey && !evento.shiftKey && !evento.altKey) dialogo.close();
   });
   dialogo.addEventListener('click', evento => {
     if (evento.target !== dialogo) return;
     const limites = dialogo.getBoundingClientRect();
     if (evento.clientX < limites.left || evento.clientX > limites.right
-        || evento.clientY < limites.top || evento.clientY > limites.bottom) dialogo.close();
+        || evento.clientY < limites.top || evento.clientY > limites.bottom) fecharPainel();
   });
   dialogo.addEventListener('keydown', evento => {
     if (evento.key === 'Escape') {
       evento.preventDefault();
-      dialogo.close();
+      fecharPainel();
     } else if (evento.key === 'Tab' && evento.shiftKey && document.activeElement === fechar) {
       evento.preventDefault();
       restaurar.focus();

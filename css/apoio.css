@@ -167,3 +167,18 @@
     padding: var(--space-2);
   }
 }
+
+.apoio-faq {
+  display: grid;
+  gap: var(--space-1);
+  scroll-margin-block-start: var(--space-12);
+}
+
+.apoio-faq h2 {
+  margin: 0;
+  font-size: var(--font-28);
+}
+
+.apoio-faq details p {
+  margin-block-end: var(--space-1);
+}

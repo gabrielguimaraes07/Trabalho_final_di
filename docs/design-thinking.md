@@ -118,6 +118,8 @@ Ao escolher uma peça, a gaveta ocupa a largura disponível com o botão de fech
 └──────────────────────────────┘
 ```
 
+Os protótipos de alta fidelidade estão nas capturas do projeto. [Telas e recursos](design-site.md)
+
 ## Testar
 
-Na entrega final, a proposta é observar de 3 a 5 pessoas encontrando uma placa de vídeo de até R$ 2.000 e montando um PC para estudar. Após as tarefas, elas responderão ao SUS, um questionário padronizado de usabilidade. As dificuldades observadas e as correções feitas serão registradas aqui depois das sessões.
+A revisão técnica verificou os fluxos no navegador. A avaliação com participantes usará as tarefas de encontrar uma placa de vídeo, montar um PC para estudo e ajustar a acessibilidade. O roteiro, o questionário SUS e as tabelas de registro estão separados para receber os resultados reais. [Roteiro de usabilidade](usabilidade.md) · [Auditoria técnica](auditoria.md)

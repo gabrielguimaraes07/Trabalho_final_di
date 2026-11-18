@@ -23,7 +23,7 @@ main {
 
 @supports (backdrop-filter: blur(20px)) {
   .site-header {
-    background-color: var(--glass);
+    background-color: color-mix(in srgb, var(--surface) 90%, var(--glass));
     backdrop-filter: var(--glass-blur);
   }
 }
