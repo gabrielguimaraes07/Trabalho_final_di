@@ -6,6 +6,18 @@ function conferirPares(primeiras, segundas, combinar, mensagem) {
   }
 }
 
+export function encaixeCompativel(cpu, placa) {
+  return cpu.compat.socket === placa.compat.socket;
+}
+
+export function memoriaCompativel(ram, placa) {
+  return ram.compat.ddr === placa.compat.ddr;
+}
+
+export function gabineteCompativel(placa, gabinete) {
+  return (gabinete.compat.formatosAceitos ?? [gabinete.compat.formato]).includes(placa.compat.formato);
+}
+
 export function verificarCompatibilidade(itens) {
   const pecas = categoria => itens.filter(({ produto }) => produto.categoria === categoria).map(({ produto }) => produto);
   const cpus = pecas('cpu');
@@ -22,15 +34,15 @@ export function verificarCompatibilidade(itens) {
   }
 
   const socket = conferirPares(cpus, placas,
-    (cpu, placa) => cpu.compat.socket === placa.compat.socket,
+    encaixeCompativel,
     (cpu, placa) => cpu.nome + ' usa o encaixe ' + cpu.compat.socket + '. A placa ' + placa.nome
       + ' usa ' + placa.compat.socket + '. Escolha peças com o mesmo encaixe.');
   const memoria = conferirPares(memorias, placas,
-    (ram, placa) => ram.compat.ddr === placa.compat.ddr,
+    memoriaCompativel,
     (ram, placa) => ram.nome + ' usa ' + ram.compat.ddr + '. A placa ' + placa.nome
       + ' aceita ' + placa.compat.ddr + '.');
   const formato = conferirPares(placas, gabinetes,
-    (placa, gabinete) => (gabinete.compat.formatosAceitos ?? [gabinete.compat.formato]).includes(placa.compat.formato),
+    gabineteCompativel,
     (placa, gabinete) => 'A placa ' + placa.nome + ' é ' + placa.compat.formato
       + ' e não cabe no gabinete ' + gabinete.nome + '.');
   const fonteFraca = fontes.find(fonte => fonte.compat.potencia < tdp);

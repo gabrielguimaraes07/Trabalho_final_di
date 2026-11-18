@@ -1,0 +1,23 @@
+[
+  {
+    "id": "gamer",
+    "uso": "jogar",
+    "nome": "Primeiro PC gamer",
+    "descricao": "Para começar a jogar em Full HD com armazenamento rápido.",
+    "produtos": ["cpu-nexa-ponto-6", "placa-mae-nexa-base-a5", "ram-voltra-viva-16", "gpu-kairo-vector-6", "armazenamento-kairo-arquivo-500", "fonte-nexa-corrente-550", "cooler-kairo-ar-120", "gabinete-voltra-vista-a"]
+  },
+  {
+    "id": "estudo",
+    "uso": "estudar",
+    "nome": "PC para estudar",
+    "descricao": "Para aulas, navegação e programas do dia a dia.",
+    "produtos": ["cpu-nexa-ponto-4", "placa-mae-nexa-base-a5", "ram-voltra-viva-16", "gpu-nexa-pixel-4", "armazenamento-nexa-pasta-250", "fonte-kairo-base-450", "cooler-nexa-vento-92", "gabinete-kairo-abrigo-m"]
+  },
+  {
+    "id": "criacao",
+    "uso": "criar",
+    "nome": "PC para criar conteúdo",
+    "descricao": "Com mais memória para editar e espaço para guardar seus projetos.",
+    "produtos": ["cpu-nexa-ponto-6", "placa-mae-voltra-nexo-n5", "ram-kairo-feixe-32", "gpu-voltra-x60", "armazenamento-voltra-prisma-1", "fonte-nexa-corrente-550", "cooler-kairo-ar-120", "gabinete-voltra-vista-a"]
+  }
+]

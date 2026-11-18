@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/componentes.css">
     <link rel="stylesheet" href="css/loja.css">
+    <link rel="stylesheet" href="css/montador.css">
     <link rel="stylesheet" href="css/acessibilidade.css">
     <script type="importmap">
       {
@@ -35,7 +36,7 @@
         <ul class="nav-menu">
           <li><a href="./index.html" aria-current="page">Início</a></li>
           <li><a href="./estoque.html">Estoque</a></li>
-          <li><a role="link" aria-disabled="true">Monte seu PC</a></li>
+          <li><a href="./montador.html">Monte seu PC</a></li>
           <li><a role="link" aria-disabled="true">Glossário</a></li>
           <li><a role="link" aria-disabled="true">Contato</a></li>
         </ul>
@@ -70,7 +71,7 @@
         <div class="hero-copy">
           <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
           <p>Entenda o que cada peça faz e escolha o que você precisa para jogar, estudar, trabalhar ou criar conteúdo.</p>
-          <a class="botao-primario" href="#pecas">Começar a montar</a>
+          <a class="botao-primario" href="./montador.html">Começar a montar</a>
         </div>
 
         <div class="visualizador">
@@ -216,6 +217,13 @@
           <p class="somente-leitores carrossel-status" role="status"></p>
           <p class="carrossel-credito">Imagens ilustrativas geradas com OpenAI ImageGen.</p>
         </div>
+      </section>
+
+      <section class="secao-inicio container" aria-labelledby="titulo-builds" data-builds-prontos>
+        <h2 id="titulo-builds">Configurações prontas</h2>
+        <p class="builds-status" role="status">Carregando configurações…</p>
+        <ul class="builds-grade"></ul>
+        <a class="botao-primario builds-cta" href="./montador.html">Abrir montador guiado</a>
       </section>
     </main>
 
