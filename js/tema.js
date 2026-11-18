@@ -1,31 +1,33 @@
-export function iniciarTema(opcoes) {
+// Carregado no cabeçalho para aplicar as preferências antes da primeira pintura.
+(() => {
   const raiz = document.documentElement;
-  const acionador = opcoes.querySelector('summary');
-  const escolhas = opcoes.querySelectorAll('input[name="tema"]');
+  const temaDoSistema = matchMedia('(prefers-color-scheme: light)');
+  let preferencias = {};
+  let temaAnterior;
 
-  for (const escolha of escolhas) {
-    escolha.checked = escolha.value === (raiz.dataset.theme || 'dark');
-    escolha.addEventListener('change', () => {
-      raiz.dataset.theme = escolha.value;
-      try {
-        localStorage.setItem('ggtech-tema', escolha.value);
-      } catch {
-        // A página ainda aplica a escolha quando o navegador impede salvá-la.
-      }
-    });
+  try {
+    temaAnterior = localStorage.getItem('ggtech-tema');
+    preferencias = JSON.parse(localStorage.getItem('ggtech-acessibilidade')) ?? {};
+  } catch {
+    // O site usa as preferências padrão enquanto o armazenamento estiver indisponível.
   }
 
-  opcoes.addEventListener('keydown', evento => {
-    if (evento.key === 'Escape' && opcoes.open) {
-      evento.preventDefault();
-      opcoes.open = false;
-      acionador.focus();
-    }
-  });
+  const tema = preferencias.tema ?? temaAnterior;
+  raiz.dataset.tema = ['dark', 'light', 'auto'].includes(tema) ? tema : 'dark';
+  const tamanho = preferencias.tamanhoTexto;
+  if (['menor', 'normal', 'maior', 'maximo'].includes(tamanho)) raiz.dataset.tamanhoTexto = tamanho;
 
-  document.addEventListener('click', evento => {
-    if (opcoes.open && !opcoes.contains(evento.target)) opcoes.open = false;
-  });
+  for (const chave of ['contraste', 'espacamento', 'fonteLeitura', 'sublinharLinks', 'reduzirMovimento']) {
+    if (preferencias[chave] === true) raiz.dataset[chave] = 'true';
+  }
 
-  opcoes.hidden = false;
-}
+  function atualizarTema() {
+    const claro = raiz.dataset.tema === 'light' || (raiz.dataset.tema === 'auto' && temaDoSistema.matches);
+    raiz.dataset.theme = claro ? 'light' : 'dark';
+  }
+
+  atualizarTema();
+  const observadorTema = new MutationObserver(atualizarTema);
+  observadorTema.observe(raiz, { attributes: true, attributeFilter: ['data-tema'] });
+  temaDoSistema.addEventListener('change', atualizarTema);
+})();

@@ -32,3 +32,10 @@
 - **Como foi usada** — montou o README, registrou seis capturas em computador e celular e corrigiu um atributo ARIA que o Lighthouse encontrou no carrossel.
 - **Revisão** — a página atingiu 100/100 em acessibilidade nos dois perfis do Lighthouse. O axe apontou zero violações automáticas no início e na gaveta, em ambos os temas. O contraste do vidro da gaveta foi conferido por cálculo separado.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 6 — Aba de acessibilidade
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — desenvolveu o painel com prévia dos ajustes e integrou as preferências ao tema, à tipografia, ao PC 3D e ao carrossel. As preferências são lidas no início da página para evitar troca visual depois do carregamento.
+- **Revisão** — testou a navegação por teclado, o toque em tela de 360 px, o texto a 200%, a restauração das opções e a redução de movimento. O axe apontou zero violações no painel escuro e no painel claro com alto contraste.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
