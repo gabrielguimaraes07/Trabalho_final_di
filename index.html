@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="js/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -51,8 +61,33 @@
 
     <main id="conteudo" tabindex="-1">
       <section class="hero container" aria-labelledby="titulo-inicio">
-        <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
-        <p>Entenda o que cada peça faz e escolha o que você precisa para jogar, estudar, trabalhar ou criar conteúdo.</p>
+        <div class="hero-copy">
+          <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
+          <p>Entenda o que cada peça faz e escolha o que você precisa para jogar, estudar, trabalhar ou criar conteúdo.</p>
+          <a class="botao-primario" href="#pecas">Começar a montar</a>
+        </div>
+
+        <div class="visualizador">
+          <div class="cena-pc" id="cena-pc">
+            <img class="pc-estatico" src="assets/img/pc-estatico.webp" width="900" height="900" alt="Gabinete de PC com lateral de vidro e quatro peças destacadas.">
+            <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro, placa de vídeo, processador, memória e fonte." hidden></canvas>
+            <button class="hotspot" type="button" data-categoria="cpu" style="--x: 35.58%; --y: 34.27%" aria-label="Abrir estoque de processadores" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="ram" style="--x: 58.10%; --y: 30.87%" aria-label="Abrir estoque de memórias RAM" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="gpu" style="--x: 40.66%; --y: 60.88%" aria-label="Abrir estoque de placas de vídeo" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="fonte" style="--x: 30.64%; --y: 77.38%" aria-label="Abrir estoque de fontes" aria-haspopup="dialog"></button>
+            <span class="rotulo-peca" id="rotulo-peca" aria-hidden="true" hidden></span>
+          </div>
+          <div class="visualizador-controles">
+            <p id="instrucao-pc">Escolha uma peça para ver o estoque.</p>
+            <button class="botao-texto" id="pausar-giro" type="button" hidden>Pausar giro</button>
+          </div>
+          <div class="pecas-alternativas" id="pecas" role="group" aria-label="Categorias de peças do PC" tabindex="-1">
+            <button class="botao-contorno" type="button" data-categoria="gpu" aria-haspopup="dialog">Placa de vídeo</button>
+            <button class="botao-contorno" type="button" data-categoria="cpu" aria-haspopup="dialog">Processador</button>
+            <button class="botao-contorno" type="button" data-categoria="ram" aria-haspopup="dialog">Memória RAM</button>
+            <button class="botao-contorno" type="button" data-categoria="fonte" aria-haspopup="dialog">Fonte</button>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -62,5 +97,25 @@
         <p>A loja e os produtos são fictícios.</p>
       </div>
     </footer>
+
+    <dialog class="gaveta" id="gaveta-estoque" aria-labelledby="gaveta-titulo" aria-describedby="gaveta-descricao">
+      <div class="gaveta-conteudo">
+        <header class="gaveta-cabecalho">
+          <h2 id="gaveta-titulo">Estoque</h2>
+          <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar estoque" autofocus>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="m18 6-12 12M6 6l12 12"></path>
+            </svg>
+          </button>
+        </header>
+        <p id="gaveta-descricao"></p>
+        <div class="gaveta-filtro">
+          <label for="gaveta-busca">Filtrar por nome ou marca</label>
+          <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Voltra">
+        </div>
+        <p class="gaveta-status" id="gaveta-status" role="status"></p>
+        <ul class="gaveta-lista" id="gaveta-lista"></ul>
+      </div>
+    </dialog>
   </body>
 </html>
