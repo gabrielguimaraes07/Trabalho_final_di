@@ -18,3 +18,10 @@
 - **Como foi usada** — montou o gabinete e as peças com formas básicas em Three.js, ligou os botões do modelo ao estoque e ajudou a preparar 20 produtos fictícios. A imagem estática do gabinete e as quatro ilustrações de categoria foram renderizadas a partir do modelo criado no projeto.
 - **Revisão** — verificou o giro, a abertura e o fechamento da gaveta e o acesso às categorias com mouse, toque e teclado. Também verificou a imagem com os mesmos botões quando o navegador está sem WebGL.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 4 — Tema, cartões e carrossel
+
+- **IA usada** — OpenAI Codex e OpenAI ImageGen.
+- **Como foi usada** — Codex implementou a troca de tema, escreveu os cartões com analogias e criou os controles do carrossel. ImageGen gerou três imagens ilustrativas de setups para jogar, estudar e criar conteúdo. As imagens foram convertidas em WebP para reduzir o tamanho dos arquivos.
+- **Revisão** — verificou a preferência de tema após recarregar, a navegação pelo teclado, a pausa e a redução de movimento. A verificação automática com axe no Chromium apontou zero violações nos dois temas com o seletor aberto.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

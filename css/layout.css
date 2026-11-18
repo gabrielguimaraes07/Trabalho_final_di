@@ -58,7 +58,7 @@ main {
 }
 
 .nav-menu a,
-.nav-actions button {
+.nav-actions :is(button, summary) {
   display: inline-flex;
   gap: var(--space-1);
   align-items: center;
@@ -79,10 +79,66 @@ main {
   color: var(--text-2);
 }
 
-.nav-actions button {
+.nav-actions :is(button, summary) {
   border: 0;
   border-radius: var(--radius-pill);
   background-color: transparent;
+}
+
+.opcoes-acionador {
+  color: var(--accent);
+  cursor: pointer;
+  list-style: none;
+}
+
+.opcoes-acionador::-webkit-details-marker {
+  display: none;
+}
+
+.opcoes-acessibilidade[open] .opcoes-acionador {
+  background-color: var(--surface);
+}
+
+.opcoes-painel {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-end: max(var(--space-2), (100% - 72rem) / 2);
+  inline-size: min(18rem, 100% - 2 * var(--space-2));
+  padding: var(--space-2);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.opcoes-painel fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  min-inline-size: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.opcoes-painel legend {
+  padding: 0;
+  font-weight: 700;
+}
+
+.opcoes-painel label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-block-size: 44px;
+  padding-inline: var(--space-1);
+  cursor: pointer;
+}
+
+.opcoes-painel input {
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  margin: 0;
+  accent-color: var(--btn-primary);
 }
 
 .hero {
@@ -125,6 +181,21 @@ main {
   .hero-copy {
     justify-items: start;
   }
+}
+
+.secao-inicio {
+  display: grid;
+  gap: var(--space-3);
+  margin-block-end: clamp(var(--space-6), 8vw, var(--space-12));
+}
+
+.secao-inicio h2 {
+  margin: 0;
+  font-size: clamp(var(--font-28), var(--font-16) + 3vw, var(--font-64));
+  line-height: 1.1;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
 }
 
 .site-footer {
