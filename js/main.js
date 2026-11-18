@@ -1,10 +1,10 @@
 import { carregarEstoque, categorias } from './estoque.js';
 import { iniciarGaveta } from './gaveta.js';
 import { iniciarCarrossel } from './carrossel.js';
-import { iniciarTema } from './tema.js';
+import { iniciarAcessibilidade } from './acessibilidade.js';
 
-const opcoesAcessibilidade = document.querySelector('#opcoes-acessibilidade');
-if (opcoesAcessibilidade) iniciarTema(opcoesAcessibilidade);
+const botaoAcessibilidade = document.querySelector('[data-acessibilidade]');
+if (botaoAcessibilidade) iniciarAcessibilidade(botaoAcessibilidade);
 
 const carrosselSetups = document.querySelector('#carrossel-setups');
 if (carrosselSetups) iniciarCarrossel(carrosselSetups);

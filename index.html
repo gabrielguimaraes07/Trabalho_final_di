@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, uma loja fictícia para quem está começando.">
     <title>GGTECH — Monte seu primeiro PC sem medo</title>
-    <script>
-      try {
-        const tema = localStorage.getItem('ggtech-tema');
-        if (tema === 'light' || tema === 'dark') document.documentElement.dataset.theme = tema;
-      } catch {
-        // O tema escuro é o padrão quando o armazenamento está indisponível.
-      }
-    </script>
+    <script src="js/tema.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
     <script type="importmap">
       {
         "imports": {
@@ -54,25 +48,16 @@
             <span aria-hidden="true">0</span>
           </button>
           <button type="button" disabled>Entrar</button>
-          <details class="opcoes-acessibilidade" id="opcoes-acessibilidade" hidden>
-            <summary class="opcoes-acionador" aria-label="Tema e acessibilidade">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="16" cy="4" r="1"></circle>
-                <path d="m18 19 1-7-6 1"></path>
-                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
-                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
-                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
-              </svg>
-              <span>Tema</span>
-            </summary>
-            <div class="opcoes-painel">
-              <fieldset>
-                <legend>Tema do site</legend>
-                <label><input type="radio" name="tema" value="dark" checked> Escuro</label>
-                <label><input type="radio" name="tema" value="light"> Claro</label>
-              </fieldset>
-            </div>
-          </details>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="16" cy="4" r="1"></circle>
+              <path d="m18 19 1-7-6 1"></path>
+              <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+              <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+              <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+            </svg>
+            Acessibilidade
+          </button>
         </div>
       </nav>
     </header>
