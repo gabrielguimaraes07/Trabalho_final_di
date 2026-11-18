@@ -46,3 +46,10 @@
 - **Como foi usada** — modelou as cinco categorias restantes, ampliou o catálogo para 45 produtos fictícios e integrou a aproximação da câmera e a vista explodida. Atualizou as ilustrações a partir do próprio modelo.
 - **Revisão** — verificou os nove pontos por teclado, a seleção por clique e toque, o retorno do foco e da câmera e a alternativa sem WebGL. Também testou a troca para a ilustração quando a preferência por movimento reduzido é ativada.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 8 — Estoque e carrinho
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — criou o estoque com abas, sugestões de busca e filtros. Ligou as gavetas do PC 3D às categorias e implementou o carrinho com quantidades, orçamento salvo e avisos de encaixe, memória, formato e potência.
+- **Revisão** — verificou o fluxo por teclado e toque, os estados de estoque e orçamento e exemplos com peças compatíveis, incompatíveis e incompletas. O axe apontou zero violações automáticas nos estados de estoque e carrinho auditados.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

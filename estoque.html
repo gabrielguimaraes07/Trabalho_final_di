@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore o estoque fictício da GGTECH, filtre por preço e veja as especificações das peças.">
+    <title>Estoque — GGTECH</title>
+    <script src="js/tema.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/loja.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <ul class="nav-menu">
+          <li><a href="./index.html">Início</a></li>
+          <li><a href="./estoque.html" aria-current="page">Estoque</a></li>
+          <li><a role="link" aria-disabled="true">Monte seu PC</a></li>
+          <li><a role="link" aria-disabled="true">Glossário</a></li>
+          <li><a role="link" aria-disabled="true">Contato</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Ícones Lucide 0.468.0 — licença em assets/icones/lucide-licenca.txt. -->
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
+          </button>
+          <button type="button" disabled>Entrar</button>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="16" cy="4" r="1"></circle>
+              <path d="m18 19 1-7-6 1"></path>
+              <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+              <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+              <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+            </svg>
+            Acessibilidade
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="estoque-pagina container" id="conteudo" data-pagina-estoque tabindex="-1">
+      <header class="estoque-cabecalho">
+        <h1>Estoque</h1>
+        <p>Encontre as peças do seu PC por categoria, preço ou nome.</p>
+      </header>
+
+      <form class="estoque-filtros" aria-label="Filtrar estoque">
+        <div class="estoque-campo estoque-busca">
+          <label for="busca-produtos">Buscar peças</label>
+          <input id="busca-produtos" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
+            aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Voltra">
+          <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
+        </div>
+        <div class="estoque-campo">
+          <label for="preco-maximo">Preço máximo em reais</label>
+          <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite">
+        </div>
+        <div class="estoque-campo">
+          <label for="nivel-produto">Nível</label>
+          <select id="nivel-produto">
+            <option value="">Todos</option>
+            <option value="iniciante">Iniciante</option>
+            <option value="intermediario">Intermediário</option>
+          </select>
+        </div>
+        <label class="estoque-disponibilidade">
+          <input id="somente-disponiveis" type="checkbox">
+          Apenas em estoque
+        </label>
+      </form>
+
+      <div class="estoque-abas" role="tablist" aria-label="Categorias de peças"></div>
+      <section id="estoque-resultados" role="tabpanel" aria-label="Produtos do estoque">
+        <p class="estoque-status" role="status">Carregando peças…</p>
+        <ul class="estoque-grade"></ul>
+      </section>
+      <noscript><p>Ative o JavaScript para carregar o catálogo e usar os filtros.</p></noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
+        <p>A loja e os produtos são fictícios.</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

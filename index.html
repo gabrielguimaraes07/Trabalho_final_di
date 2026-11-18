@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/loja.css">
     <link rel="stylesheet" href="css/acessibilidade.css">
     <script type="importmap">
       {
@@ -33,7 +34,7 @@
 
         <ul class="nav-menu">
           <li><a href="./index.html" aria-current="page">Início</a></li>
-          <li><a role="link" aria-disabled="true">Estoque</a></li>
+          <li><a href="./estoque.html">Estoque</a></li>
           <li><a role="link" aria-disabled="true">Monte seu PC</a></li>
           <li><a role="link" aria-disabled="true">Glossário</a></li>
           <li><a role="link" aria-disabled="true">Contato</a></li>
@@ -41,13 +42,13 @@
 
         <div class="nav-actions">
           <!-- Ícones Lucide 0.468.0 — licença em assets/icones/lucide-licenca.txt. -->
-          <button type="button" aria-label="Carrinho, 0 itens" disabled>
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="8" cy="21" r="1"></circle>
               <circle cx="19" cy="21" r="1"></circle>
               <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
             </svg>
-            <span aria-hidden="true">0</span>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
           </button>
           <button type="button" disabled>Entrar</button>
           <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
@@ -242,6 +243,7 @@
         </div>
         <p class="gaveta-status" id="gaveta-status" role="status"></p>
         <ul class="gaveta-lista" id="gaveta-lista"></ul>
+        <a class="gaveta-link-estoque" id="gaveta-link-estoque" href="./estoque.html">Ver todas no estoque</a>
       </div>
     </dialog>
   </body>
