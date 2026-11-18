@@ -1,0 +1,120 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+}
+
+main {
+  flex: 1;
+  scroll-margin-block-start: var(--space-12);
+}
+
+.container {
+  inline-size: min(72rem, 100% - 2 * var(--space-2));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  z-index: 1;
+  inset-block-start: 0;
+  background-color: var(--surface);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+  .site-header {
+    background-color: var(--glass);
+    backdrop-filter: var(--glass-blur);
+  }
+}
+
+.site-nav,
+.nav-menu,
+.nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--space-1);
+}
+
+.site-nav {
+  justify-content: space-between;
+  padding-block: var(--space-1);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  font-size: var(--font-20);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu a,
+.nav-actions button {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  justify-content: center;
+  min-block-size: 44px;
+  min-inline-size: 44px;
+  padding-inline: var(--space-1);
+  font-size: var(--font-14);
+}
+
+.nav-menu a[aria-current="page"] {
+  font-weight: 600;
+  text-underline-offset: .25em;
+}
+
+.nav-menu a[aria-disabled="true"],
+.nav-actions button:disabled {
+  color: var(--text-2);
+}
+
+.nav-actions button {
+  border: 0;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+}
+
+.hero {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding-block: clamp(var(--space-6), 12vw, var(--space-12));
+  text-align: center;
+}
+
+.hero h1 {
+  max-inline-size: 15ch;
+  font-size: clamp(var(--font-40), var(--font-28) + 5vw, var(--font-96));
+  font-weight: 700;
+  letter-spacing: -.045em;
+  line-height: 1.05;
+}
+
+.hero p {
+  max-inline-size: 52ch;
+  color: var(--text-2);
+  font-size: var(--font-20);
+}
+
+.site-footer {
+  padding-block: var(--space-4);
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: var(--font-14);
+}
+
+.site-footer .container {
+  display: grid;
+  gap: var(--space-1);
+}
