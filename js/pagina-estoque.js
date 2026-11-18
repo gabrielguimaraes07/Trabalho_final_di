@@ -1,11 +1,13 @@
+import { abaPorTecla } from './abas.js';
 import { adicionarAoCarrinho } from './carrinho.js';
+import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js';
 import { carregarEstoque, categorias, normalizarBusca, precoEmReais } from './estoque.js';
 
 const ordem = ['cpu', 'gpu', 'ram', 'placa-mae', 'armazenamento', 'fonte', 'cooler', 'ventoinhas', 'gabinete'];
 const todas = 'todas';
 const rotulos = { ram: 'Memória', armazenamento: 'Armazenamento', ventoinhas: 'Ventoinhas' };
 
-function criarCartao(produto) {
+function criarCartao(produto, termos) {
   const item = document.createElement('li');
   item.className = 'estoque-produto';
 
@@ -35,8 +37,8 @@ function criarCartao(produto) {
     const linha = document.createElement('div');
     const termo = document.createElement('dt');
     const descricao = document.createElement('dd');
-    termo.textContent = rotulo;
-    descricao.textContent = valor;
+    escreverTermo(termo, rotulo, termos);
+    escreverTermo(descricao, valor, termos);
     linha.append(termo, descricao);
     especificacoes.append(linha);
   }
@@ -75,6 +77,7 @@ export async function iniciarPaginaEstoque(raiz) {
   let sugestaoAtiva = -1;
   let produtos;
   let porId;
+  let termos;
 
   function categoriaDaURL() {
     const cat = new URL(location.href).searchParams.get('cat');
@@ -147,7 +150,7 @@ export async function iniciarPaginaEstoque(raiz) {
     ocultarSugestoes();
     if (!produtos) return;
     const encontrados = produtos.filter(filtrar);
-    grade.replaceChildren(...encontrados.map(criarCartao));
+    grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos)));
     status.textContent = encontrados.length === 0
       ? "Nenhuma peça com esse nome. Tente ‘SSD’ ou ‘memória’, ou revise os filtros."
       : encontrados.length === 1 ? '1 peça encontrada.' : encontrados.length + ' peças encontradas.';
@@ -169,17 +172,8 @@ export async function iniciarPaginaEstoque(raiz) {
     if (aba) ativarCategoria(aba.dataset.categoria, 'pushState');
   });
   abas.addEventListener('keydown', evento => {
-    const indice = botoes.indexOf(evento.target);
-    if (indice < 0) return;
-    const destinos = {
-      ArrowLeft: (indice - 1 + botoes.length) % botoes.length,
-      ArrowRight: (indice + 1) % botoes.length,
-      Home: 0,
-      End: botoes.length - 1,
-    };
-    const proximo = botoes[destinos[evento.key]];
+    const proximo = abaPorTecla(evento, botoes);
     if (!proximo) return;
-    evento.preventDefault();
     ativarCategoria(proximo.dataset.categoria, 'replaceState');
     proximo.focus();
   });
@@ -226,7 +220,8 @@ export async function iniciarPaginaEstoque(raiz) {
 
   atualizar();
   try {
-    const catalogo = await carregarEstoque();
+    const [catalogo, glossario] = await Promise.all([carregarEstoque(), carregarGlossario().catch(() => [])]);
+    termos = prepararDicas(painel, glossario);
     produtos = catalogo.map(produto => ({
       ...produto,
       busca: normalizarBusca([produto.nome, produto.marca, produto.destaque, categorias[produto.categoria].nome,

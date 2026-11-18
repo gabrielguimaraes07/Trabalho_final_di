@@ -1,0 +1,254 @@
+[
+  {
+    "id": "atx",
+    "termo": "ATX",
+    "descricao": "Formato de placa-mãe e de gabinete. Compare o formato da placa com os formatos aceitos pelo gabinete.",
+    "apelidos": [
+      "Formato"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "cabos-modulares",
+    "termo": "Cabos modulares",
+    "descricao": "Em fontes modulares, você pode conectar só os cabos que vai usar. Em modelos semimodulares, parte dos cabos vem fixa.",
+    "apelidos": [
+      "Cabos",
+      "Fixos",
+      "Modulares",
+      "Semimodulares"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "capacidade",
+    "termo": "Capacidade",
+    "descricao": "Quantidade de dados que uma memória ou unidade consegue guardar. Geralmente aparece em GB ou TB.",
+    "apelidos": [],
+    "sigla": false
+  },
+  {
+    "id": "cooler",
+    "termo": "Cooler",
+    "descricao": "Conjunto que retira o calor do processador. O dissipador espalha o calor e a ventoinha ajuda o ar a levá-lo embora.",
+    "apelidos": [],
+    "sigla": false
+  },
+  {
+    "id": "ddr",
+    "termo": "DDR",
+    "descricao": "Família de memórias RAM. DDR4 e DDR5 são gerações diferentes e devem corresponder à placa-mãe.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "ddr4",
+    "termo": "DDR4",
+    "descricao": "Geração de memória RAM que precisa de uma placa-mãe com encaixe e suporte DDR4.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "ddr5",
+    "termo": "DDR5",
+    "descricao": "Geração de memória RAM que precisa de uma placa-mãe com encaixe e suporte DDR5.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "dissipacao",
+    "termo": "Dissipação",
+    "descricao": "Quantidade de calor que o cooler foi projetado para retirar. No catálogo, o valor aparece em watts.",
+    "apelidos": [],
+    "sigla": false
+  },
+  {
+    "id": "full-hd",
+    "termo": "Full HD",
+    "descricao": "Resolução de 1.920 por 1.080 pixels. Um pixel é um dos pequenos pontos que formam a imagem da tela.",
+    "apelidos": [
+      "1080p"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "gb",
+    "termo": "GB",
+    "descricao": "Gigabyte. É uma unidade usada para medir o espaço de armazenamento e a capacidade da memória.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "gpu",
+    "termo": "GPU",
+    "descricao": "Processador gráfico. Na placa de vídeo, prepara as imagens que serão exibidas no monitor.",
+    "apelidos": [
+      "Placa de vídeo"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "iluminacao-rgb",
+    "termo": "RGB",
+    "descricao": "Iluminação que combina vermelho, verde e azul para criar várias cores.",
+    "apelidos": [
+      "Iluminação"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "microatx",
+    "termo": "microATX",
+    "descricao": "Formato de placa-mãe menor que ATX. Confira na ficha do gabinete se ele aceita microATX.",
+    "apelidos": [
+      "mATX"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "mini-itx",
+    "termo": "mini-ITX",
+    "descricao": "Formato compacto de placa-mãe usado em computadores menores.",
+    "apelidos": [
+      "ITX"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "mt-s",
+    "termo": "MT/s",
+    "descricao": "Milhões de transferências por segundo. É uma forma de indicar a velocidade de troca de dados da memória RAM.",
+    "apelidos": [
+      "Velocidade"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "m2-nvme",
+    "termo": "M.2 NVMe",
+    "descricao": "M.2 é um formato de encaixe compacto. NVMe é a forma de comunicação usada por alguns SSDs que ocupam esse encaixe.",
+    "apelidos": [
+      "M.2",
+      "NVMe",
+      "Conexão"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "nucleos",
+    "termo": "Núcleos",
+    "descricao": "Unidades de trabalho dentro do processador. Elas ajudam o computador a processar várias tarefas ao mesmo tempo.",
+    "apelidos": [],
+    "sigla": false
+  },
+  {
+    "id": "potencia",
+    "termo": "Potência",
+    "descricao": "Energia que a fonte pode fornecer por unidade de tempo, expressa em watts. No carrinho, ela é comparada ao consumo estimado do processador e da placa de vídeo.",
+    "apelidos": [
+      "W",
+      "Watts"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "quad-hd",
+    "termo": "Quad HD",
+    "descricao": "Resolução de 2.560 por 1.440 pixels. Também é chamada de 1440p.",
+    "apelidos": [
+      "1440p",
+      "QHD"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "ram",
+    "termo": "RAM",
+    "descricao": "Memória que guarda temporariamente os dados dos programas abertos. Pense nela como a mesa de trabalho do computador.",
+    "apelidos": [
+      "Memória RAM",
+      "Memória"
+    ],
+    "sigla": true
+  },
+  {
+    "id": "resolucao",
+    "termo": "Resolução",
+    "descricao": "Número de pontos que formam a imagem da tela. Quanto maior a resolução, mais pontos a placa de vídeo precisa desenhar.",
+    "apelidos": [
+      "Resolução indicada"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "socket",
+    "termo": "Socket",
+    "descricao": "Encaixe do processador na placa-mãe. Os dois precisam usar o mesmo tipo de encaixe, como N5 ou K4 no catálogo fictício.",
+    "apelidos": [
+      "N5",
+      "K4",
+      "Encaixe"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "ssd",
+    "termo": "SSD",
+    "descricao": "Unidade que guarda o sistema, os programas e os arquivos após desligar o PC. Usa chips de memória para armazenar os dados.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "taxa-leitura",
+    "termo": "Taxa de leitura",
+    "descricao": "Velocidade com que o SSD consegue ler os arquivos guardados. O catálogo informa essa velocidade em MB/s.",
+    "apelidos": [
+      "Leitura",
+      "MB/s"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "tb",
+    "termo": "TB",
+    "descricao": "Terabyte. É uma unidade de armazenamento equivalente a 1.000 gigabytes na indicação comercial do catálogo.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "tdp",
+    "termo": "TDP",
+    "descricao": "Referência de calor de uma peça em watts. O montador e o carrinho usam esse valor para estimar a demanda do processador e da placa de vídeo.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "ventoinha",
+    "termo": "Ventoinha",
+    "descricao": "Peça que movimenta o ar para ajudar no resfriamento. O diâmetro informa o tamanho e ajuda a conferir se ela cabe no gabinete.",
+    "apelidos": [
+      "Ventoinhas",
+      "Ventoinhas inclusas",
+      "Diâmetro",
+      "3 pinos",
+      "4 pinos"
+    ],
+    "sigla": false
+  },
+  {
+    "id": "vram",
+    "termo": "VRAM",
+    "descricao": "Memória própria da placa de vídeo. Guarda texturas e outros dados que ela usa para desenhar a imagem.",
+    "apelidos": [],
+    "sigla": true
+  },
+  {
+    "id": "4k",
+    "termo": "4K",
+    "descricao": "Na maioria dos monitores de PC, indica 3.840 por 2.160 pixels de resolução.",
+    "apelidos": [
+      "UHD"
+    ],
+    "sigla": false
+  }
+]
