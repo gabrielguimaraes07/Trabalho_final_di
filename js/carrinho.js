@@ -47,20 +47,34 @@ function salvarCarrinho(dados) {
 }
 
 function modificarQuantidade(produto, acao) {
+  if (acao === 'aumentar') return adicionarAoCarrinho(produto);
   const carrinho = lerCarrinho();
   const item = carrinho.itens.find(item => item.id === produto.id);
-  const anterior = item?.quantidade ?? 0;
-  const q = acao === 'remover' ? 0 : Math.max(0, anterior + (acao === 'aumentar' ? 1 : -1));
-  if (q > anterior && q > produto.estoque) return false;
-  if (q === 0) carrinho.itens = carrinho.itens.filter(item => item.id !== produto.id);
-  else if (item) item.quantidade = q;
-  else carrinho.itens.push({ id: produto.id, quantidade: q });
+  if (!item) return false;
+  if (acao === 'remover' || item.quantidade === 1) carrinho.itens = carrinho.itens.filter(item => item.id !== produto.id);
+  else item.quantidade--;
   salvarCarrinho(carrinho);
   return true;
 }
 
 export function adicionarAoCarrinho(produto) {
-  return modificarQuantidade(produto, 'aumentar');
+  return adicionarConfiguracaoAoCarrinho([produto]).ok;
+}
+
+export function adicionarConfiguracaoAoCarrinho(produtos, orcamento) {
+  const carrinho = lerCarrinho();
+  const quantidades = new Map(carrinho.itens.map(({ id, quantidade }) => [id, quantidade]));
+  for (const produto of produtos) {
+    const quantidade = (quantidades.get(produto.id) ?? 0) + 1;
+    if (quantidade > produto.estoque) return { ok: false, produto };
+    quantidades.set(produto.id, quantidade);
+  }
+
+  salvarCarrinho({
+    orcamento: orcamento ?? carrinho.orcamento,
+    itens: [...quantidades].map(([id, quantidade]) => ({ id, quantidade })),
+  });
+  return { ok: true };
 }
 
 const painel = `

@@ -53,3 +53,10 @@
 - **Como foi usada** — criou o estoque com abas, sugestões de busca e filtros. Ligou as gavetas do PC 3D às categorias e implementou o carrinho com quantidades, orçamento salvo e avisos de encaixe, memória, formato e potência.
 - **Revisão** — verificou o fluxo por teclado e toque, os estados de estoque e orçamento e exemplos com peças compatíveis, incompatíveis e incompletas. O axe apontou zero violações automáticas nos estados de estoque e carrinho auditados.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 9 — Montador guiado
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — criou o quiz em três etapas, a sugestão baseada em uso, orçamento e prioridade e as três configurações prontas. O montador guarda a última escolha e confere o estoque antes de adicionar o conjunto ao carrinho. O kit fictício Aura Trio está disponível no catálogo para a opção de visual com RGB.
+- **Revisão** — verificou os preços e a compatibilidade em 72 cenários, além da navegação por teclado e toque. Testou a revisão do orçamento, a retomada após recarregar e o caso em que falta estoque para uma peça do conjunto. O axe apontou zero violações automáticas nos estados auditados do quiz e do resultado.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

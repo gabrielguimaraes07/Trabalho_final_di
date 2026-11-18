@@ -4,12 +4,20 @@ import { iniciarCarrossel } from './carrossel.js';
 import { iniciarAcessibilidade } from './acessibilidade.js';
 import { iniciarCarrinho } from './carrinho.js';
 import { iniciarPaginaEstoque } from './pagina-estoque.js';
+import { iniciarMontador } from './montador.js';
+import { iniciarBuildsProntos } from './builds-prontos.js';
 
 const botaoCarrinho = document.querySelector('[data-carrinho]');
 if (botaoCarrinho) iniciarCarrinho(botaoCarrinho);
 
 const paginaEstoque = document.querySelector('[data-pagina-estoque]');
 if (paginaEstoque) iniciarPaginaEstoque(paginaEstoque);
+
+const paginaMontador = document.querySelector('[data-montador]');
+if (paginaMontador) iniciarMontador(paginaMontador);
+
+const buildsProntos = document.querySelector('[data-builds-prontos]');
+if (buildsProntos) iniciarBuildsProntos(buildsProntos);
 
 const botaoAcessibilidade = document.querySelector('[data-acessibilidade]');
 if (botaoAcessibilidade) iniciarAcessibilidade(botaoAcessibilidade);
