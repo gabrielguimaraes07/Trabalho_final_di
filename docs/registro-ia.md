@@ -67,3 +67,11 @@
 - **Como foi usada** — criou 29 definições pesquisáveis e ligou os termos do estoque às dicas por mouse e teclado. Implementou as abas de login fictício, o armazenamento de nome e e-mail e o formulário de contato simulado com validação acessível.
 - **Revisão** — verificou foco, Escape e navegação direta para as definições, a alternância de senha e que a simulação de contato confirma o formulário sem transmitir os dados. O axe apontou zero violações automáticas nos estados auditados das três páginas.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 11 — Revisão final e material do relatório
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — adicionou a revelação de títulos ao rolar, as perguntas frequentes e o atalho de busca com opção de desligar. Corrigiu a falta do ícone da aba, reforçou o contraste sobre os fundos translúcidos e ajustou a rolagem para expor o foco abaixo do menu.
+- **Revisão** — executou Lighthouse e axe, conferiu foco, movimento reduzido e zoom de 200%, verificou as páginas no Chromium e no WebKit e atualizou as capturas. [Auditoria técnica](auditoria.md)
+- **Material para o relatório** — organizou as referências, as evidências das heurísticas e o roteiro para 3 a 5 pessoas. As respostas e as correções baseadas nas sessões serão registradas após a coleta. [Roteiro](usabilidade.md)
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

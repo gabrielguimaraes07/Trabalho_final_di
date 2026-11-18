@@ -9,6 +9,43 @@ import { iniciarBuildsProntos } from './builds-prontos.js';
 import { iniciarPaginaGlossario } from './glossario.js';
 import { iniciarAcesso } from './login.js';
 import { iniciarContato } from './formularios.js';
+import { iniciarRevelacaoDeTitulos } from './animacoes.js';
+
+const cabecalho = document.querySelector('.site-header');
+if (cabecalho) {
+  document.addEventListener('focusin', ({ target }) => {
+    if (!target.closest('main, footer') || target.closest('dialog')) return;
+    requestAnimationFrame(() => {
+      if (document.activeElement !== target) return;
+      const limite = cabecalho.getBoundingClientRect().bottom + 8;
+      const topo = target.getBoundingClientRect().top;
+      if (topo < limite) window.scrollBy({ top: topo - limite, behavior: 'instant' });
+    });
+  });
+}
+
+const titulosAnimados = document.querySelectorAll('[data-revelar-titulo]');
+if (titulosAnimados.length) iniciarRevelacaoDeTitulos(titulosAnimados);
+
+const buscaRapida = document.querySelector('[data-busca-rapida]');
+if (buscaRapida) {
+  const raiz = document.documentElement;
+  const atualizarAtalho = () => {
+    if (raiz.dataset.desativarAtalhoBusca === 'true') buscaRapida.removeAttribute('aria-keyshortcuts');
+    else buscaRapida.setAttribute('aria-keyshortcuts', '/');
+  };
+  new MutationObserver(atualizarAtalho)
+    .observe(raiz, { attributes: true, attributeFilter: ['data-desativar-atalho-busca'] });
+  atualizarAtalho();
+
+  document.addEventListener('keydown', evento => {
+    if (evento.key !== '/' || evento.defaultPrevented || evento.altKey || evento.ctrlKey || evento.metaKey) return;
+    if (raiz.dataset.desativarAtalhoBusca === 'true' || document.querySelector('dialog[open]')) return;
+    if (evento.target.closest('input, textarea, select, [contenteditable], dialog') || !buscaRapida.getClientRects().length) return;
+    evento.preventDefault();
+    buscaRapida.focus();
+  });
+}
 
 const linkConta = document.querySelector('[data-conta]');
 if (linkConta) iniciarAcesso(linkConta, document.querySelector('[data-pagina-login]'));

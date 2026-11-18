@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore o estoque fictício da GGTECH, filtre por preço e veja as especificações das peças.">
     <title>Estoque — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css">
@@ -65,7 +66,7 @@
       <form class="estoque-filtros" aria-label="Filtrar estoque">
         <div class="estoque-campo estoque-busca">
           <label for="busca-produtos">Buscar peças</label>
-          <input id="busca-produtos" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
+          <input id="busca-produtos" data-busca-rapida type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
             aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Voltra">
           <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
         </div>
@@ -100,6 +101,7 @@
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
         <p>A loja e os produtos são fictícios.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>
         </nav>

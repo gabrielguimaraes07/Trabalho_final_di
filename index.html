@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, uma loja fictícia para quem está começando.">
     <title>GGTECH — Monte seu primeiro PC sem medo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css">
@@ -20,7 +21,8 @@
           "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
           "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/",
           "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
-          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js"
+          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js",
+          "gsap/SplitText": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/SplitText.js"
         }
       }
     </script>
@@ -108,7 +110,7 @@
       </section>
 
       <section class="secao-inicio container" id="por-dentro" aria-labelledby="titulo-por-dentro">
-        <h2 id="titulo-por-dentro">Por dentro do seu PC</h2>
+        <h2 id="titulo-por-dentro" data-revelar-titulo>Por dentro do seu PC</h2>
         <div class="vista-explodida-palco">
           <div class="vista-explodida-imagem">
             <img src="assets/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
@@ -137,7 +139,7 @@
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-pecas">
-        <h2 id="titulo-pecas">O que cada peça faz?</h2>
+        <h2 id="titulo-pecas" data-revelar-titulo>O que cada peça faz?</h2>
         <ul class="grade-pecas">
           <li class="cartao-peca">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -182,7 +184,7 @@
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-setups">
-        <h2 id="titulo-setups">Setups montados pela comunidade</h2>
+        <h2 id="titulo-setups" data-revelar-titulo>Setups montados pela comunidade</h2>
         <div class="carrossel" id="carrossel-setups" role="group" aria-roledescription="carrossel" aria-label="Exemplos de setups">
           <div class="carrossel-controles" hidden>
             <button type="button" class="botao-texto carrossel-pausa">Pausar carrossel</button>
@@ -220,7 +222,7 @@
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-builds" data-builds-prontos>
-        <h2 id="titulo-builds">Configurações prontas</h2>
+        <h2 id="titulo-builds" data-revelar-titulo>Configurações prontas</h2>
         <p class="builds-status" role="status">Carregando configurações…</p>
         <ul class="builds-grade"></ul>
         <a class="botao-primario builds-cta" href="./montador.html">Abrir montador guiado</a>
@@ -232,6 +234,7 @@
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
         <p>A loja e os produtos são fictícios.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>
         </nav>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Formulário de contato do projeto acadêmico GGTECH.">
     <title>Contato — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css">
@@ -100,6 +101,22 @@
       </form>
       <p class="apoio-status contato-resultado" role="status" aria-live="polite"></p>
       <noscript><p>Ative o JavaScript para usar o formulário.</p></noscript>
+
+      <section class="apoio-faq" id="perguntas" aria-labelledby="perguntas-titulo">
+        <h2 id="perguntas-titulo">Perguntas frequentes</h2>
+        <details class="vista-explodida-lista">
+          <summary>Como escolho peças compatíveis?</summary>
+          <p>Use o <a href="./montador.html">montador guiado</a> ou adicione as peças ao carrinho para conferir encaixe, memória, gabinete e potência.</p>
+        </details>
+        <details class="vista-explodida-lista">
+          <summary>Onde posso entender as siglas do estoque?</summary>
+          <p>Abra uma palavra sublinhada no estoque ou faça uma busca no <a href="./glossario.html">glossário</a>.</p>
+        </details>
+        <details class="vista-explodida-lista">
+          <summary>Por que o modelo do PC parou de girar?</summary>
+          <p>A opção Reduzir movimento pausa o giro. Você ainda pode escolher as peças pelos botões ou pela lista da <a href="./index.html#pecas">página inicial</a>.</p>
+        </details>
+      </section>
     </main>
 
     <footer class="site-footer">
@@ -107,6 +124,7 @@
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
         <p>A loja e os produtos são fictícios.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>
         </nav>

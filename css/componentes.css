@@ -161,7 +161,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
   .gaveta {
-    background: var(--glass);
+    background-color: color-mix(in srgb, var(--surface) 10%, var(--glass));
     backdrop-filter: var(--glass-blur);
   }
 }
