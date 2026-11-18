@@ -87,24 +87,44 @@ main {
 
 .hero {
   display: grid;
-  justify-items: center;
-  gap: var(--space-3);
-  padding-block: clamp(var(--space-6), 12vw, var(--space-12));
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: clamp(var(--space-4), 6vw, var(--space-8));
   text-align: center;
 }
 
+.hero-copy {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
 .hero h1 {
-  max-inline-size: 15ch;
-  font-size: clamp(var(--font-40), var(--font-28) + 5vw, var(--font-96));
+  max-inline-size: 14ch;
+  font-size: clamp(var(--font-40), var(--font-16) + 4vw, var(--font-96));
   font-weight: 700;
   letter-spacing: -.045em;
   line-height: 1.05;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
-.hero p {
+.hero-copy p {
   max-inline-size: 52ch;
   color: var(--text-2);
   font-size: var(--font-20);
+}
+
+@media (min-width: 56rem) {
+  .hero {
+    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    text-align: start;
+  }
+
+  .hero-copy {
+    justify-items: start;
+  }
 }
 
 .site-footer {

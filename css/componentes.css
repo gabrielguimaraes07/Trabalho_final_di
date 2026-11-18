@@ -1,0 +1,289 @@
+.botao-primario,
+.botao-contorno,
+.botao-texto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+}
+
+.botao-primario[href] {
+  min-block-size: 48px;
+  background: var(--btn-primary);
+  color: var(--btn-text);
+  text-decoration: none;
+}
+
+.botao-contorno,
+.botao-texto {
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+}
+
+.botao-texto {
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+:is(.botao-contorno, .botao-texto, .botao-primario):hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.visualizador {
+  display: grid;
+  justify-items: center;
+  min-inline-size: 0;
+  text-align: center;
+}
+
+.cena-pc {
+  position: relative;
+  inline-size: min(100%, 34rem);
+  aspect-ratio: 1;
+  isolation: isolate;
+  background: radial-gradient(ellipse 56% 64% at 51% 53%, var(--surface), transparent);
+}
+
+.cena-pc > canvas,
+.pc-estatico {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.cena-pc > canvas {
+  cursor: grab;
+}
+
+.cena-pc > canvas:active {
+  cursor: grabbing;
+}
+
+.cena-pc > canvas[data-peca] {
+  cursor: pointer;
+}
+
+.hotspot {
+  position: absolute;
+  z-index: 1;
+  inset-inline-start: var(--x);
+  inset-block-start: var(--y);
+  display: grid;
+  place-items: center;
+  inline-size: 44px;
+  block-size: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.hotspot::before {
+  inline-size: 17px;
+  block-size: 17px;
+  border: 2px solid var(--btn-text);
+  border-radius: 50%;
+  background: var(--btn-primary);
+  box-shadow: 0 0 0 2px var(--surface), 0 0 14px var(--accent);
+  content: "";
+}
+
+.hotspot:is(:hover, :focus-visible, [data-destaque])::before {
+  inline-size: 24px;
+  block-size: 24px;
+}
+
+.hotspot[data-fora]:not(:focus) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.rotulo-peca {
+  position: absolute;
+  z-index: 2;
+  inset-inline: 0;
+  inset-block-end: var(--space-2);
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  margin-inline: auto;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--font-14);
+  pointer-events: none;
+}
+
+.visualizador-controles,
+.pecas-alternativas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.visualizador-controles {
+  min-block-size: 44px;
+  color: var(--text-2);
+  font-size: var(--font-14);
+}
+
+.pecas-alternativas {
+  margin-block-start: var(--space-1);
+  scroll-margin-block-start: var(--space-12);
+  font-size: var(--font-14);
+}
+
+.gaveta {
+  inset: 0 0 0 auto;
+  inline-size: min(100%, 29rem);
+  block-size: 100%;
+  max-inline-size: none;
+  max-block-size: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-inline-start: 1px solid var(--text-2);
+  background: var(--surface);
+  color: var(--text);
+}
+
+@supports (backdrop-filter: blur(20px)) {
+  .gaveta {
+    background: var(--glass);
+    backdrop-filter: var(--glass-blur);
+  }
+}
+
+.gaveta[open] {
+  animation: abrir-gaveta .26s ease-out;
+}
+
+.gaveta::backdrop {
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+}
+
+body:has(.gaveta[open]) {
+  overflow: hidden;
+}
+
+.gaveta-conteudo {
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-block-size: 100%;
+  padding: var(--space-3);
+}
+
+.gaveta-cabecalho {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.gaveta-cabecalho h2 {
+  margin: 0;
+  font-size: var(--font-28);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.gaveta-fechar {
+  flex: 0 0 44px;
+  padding: 0;
+}
+
+.gaveta-filtro {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.gaveta-filtro input {
+  min-block-size: 44px;
+  inline-size: 100%;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.gaveta-filtro input::placeholder {
+  color: var(--text-2);
+  opacity: 1;
+}
+
+.gaveta-status {
+  min-block-size: 1.5em;
+  color: var(--text);
+  font-size: var(--font-14);
+}
+
+.gaveta-lista {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.produto-resumo {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.produto-resumo img {
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.produto-resumo h3 {
+  margin: 0;
+  font-size: var(--font-16);
+  overflow-wrap: anywhere;
+}
+
+.produto-resumo p {
+  font-size: var(--font-14);
+}
+
+.produto-resumo .estoque-situacao {
+  color: var(--text-2);
+}
+
+@keyframes abrir-gaveta {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gaveta[open] {
+    animation: none;
+  }
+}
+
+:root[data-reduzir-movimento="true"] .gaveta[open] {
+  animation: none;
+}
+
+[hidden] {
+  display: none !important;
+}

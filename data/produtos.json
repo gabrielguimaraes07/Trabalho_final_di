@@ -1,0 +1,407 @@
+[
+  {
+    "id": "gpu-voltra-x60",
+    "categoria": "gpu",
+    "marca": "Voltra",
+    "nome": "Voltra X60 8GB",
+    "preco": 1899.9,
+    "estoque": 7,
+    "nivel": "iniciante",
+    "destaque": "Roda jogos atuais em Full HD com folga.",
+    "specs": {
+      "VRAM": "8 GB",
+      "TDP": "170 W",
+      "Resolução indicada": "Full HD"
+    },
+    "compat": {
+      "tdp": 170
+    },
+    "imagem": "assets/img/produtos/gpu.webp",
+    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
+  },
+  {
+    "id": "gpu-nexa-pixel-4",
+    "categoria": "gpu",
+    "marca": "Nexa",
+    "nome": "Nexa Pixel 4GB",
+    "preco": 799.9,
+    "estoque": 9,
+    "nivel": "iniciante",
+    "destaque": "Boa para jogos leves e uso cotidiano.",
+    "specs": {
+      "VRAM": "4 GB",
+      "TDP": "80 W",
+      "Resolução indicada": "Full HD"
+    },
+    "compat": {
+      "tdp": 80
+    },
+    "imagem": "assets/img/produtos/gpu.webp",
+    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
+  },
+  {
+    "id": "gpu-kairo-vector-6",
+    "categoria": "gpu",
+    "marca": "Kairo",
+    "nome": "Kairo Vector 6GB",
+    "preco": 1199.9,
+    "estoque": 6,
+    "nivel": "iniciante",
+    "destaque": "Atende jogos em Full HD com ajustes médios.",
+    "specs": {
+      "VRAM": "6 GB",
+      "TDP": "125 W",
+      "Resolução indicada": "Full HD"
+    },
+    "compat": {
+      "tdp": 125
+    },
+    "imagem": "assets/img/produtos/gpu.webp",
+    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
+  },
+  {
+    "id": "gpu-voltra-x80",
+    "categoria": "gpu",
+    "marca": "Voltra",
+    "nome": "Voltra X80 12GB",
+    "preco": 2599.9,
+    "estoque": 4,
+    "nivel": "intermediario",
+    "destaque": "Mais memória para editar vídeo e jogar em definição maior.",
+    "specs": {
+      "VRAM": "12 GB",
+      "TDP": "230 W",
+      "Resolução indicada": "Quad HD"
+    },
+    "compat": {
+      "tdp": 230
+    },
+    "imagem": "assets/img/produtos/gpu.webp",
+    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
+  },
+  {
+    "id": "gpu-polar-labs-prisma-16",
+    "categoria": "gpu",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Prisma 16GB",
+    "preco": 3599.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Pensada para projetos de vídeo com texturas grandes.",
+    "specs": {
+      "VRAM": "16 GB",
+      "TDP": "290 W",
+      "Resolução indicada": "4K"
+    },
+    "compat": {
+      "tdp": 290
+    },
+    "imagem": "assets/img/produtos/gpu.webp",
+    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
+  },
+  {
+    "id": "cpu-nexa-ponto-4",
+    "categoria": "cpu",
+    "marca": "Nexa",
+    "nome": "Nexa Ponto 4",
+    "preco": 429.9,
+    "estoque": 12,
+    "nivel": "iniciante",
+    "destaque": "Para estudos, navegação e tarefas do dia a dia.",
+    "specs": {
+      "Núcleos": "4",
+      "Socket": "N5",
+      "TDP": "45 W"
+    },
+    "compat": {
+      "socket": "N5",
+      "tdp": 45
+    },
+    "imagem": "assets/img/produtos/cpu.webp",
+    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+  },
+  {
+    "id": "cpu-nexa-ponto-6",
+    "categoria": "cpu",
+    "marca": "Nexa",
+    "nome": "Nexa Ponto 6",
+    "preco": 649.9,
+    "estoque": 8,
+    "nivel": "iniciante",
+    "destaque": "Lida bem com jogos e chamadas de vídeo.",
+    "specs": {
+      "Núcleos": "6",
+      "Socket": "N5",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "N5",
+      "tdp": 65
+    },
+    "imagem": "assets/img/produtos/cpu.webp",
+    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+  },
+  {
+    "id": "cpu-kairo-pulso-6",
+    "categoria": "cpu",
+    "marca": "Kairo",
+    "nome": "Kairo Pulso 6",
+    "preco": 819.9,
+    "estoque": 6,
+    "nivel": "iniciante",
+    "destaque": "Equilíbrio para jogar e trabalhar com vários programas.",
+    "specs": {
+      "Núcleos": "6",
+      "Socket": "K4",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "K4",
+      "tdp": 65
+    },
+    "imagem": "assets/img/produtos/cpu.webp",
+    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+  },
+  {
+    "id": "cpu-kairo-pulso-8",
+    "categoria": "cpu",
+    "marca": "Kairo",
+    "nome": "Kairo Pulso 8",
+    "preco": 1149.9,
+    "estoque": 5,
+    "nivel": "intermediario",
+    "destaque": "Ajuda a editar vídeos e exportar projetos mais rápido.",
+    "specs": {
+      "Núcleos": "8",
+      "Socket": "K4",
+      "TDP": "105 W"
+    },
+    "compat": {
+      "socket": "K4",
+      "tdp": 105
+    },
+    "imagem": "assets/img/produtos/cpu.webp",
+    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+  },
+  {
+    "id": "cpu-nexa-ponto-12",
+    "categoria": "cpu",
+    "marca": "Nexa",
+    "nome": "Nexa Ponto 12",
+    "preco": 1699.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Para edição de vídeo e várias tarefas pesadas ao mesmo tempo.",
+    "specs": {
+      "Núcleos": "12",
+      "Socket": "N5",
+      "TDP": "125 W"
+    },
+    "compat": {
+      "socket": "N5",
+      "tdp": 125
+    },
+    "imagem": "assets/img/produtos/cpu.webp",
+    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+  },
+  {
+    "id": "ram-polar-labs-fluxo-8",
+    "categoria": "ram",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Fluxo 8GB",
+    "preco": 129.9,
+    "estoque": 15,
+    "nivel": "iniciante",
+    "destaque": "Para navegar, estudar e usar aplicativos leves.",
+    "specs": {
+      "Capacidade": "8 GB",
+      "DDR": "DDR4",
+      "Velocidade": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4"
+    },
+    "imagem": "assets/img/produtos/ram.webp",
+    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+  },
+  {
+    "id": "ram-nexa-linha-16",
+    "categoria": "ram",
+    "marca": "Nexa",
+    "nome": "Nexa Linha 16GB",
+    "preco": 229.9,
+    "estoque": 13,
+    "nivel": "iniciante",
+    "destaque": "Dois pentes para montar um PC de estudos ou trabalho.",
+    "specs": {
+      "Capacidade": "2 × 8 GB",
+      "DDR": "DDR4",
+      "Velocidade": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4"
+    },
+    "imagem": "assets/img/produtos/ram.webp",
+    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+  },
+  {
+    "id": "ram-voltra-viva-16",
+    "categoria": "ram",
+    "marca": "Voltra",
+    "nome": "Voltra Viva 16GB",
+    "preco": 339.9,
+    "estoque": 10,
+    "nivel": "iniciante",
+    "destaque": "Espaço para jogos e vários aplicativos abertos.",
+    "specs": {
+      "Capacidade": "2 × 8 GB",
+      "DDR": "DDR5",
+      "Velocidade": "5200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5"
+    },
+    "imagem": "assets/img/produtos/ram.webp",
+    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+  },
+  {
+    "id": "ram-kairo-feixe-32",
+    "categoria": "ram",
+    "marca": "Kairo",
+    "nome": "Kairo Feixe 32GB",
+    "preco": 599.9,
+    "estoque": 7,
+    "nivel": "intermediario",
+    "destaque": "Dois pentes com luz RGB para editar vídeo e jogar.",
+    "specs": {
+      "Capacidade": "2 × 16 GB",
+      "DDR": "DDR5",
+      "Velocidade": "5600 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5"
+    },
+    "imagem": "assets/img/produtos/ram.webp",
+    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+  },
+  {
+    "id": "ram-polar-labs-fluxo-64",
+    "categoria": "ram",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Fluxo 64GB",
+    "preco": 1089.9,
+    "estoque": 3,
+    "nivel": "intermediario",
+    "destaque": "Ajuda a manter muitos arquivos de vídeo abertos.",
+    "specs": {
+      "Capacidade": "2 × 32 GB",
+      "DDR": "DDR5",
+      "Velocidade": "6000 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5"
+    },
+    "imagem": "assets/img/produtos/ram.webp",
+    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+  },
+  {
+    "id": "fonte-kairo-base-450",
+    "categoria": "fonte",
+    "marca": "Kairo",
+    "nome": "Kairo Base 450W",
+    "preco": 229.9,
+    "estoque": 11,
+    "nivel": "iniciante",
+    "destaque": "Para um conjunto simples de peças com baixo consumo.",
+    "specs": {
+      "Potência": "450 W",
+      "Formato": "ATX",
+      "Cabos": "Fixos"
+    },
+    "compat": {
+      "potencia": 450
+    },
+    "imagem": "assets/img/produtos/fonte.webp",
+    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  },
+  {
+    "id": "fonte-nexa-corrente-550",
+    "categoria": "fonte",
+    "marca": "Nexa",
+    "nome": "Nexa Corrente 550W",
+    "preco": 299.9,
+    "estoque": 9,
+    "nivel": "iniciante",
+    "destaque": "Para um PC de uso diário com placa de vídeo de entrada.",
+    "specs": {
+      "Potência": "550 W",
+      "Formato": "ATX",
+      "Cabos": "Fixos"
+    },
+    "compat": {
+      "potencia": 550
+    },
+    "imagem": "assets/img/produtos/fonte.webp",
+    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  },
+  {
+    "id": "fonte-voltra-nucleo-650",
+    "categoria": "fonte",
+    "marca": "Voltra",
+    "nome": "Voltra Núcleo 650W",
+    "preco": 389.9,
+    "estoque": 8,
+    "nivel": "iniciante",
+    "destaque": "Dá margem para uma placa de vídeo intermediária.",
+    "specs": {
+      "Potência": "650 W",
+      "Formato": "ATX",
+      "Cabos": "Semimodulares"
+    },
+    "compat": {
+      "potencia": 650
+    },
+    "imagem": "assets/img/produtos/fonte.webp",
+    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  },
+  {
+    "id": "fonte-polar-labs-brisa-750",
+    "categoria": "fonte",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Brisa 750W",
+    "preco": 519.9,
+    "estoque": 5,
+    "nivel": "intermediario",
+    "destaque": "Permite remover os cabos que não serão usados.",
+    "specs": {
+      "Potência": "750 W",
+      "Formato": "ATX",
+      "Cabos": "Modulares"
+    },
+    "compat": {
+      "potencia": 750
+    },
+    "imagem": "assets/img/produtos/fonte.webp",
+    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  },
+  {
+    "id": "fonte-kairo-base-850",
+    "categoria": "fonte",
+    "marca": "Kairo",
+    "nome": "Kairo Base 850W",
+    "preco": 669.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Oferece folga para peças com maior consumo de energia.",
+    "specs": {
+      "Potência": "850 W",
+      "Formato": "ATX",
+      "Cabos": "Modulares"
+    },
+    "compat": {
+      "potencia": 850
+    },
+    "imagem": "assets/img/produtos/fonte.webp",
+    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  }
+]
