@@ -80,6 +80,7 @@ export function iniciarGaveta(dialogo) {
 
   dialogo.addEventListener('close', () => {
     if (dialogo.open) return;
+    delete dialogo.dataset.categoria;
     selecao?.origem.focus({ preventScroll: true });
     selecao = undefined;
   });
@@ -88,6 +89,7 @@ export function iniciarGaveta(dialogo) {
     if (dialogo.open) return;
     const abertura = { origem };
     selecao = abertura;
+    dialogo.dataset.categoria = categoria;
     titulo.textContent = categorias[categoria].titulo;
     descricao.textContent = categorias[categoria].descricao;
     produtos = [];

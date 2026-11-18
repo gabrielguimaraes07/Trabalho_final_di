@@ -39,3 +39,10 @@
 - **Como foi usada** — desenvolveu o painel com prévia dos ajustes e integrou as preferências ao tema, à tipografia, ao PC 3D e ao carrossel. As preferências são lidas no início da página para evitar troca visual depois do carregamento.
 - **Revisão** — testou a navegação por teclado, o toque em tela de 360 px, o texto a 200%, a restauração das opções e a redução de movimento. O axe apontou zero violações no painel escuro e no painel claro com alto contraste.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Etapa 7 — PC 3D completo
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — modelou as cinco categorias restantes, ampliou o catálogo para 45 produtos fictícios e integrou a aproximação da câmera e a vista explodida. Atualizou as ilustrações a partir do próprio modelo.
+- **Revisão** — verificou os nove pontos por teclado, a seleção por clique e toque, o retorno do foco e da câmera e a alternativa sem WebGL. Também testou a troca para a ilustração quando a preferência por movimento reduzido é ativada.
+- **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.

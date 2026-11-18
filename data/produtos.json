@@ -118,7 +118,7 @@
       "tdp": 45
     },
     "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+    "alt": "Ilustração de um processador quadrado com topo metálico"
   },
   {
     "id": "cpu-nexa-ponto-6",
@@ -139,7 +139,7 @@
       "tdp": 65
     },
     "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+    "alt": "Ilustração de um processador quadrado com topo metálico"
   },
   {
     "id": "cpu-kairo-pulso-6",
@@ -160,7 +160,7 @@
       "tdp": 65
     },
     "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+    "alt": "Ilustração de um processador quadrado com topo metálico"
   },
   {
     "id": "cpu-kairo-pulso-8",
@@ -181,7 +181,7 @@
       "tdp": 105
     },
     "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+    "alt": "Ilustração de um processador quadrado com topo metálico"
   },
   {
     "id": "cpu-nexa-ponto-12",
@@ -202,7 +202,7 @@
       "tdp": 125
     },
     "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração da montagem de um processador com dissipador e ventoinha"
+    "alt": "Ilustração de um processador quadrado com topo metálico"
   },
   {
     "id": "ram-polar-labs-fluxo-8",
@@ -403,5 +403,542 @@
     },
     "imagem": "assets/img/produtos/fonte.webp",
     "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+  },
+  {
+    "id": "placa-mae-nexa-base-a5",
+    "categoria": "placa-mae",
+    "marca": "Nexa",
+    "nome": "Nexa Base A5",
+    "preco": 449.9,
+    "estoque": 10,
+    "nivel": "iniciante",
+    "destaque": "Uma base compacta para PCs de estudo.",
+    "specs": {
+      "Socket": "N5",
+      "DDR": "DDR5",
+      "Formato": "microATX"
+    },
+    "compat": {
+      "socket": "N5",
+      "ddr": "DDR5",
+      "formato": "microATX"
+    },
+    "imagem": "assets/img/produtos/placa-mae.webp",
+    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
+  },
+  {
+    "id": "placa-mae-kairo-elo-k4",
+    "categoria": "placa-mae",
+    "marca": "Kairo",
+    "nome": "Kairo Elo K4",
+    "preco": 479.9,
+    "estoque": 8,
+    "nivel": "iniciante",
+    "destaque": "Boa opção para aproveitar pentes DDR4.",
+    "specs": {
+      "Socket": "K4",
+      "DDR": "DDR4",
+      "Formato": "microATX"
+    },
+    "compat": {
+      "socket": "K4",
+      "ddr": "DDR4",
+      "formato": "microATX"
+    },
+    "imagem": "assets/img/produtos/placa-mae.webp",
+    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
+  },
+  {
+    "id": "placa-mae-voltra-nexo-n5",
+    "categoria": "placa-mae",
+    "marca": "Voltra",
+    "nome": "Voltra Nexo N5",
+    "preco": 659.9,
+    "estoque": 6,
+    "nivel": "iniciante",
+    "destaque": "Oferece espaço para expansão em gabinete ATX.",
+    "specs": {
+      "Socket": "N5",
+      "DDR": "DDR5",
+      "Formato": "ATX"
+    },
+    "compat": {
+      "socket": "N5",
+      "ddr": "DDR5",
+      "formato": "ATX"
+    },
+    "imagem": "assets/img/produtos/placa-mae.webp",
+    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
+  },
+  {
+    "id": "placa-mae-polar-labs-elo-a4",
+    "categoria": "placa-mae",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Elo A4",
+    "preco": 739.9,
+    "estoque": 5,
+    "nivel": "intermediario",
+    "destaque": "Disponibiliza mais encaixes para atualizar o PC.",
+    "specs": {
+      "Socket": "K4",
+      "DDR": "DDR4",
+      "Formato": "ATX"
+    },
+    "compat": {
+      "socket": "K4",
+      "ddr": "DDR4",
+      "formato": "ATX"
+    },
+    "imagem": "assets/img/produtos/placa-mae.webp",
+    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
+  },
+  {
+    "id": "placa-mae-nexa-base-mini",
+    "categoria": "placa-mae",
+    "marca": "Nexa",
+    "nome": "Nexa Base Mini",
+    "preco": 849.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Para montar um computador pequeno.",
+    "specs": {
+      "Socket": "N5",
+      "DDR": "DDR5",
+      "Formato": "mini-ITX"
+    },
+    "compat": {
+      "socket": "N5",
+      "ddr": "DDR5",
+      "formato": "mini-ITX"
+    },
+    "imagem": "assets/img/produtos/placa-mae.webp",
+    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
+  },
+  {
+    "id": "cooler-nexa-vento-92",
+    "categoria": "cooler",
+    "marca": "Nexa",
+    "nome": "Nexa Vento 92",
+    "preco": 79.9,
+    "estoque": 12,
+    "nivel": "iniciante",
+    "destaque": "Compacto para processadores de entrada.",
+    "specs": {
+      "Ventoinha": "92 mm",
+      "Dissipação": "95 W",
+      "Altura": "110 mm"
+    },
+    "compat": {
+      "sockets": [
+        "N5",
+        "K4"
+      ],
+      "dissipacao": 95,
+      "altura": 110
+    },
+    "imagem": "assets/img/produtos/cooler.webp",
+    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+  },
+  {
+    "id": "cooler-kairo-ar-120",
+    "categoria": "cooler",
+    "marca": "Kairo",
+    "nome": "Kairo Ar 120",
+    "preco": 129.9,
+    "estoque": 11,
+    "nivel": "iniciante",
+    "destaque": "Ventoinha maior para equilibrar fluxo de ar e ruído.",
+    "specs": {
+      "Ventoinha": "120 mm",
+      "Dissipação": "130 W",
+      "Altura": "145 mm"
+    },
+    "compat": {
+      "sockets": [
+        "N5",
+        "K4"
+      ],
+      "dissipacao": 130,
+      "altura": 145
+    },
+    "imagem": "assets/img/produtos/cooler.webp",
+    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+  },
+  {
+    "id": "cooler-voltra-fluxo-120",
+    "categoria": "cooler",
+    "marca": "Voltra",
+    "nome": "Voltra Fluxo 120",
+    "preco": 159.9,
+    "estoque": 8,
+    "nivel": "iniciante",
+    "destaque": "Tem iluminação azul e instalação simples.",
+    "specs": {
+      "Ventoinha": "120 mm",
+      "Dissipação": "150 W",
+      "Altura": "150 mm"
+    },
+    "compat": {
+      "sockets": [
+        "N5",
+        "K4"
+      ],
+      "dissipacao": 150,
+      "altura": 150
+    },
+    "imagem": "assets/img/produtos/cooler.webp",
+    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+  },
+  {
+    "id": "cooler-polar-labs-sereno-140",
+    "categoria": "cooler",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Sereno 140",
+    "preco": 249.9,
+    "estoque": 4,
+    "nivel": "intermediario",
+    "destaque": "Voltado para quem prefere ruído mais baixo.",
+    "specs": {
+      "Ventoinha": "140 mm",
+      "Dissipação": "175 W",
+      "Altura": "158 mm"
+    },
+    "compat": {
+      "sockets": [
+        "N5",
+        "K4"
+      ],
+      "dissipacao": 175,
+      "altura": 158
+    },
+    "imagem": "assets/img/produtos/cooler.webp",
+    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+  },
+  {
+    "id": "cooler-kairo-ar-duplo",
+    "categoria": "cooler",
+    "marca": "Kairo",
+    "nome": "Kairo Ar Duplo",
+    "preco": 319.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Duas ventoinhas ajudam em tarefas longas.",
+    "specs": {
+      "Ventoinhas": "2 × 120 mm",
+      "Dissipação": "210 W",
+      "Altura": "162 mm"
+    },
+    "compat": {
+      "sockets": [
+        "N5",
+        "K4"
+      ],
+      "dissipacao": 210,
+      "altura": 162
+    },
+    "imagem": "assets/img/produtos/cooler.webp",
+    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+  },
+  {
+    "id": "armazenamento-nexa-pasta-250",
+    "categoria": "armazenamento",
+    "marca": "Nexa",
+    "nome": "Nexa Pasta 250",
+    "preco": 129.9,
+    "estoque": 14,
+    "nivel": "iniciante",
+    "destaque": "Para o sistema e os arquivos de estudo.",
+    "specs": {
+      "Capacidade": "250 GB",
+      "Conexão": "M.2 NVMe",
+      "Leitura": "2.000 MB/s"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/armazenamento.webp",
+    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
+  },
+  {
+    "id": "armazenamento-kairo-arquivo-500",
+    "categoria": "armazenamento",
+    "marca": "Kairo",
+    "nome": "Kairo Arquivo 500",
+    "preco": 189.9,
+    "estoque": 12,
+    "nivel": "iniciante",
+    "destaque": "Espaço para o sistema e alguns jogos.",
+    "specs": {
+      "Capacidade": "500 GB",
+      "Conexão": "M.2 NVMe",
+      "Leitura": "3.000 MB/s"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/armazenamento.webp",
+    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
+  },
+  {
+    "id": "armazenamento-voltra-prisma-1",
+    "categoria": "armazenamento",
+    "marca": "Voltra",
+    "nome": "Voltra Prisma 1TB",
+    "preco": 319.9,
+    "estoque": 9,
+    "nivel": "iniciante",
+    "destaque": "Armazena jogos e arquivos do dia a dia.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Conexão": "M.2 NVMe",
+      "Leitura": "4.600 MB/s"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/armazenamento.webp",
+    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
+  },
+  {
+    "id": "armazenamento-polar-labs-cofre-2",
+    "categoria": "armazenamento",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Cofre 2TB",
+    "preco": 599.9,
+    "estoque": 5,
+    "nivel": "intermediario",
+    "destaque": "Mais espaço para uma biblioteca de jogos e vídeos.",
+    "specs": {
+      "Capacidade": "2 TB",
+      "Conexão": "M.2 NVMe",
+      "Leitura": "5.200 MB/s"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/armazenamento.webp",
+    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
+  },
+  {
+    "id": "armazenamento-kairo-arquivo-4",
+    "categoria": "armazenamento",
+    "marca": "Kairo",
+    "nome": "Kairo Arquivo 4TB",
+    "preco": 1199.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Armazena projetos longos de vídeo e arquivos grandes.",
+    "specs": {
+      "Capacidade": "4 TB",
+      "Conexão": "M.2 NVMe",
+      "Leitura": "6.400 MB/s"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/armazenamento.webp",
+    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
+  },
+  {
+    "id": "ventoinhas-nexa-brisa-92",
+    "categoria": "ventoinhas",
+    "marca": "Nexa",
+    "nome": "Nexa Brisa 92",
+    "preco": 29.9,
+    "estoque": 15,
+    "nivel": "iniciante",
+    "destaque": "Cabe em aberturas de gabinetes menores.",
+    "specs": {
+      "Diâmetro": "92 mm",
+      "Conexão": "3 pinos",
+      "Iluminação": "Sem luz"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/ventoinhas.webp",
+    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+  },
+  {
+    "id": "ventoinhas-kairo-fluxo-120",
+    "categoria": "ventoinhas",
+    "marca": "Kairo",
+    "nome": "Kairo Fluxo 120",
+    "preco": 39.9,
+    "estoque": 18,
+    "nivel": "iniciante",
+    "destaque": "Ajuda a renovar o ar em gabinetes com encaixe de 120 mm.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conexão": "4 pinos",
+      "Iluminação": "Sem luz"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/ventoinhas.webp",
+    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+  },
+  {
+    "id": "ventoinhas-voltra-aura-120",
+    "categoria": "ventoinhas",
+    "marca": "Voltra",
+    "nome": "Voltra Aura 120",
+    "preco": 59.9,
+    "estoque": 13,
+    "nivel": "iniciante",
+    "destaque": "Acompanha um aro iluminado em azul.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conexão": "4 pinos",
+      "Iluminação": "Azul"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/ventoinhas.webp",
+    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+  },
+  {
+    "id": "ventoinhas-polar-labs-brisa-140",
+    "categoria": "ventoinhas",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Brisa 140",
+    "preco": 79.9,
+    "estoque": 7,
+    "nivel": "intermediario",
+    "destaque": "Uma opção de diâmetro maior para gabinetes espaçosos.",
+    "specs": {
+      "Diâmetro": "140 mm",
+      "Conexão": "4 pinos",
+      "Iluminação": "Sem luz"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/ventoinhas.webp",
+    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+  },
+  {
+    "id": "ventoinhas-voltra-aura-trio",
+    "categoria": "ventoinhas",
+    "marca": "Voltra",
+    "nome": "Voltra Aura Trio",
+    "preco": 149.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Kit com três ventoinhas para entrada e saída de ar.",
+    "specs": {
+      "Diâmetro": "3 × 120 mm",
+      "Conexão": "4 pinos",
+      "Iluminação": "RGB"
+    },
+    "compat": {},
+    "imagem": "assets/img/produtos/ventoinhas.webp",
+    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+  },
+  {
+    "id": "gabinete-nexa-cubo-mini",
+    "categoria": "gabinete",
+    "marca": "Nexa",
+    "nome": "Nexa Cubo Mini",
+    "preco": 159.9,
+    "estoque": 10,
+    "nivel": "iniciante",
+    "destaque": "Um gabinete pequeno para mesa de estudos.",
+    "specs": {
+      "Formato": "mini-ITX",
+      "Lateral": "Metal",
+      "Ventoinhas inclusas": "1"
+    },
+    "compat": {
+      "formato": "mini-ITX",
+      "formatosAceitos": [
+        "mini-ITX"
+      ]
+    },
+    "imagem": "assets/img/produtos/gabinete.webp",
+    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+  },
+  {
+    "id": "gabinete-kairo-abrigo-m",
+    "categoria": "gabinete",
+    "marca": "Kairo",
+    "nome": "Kairo Abrigo M",
+    "preco": 219.9,
+    "estoque": 9,
+    "nivel": "iniciante",
+    "destaque": "Gabinete compacto com frente aberta para entrada de ar.",
+    "specs": {
+      "Formato": "microATX",
+      "Lateral": "Metal",
+      "Ventoinhas inclusas": "1"
+    },
+    "compat": {
+      "formato": "microATX",
+      "formatosAceitos": [
+        "microATX",
+        "mini-ITX"
+      ]
+    },
+    "imagem": "assets/img/produtos/gabinete.webp",
+    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+  },
+  {
+    "id": "gabinete-voltra-vista-a",
+    "categoria": "gabinete",
+    "marca": "Voltra",
+    "nome": "Voltra Vista A",
+    "preco": 319.9,
+    "estoque": 8,
+    "nivel": "iniciante",
+    "destaque": "Lateral transparente para visualizar as peças.",
+    "specs": {
+      "Formato": "ATX",
+      "Lateral": "Vidro",
+      "Ventoinhas inclusas": "2"
+    },
+    "compat": {
+      "formato": "ATX",
+      "formatosAceitos": [
+        "ATX",
+        "microATX",
+        "mini-ITX"
+      ]
+    },
+    "imagem": "assets/img/produtos/gabinete.webp",
+    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+  },
+  {
+    "id": "gabinete-polar-labs-halo",
+    "categoria": "gabinete",
+    "marca": "Polar Labs",
+    "nome": "Polar Labs Halo",
+    "preco": 449.9,
+    "estoque": 4,
+    "nivel": "intermediario",
+    "destaque": "Espaço para organizar cabos e adicionar ventoinhas.",
+    "specs": {
+      "Formato": "ATX",
+      "Lateral": "Vidro",
+      "Ventoinhas inclusas": "3"
+    },
+    "compat": {
+      "formato": "ATX",
+      "formatosAceitos": [
+        "ATX",
+        "microATX",
+        "mini-ITX"
+      ]
+    },
+    "imagem": "assets/img/produtos/gabinete.webp",
+    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+  },
+  {
+    "id": "gabinete-voltra-vista-xl",
+    "categoria": "gabinete",
+    "marca": "Voltra",
+    "nome": "Voltra Vista XL",
+    "preco": 549.9,
+    "estoque": 0,
+    "nivel": "intermediario",
+    "destaque": "Gabinete espaçoso para atualizações futuras.",
+    "specs": {
+      "Formato": "ATX",
+      "Lateral": "Vidro",
+      "Ventoinhas inclusas": "4"
+    },
+    "compat": {
+      "formato": "ATX",
+      "formatosAceitos": [
+        "ATX",
+        "microATX",
+        "mini-ITX"
+      ]
+    },
+    "imagem": "assets/img/produtos/gabinete.webp",
+    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
   }
 ]

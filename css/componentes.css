@@ -431,3 +431,86 @@ body:has(.gaveta[open]) {
 [hidden] {
   display: none !important;
 }
+
+.cena-pc[data-aproximado] .hotspot:not([data-selecionado]) {
+  visibility: hidden;
+}
+
+.vista-explodida-palco {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  gap: var(--space-3);
+}
+
+.vista-explodida-imagem {
+  inline-size: min(100%, 45rem);
+  aspect-ratio: 6 / 5;
+  background: radial-gradient(ellipse at center, var(--surface), transparent 68%);
+}
+
+.vista-explodida-imagem :is(canvas, img) {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.vista-explodida-texto {
+  display: grid;
+  gap: var(--space-1);
+  justify-self: stretch;
+  padding-inline-start: var(--space-2);
+  border-inline-start: 2px solid var(--accent);
+}
+
+.vista-explodida-instrucao {
+  color: var(--text-2);
+  font-size: var(--font-14);
+}
+
+.vista-explodida-nome {
+  font-size: var(--font-28);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.vista-explodida-lista {
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.vista-explodida-lista summary {
+  align-content: center;
+  min-block-size: 44px;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vista-explodida-lista dl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: var(--space-3);
+  margin-block: var(--space-1) var(--space-2);
+}
+
+.vista-explodida-lista dt {
+  font-weight: 700;
+}
+
+.vista-explodida-lista dd {
+  margin-inline: 0;
+  color: var(--text-2);
+}
+
+@media (min-width: 54rem) {
+  [data-vista-animada] .vista-explodida-palco {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+
+:root[data-contraste="true"] .vista-explodida-imagem {
+  background: var(--bg);
+}
