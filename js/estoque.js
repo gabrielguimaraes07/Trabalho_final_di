@@ -65,3 +65,7 @@ export function carregarEstoque() {
     });
   return catalogo;
 }
+
+export function normalizarBusca(texto) {
+  return texto.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim();
+}

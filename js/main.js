@@ -2,6 +2,14 @@ import { carregarEstoque, categorias } from './estoque.js';
 import { iniciarGaveta } from './gaveta.js';
 import { iniciarCarrossel } from './carrossel.js';
 import { iniciarAcessibilidade } from './acessibilidade.js';
+import { iniciarCarrinho } from './carrinho.js';
+import { iniciarPaginaEstoque } from './pagina-estoque.js';
+
+const botaoCarrinho = document.querySelector('[data-carrinho]');
+if (botaoCarrinho) iniciarCarrinho(botaoCarrinho);
+
+const paginaEstoque = document.querySelector('[data-pagina-estoque]');
+if (paginaEstoque) iniciarPaginaEstoque(paginaEstoque);
 
 const botaoAcessibilidade = document.querySelector('[data-acessibilidade]');
 if (botaoAcessibilidade) iniciarAcessibilidade(botaoAcessibilidade);

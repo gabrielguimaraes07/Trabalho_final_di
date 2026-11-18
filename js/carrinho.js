@@ -1,0 +1,233 @@
+import { verificarCompatibilidade } from './compatibilidade.js';
+import { configurarGaveta } from './dialogo.js';
+import { carregarEstoque, precoEmReais } from './estoque.js';
+
+const chave = 'ggtech-carrinho';
+const eventoCarrinho = 'ggtech:carrinho';
+const orcamentoPadrao = 4000;
+const estadosCompatibilidade = {
+  ok: '✓ Compatível',
+  aviso: '⚠ Atenção',
+  pendente: '— Falta conferir',
+};
+let memoria = { orcamento: orcamentoPadrao, itens: [] };
+let armazenamentoDisponivel = true;
+
+function lerCarrinho() {
+  if (!armazenamentoDisponivel) return memoria;
+  let valorSalvo;
+  try {
+    valorSalvo = localStorage.getItem(chave);
+  } catch {
+    armazenamentoDisponivel = false;
+    return memoria;
+  }
+
+  let dados;
+  try {
+    dados = JSON.parse(valorSalvo);
+  } catch {
+    // Um valor inválido pode ser substituído na próxima alteração.
+  }
+  const itens = Array.isArray(dados?.itens) ? dados.itens.filter(item =>
+    typeof item?.id === 'string' && Number.isSafeInteger(item.quantidade) && item.quantidade > 0) : [];
+  const orcamento = Number.isFinite(dados?.orcamento) && dados.orcamento > 0 ? dados.orcamento : orcamentoPadrao;
+  memoria = { orcamento, itens };
+  return memoria;
+}
+
+function salvarCarrinho(dados) {
+  memoria = dados;
+  try {
+    if (armazenamentoDisponivel) localStorage.setItem(chave, JSON.stringify(dados));
+  } catch {
+    armazenamentoDisponivel = false;
+  }
+  window.dispatchEvent(new Event(eventoCarrinho));
+}
+
+function modificarQuantidade(produto, acao) {
+  const carrinho = lerCarrinho();
+  const item = carrinho.itens.find(item => item.id === produto.id);
+  const anterior = item?.quantidade ?? 0;
+  const q = acao === 'remover' ? 0 : Math.max(0, anterior + (acao === 'aumentar' ? 1 : -1));
+  if (q > anterior && q > produto.estoque) return false;
+  if (q === 0) carrinho.itens = carrinho.itens.filter(item => item.id !== produto.id);
+  else if (item) item.quantidade = q;
+  else carrinho.itens.push({ id: produto.id, quantidade: q });
+  salvarCarrinho(carrinho);
+  return true;
+}
+
+export function adicionarAoCarrinho(produto) {
+  return modificarQuantidade(produto, 'aumentar');
+}
+
+const painel = `
+  <dialog class="gaveta carrinho-gaveta" id="gaveta-carrinho" aria-labelledby="carrinho-titulo">
+    <div class="gaveta-conteudo">
+      <header class="gaveta-cabecalho">
+        <h2 id="carrinho-titulo">Seu carrinho</h2>
+        <button class="botao-contorno gaveta-fechar" type="button" aria-label="Fechar carrinho" autofocus>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="m18 6-12 12M6 6l12 12"></path>
+          </svg>
+        </button>
+      </header>
+
+      <section class="carrinho-orcamento" aria-labelledby="orcamento-titulo">
+        <h3 id="orcamento-titulo">Orçamento</h3>
+        <p class="carrinho-total" role="status"></p>
+        <progress class="carrinho-progresso" value="0" max="4000" aria-label="Orçamento utilizado"></progress>
+        <p class="carrinho-limite"></p>
+        <form class="carrinho-form-orcamento">
+          <div class="estoque-campo">
+            <label for="orcamento-carrinho">Meu orçamento em reais</label>
+            <input id="orcamento-carrinho" type="number" min="0.01" step="0.01" inputmode="decimal" required>
+          </div>
+          <button class="botao-contorno" type="submit">Salvar</button>
+        </form>
+      </section>
+
+      <p class="carrinho-status" role="status"></p>
+      <ul class="gaveta-lista carrinho-lista"></ul>
+      <a class="gaveta-link-estoque" href="./estoque.html">Explorar o estoque</a>
+
+      <section class="carrinho-compatibilidade" aria-labelledby="compatibilidade-titulo" hidden>
+        <h3 id="compatibilidade-titulo">Compatibilidade</h3>
+        <ul></ul>
+      </section>
+    </div>
+  </dialog>
+`;
+
+function botaoQuantidade(acao, produto, texto, rotulo, desativado = false) {
+  const botao = document.createElement('button');
+  botao.className = acao === 'remover' ? 'botao-texto' : 'botao-contorno carrinho-controle';
+  botao.type = 'button';
+  botao.dataset.acao = acao;
+  botao.dataset.id = produto.id;
+  botao.textContent = texto;
+  botao.setAttribute('aria-label', rotulo + ' ' + produto.nome);
+  botao.disabled = desativado;
+  return botao;
+}
+
+function criarItem({ produto, quantidade }) {
+  const item = document.createElement('li');
+  item.className = 'carrinho-item';
+  const titulo = document.createElement('h3');
+  titulo.textContent = produto.nome;
+  const subtotal = document.createElement('p');
+  subtotal.textContent = precoEmReais.format(produto.preco * quantidade);
+  const controles = document.createElement('div');
+  controles.className = 'carrinho-quantidade';
+  const valor = document.createElement('span');
+  valor.textContent = quantidade;
+  controles.append(
+    botaoQuantidade('diminuir', produto, '−', 'Diminuir quantidade de', quantidade === 1),
+    valor,
+    botaoQuantidade('aumentar', produto, '+', 'Aumentar quantidade de', quantidade >= produto.estoque),
+    botaoQuantidade('remover', produto, 'Remover', 'Remover'),
+  );
+  item.append(titulo, subtotal, controles);
+  return item;
+}
+
+function criarResultado({ titulo, estado, mensagem }) {
+  const item = document.createElement('li');
+  item.dataset.estado = estado;
+  const legenda = document.createElement('strong');
+  legenda.textContent = titulo + ' · ' + estadosCompatibilidade[estado];
+  const explicacao = document.createElement('p');
+  explicacao.textContent = mensagem;
+  item.append(legenda, explicacao);
+  return item;
+}
+
+export function iniciarCarrinho(acionador) {
+  document.body.insertAdjacentHTML('beforeend', painel);
+  const dialogo = document.querySelector('#gaveta-carrinho');
+  const fechar = dialogo.querySelector('.gaveta-fechar');
+  const abrir = configurarGaveta(dialogo, fechar);
+  const contador = acionador.querySelector('.carrinho-contador');
+  const lista = dialogo.querySelector('.carrinho-lista');
+  const mensagem = dialogo.querySelector('.carrinho-status');
+  const total = dialogo.querySelector('.carrinho-total');
+  const limite = dialogo.querySelector('.carrinho-limite');
+  const progresso = dialogo.querySelector('progress');
+  const formulario = dialogo.querySelector('form');
+  const campoOrcamento = formulario.querySelector('input');
+  const compatibilidade = dialogo.querySelector('.carrinho-compatibilidade');
+  const resultados = compatibilidade.querySelector('ul');
+  let produtos;
+  let falha = false;
+
+  function atualizar() {
+    const carrinho = lerCarrinho();
+    const unidades = carrinho.itens.reduce((soma, item) => soma + item.quantidade, 0);
+    contador.textContent = unidades;
+    acionador.setAttribute('aria-label', 'Carrinho, ' + unidades + (unidades === 1 ? ' item' : ' itens'));
+    if (!dialogo.open) return;
+
+    if (document.activeElement !== campoOrcamento) campoOrcamento.value = carrinho.orcamento;
+    const itens = produtos ? carrinho.itens.filter(item => produtos.has(item.id))
+      .map(item => ({ ...item, produto: produtos.get(item.id) })) : [];
+    const soma = itens.reduce((valor, { produto, quantidade }) =>
+      valor + Math.round(produto.preco * 100) * quantidade, 0) / 100;
+    const excedente = Math.round((soma - carrinho.orcamento) * 100) / 100;
+    total.textContent = precoEmReais.format(soma) + ' de ' + precoEmReais.format(carrinho.orcamento);
+    limite.textContent = excedente > 0
+      ? 'Acima do orçamento em ' + precoEmReais.format(excedente) + '.'
+      : 'Dentro do orçamento.';
+    progresso.max = carrinho.orcamento;
+    progresso.value = Math.min(soma, carrinho.orcamento);
+    progresso.toggleAttribute('data-excedido', excedente > 0);
+
+    const temItens = itens.length > 0;
+    mensagem.textContent = temItens ? '' : falha
+      ? 'Não foi possível carregar as peças. Feche o carrinho e tente novamente.'
+      : unidades && !produtos ? 'Carregando suas peças…' : 'Seu carrinho está vazio.';
+    mensagem.hidden = temItens;
+    const foco = lista.contains(document.activeElement) ? document.activeElement : null;
+    lista.replaceChildren(...itens.map(criarItem));
+    compatibilidade.hidden = !temItens;
+    resultados.replaceChildren(...(temItens ? verificarCompatibilidade(itens).map(criarResultado) : []));
+    if (foco) {
+      const linha = lista.querySelectorAll('button:not(:disabled)');
+      const mesmoProduto = [...linha].filter(botao => botao.dataset.id === foco.dataset.id);
+      (mesmoProduto.find(botao => botao.dataset.acao === foco.dataset.acao) ?? mesmoProduto[0] ?? linha[0] ?? fechar)
+        .focus({ preventScroll: true });
+    }
+  }
+
+  acionador.addEventListener('click', async () => {
+    falha = false;
+    abrir(acionador);
+    atualizar();
+    if (produtos) return;
+    try {
+      const catalogo = await carregarEstoque();
+      produtos = new Map(catalogo.map(produto => [produto.id, produto]));
+    } catch {
+      falha = true;
+    }
+    atualizar();
+  });
+  lista.addEventListener('click', evento => {
+    const botao = evento.target.closest('button[data-acao]');
+    if (botao) modificarQuantidade(produtos.get(botao.dataset.id), botao.dataset.acao);
+  });
+  formulario.addEventListener('submit', evento => {
+    evento.preventDefault();
+    salvarCarrinho({ ...lerCarrinho(), orcamento: campoOrcamento.valueAsNumber });
+  });
+  window.addEventListener(eventoCarrinho, atualizar);
+  window.addEventListener('storage', evento => {
+    if (evento.key === chave || evento.key === null) atualizar();
+  });
+
+  acionador.setAttribute('aria-controls', dialogo.id);
+  acionador.hidden = false;
+  atualizar();
+}
