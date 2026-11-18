@@ -10,6 +10,20 @@ const carrosselSetups = document.querySelector('#carrossel-setups');
 if (carrosselSetups) iniciarCarrossel(carrosselSetups);
 
 const visualizador = document.querySelector('.visualizador');
+const secaoExplodida = document.querySelector('#por-dentro');
+
+if (secaoExplodida) {
+  const observador = new IntersectionObserver(([entrada]) => {
+    if (!entrada.isIntersecting) return;
+    observador.disconnect();
+    import('./vista-explodida.js')
+      .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
+      .catch(() => {
+        // A ilustração e a lista de peças continuam disponíveis.
+      });
+  }, { rootMargin: '320px 0px' });
+  observador.observe(secaoExplodida);
+}
 
 if (visualizador) {
   const cena = visualizador.querySelector('.cena-pc');

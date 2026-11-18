@@ -10,8 +10,8 @@ export function projetorHotspots(botoes, pecas, camera) {
       ponto.copy(peca.userData.ponto).applyMatrix4(peca.matrixWorld).project(camera);
       const fora = Math.abs(ponto.x) > .95 || Math.abs(ponto.y) > .95 || ponto.z > 1;
       botao.toggleAttribute('data-fora', fora);
-      botao.style.left = (ponto.x * 50 + 50) + '%';
-      botao.style.top = (50 - ponto.y * 50) + '%';
+      botao.style.left = Math.min(96, Math.max(4, ponto.x * 50 + 50)) + '%';
+      botao.style.top = Math.min(96, Math.max(4, 50 - ponto.y * 50)) + '%';
     }
   };
 }

@@ -16,7 +16,9 @@
       {
         "imports": {
           "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/",
+          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
+          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js"
         }
       }
     </script>
@@ -72,10 +74,15 @@
 
         <div class="visualizador">
           <div class="cena-pc" id="cena-pc">
-            <img class="pc-estatico" src="assets/img/pc-estatico.webp" width="900" height="900" alt="Gabinete de PC com lateral de vidro e quatro peças destacadas.">
-            <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro, placa de vídeo, processador, memória e fonte." hidden></canvas>
-            <button class="hotspot" type="button" data-categoria="cpu" style="--x: 35.58%; --y: 34.27%" aria-label="Abrir estoque de processadores" aria-haspopup="dialog"></button>
+            <img class="pc-estatico" src="assets/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis.">
+            <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro e nove peças selecionáveis. Use os botões sobre o modelo ou a lista abaixo." hidden></canvas>
+            <button class="hotspot" type="button" data-categoria="gabinete" style="--x: 63.24%; --y: 10.90%" aria-label="Abrir estoque de gabinetes" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="placa-mae" style="--x: 50.19%; --y: 19.40%" aria-label="Abrir estoque de placas-mãe" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="cooler" style="--x: 38.09%; --y: 30.96%" aria-label="Abrir estoque de coolers" aria-haspopup="dialog"></button>
             <button class="hotspot" type="button" data-categoria="ram" style="--x: 58.10%; --y: 30.87%" aria-label="Abrir estoque de memórias RAM" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="cpu" style="--x: 34.80%; --y: 44.33%" aria-label="Abrir estoque de processadores" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="armazenamento" style="--x: 61.12%; --y: 50.36%" aria-label="Abrir estoque de SSDs" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="ventoinhas" style="--x: 83.74%; --y: 47.61%" aria-label="Abrir estoque de ventoinhas" aria-haspopup="dialog"></button>
             <button class="hotspot" type="button" data-categoria="gpu" style="--x: 40.66%; --y: 60.88%" aria-label="Abrir estoque de placas de vídeo" aria-haspopup="dialog"></button>
             <button class="hotspot" type="button" data-categoria="fonte" style="--x: 30.64%; --y: 77.38%" aria-label="Abrir estoque de fontes" aria-haspopup="dialog"></button>
             <span class="rotulo-peca" id="rotulo-peca" aria-hidden="true" hidden></span>
@@ -88,9 +95,43 @@
             <button class="botao-contorno" type="button" data-categoria="gpu" aria-haspopup="dialog">Placa de vídeo</button>
             <button class="botao-contorno" type="button" data-categoria="cpu" aria-haspopup="dialog">Processador</button>
             <button class="botao-contorno" type="button" data-categoria="ram" aria-haspopup="dialog">Memória RAM</button>
+            <button class="botao-contorno" type="button" data-categoria="placa-mae" aria-haspopup="dialog">Placa-mãe</button>
+            <button class="botao-contorno" type="button" data-categoria="armazenamento" aria-haspopup="dialog">SSD</button>
             <button class="botao-contorno" type="button" data-categoria="fonte" aria-haspopup="dialog">Fonte</button>
+            <button class="botao-contorno" type="button" data-categoria="cooler" aria-haspopup="dialog">Cooler</button>
+            <button class="botao-contorno" type="button" data-categoria="ventoinhas" aria-haspopup="dialog">Ventoinhas</button>
+            <button class="botao-contorno" type="button" data-categoria="gabinete" aria-haspopup="dialog">Gabinete</button>
           </div>
         </div>
+      </section>
+
+      <section class="secao-inicio container" id="por-dentro" aria-labelledby="titulo-por-dentro">
+        <h2 id="titulo-por-dentro">Por dentro do seu PC</h2>
+        <div class="vista-explodida-palco">
+          <div class="vista-explodida-imagem">
+            <img src="assets/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
+            <canvas role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></canvas>
+          </div>
+          <div class="vista-explodida-texto" aria-hidden="true" hidden>
+            <p class="vista-explodida-instrucao">Role para ver as peças se separarem.</p>
+            <p class="vista-explodida-nome"></p>
+            <p class="vista-explodida-descricao"></p>
+          </div>
+        </div>
+        <details class="vista-explodida-lista">
+          <summary>Ver a função de cada peça</summary>
+          <dl>
+            <div><dt>Gabinete</dt><dd>Protege as peças e deixa espaço para o ar circular.</dd></div>
+            <div><dt>Ventoinhas</dt><dd>Renovam o ar dentro do gabinete.</dd></div>
+            <div><dt>Placa-mãe</dt><dd>Conecta as peças para que elas troquem informações.</dd></div>
+            <div><dt>Processador</dt><dd>Executa as instruções dos jogos e programas.</dd></div>
+            <div><dt>Cooler</dt><dd>Retira o calor do processador.</dd></div>
+            <div><dt>Memória RAM</dt><dd>Mantém temporariamente os dados em uso.</dd></div>
+            <div><dt>SSD</dt><dd>Guarda jogos e arquivos mesmo com o PC desligado.</dd></div>
+            <div><dt>Placa de vídeo</dt><dd>Desenha as imagens que aparecem na tela.</dd></div>
+            <div><dt>Fonte</dt><dd>Distribui energia para as outras peças.</dd></div>
+          </dl>
+        </details>
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-pecas">
