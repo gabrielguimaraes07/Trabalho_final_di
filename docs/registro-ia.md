@@ -38,3 +38,9 @@
 - **IA usada** — OpenAI Codex.
 - **Como foi usada** — reescreveu o README para explicar o projeto em primeira pessoa e reuniu a conferência da parcial com a lista de requisitos do projeto.
 - **Revisão** — testou o gabinete, as quatro categorias, o modo estático, o teclado, os temas e o carrossel. Comparou a tabela da paleta com as cores usadas na página. [Resultados da revisão](revisao-parcial.md)
+
+## Ajustes de acessibilidade da parcial
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — reforçou o contraste da barra, ajustou a rolagem de controles focados e incluiu o ícone local da aba.
+- **Revisão** — comparou o contraste nos mesmos pontos de rolagem, testou a navegação por teclado e conferiu o carregamento do ícone. [Resultados da revisão](revisao-parcial.md)

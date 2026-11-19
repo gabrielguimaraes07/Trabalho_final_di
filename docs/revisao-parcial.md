@@ -11,7 +11,7 @@ Conferência feita em 18/11/2026 com a lista da entrega parcial do documento do 
 | Personas, problema e esboços | [Design Thinking](design-thinking.md) contém duas personas, a pergunta do projeto e esboços das telas. |
 | Estrutura da página | O início tem cabeçalho, navegação, conteúdo principal, rodapé e link para pular direto para o conteúdo. |
 | PC girável e estoque | As quatro peças abrem as categorias do catálogo. Cada categoria mostra cinco produtos e permite buscar pelo nome ou pela marca. |
-| Acesso pelo teclado | Tab chega aos pontos sobre o gabinete. Enter abre o estoque e Esc fecha o painel e devolve o foco. A rolagem do cabeçalho tem um ajuste pendente, descrito abaixo. |
+| Acesso pelo teclado | Tab chega aos pontos sobre o gabinete. Enter abre o estoque e Esc fecha o painel e devolve o foco. A página ajusta a rolagem para manter o controle focado abaixo do cabeçalho. |
 | Dois temas | Claro e escuro funcionam e a escolha é mantida depois de recarregar. |
 | Cartões e carrossel | Cinco cartões explicam as peças. O carrossel permite voltar, avançar e pausar. |
 | Catálogo | O arquivo `data/produtos.json` tem 20 produtos fictícios distribuídos entre quatro categorias. |
@@ -31,8 +31,8 @@ O mínimo para texto comum é **4,5:1**. Para texto grande, o mínimo é **3:1**
 
 O cálculo também cruza cores que não são usadas juntas como texto e fundo. Branco sobre branco, por exemplo, aparece com 1:1. As superfícies translúcidas precisam ser medidas com o que passa atrás delas. [Tabela completa](wcag-contraste.md)
 
-## Pontos encontrados na versão publicada
+## Ajustes depois da revisão
 
-- **Contraste na navegação.** No tema claro, o link “Início” chegou a 2,96:1 na posição testada com a página rolada sobre o conteúdo. Aumentar a opacidade do fundo da barra corrige o problema e preserva o desfoque.
-- **Foco durante a rolagem.** Alguns pontos do PC ficam atrás do cabeçalho ao navegar por Tab ou Shift+Tab. A rolagem pode ser ajustada para manter cada ponto visível quando recebe o foco.
-- **Ícone da aba.** O navegador tenta carregar o ícone padrão e recebe 404. A página e o estoque continuam funcionando. Um ícone local resolve o erro no console.
+- **Contraste na navegação.** No tema claro, o link “Início” chegava a 2,96:1 com a página rolada. A barra agora usa um fundo mais opaco e mantém o desfoque. O link ficou acima de 5,2:1 nas posições medidas nos dois temas, em computador e celular.
+- **Foco durante a rolagem.** A página ajusta a posição quando o cabeçalho encobre o controle que recebe o foco. O ajuste foi conferido com Tab e Shift+Tab em computador e celular.
+- **Ícone da aba.** A página carrega o ícone do projeto a partir de um arquivo SVG local.

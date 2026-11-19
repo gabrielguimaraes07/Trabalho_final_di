@@ -3,6 +3,20 @@ import { iniciarGaveta } from './gaveta.js';
 import { iniciarCarrossel } from './carrossel.js';
 import { iniciarTema } from './tema.js';
 
+const cabecalho = document.querySelector('.site-header');
+if (cabecalho) {
+  document.addEventListener('focusin', ({ target }) => {
+    if (!target.closest('main, footer') || target.closest('dialog')) return;
+    // Mede a posição após a rolagem automática do navegador.
+    requestAnimationFrame(() => {
+      if (document.activeElement !== target) return;
+      const limite = cabecalho.getBoundingClientRect().bottom + 8;
+      const topo = target.getBoundingClientRect().top;
+      if (topo < limite) window.scrollBy({ top: topo - limite, behavior: 'instant' });
+    });
+  });
+}
+
 const opcoesAcessibilidade = document.querySelector('#opcoes-acessibilidade');
 if (opcoesAcessibilidade) iniciarTema(opcoesAcessibilidade);
 
