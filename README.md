@@ -1,59 +1,51 @@
 # GGTECH
 
-A GGTECH é uma loja fictícia para quem vai montar o primeiro PC. A página inicial ensina a função das peças e permite explorar o catálogo clicando em um computador 3D montado em código. É um projeto acadêmico de Desenvolvimento de Interfaces do CEUB em 2026.
+**Gabriel Guimarães · Desenvolvimento de Interfaces · CEUB, 2026**
 
-## Entrega parcial — `v0.1-parcial`
+Minha ideia com a GGTECH foi criar uma loja fictícia para quem quer montar o primeiro PC e fica meio perdido com os nomes das peças. O ponto de partida é um gabinete 3D que dá para girar e explorar antes de olhar os preços.
 
-- PC girável com quatro peças selecionáveis por mouse, toque ou teclado. A imagem de reserva e os botões em texto também abrem o estoque.
-- Gaveta com busca por nome ou marca e **20 produtos fictícios**, cinco em cada categoria.
-- Temas claro e escuro com a escolha salva no navegador.
-- Cinco cartões com analogias sobre as peças e carrossel de setups com controles e pausa.
+[Abra a entrega parcial no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
-## Como rodar localmente
+## O que dá para testar
 
-Com o repositório baixado, abra a pasta `ggtech` no Visual Studio Code. Com a extensão **Live Server** instalada, clique com o botão direito em `index.html` e escolha **Open with Live Server**.
+- Gire o PC e selecione a placa de vídeo, o processador, a memória RAM ou a fonte. Dá para usar mouse, toque ou teclado. Os botões embaixo do gabinete também abrem as categorias.
+- Cada peça abre um painel lateral com cinco produtos fictícios e busca por nome ou marca. São 20 produtos ao todo.
+- No botão **Tema**, alterne entre claro e escuro. O site lembra a sua escolha.
+- Os cartões explicam as peças com exemplos do dia a dia. No carrossel, você pode avançar, voltar ou pausar as imagens dos setups.
 
-Com Python instalado, você também pode iniciar o servidor pelo terminal na pasta do projeto.
+## Para abrir no VS Code
+
+1. Extraia o ZIP e abra a pasta do projeto no VS Code.
+2. Com a extensão **Live Server** instalada, clique com o botão direito em `index.html` e escolha **Open with Live Server**.
+3. No navegador, experimente clicar em uma peça e trocar o tema.
+
+Se preferir usar Python, rode este comando no terminal, dentro da pasta do projeto.
 
 ```sh
 python -m http.server 8765
 ```
 
-Abra a página pelo endereço do servidor. [http://localhost:8765](http://localhost:8765)
+A página abre em [localhost:8765](http://localhost:8765/). O servidor local deixa o site ler a lista de produtos. O gabinete 3D usa o Three.js pela internet. Se ele ficar indisponível, entra a imagem estática e os botões das peças continuam abrindo o estoque.
 
-O servidor permite que o navegador carregue `data/produtos.json` pelo comando `fetch`. A conexão com a internet carrega o Three.js e a fonte Inter. Quando o 3D está indisponível, a página usa a imagem estática do gabinete.
+## Cores e revisão
 
-### Gerar a tabela de contraste
+A tabela da paleta cruza todas as cores entre si. Por isso aparecem pares com contraste baixo, como branco sobre branco, que dá **1:1**. No botão principal, o texto branco fica sobre azul e dá **4,70:1**. O mínimo da WCAG 2.2 AA para texto comum é **4,5:1**. Páginas com vidro precisam de uma checagem adicional porque a cor muda conforme o fundo. [Tabela completa](docs/wcag-contraste.md)
 
-Com Node.js instalado, rode o comando abaixo na pasta do projeto. Ele lê as cores de `css/tokens.css` e atualiza o documento de contraste.
+Para recalcular a tabela depois de mexer nas cores, rode `node scripts/contraste.js` com o Node.js instalado. O que conferi na parcial e os pontos de ajuste estão na [revisão da entrega](docs/revisao-parcial.md).
 
-```sh
-node scripts/contraste.js
-```
-
-## Capturas e documentação
+## Capturas e processo
 
 | Tela | Tema escuro | Tema claro |
 |---|---|---|
 | Início no computador | [Captura](docs/prints/inicio-desktop-escuro.png) | [Captura](docs/prints/inicio-desktop-claro.png) |
 | Início no celular | [Captura](docs/prints/inicio-celular-escuro.png) | [Captura](docs/prints/inicio-celular-claro.png) |
-| Gaveta de estoque | [Computador](docs/prints/estoque-desktop-escuro.png) | [Celular](docs/prints/estoque-celular-claro.png) |
+| Painel de estoque | [Computador](docs/prints/estoque-desktop-escuro.png) | [Celular](docs/prints/estoque-celular-claro.png) |
 
-- Personas, problema e primeiros esboços. [Design Thinking](docs/design-thinking.md)
-- Cores avaliadas nos dois temas. [Tabela de contraste](docs/wcag-contraste.md)
-- Uso de IA e origem das imagens. [Registro de IA](docs/registro-ia.md) · [Créditos](docs/referencias.md)
+- [Design Thinking](docs/design-thinking.md) tem as personas, o problema e os primeiros esboços.
+- [Registro de IA](docs/registro-ia.md) e [referências](docs/referencias.md) mostram as ferramentas usadas e os créditos das imagens.
 
-## Revisão da parcial
+## O que fica para a final
 
-O Lighthouse avaliou a acessibilidade da página inicial em **100/100** nos perfis de computador e celular simulado. A verificação com axe encontrou zero violações automáticas na página e na gaveta nos dois temas. O contraste da gaveta translúcida foi conferido por cálculo separado. Também foram verificados o atalho para o conteúdo, o filtro e o retorno do foco ao fechar a gaveta pelo teclado.
+Quero deixar o PC inteiro explorável, com aproximação da câmera e uma vista que mostra as peças separadas. Também entram o catálogo completo, o montador guiado, o carrinho com orçamento e avisos de compatibilidade, o glossário, o login fictício e a página de contato.
 
-## Previsto para a entrega final
-
-- Tornar todas as peças do PC selecionáveis, animar a câmera e apresentar a vista explodida e as explicações na rolagem.
-- Completar o estoque com mais categorias, filtros e pelo menos 40 produtos.
-- Implementar montador guiado, carrinho com orçamento e compatibilidade, glossário, login fictício e contato.
-- Completar as opções de acessibilidade, revisar teclado e zoom, aplicar os testes com usuários e reunir a documentação do relatório.
-
-## GitHub Pages
-
-Endereço previsto para a publicação da GGTECH. [gabrielguimaraes07.github.io/Trabalho_final_di](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+As opções de acessibilidade vão ganhar um painel completo. A revisão final inclui testes de teclado, zoom e sessões de usabilidade com participantes.
