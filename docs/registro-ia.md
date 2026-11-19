@@ -32,3 +32,9 @@
 - **Como foi usada** — montou o README, registrou seis capturas em computador e celular e corrigiu um atributo ARIA que o Lighthouse encontrou no carrossel.
 - **Revisão** — a página atingiu 100/100 em acessibilidade nos dois perfis do Lighthouse. O axe apontou zero violações automáticas no início e na gaveta, em ambos os temas. O contraste do vidro da gaveta foi conferido por cálculo separado.
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Revisão para a apresentação da parcial
+
+- **IA usada** — OpenAI Codex.
+- **Como foi usada** — reescreveu o README para explicar o projeto em primeira pessoa e reuniu a conferência da parcial com a lista de requisitos do projeto.
+- **Revisão** — testou o gabinete, as quatro categorias, o modo estático, o teclado, os temas e o carrossel. Comparou a tabela da paleta com as cores usadas na página. [Resultados da revisão](revisao-parcial.md)
