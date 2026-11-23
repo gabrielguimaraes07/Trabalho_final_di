@@ -1,7 +1,7 @@
-import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, ordemCatalogo, somarItens } from './estoque.js';
-import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js';
+import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, ordemCatalogo, somarItens } from './estoque.js?v=1.0-final';
+import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
 import { gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
-  normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js';
+  normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js?v=1.0-final';
 
 function elemento(tag, texto, atributos = {}) {
   const no = document.createElement(tag);

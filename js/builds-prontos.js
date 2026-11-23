@@ -1,5 +1,5 @@
-import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js';
-import { mostrarSubtotal } from './estoque.js';
+import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=1.0-final';
+import { mostrarSubtotal } from './estoque.js?v=1.0-final';
 
 function criarCartao(build, completo) {
   const item = document.createElement('li');

@@ -1,9 +1,9 @@
-import { normalizarBusca } from './estoque.js';
+import { normalizarBusca } from './estoque.js?v=1.0-final';
 
 let glossario;
 
 export function carregarGlossario() {
-  glossario ??= fetch(new URL('../data/glossario.json', import.meta.url))
+  glossario ??= fetch(new URL('../data/glossario.json?v=1.0-final', import.meta.url))
     .then(resposta => {
       if (!resposta.ok) throw new Error('Glossário indisponível');
       return resposta.json();
