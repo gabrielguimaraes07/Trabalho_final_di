@@ -51,10 +51,12 @@ As razões para superfícies translúcidas usam a cor após compor o fundo sobre
 - [x] Lighthouse, axe, navegação por teclado e zoom de 200%.
 - [x] Documentação, capturas e README para a entrega final.
 - [ ] Sessões com 3 a 5 pessoas, pontuação SUS e correções motivadas pelos testes. [Roteiro de usabilidade](usabilidade.md)
-- [ ] Publicação da entrega final no GitHub Pages com a tag `v1.0-final`.
+- [x] Publicação da entrega final no GitHub Pages com a tag `v1.0-final`.
 
 ## Catálogo e simulador da versão final
 
 A auditoria acima é o registro da base anterior à ampliação do catálogo. A versão de novembro de 2026 inclui 40 modelos reais, 19 categorias e oito configurações. Os testes das regras conferiram cenários compatíveis, socket e DDR divergentes, excesso de RAM e unidades M.2, falta de baias, ventilação, altura do cooler e fonte insuficiente. Também foram conferidos os subtotais em centavos, os preços ausentes, a troca de peças e o salvamento local.
 
 As entrevistas e o questionário SUS seguem como etapas pendentes. O roteiro fica disponível para aplicação com participantes. [Roteiro de usabilidade](usabilidade.md)
+
+No Chrome da versão publicada, foram verificados o painel de acessibilidade, o catálogo, a troca de placa-mãe após um conflito de socket e a pausa do vídeo do notebook. O navegador exibiu a alternativa estática do gabinete. A vista interativa em WebGL já tinha sido testada na base, e o modelo 3D foi preservado. As capturas atuais registram a viewport de computador. [Capturas](design-site.md#capturas-da-versão-publicada)

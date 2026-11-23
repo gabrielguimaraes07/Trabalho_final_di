@@ -22,7 +22,11 @@ A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primei
 
 A visualização chama a atenção para o gabinete. As analogias e o glossário ajudam a entender as escolhas. O montador e o carrinho oferecem as etapas seguintes mantendo o valor e a compatibilidade visíveis.
 
-## Capturas da interface
+## Capturas da versão publicada
+
+[Início](prints/versao-final-inicio.jpg) · [Catálogo](prints/versao-final-catalogo.jpg) · [Simulador](prints/versao-final-simulador.jpg) · [Setups](prints/versao-final-setups.jpg) · [Notebook](prints/versao-final-notebook.jpg) · [Acessibilidade](prints/versao-final-acessibilidade.jpg) · [Login](prints/versao-final-login.jpg) · [Contato](prints/versao-final-contato.jpg)
+
+## Registro das capturas da base
 
 | Página | Computador, tema escuro | Celular, tema claro |
 |---|---|---|
