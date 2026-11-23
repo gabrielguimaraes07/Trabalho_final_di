@@ -1,23 +1,162 @@
 [
   {
-    "id": "gamer",
+    "id": "gamer-entrada",
+    "titulo": "Gamer de entrada",
     "uso": "jogar",
-    "nome": "Primeiro PC gamer",
-    "descricao": "Para começar a jogar em Full HD com armazenamento rápido.",
-    "produtos": ["cpu-nexa-ponto-6", "placa-mae-nexa-base-a5", "ram-voltra-viva-16", "gpu-kairo-vector-6", "armazenamento-kairo-arquivo-500", "fonte-nexa-corrente-550", "cooler-kairo-ar-120", "gabinete-voltra-vista-a"]
+    "descricao": "Full HD com placa dedicada e uma base AM4 fácil de entender.",
+    "produtos": [
+      "r5600x",
+      "b550",
+      "ddr4",
+      "nv2",
+      "cx550",
+      "case4000d",
+      "u12s",
+      "rx6600",
+      "aoc"
+    ],
+    "foto": "jogos",
+    "imagem": "assets/img/fotos/jogos.webp"
+  },
+  {
+    "id": "gamer-intermediario",
+    "titulo": "Gamer intermediário",
+    "uso": "jogar",
+    "descricao": "RTX 4060 com monitor de alta frequência e armazenamento NVMe.",
+    "produtos": [
+      "r5600x",
+      "b550",
+      "ddr4",
+      "nv2",
+      "cx550",
+      "case4000d",
+      "u12s",
+      "rtx4060",
+      "aoc",
+      "g502"
+    ],
+    "foto": "jogos",
+    "imagem": "assets/img/fotos/jogos.webp"
+  },
+  {
+    "id": "gamer-avancado",
+    "titulo": "Gamer avançado",
+    "uso": "jogar",
+    "descricao": "Plataforma AM5 com 32 GB e RTX 4070 SUPER.",
+    "produtos": [
+      "r7600",
+      "b650",
+      "ddr5",
+      "pro980",
+      "rm750x",
+      "case4000d",
+      "u12s",
+      "rtx4070s",
+      "aoc"
+    ],
+    "foto": "jogos",
+    "imagem": "assets/img/fotos/jogos.webp"
+  },
+  {
+    "id": "gamer-premium",
+    "titulo": "Gamer premium",
+    "uso": "jogar",
+    "descricao": "Oito núcleos, placa de 12 GB, refrigeração líquida e periféricos.",
+    "produtos": [
+      "r7700",
+      "b650",
+      "ddr5",
+      "pro980",
+      "rm750x",
+      "case4000d",
+      "aio240",
+      "rtx4070s",
+      "aoc",
+      "g502",
+      "qck",
+      "cloud2"
+    ],
+    "foto": "jogos",
+    "imagem": "assets/img/fotos/jogos.webp"
   },
   {
     "id": "estudo",
+    "titulo": "Estudos",
     "uso": "estudar",
-    "nome": "PC para estudar",
-    "descricao": "Para aulas, navegação e programas do dia a dia.",
-    "produtos": ["cpu-nexa-ponto-4", "placa-mae-nexa-base-a5", "ram-voltra-viva-16", "gpu-nexa-pixel-4", "armazenamento-nexa-pasta-250", "fonte-kairo-base-450", "cooler-nexa-vento-92", "gabinete-kairo-abrigo-m"]
+    "descricao": "Vídeo integrado para aulas, navegação e documentos.",
+    "produtos": [
+      "r5600g",
+      "b550",
+      "ddr4",
+      "nv2",
+      "cx550",
+      "case4000d",
+      "u12s",
+      "dell",
+      "k120",
+      "c920"
+    ],
+    "foto": "estudo",
+    "imagem": "assets/img/fotos/estudo.webp"
+  },
+  {
+    "id": "programacao",
+    "titulo": "Programação",
+    "uso": "trabalhar",
+    "descricao": "32 GB para ambientes de desenvolvimento e multitarefas.",
+    "produtos": [
+      "r7600",
+      "b650",
+      "ddr5",
+      "pro980",
+      "rm750x",
+      "case4000d",
+      "u12s",
+      "dell",
+      "k120"
+    ],
+    "foto": "estudo",
+    "imagem": "assets/img/fotos/estudo.webp"
   },
   {
     "id": "criacao",
+    "titulo": "Edição de vídeos",
     "uso": "criar",
-    "nome": "PC para criar conteúdo",
-    "descricao": "Com mais memória para editar e espaço para guardar seus projetos.",
-    "produtos": ["cpu-nexa-ponto-6", "placa-mae-voltra-nexo-n5", "ram-kairo-feixe-32", "gpu-voltra-x60", "armazenamento-voltra-prisma-1", "fonte-nexa-corrente-550", "cooler-kairo-ar-120", "gabinete-voltra-vista-a"]
+    "descricao": "Oito núcleos, GPU de 12 GB e HD adicional para arquivos.",
+    "produtos": [
+      "r7700",
+      "b650",
+      "ddr5",
+      "pro980",
+      "rm750x",
+      "case4000d",
+      "u12s",
+      "rtx4070s",
+      "hdd2",
+      "dell"
+    ],
+    "foto": "criacao",
+    "imagem": "assets/img/fotos/criacao.webp"
+  },
+  {
+    "id": "produtividade",
+    "titulo": "Produtividade",
+    "uso": "trabalhar",
+    "descricao": "Vídeo integrado e espaço separado para sistema e arquivos.",
+    "produtos": [
+      "r7600",
+      "b650",
+      "ddr5",
+      "pro980",
+      "rm750x",
+      "case4000d",
+      "u12s",
+      "evo870",
+      "dell",
+      "k120",
+      "z150"
+    ],
+    "foto": "criacao",
+    "imagem": "assets/img/fotos/criacao.webp"
   }
 ]

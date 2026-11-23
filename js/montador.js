@@ -1,6 +1,6 @@
 import { adicionarConfiguracaoAoCarrinho } from './carrinho.js';
-import { carregarBuildsProntos, prioridades, sugerirConfiguracao, usos } from './configuracoes.js';
-import { carregarEstoque, categorias, precoEmReais } from './estoque.js';
+import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js';
+import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js';
 
 const chaveMontador = 'ggtech-montador';
 
@@ -25,16 +25,6 @@ function guardarRespostas(respostas) {
   }
 }
 
-function explicarPrioridade(prioridade, temRGB) {
-  if (prioridade === 'silencio') return 'A escolha favorece peças de menor consumo e coolers voltados a menos ruído.';
-  if (prioridade === 'rgb') {
-    return temRGB
-      ? 'A configuração inclui lateral de vidro e um kit de ventoinhas RGB.'
-      : 'A sugestão reserva o orçamento para as peças essenciais do PC.';
-  }
-  return 'Entre as opções no orçamento, a escolha dá prioridade à capacidade das peças.';
-}
-
 function linhaProduto(produto) {
   const linha = document.createElement('li');
   const dados = document.createElement('div');
@@ -44,7 +34,7 @@ function linhaProduto(produto) {
   const nome = document.createElement('strong');
   nome.textContent = produto.nome;
   const preco = document.createElement('span');
-  preco.textContent = precoEmReais.format(produto.preco);
+  preco.textContent = mostrarPreco(produto.preco);
   dados.append(categoria, nome);
   linha.append(dados, preco);
   return linha;
@@ -102,16 +92,19 @@ export async function iniciarMontador(pagina) {
     retomar.hidden = true;
     resultado.hidden = false;
     titulo.textContent = nome;
-    explicacao.textContent = atual ? 'As peças desta configuração são compatíveis. ' + texto : texto;
+    explicacao.textContent = atual ? 'Confira as peças e as ressalvas no simulador. ' + texto : texto;
     preco.hidden = !atual && menorPreco === null;
     if (atual) {
-      preco.textContent = precoEmReais.format(atual.preco)
-        + (limite === undefined ? '' : ' de ' + precoEmReais.format(limite));
+      preco.textContent = mostrarSubtotal(atual.cotacao)
+        + (limite === undefined ? '' : ' · orçamento de ' + precoEmReais.format(limite));
     } else {
       preco.textContent = menorPreco === null ? '' : 'Configuração completa a partir de ' + precoEmReais.format(menorPreco);
     }
     pecas.replaceChildren(...(atual?.produtos ?? []).map(linhaProduto));
     pecas.hidden = !atual;
+    const personalizar = resultado.querySelector('[data-personalizar]');
+    personalizar.hidden = !atual;
+    if (atual) personalizar.href = linkDaConfiguracao(atual.produtos);
     adicionar.hidden = !atual;
     editar.textContent = !atual && menorPreco !== null ? 'Rever orçamento' : 'Editar respostas';
     feedback.textContent = '';
@@ -124,7 +117,7 @@ export async function iniciarMontador(pagina) {
     if (configuracao) {
       salvas = respostas;
       guardarRespostas(respostas);
-      mostrarResultado(usos[uso].titulo, usos[uso].explicacao + ' ' + explicarPrioridade(prioridade, configuracao.rgb),
+      mostrarResultado(usos[uso].titulo, usos[uso].explicacao + (configuracao.cotacao.faltam ? ' Complete as cotações para conferir o orçamento.' : ''),
         configuracao, orcamento);
     } else if (minimo !== null) {
       mostrarResultado('O orçamento precisa de um ajuste',
@@ -180,7 +173,7 @@ export async function iniciarMontador(pagina) {
   });
 
   try {
-    catalogo = await carregarEstoque();
+    catalogo = await carregarBuildsProntos();
   } catch {
     status.textContent = 'Não foi possível carregar as peças. Recarregue a página para tentar novamente.';
     return;
@@ -192,7 +185,7 @@ export async function iniciarMontador(pagina) {
       const builds = await carregarBuildsProntos();
       const build = builds.find(item => item.id === buildId);
       if (build) {
-        definirRespostas({ uso: build.uso, prioridade: 'desempenho', orcamento: Math.ceil(build.preco / 100) * 100 });
+        definirRespostas({ uso: build.uso, prioridade: 'desempenho', orcamento: Math.max(Number(orcamento.min), Math.ceil(build.cotacao.valor / 100) * 100) });
         mostrarResultado(build.nome, build.descricao, build, undefined, null, false);
         return;
       }

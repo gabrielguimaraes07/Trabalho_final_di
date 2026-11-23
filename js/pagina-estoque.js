@@ -1,26 +1,34 @@
 import { abaPorTecla } from './abas.js';
 import { adicionarAoCarrinho } from './carrinho.js';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js';
-import { carregarEstoque, categorias, normalizarBusca, precoEmReais } from './estoque.js';
+import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo } from './estoque.js';
 
-const ordem = ['cpu', 'gpu', 'ram', 'placa-mae', 'armazenamento', 'fonte', 'cooler', 'ventoinhas', 'gabinete'];
+import { lerMontagem, pecaCompativel } from './montagem.js';
+
+const ordem = [...ordemCatalogo, ...Object.keys(grupos3d)];
 const todas = 'todas';
 const rotulos = { ram: 'Memória', armazenamento: 'Armazenamento', ventoinhas: 'Ventoinhas' };
 
-function criarCartao(produto, termos) {
+function criarCartao(produto, termos, selecionado) {
   const item = document.createElement('li');
   item.className = 'estoque-produto';
 
   const foto = document.createElement('div');
   foto.className = 'estoque-produto-foto';
   const imagem = document.createElement('img');
-  imagem.src = produto.imagem;
-  imagem.alt = produto.alt;
+  if (produto.imagem) imagem.src = produto.imagem;
+  imagem.alt = produto.alt ?? '';
   imagem.width = 256;
   imagem.height = 256;
   imagem.loading = 'lazy';
   imagem.decoding = 'async';
-  foto.append(imagem);
+  if (produto.imagem) foto.append(imagem);
+  else {
+    const ficha = document.createElement('a');
+    ficha.href = produto.fonte;
+    ficha.textContent = 'Ver foto no fabricante';
+    foto.append(ficha);
+  }
 
   const descricao = document.createElement('div');
   descricao.className = 'estoque-produto-descricao';
@@ -46,10 +54,15 @@ function criarCartao(produto, termos) {
   const rodape = document.createElement('div');
   rodape.className = 'estoque-produto-rodape';
   const preco = document.createElement('strong');
-  preco.textContent = precoEmReais.format(produto.preco);
+  preco.textContent = mostrarPreco(produto.preco);
   const disponivel = document.createElement('p');
   disponivel.className = 'estoque-situacao';
-  disponivel.textContent = produto.estoque ? '✓ Em estoque' : '— Sem estoque';
+  if (produto.fontePreco) {
+    const fonte = document.createElement('a');
+    fonte.href = produto.fontePreco;
+    fonte.textContent = 'Fonte da cotação';
+    disponivel.append(fonte);
+  }
   const adicionar = document.createElement('button');
   adicionar.type = 'button';
   adicionar.className = 'botao-primario estoque-adicionar';
@@ -58,7 +71,28 @@ function criarCartao(produto, termos) {
   adicionar.setAttribute('aria-label', 'Adicionar ' + produto.nome + ' ao carrinho');
   adicionar.disabled = produto.estoque === 0;
   rodape.append(preco, disponivel, adicionar);
-  item.append(foto, descricao, especificacoes, rodape);
+  const detalhes = document.createElement('details');
+  detalhes.className = 'estoque-detalhe';
+  const resumo = document.createElement('summary');
+  resumo.textContent = 'Detalhes da peça';
+  const explicacao = document.createElement('p');
+  explicacao.textContent = produto.descricao;
+  const fonte = document.createElement('a');
+  fonte.href = produto.fonte;
+  fonte.textContent = 'Ficha técnica do fabricante';
+  detalhes.append(resumo, explicacao, fonte);
+  const simular = document.createElement('a');
+  simular.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
+  simular.textContent = 'Usar na montagem';
+  const rotuloComparar = document.createElement('label');
+  const comparar = document.createElement('input');
+  comparar.type = 'checkbox';
+  comparar.dataset.comparar = produto.id;
+  comparar.checked = selecionado;
+  comparar.setAttribute('aria-label', 'Comparar ' + produto.nome);
+  rotuloComparar.append(comparar, ' Comparar');
+  detalhes.append(simular);
+  item.append(foto, descricao, especificacoes, detalhes, rodape, rotuloComparar);
   return item;
 }
 
@@ -66,8 +100,12 @@ export async function iniciarPaginaEstoque(raiz) {
   const formulario = raiz.querySelector('form');
   const busca = raiz.querySelector('#busca-produtos');
   const preco = raiz.querySelector('#preco-maximo');
-  const nivel = raiz.querySelector('#nivel-produto');
-  const disponiveis = raiz.querySelector('#somente-disponiveis');
+  const minimo = raiz.querySelector('#preco-minimo');
+  const marca = raiz.querySelector('#marca-produto');
+  const ordenacao = raiz.querySelector('#ordem-produtos');
+  const compativeis = raiz.querySelector('#somente-compativeis');
+  const quadro = raiz.querySelector('.estoque-comparacao');
+  const selecionados = new Set();
   const sugestoes = raiz.querySelector('#sugestoes-produtos');
   const abas = raiz.querySelector('[role="tablist"]');
   const painel = raiz.querySelector('[role="tabpanel"]');
@@ -131,12 +169,36 @@ export async function iniciarPaginaEstoque(raiz) {
 
   function filtrar(produto) {
     const termos = normalizarBusca(busca.value).split(/\s+/).filter(Boolean);
-    const valor = preco.valueAsNumber;
-    return (categoria === todas || categoria === produto.categoria)
-      && (!nivel.value || nivel.value === produto.nivel)
-      && (!disponiveis.checked || produto.estoque > 0)
-      && (!(valor >= 0) || produto.preco <= valor)
+    const teto = preco.valueAsNumber;
+    const piso = minimo.valueAsNumber;
+    const temPreco = Number.isFinite(produto.preco);
+    return (categoria === todas || mesmoGrupo(produto, categoria))
+      && (!marca.value || marca.value === produto.marca)
+      && (!Number.isFinite(teto) || (temPreco && produto.preco <= teto))
+      && (!Number.isFinite(piso) || (temPreco && produto.preco >= piso))
+      && (!compativeis.checked || pecaCompativel(lerMontagem(produtos), produto, produtos))
       && termos.every(termo => produto.busca.includes(termo));
+  }
+
+  function atualizarComparacao() {
+    quadro.hidden = selecionados.size === 0;
+    const cartoes = [...selecionados].map(id => {
+      const produto = porId.get(id);
+      const bloco = document.createElement('article');
+      const titulo = document.createElement('h3');
+      titulo.textContent = produto.nome;
+      const dados = document.createElement('dl');
+      for (const [nome, valor] of Object.entries(produto.specs)) {
+        const termo = document.createElement('dt');
+        const info = document.createElement('dd');
+        termo.textContent = nome;
+        info.textContent = valor;
+        dados.append(termo, info);
+      }
+      bloco.append(titulo, dados);
+      return bloco;
+    });
+    quadro.querySelector('.estoque-comparados').replaceChildren(...cartoes);
   }
 
   function atualizar(exibirSugestoes = false) {
@@ -149,8 +211,13 @@ export async function iniciarPaginaEstoque(raiz) {
     painel.removeAttribute('aria-label');
     ocultarSugestoes();
     if (!produtos) return;
-    const encontrados = produtos.filter(filtrar);
-    grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos)));
+    const encontrados = produtos.filter(filtrar).sort((a, b) => {
+      if (ordenacao.value === 'nome') return a.nome.localeCompare(b.nome, 'pt-BR');
+      if (!Number.isFinite(a.preco)) return Number.isFinite(b.preco) ? 1 : 0;
+      if (!Number.isFinite(b.preco)) return -1;
+      return ordenacao.value === 'menor' ? a.preco - b.preco : b.preco - a.preco;
+    });
+    grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos, selecionados.has(produto.id))));
     status.textContent = encontrados.length === 0
       ? "Nenhuma peça com esse nome. Tente ‘SSD’ ou ‘memória’, ou revise os filtros."
       : encontrados.length === 1 ? '1 peça encontrada.' : encontrados.length + ' peças encontradas.';
@@ -209,6 +276,25 @@ export async function iniciarPaginaEstoque(raiz) {
     const opcao = evento.target.closest('[data-indice]');
     if (opcao) selecionarSugestao(Number(opcao.dataset.indice));
   });
+  grade.addEventListener('change', ({ target }) => {
+    const id = target.dataset.comparar;
+    if (!id) return;
+    if (target.checked && selecionados.size === 3) {
+      target.checked = false;
+      status.textContent = 'Compare até três produtos por vez.';
+      return;
+    }
+    if (target.checked) selecionados.add(id);
+    else selecionados.delete(id);
+    atualizarComparacao();
+    status.textContent = selecionados.size + ' selecionado(s) para comparação.';
+  });
+  quadro.querySelector('[data-limpar-comparacao]').addEventListener('click', () => {
+    selecionados.clear();
+    atualizarComparacao();
+    atualizar();
+    busca.focus();
+  });
   grade.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-adicionar]');
     if (!botao) return;
@@ -228,6 +314,9 @@ export async function iniciarPaginaEstoque(raiz) {
         categorias[produto.categoria].titulo, ...Object.values(produto.specs)].join(' ')),
     }));
     porId = new Map(produtos.map(produto => [produto.id, produto]));
+    for (const nome of [...new Set(produtos.map(produto => produto.marca))].sort()) {
+      marca.add(new Option(nome, nome));
+    }
     atualizar();
   } catch {
     status.textContent = 'Não foi possível carregar o estoque. Recarregue a página para tentar novamente.';

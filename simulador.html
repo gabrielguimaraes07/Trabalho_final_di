@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Escolha peças reais e confira compatibilidade, consumo e orçamento.">
+    <title>Simulador de montagem — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <script src="js/tema.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <link rel="stylesheet" href="css/loja.css">
+    <link rel="stylesheet" href="css/montador.css">
+    <link rel="stylesheet" href="css/acessibilidade.css">
+    <link rel="stylesheet" href="css/simulador.css">
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <ul class="nav-menu">
+          <li><a href="./index.html">Início</a></li>
+          <li><a href="./estoque.html">Estoque</a></li>
+          <li><a href="./montador.html">Monte seu PC</a></li>
+          <li><a href="./simulador.html" aria-current="page">Simulador</a></li>
+          <li><a href="./glossario.html">Glossário</a></li>
+          <li><a href="./contato.html">Contato</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Ícones Lucide 0.468.0 — licença em assets/icones/lucide-licenca.txt. -->
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
+          </button>
+          <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="16" cy="4" r="1"></circle>
+              <path d="m18 19 1-7-6 1"></path>
+              <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+              <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+              <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+            </svg>
+            Acessibilidade
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container sim-pagina" id="conteudo" data-simulador tabindex="-1">
+      <header class="sim-cabecalho">
+        <h1>Simulador de montagem</h1>
+        <p>Escolha as peças, confira se elas funcionam juntas e monte seu orçamento.</p>
+        <a href="./montador.html">Prefiro uma sugestão guiada</a>
+      </header>
+      <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
+      <div class="sim-grade" id="sim-conteudo" hidden>
+        <div class="sim-principal">
+          <section class="sim-painel" aria-labelledby="escolha-titulo">
+            <h2 id="escolha-titulo">Escolher peças</h2>
+            <form id="sim-escolha">
+              <label for="sim-categoria">Categoria</label>
+              <select id="sim-categoria"></select>
+              <label for="sim-produto">Modelo</label>
+              <select id="sim-produto"></select>
+              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Mostrar apenas opções sem novos conflitos</label>
+              <div id="sim-detalhe" class="sim-detalhe"></div>
+              <button class="botao-contorno" id="sim-adicionar" type="submit" disabled>Incluir ou trocar peça</button>
+            </form>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-visual-titulo">
+            <h2 id="sim-visual-titulo">Vista da montagem</h2>
+            <p>Esquema das peças selecionadas. A posição e o tamanho são ilustrativos.</p>
+            <div id="sim-visual" class="sim-gabinete"></div>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-alertas-titulo">
+            <h2 id="sim-alertas-titulo">Compatibilidade</h2>
+            <p id="sim-estado" class="sim-estado"></p>
+            <ul id="sim-alertas" class="sim-alertas"></ul>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-desempenho-titulo">
+            <h2 id="sim-desempenho-titulo">Para que serve esta configuração</h2>
+            <ul id="sim-desempenho"></ul>
+            <details>
+              <summary>Como a estimativa funciona</summary>
+              <p>Estudos e jogos leves usam a referência de 4 núcleos e 8 GB de RAM. Programação, multitarefas, imagens e jogos competitivos consideram 6 núcleos e 16 GB. Edição de vídeos parte de 8 núcleos, 32 GB e uma GPU na faixa da RTX 4060. Jogos exigentes partem de 6 núcleos, 32 GB e uma GPU na faixa da RTX 4070 SUPER. Jogos competitivos consideram GPU dedicada a partir da RX 6600. Estes critérios são heurísticos e dependem do software, da resolução e da compatibilidade da montagem.</p>
+            </details>
+          </section>
+        </div>
+        <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
+          <h2 id="sim-resumo-titulo">Resumo da montagem</h2>
+          <dl class="sim-totais">
+            <div><dt>Componentes internos</dt><dd id="sim-internos"></dd></div>
+            <div><dt>Periféricos opcionais</dt><dd id="sim-perifericos"></dd></div>
+            <div><dt>Total</dt><dd id="sim-total"></dd></div>
+            <div><dt>Consumo</dt><dd id="sim-watts"></dd></div>
+          </dl>
+          <ul id="sim-lista" class="sim-lista"></ul>
+          <div class="sim-gestao">
+            <label for="sim-nome">Nome da montagem</label>
+            <input id="sim-nome" type="text" maxlength="60" placeholder="Ex. PC para estudar">
+            <div class="sim-acoes">
+              <button class="botao-contorno" id="sim-salvar" type="button">Salvar</button>
+              <button class="botao-contorno" id="sim-limpar" type="button">Limpar</button>
+            </div>
+            <label for="sim-salvas">Montagens salvas</label>
+            <select id="sim-salvas"></select>
+            <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
+            <label for="sim-comparar">Comparar a atual com</label>
+            <select id="sim-comparar"></select>
+            <button class="botao-contorno" id="sim-acao-comparar" type="button">Comparar montagens</button>
+            <div id="sim-comparacao" class="sim-comparacao" aria-live="polite"></div>
+            <div class="sim-acoes">
+              <button class="botao-contorno" id="sim-imprimir" type="button">Exportar PDF</button>
+              <button class="botao-contorno" id="sim-compartilhar" type="button">Compartilhar link</button>
+            </div>
+            <input id="sim-link" type="url" aria-label="Link para compartilhar a montagem" readonly hidden>
+          </div>
+        </aside>
+      </div>
+      <noscript><p>Ative o JavaScript para usar a montagem interativa.</p></noscript>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
+        <p>Simulação acadêmica com componentes reais.</p>
+        <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./guia.html">Guia de componentes</a>
+          <a href="./setups.html">Setups recomendados</a>
+          <a href="./contato.html#perguntas">Perguntas frequentes</a>
+          <a href="./glossario.html">Glossário</a>
+          <a href="./contato.html">Contato</a>
+        </nav>
+      </div>
+    </footer>
+
+  </body>
+</html>

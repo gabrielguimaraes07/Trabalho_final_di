@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, uma loja fictícia para quem está começando.">
+    <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, um simulador acadêmico para quem está começando.">
     <title>GGTECH — Monte seu primeiro PC sem medo</title>
     <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js"></script>
@@ -39,6 +39,7 @@
           <li><a href="./index.html" aria-current="page">Início</a></li>
           <li><a href="./estoque.html">Estoque</a></li>
           <li><a href="./montador.html">Monte seu PC</a></li>
+          <li><a href="./simulador.html">Simulador</a></li>
           <li><a href="./glossario.html">Glossário</a></li>
           <li><a href="./contato.html">Contato</a></li>
         </ul>
@@ -139,7 +140,8 @@
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-pecas">
-        <h2 id="titulo-pecas" data-revelar-titulo>O que cada peça faz?</h2>
+        <h2 id="titulo-pecas" data-revelar-titulo>Conheça os componentes do seu PC</h2>
+        <p><a href="./guia.html">Abrir o guia completo das 19 categorias</a></p>
         <ul class="grade-pecas">
           <li class="cartao-peca">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -184,7 +186,7 @@
       </section>
 
       <section class="secao-inicio container" aria-labelledby="titulo-setups">
-        <h2 id="titulo-setups" data-revelar-titulo>Setups montados pela comunidade</h2>
+        <h2 id="titulo-setups" data-revelar-titulo>Ambientes de referência</h2>
         <div class="carrossel" id="carrossel-setups" role="group" aria-roledescription="carrossel" aria-label="Exemplos de setups">
           <div class="carrossel-controles" hidden>
             <button type="button" class="botao-texto carrossel-pausa">Pausar carrossel</button>
@@ -204,20 +206,20 @@
           </div>
           <div class="carrossel-imagens">
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 3">
-              <img src="assets/img/setups/jogos.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Monitor com paisagem azul, gabinete iluminado e teclado sobre uma mesa escura.">
+              <img src="assets/img/fotos/jogos.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Setup com monitor, teclado e gabinete com iluminação RGB.">
               <figcaption><h3>Setup para jogar</h3><p>Monitor central e espaço livre para movimentar o mouse.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 3" hidden>
-              <img src="assets/img/setups/estudo.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Mesa clara junto à janela, com monitor, gabinete compacto, caderno e luminária.">
+              <img src="assets/img/fotos/estudo.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Computador de mesa ao lado de um monitor.">
               <figcaption><h3>Setup para estudar</h3><p>Uma luminária e uma área para o caderno ajudam na hora de ler e fazer anotações.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 3" hidden>
-              <img src="assets/img/setups/criacao.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Monitor com editor de vídeo aberto, microfone e fones de ouvido sobre uma mesa de madeira escura.">
+              <img src="assets/img/fotos/criacao.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Estação de trabalho com dois monitores, teclado e mouse.">
               <figcaption><h3>Setup para criar conteúdo</h3><p>Uma tela ampla ajuda na edição. Microfone e fones ficam à mão para gravar e revisar o áudio.</p></figcaption>
             </figure>
           </div>
           <p class="somente-leitores carrossel-status" role="status"></p>
-          <p class="carrossel-credito">Imagens ilustrativas geradas com OpenAI ImageGen.</p>
+          <p class="carrossel-credito">Fotografias de ambientes reais. <a href="https://github.com/gabrielguimaraes07/Trabalho_final_di/blob/main/docs/fontes-catalogo.md">Créditos e licenças</a>.</p>
         </div>
       </section>
 
@@ -225,15 +227,17 @@
         <h2 id="titulo-builds" data-revelar-titulo>Configurações prontas</h2>
         <p class="builds-status" role="status">Carregando configurações…</p>
         <ul class="builds-grade"></ul>
-        <a class="botao-primario builds-cta" href="./montador.html">Abrir montador guiado</a>
+        <a class="botao-primario builds-cta" href="./setups.html">Ver os oito setups</a>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
-        <p>A loja e os produtos são fictícios.</p>
+        <p>Simulação acadêmica com componentes reais.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./guia.html">Guia de componentes</a>
+          <a href="./setups.html">Setups recomendados</a>
           <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>
@@ -254,7 +258,7 @@
         <p id="gaveta-descricao"></p>
         <div class="gaveta-filtro">
           <label for="gaveta-busca">Filtrar por nome ou marca</label>
-          <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Voltra">
+          <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">
         </div>
         <p class="gaveta-status" id="gaveta-status" role="status"></p>
         <ul class="gaveta-lista" id="gaveta-lista"></ul>

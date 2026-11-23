@@ -69,3 +69,48 @@ export function carregarEstoque() {
 export function normalizarBusca(texto) {
   return texto.normalize('NFD').replace(/\p{Diacritic}/gu, '').toLowerCase().trim();
 }
+
+const novasCategorias = {
+  'ssd-sata': ['SSD SATA', 'Unidade de 2,5 polegadas que usa cabo de dados e energia.'],
+  'ssd-nvme': ['SSD NVMe', 'Unidade compacta que usa as pistas PCIe do slot M.2.'],
+  hd: ['HD', 'Unidade mecânica para guardar arquivos e cópias locais.'],
+  'air-cooler': ['Air cooler', 'Dissipador com ventoinha para resfriar o processador.'],
+  'water-cooler': ['Water cooler', 'Sistema com bomba e radiador para resfriar o processador.'],
+  monitor: ['Monitor', 'Tela que recebe a imagem do computador.'],
+  teclado: ['Teclado', 'Controle para digitar e usar atalhos.'],
+  mouse: ['Mouse', 'Controle do ponteiro e das ações na tela.'],
+  mousepad: ['Mousepad', 'Superfície que facilita o deslizamento e a leitura do sensor.'],
+  headset: ['Headset', 'Fones com microfone para jogos, reuniões e aulas.'],
+  'caixas-som': ['Caixas de som', 'Alto-falantes para ouvir o áudio do computador.'],
+  webcam: ['Webcam', 'Câmera para chamadas, aulas e gravações.'],
+};
+for (const [id, [nome, descricao]] of Object.entries(novasCategorias)) {
+  categorias[id] = { titulo: nome, nome, descricao };
+}
+
+export const grupos3d = {
+  armazenamento: ['ssd-sata', 'ssd-nvme', 'hd'],
+  cooler: ['air-cooler', 'water-cooler'],
+};
+export const ordemCatalogo = ['cpu', 'placa-mae', 'gpu', 'ram', 'ssd-sata', 'ssd-nvme', 'hd',
+  'fonte', 'gabinete', 'ventoinhas', 'water-cooler', 'air-cooler', ...Object.keys(novasCategorias).slice(5)];
+
+export function mesmoGrupo(produto, categoria) {
+  return produto.categoria === categoria || grupos3d[categoria]?.includes(produto.categoria);
+}
+
+export function mostrarPreco(valor) {
+  return Number.isFinite(valor) ? precoEmReais.format(valor) : 'Preço indisponível';
+}
+
+export function somarItens(itens) {
+  const conhecidos = itens.filter(({ produto, preco }) => Number.isFinite(preco ?? produto.preco));
+  const valor = conhecidos.reduce((soma, { produto, quantidade, preco }) =>
+    soma + Math.round((preco ?? produto.preco) * 100) * quantidade, 0) / 100;
+  return { valor, faltam: itens.length - conhecidos.length };
+}
+
+export function mostrarSubtotal({ valor, faltam }) {
+  if (!faltam) return precoEmReais.format(valor);
+  return valor > 0 ? precoEmReais.format(valor) + ' cotados · ' + faltam + ' sem preço' : 'Sem cotação · ' + faltam + ' sem preço';
+}

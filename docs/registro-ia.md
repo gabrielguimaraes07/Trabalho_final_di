@@ -75,3 +75,9 @@
 - **Revisão** — executou Lighthouse e axe, conferiu foco, movimento reduzido e zoom de 200%, verificou as páginas no Chromium e no WebKit e atualizou as capturas. [Auditoria técnica](auditoria.md)
 - **Material para o relatório** — organizou as referências, as evidências das heurísticas e o roteiro para 3 a 5 pessoas. As respostas e as correções baseadas nas sessões serão registradas após a coleta. [Roteiro](usabilidade.md)
 - **Autorização** — o trabalho começou após a aprovação do plano da etapa pelo estudante.
+
+## Final — Catálogo real e simulador
+
+- **IA usada** — OpenAI Codex para análise do código existente, implementação incremental, pesquisa de fontes, verificação das regras e preparação do relatório.
+- **Como foi usada** — manteve o PC 3D e a acessibilidade. Estruturou o catálogo, o guia, os setups e a montagem manual, com cotações, armazenamento local e compatibilidade.
+- **Fontes** — fichas dos fabricantes, preços de referência, fotografias licenciadas e créditos do vídeo. [Fontes do catálogo](fontes-catalogo.md)

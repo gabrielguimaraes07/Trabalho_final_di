@@ -1,12 +1,8 @@
 # Referências e créditos — GGTECH
 
-## Imagens de setups
+## Catálogo, setups e mídia
 
-As imagens mostram ambientes fictícios para ilustrar configurações de jogos, estudo e criação de conteúdo. Elas foram geradas com OpenAI ImageGen para este projeto e são identificadas como ilustrações na página.
-
-- Jogos — `assets/img/setups/jogos.webp`
-- Estudo — `assets/img/setups/estudo.webp`
-- Criação de conteúdo — `assets/img/setups/criacao.webp`
+A versão final usa fotos licenciadas de componentes e ambientes reais. O histórico do projeto registra as imagens usadas na parcial. As fichas de fabricantes, cotações e licenças ficam na lista de fontes. [Fontes do catálogo](fontes-catalogo.md)
 
 ## Fonte de leitura facilitada
 

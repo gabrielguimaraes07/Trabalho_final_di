@@ -5,6 +5,9 @@
 | [index.html](../index.html) | Página inicial com PC 3D, carrossel, explicações e configurações prontas. |
 | [estoque.html](../estoque.html) | Catálogo, abas e filtros de busca. |
 | [montador.html](../montador.html) | Quiz de três etapas e visualização da configuração sugerida. |
+| [simulador.html](../simulador.html) | Seleção manual, resumo, preços, compatibilidade e comparação de montagens. |
+| [guia.html](../guia.html) | Guia das 19 categorias com fichas de exemplos. |
+| [setups.html](../setups.html) | Oito configurações personalizáveis e vídeo integrado ao notebook. |
 | [glossario.html](../glossario.html) | Busca e lista de definições. |
 | [login.html](../login.html) | Abas de acesso fictício e perfil da sessão. |
 | [contato.html](../contato.html) | Formulário de contato simulado e perguntas frequentes. |
@@ -14,6 +17,7 @@
 | [css/componentes.css](../css/componentes.css) | Botões, gaveta, modelo 3D, carrossel e cartões. |
 | [css/loja.css](../css/loja.css) | Estoque, cartões de produto e carrinho. |
 | [css/montador.css](../css/montador.css) | Passos do quiz, resultado e cartões de configurações. |
+| [css/simulador.css](../css/simulador.css) | Layout do simulador, impressão, guia e tela do notebook. |
 | [css/apoio.css](../css/apoio.css) | Glossário, dicas, formulários e perguntas frequentes. |
 | [css/acessibilidade.css](../css/acessibilidade.css) | Painel, preferências de leitura e fonte Atkinson. |
 | [js/main.js](../js/main.js) | Inicia páginas, componentes e atalhos. |
@@ -34,6 +38,9 @@
 | [js/compatibilidade.js](../js/compatibilidade.js) | Compara encaixe, memória, formato e potência. |
 | [js/builds-prontos.js](../js/builds-prontos.js) | Mostra as configurações prontas da página inicial. |
 | [js/configuracoes.js](../js/configuracoes.js) | Valida os conjuntos prontos e busca combinações para o quiz. |
+| [js/simulador.js](../js/simulador.js) | Interações do simulador, vista, alertas e compartilhamento. |
+| [js/montagem.js](../js/montagem.js) | Seleção de peças, validação dos dados e gravação local. |
+| [js/guia.js](../js/guia.js) | Explicações e fichas do guia de componentes. |
 | [js/montador.js](../js/montador.js) | Coordena as perguntas, respostas e resultado do montador. |
 | [js/glossario.js](../js/glossario.js) | Carrega termos e cria dicas e links para as explicações. |
 | [js/formularios.js](../js/formularios.js) | Valida campos e confirma a simulação do contato. |
@@ -43,5 +50,5 @@
 ## Dados
 
 - [produtos.json](../data/produtos.json) registra produtos, disponibilidade, preços e compatibilidade.
-- [builds.json](../data/builds.json) reúne três conjuntos de peças.
+- [builds.json](../data/builds.json) reúne oito conjuntos de peças.
 - [glossario.json](../data/glossario.json) reúne os termos e suas definições.

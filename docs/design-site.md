@@ -1,6 +1,6 @@
 # B — Design do site
 
-A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. A entrega parcial está publicada no GitHub Pages. [GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. O site é distribuído pelo GitHub Pages. [GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
 | Tela ou recurso | O que a pessoa faz |
 |---|---|
@@ -10,7 +10,9 @@ A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primei
 | O que cada peça faz | Usa analogias como a mesa de trabalho para RAM e o armário para SSD. |
 | Carrossel | Explora setups ilustrativos para jogar, estudar e criar conteúdo com setas, indicadores e botão de pausa. |
 | Configurações prontas | Abre as listas de peças e os preços de três computadores completos. |
-| Estoque | Busca 45 produtos em nove categorias e combina filtros de preço, nível e disponibilidade. |
+| Estoque | Busca 40 modelos reais em 19 categorias e combina filtros de preço, marca, nome e compatibilidade. |
+| Simulador | Escolhe cada peça, ajusta quantidades, consulta o consumo estimado e compara duas montagens. |
+| Guia | Abre as 19 categorias para ler exemplos e as fichas dos fabricantes. |
 | Montador guiado | Responde três perguntas, vê um conjunto compatível e pode adicionar todas as peças de uma vez. |
 | Carrinho | Ajusta quantidades, compara o total com o orçamento e confere encaixe, memória, formato e potência. |
 | Glossário | Procura 29 termos e abre explicações rápidas no próprio estoque, por ponteiro ou teclado. |

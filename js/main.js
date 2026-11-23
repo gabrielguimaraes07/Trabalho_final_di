@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias } from './estoque.js';
+import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js';
 import { iniciarGaveta } from './gaveta.js';
 import { iniciarCarrossel } from './carrossel.js';
 import { iniciarAcessibilidade } from './acessibilidade.js';
@@ -131,8 +131,8 @@ if (visualizador) {
 
   carregarEstoque().then(produtos => {
     contagem = new Map();
-    for (const produto of produtos) {
-      contagem.set(produto.categoria, (contagem.get(produto.categoria) ?? 0) + 1);
+    for (const categoria of botoes.keys()) {
+      contagem.set(categoria, produtos.filter(produto => mesmoGrupo(produto, categoria)).length);
     }
     if (categoriaDestacada) destacar(categoriaDestacada);
   }).catch(() => {
@@ -162,4 +162,34 @@ if (visualizador) {
     imagem.hidden = true;
     instrucao.textContent = 'Arraste o PC e escolha uma peça.';
   }).catch(usarImagem);
+}
+
+const simulador = document.querySelector('[data-simulador]');
+if (simulador) import('./simulador.js').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+
+const guia = document.querySelector('[data-guia]');
+if (guia) import('./guia.js').then(({ iniciarGuia }) => iniciarGuia(guia));
+
+const videoNotebook = document.querySelector('[data-video-notebook]');
+if (videoNotebook) {
+  const botao = document.querySelector('[data-controle-notebook]');
+  const sistema = matchMedia('(prefers-reduced-motion: reduce)');
+  const raiz = document.documentElement;
+  let pausado = false;
+  async function atualizarVideo() {
+    const reduzir = sistema.matches || raiz.dataset.reduzirMovimento === 'true';
+    if (pausado || reduzir || document.hidden) videoNotebook.pause();
+    else await videoNotebook.play().catch(() => {});
+    botao.hidden = reduzir;
+    botao.textContent = videoNotebook.paused ? 'Reproduzir vídeo da tela' : 'Pausar vídeo da tela';
+  }
+  botao.addEventListener('click', () => {
+    pausado = !videoNotebook.paused;
+    atualizarVideo();
+  });
+  sistema.addEventListener('change', atualizarVideo);
+  document.addEventListener('visibilitychange', atualizarVideo);
+  new MutationObserver(atualizarVideo)
+    .observe(raiz, { attributes: true, attributeFilter: ['data-reduzir-movimento'] });
+  atualizarVideo();
 }

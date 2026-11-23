@@ -1,0 +1,151 @@
+.sim-pagina {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding-block: var(--space-6);
+}
+
+.sim-cabecalho {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sim-cabecalho h1 {
+  font-size: clamp(2rem, 1.5rem + 3vw, var(--font-64));
+  line-height: 1.1;
+  letter-spacing: -.04em;
+}
+
+.sim-cabecalho p,
+.sim-painel > p,
+.sim-status { color: var(--text-2); }
+
+.sim-grade,
+.sim-principal,
+.guia-lista { display: grid; gap: var(--space-2); align-content: start; }
+.sim-grade { min-inline-size: 0; }
+
+.sim-painel,
+.guia-lista details {
+  min-inline-size: 0;
+  padding: var(--space-2);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.sim-painel h2 { margin: 0 0 var(--space-1); font-size: var(--font-28); line-height: 1.2; }
+.sim-painel :is(form, .sim-gestao) { display: grid; align-content: start; gap: var(--space-1); }
+.sim-painel :is(input:not([type=checkbox]), select) {
+  min-block-size: 44px;
+  inline-size: 100%;
+  padding-inline: var(--space-1);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  font: inherit;
+}
+
+.sim-painel form > button { justify-self: start; }
+.sim-painel label { color: var(--text); }
+.sim-check { min-block-size: 44px; display: flex; align-items: center; gap: var(--space-1); }
+.sim-detalhe { display: flex; align-items: center; gap: var(--space-1); flex-wrap: wrap; }
+.sim-detalhe:empty { display: none; }
+.sim-detalhe img,
+.sim-linha img,
+.sim-peca img { object-fit: contain; border-radius: 6px; background: #f5f5f7; }
+
+.sim-gabinete {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+  gap: var(--space-1);
+  padding: var(--space-2);
+  margin-block-start: var(--space-2);
+  background: var(--bg);
+  border: 2px solid var(--text-2);
+  border-radius: var(--radius-card);
+}
+.sim-peca {
+  display: grid;
+  align-content: start;
+  gap: .3rem;
+  border-block-start: 2px solid var(--accent);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: var(--space-1);
+}
+.sim-peca span { font-size: var(--font-14); color: var(--text); }
+
+.sim-alertas,
+.sim-lista { display: grid; gap: var(--space-1); padding: 0; list-style: none; }
+.sim-alertas:empty { display: none; }
+.sim-alertas li { padding: var(--space-1); border-inline-start: 3px solid var(--text-2); }
+.sim-alertas [data-estado="ok"] { border-color: var(--success); }
+.sim-alertas [data-estado="erro"] { border-color: var(--danger); }
+.sim-alertas [data-estado="aviso"] { border-color: var(--accent); }
+.sim-lista li { padding-block: var(--space-1); border-block-start: 1px solid var(--text-2); }
+.sim-linha { display: flex; align-items: flex-start; gap: var(--space-1); }
+.sim-linha img { inline-size: 3rem; block-size: 3rem; }
+.sim-linha > div { flex: 1; min-inline-size: 0; }
+.sim-campos-linha { display: flex; flex-wrap: wrap; gap: var(--space-1); align-items: end; }
+.sim-campos-linha label { flex: 1 1 8rem; min-inline-size: 0; font-size: var(--font-14); }
+.sim-campos-linha button { padding-inline: .25rem; }
+
+.sim-totais { display: grid; gap: var(--space-1); }
+.sim-totais div { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); }
+.sim-totais dd { margin: 0; text-align: end; font-weight: 600; }
+.sim-acoes { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.sim-comparacao { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr)); gap: var(--space-1); }
+.sim-comparacao:empty { display: none; }
+.sim-comparacao ul { padding-inline-start: 1.2rem; }
+
+.guia-lista summary { cursor: pointer; padding-block: var(--space-1); min-block-size: 44px; font-size: var(--font-20); font-weight: 600; }
+.guia-lista details p { margin-block: var(--space-1); }
+.guia-exemplos { display: grid; gap: var(--space-1); list-style: none; padding: 0; }
+.guia-exemplos li { background: var(--bg); border-radius: var(--radius-card); padding: var(--space-1); }
+.guia-exemplos img { display: block; object-fit: contain; inline-size: min(12rem, 100%); block-size: auto; }
+
+@media (min-width: 64rem) {
+  .sim-grade { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
+  .sim-resumo { position: sticky; inset-block-start: 6.5rem; max-block-size: calc(100dvh - 8rem); overflow: auto; }
+}
+
+@media print {
+  .site-header, .site-footer, .skip-link, .sim-cabecalho a, .sim-status, .sim-gestao,
+  .sim-campos-linha, #sim-escolha, .sim-principal > :first-child { display: none !important; }
+  .sim-grade, .sim-principal { display: block; }
+  .sim-painel, .sim-gabinete, .sim-peca { background: white; color: black; }
+  .sim-painel { margin-block-end: .4cm; }
+  .sim-painel p, .sim-peca span { color: #292929; }
+  .sim-resumo { position: static; max-block-size: none; overflow: visible; }
+  .sim-linha, .sim-peca { break-inside: avoid; }
+}
+
+.builds-completos img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.builds-completos details {
+  font-size: var(--font-14);
+  overflow-wrap: anywhere;
+}
+.builds-completos summary { padding-block: .55rem; cursor: pointer; }
+
+.setup-notebook { max-inline-size: 52rem; }
+.setup-notebook > p { margin-block-start: var(--space-1); }
+.notebook-foto { position: relative; margin: 0 0 var(--space-1); }
+.notebook-foto > img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
+.notebook-tela {
+  position: absolute;
+  inset-inline-start: 31%;
+  inset-block-start: 11.1%;
+  inline-size: 36%;
+  block-size: 35.4%;
+  object-fit: fill;
+  transform: skewY(-.85deg);
+}

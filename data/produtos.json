@@ -1,944 +1,1075 @@
 [
   {
-    "id": "gpu-voltra-x60",
-    "categoria": "gpu",
-    "marca": "Voltra",
-    "nome": "Voltra X60 8GB",
-    "preco": 1899.9,
-    "estoque": 7,
-    "nivel": "iniciante",
-    "destaque": "Roda jogos atuais em Full HD com folga.",
-    "specs": {
-      "VRAM": "8 GB",
-      "TDP": "170 W",
-      "Resolução indicada": "Full HD"
-    },
-    "compat": {
-      "tdp": 170
-    },
-    "imagem": "assets/img/produtos/gpu.webp",
-    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
-  },
-  {
-    "id": "gpu-nexa-pixel-4",
-    "categoria": "gpu",
-    "marca": "Nexa",
-    "nome": "Nexa Pixel 4GB",
-    "preco": 799.9,
-    "estoque": 9,
-    "nivel": "iniciante",
-    "destaque": "Boa para jogos leves e uso cotidiano.",
-    "specs": {
-      "VRAM": "4 GB",
-      "TDP": "80 W",
-      "Resolução indicada": "Full HD"
-    },
-    "compat": {
-      "tdp": 80
-    },
-    "imagem": "assets/img/produtos/gpu.webp",
-    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
-  },
-  {
-    "id": "gpu-kairo-vector-6",
-    "categoria": "gpu",
-    "marca": "Kairo",
-    "nome": "Kairo Vector 6GB",
-    "preco": 1199.9,
-    "estoque": 6,
-    "nivel": "iniciante",
-    "destaque": "Atende jogos em Full HD com ajustes médios.",
-    "specs": {
-      "VRAM": "6 GB",
-      "TDP": "125 W",
-      "Resolução indicada": "Full HD"
-    },
-    "compat": {
-      "tdp": 125
-    },
-    "imagem": "assets/img/produtos/gpu.webp",
-    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
-  },
-  {
-    "id": "gpu-voltra-x80",
-    "categoria": "gpu",
-    "marca": "Voltra",
-    "nome": "Voltra X80 12GB",
-    "preco": 2599.9,
-    "estoque": 4,
-    "nivel": "intermediario",
-    "destaque": "Mais memória para editar vídeo e jogar em definição maior.",
-    "specs": {
-      "VRAM": "12 GB",
-      "TDP": "230 W",
-      "Resolução indicada": "Quad HD"
-    },
-    "compat": {
-      "tdp": 230
-    },
-    "imagem": "assets/img/produtos/gpu.webp",
-    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
-  },
-  {
-    "id": "gpu-polar-labs-prisma-16",
-    "categoria": "gpu",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Prisma 16GB",
-    "preco": 3599.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Pensada para projetos de vídeo com texturas grandes.",
-    "specs": {
-      "VRAM": "16 GB",
-      "TDP": "290 W",
-      "Resolução indicada": "4K"
-    },
-    "compat": {
-      "tdp": 290
-    },
-    "imagem": "assets/img/produtos/gpu.webp",
-    "alt": "Ilustração de uma placa de vídeo grafite com três ventoinhas"
-  },
-  {
-    "id": "cpu-nexa-ponto-4",
+    "id": "r5600g",
     "categoria": "cpu",
-    "marca": "Nexa",
-    "nome": "Nexa Ponto 4",
-    "preco": 429.9,
-    "estoque": 12,
-    "nivel": "iniciante",
-    "destaque": "Para estudos, navegação e tarefas do dia a dia.",
+    "nome": "AMD Ryzen 5 5600G",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5600g.html",
+    "descricao": "Tem vídeo integrado e permite começar sem placa de vídeo dedicada.",
+    "destaque": "Tem vídeo integrado e permite começar sem placa de vídeo dedicada.",
     "specs": {
-      "Núcleos": "4",
-      "Socket": "N5",
-      "TDP": "45 W"
-    },
-    "compat": {
-      "socket": "N5",
-      "tdp": 45
-    },
-    "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração de um processador quadrado com topo metálico"
-  },
-  {
-    "id": "cpu-nexa-ponto-6",
-    "categoria": "cpu",
-    "marca": "Nexa",
-    "nome": "Nexa Ponto 6",
-    "preco": 649.9,
-    "estoque": 8,
-    "nivel": "iniciante",
-    "destaque": "Lida bem com jogos e chamadas de vídeo.",
-    "specs": {
+      "Socket": "AM4",
       "Núcleos": "6",
-      "Socket": "N5",
+      "Threads": "12",
       "TDP": "65 W"
     },
     "compat": {
-      "socket": "N5",
-      "tdp": 65
+      "socket": "AM4",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": true,
+      "pcie": 3
     },
-    "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração de um processador quadrado com topo metálico"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/r5600g.webp",
+    "alt": "Fotografia de AMD Ryzen 5 5600G",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg"
   },
   {
-    "id": "cpu-kairo-pulso-6",
+    "id": "r5600x",
     "categoria": "cpu",
-    "marca": "Kairo",
-    "nome": "Kairo Pulso 6",
-    "preco": 819.9,
-    "estoque": 6,
-    "nivel": "iniciante",
-    "destaque": "Equilíbrio para jogar e trabalhar com vários programas.",
+    "nome": "AMD Ryzen 5 5600X",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html",
+    "descricao": "Processador de seis núcleos para AM4. A saída de vídeo depende de uma placa dedicada.",
+    "destaque": "Processador de seis núcleos para AM4. A saída de vídeo depende de uma placa dedicada.",
     "specs": {
+      "Socket": "AM4",
       "Núcleos": "6",
-      "Socket": "K4",
+      "Threads": "12",
       "TDP": "65 W"
     },
     "compat": {
-      "socket": "K4",
-      "tdp": 65
+      "socket": "AM4",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": false,
+      "pcie": 4
     },
-    "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração de um processador quadrado com topo metálico"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/r5600x.webp",
+    "alt": "Fotografia de AMD Ryzen 5 5600X",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg"
   },
   {
-    "id": "cpu-kairo-pulso-8",
+    "id": "r7600",
     "categoria": "cpu",
-    "marca": "Kairo",
-    "nome": "Kairo Pulso 8",
-    "preco": 1149.9,
-    "estoque": 5,
-    "nivel": "intermediario",
-    "destaque": "Ajuda a editar vídeos e exportar projetos mais rápido.",
+    "nome": "AMD Ryzen 5 7600",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
+    "descricao": "Plataforma AM5, memória DDR5 e vídeo integrado para uso básico.",
+    "destaque": "Plataforma AM5, memória DDR5 e vídeo integrado para uso básico.",
     "specs": {
+      "Socket": "AM5",
+      "Núcleos": "6",
+      "Threads": "12",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM5",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": true,
+      "pcie": 5
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/r7600.webp",
+    "alt": "Fotografia de AMD Ryzen 5 7600",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg"
+  },
+  {
+    "id": "r7700",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 7 7700",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700.html",
+    "descricao": "Oito núcleos para compilar, renderizar e executar várias tarefas.",
+    "destaque": "Oito núcleos para compilar, renderizar e executar várias tarefas.",
+    "specs": {
+      "Socket": "AM5",
       "Núcleos": "8",
-      "Socket": "K4",
-      "TDP": "105 W"
+      "Threads": "16",
+      "TDP": "65 W"
     },
     "compat": {
-      "socket": "K4",
-      "tdp": 105
+      "socket": "AM5",
+      "nucleos": 8,
+      "tdp": 65,
+      "video": true,
+      "pcie": 5
     },
-    "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração de um processador quadrado com topo metálico"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
   },
   {
-    "id": "cpu-nexa-ponto-12",
-    "categoria": "cpu",
-    "marca": "Nexa",
-    "nome": "Nexa Ponto 12",
-    "preco": 1699.9,
-    "estoque": 0,
+    "id": "b550",
+    "categoria": "placa-mae",
+    "nome": "MSI B550M PRO-VDH WIFI",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/B550M-PRO-VDH-WIFI/Specification",
+    "descricao": "Base micro-ATX para processadores AM4 e memória DDR4. Confira a revisão de BIOS na lista de CPU do fabricante.",
+    "destaque": "Base micro-ATX para processadores AM4 e memória DDR4. Confira a revisão de BIOS na lista de CPU do fabricante.",
+    "specs": {
+      "Socket": "AM4",
+      "Memória": "4 slots DDR4",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM4",
+      "ddr": "DDR4",
+      "slotsRam": 4,
+      "limiteRam": 128,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "b650",
+    "categoria": "placa-mae",
+    "nome": "MSI PRO B650M-A WIFI",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/PRO-B650M-A-WIFI/Specification",
+    "descricao": "Placa micro-ATX com quatro slots DDR5 e dois conectores M.2 PCIe.",
+    "destaque": "Placa micro-ATX com quatro slots DDR5 e dois conectores M.2 PCIe.",
+    "specs": {
+      "Socket": "AM5",
+      "Memória": "4 slots DDR5",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM5",
+      "ddr": "DDR5",
+      "slotsRam": 4,
+      "limiteRam": 128,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ]
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "rx6600",
+    "categoria": "gpu",
+    "nome": "Sapphire PULSE Radeon RX 6600 8 GB",
+    "marca": "Sapphire",
+    "fonte": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-6600-8g-gddr6",
+    "descricao": "Placa de vídeo de duas ventoinhas com memória dedicada para jogos em Full HD.",
+    "destaque": "Placa de vídeo de duas ventoinhas com memória dedicada para jogos em Full HD.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "193 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "500 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 193,
+      "tdp": 140,
+      "recomenda": 500,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 1
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "rtx4060",
+    "categoria": "gpu",
+    "nome": "ASUS Dual GeForce RTX 4060 OC 8 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx4060-o8g/techspec/",
+    "descricao": "Placa de vídeo com 8 GB e suporte a codificação AV1.",
+    "destaque": "Placa de vídeo com 8 GB e suporte a codificação AV1.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "227,2 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 227.2,
+      "tdp": 115,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "rtx4070s",
+    "categoria": "gpu",
+    "nome": "ASUS Dual GeForce RTX 4070 SUPER OC 12 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx4070s-o12g/techspec/",
+    "descricao": "Placa de vídeo de 12 GB para gráficos e criação. Vem com adaptador de alimentação para dois conectores PCIe.",
+    "destaque": "Placa de vídeo de 12 GB para gráficos e criação. Vem com adaptador de alimentação para dois conectores PCIe.",
+    "specs": {
+      "VRAM": "12 GB GDDR6X",
+      "Comprimento": "267 mm",
+      "Alimentação": "16 pinos, adaptador 2 × 8 pinos",
+      "Fonte recomendada": "750 W"
+    },
+    "compat": {
+      "vram": 12,
+      "mm": 267,
+      "tdp": 220,
+      "recomenda": 750,
+      "pcie8": 2,
+      "cabosPcie": 2,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 3
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "ddr4",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF432C16BBK2_16.pdf",
+    "descricao": "Kit com dois módulos de 8 GB. Cada kit ocupa dois slots.",
+    "destaque": "Kit com dois módulos de 8 GB. Cada kit ocupa dois slots.",
+    "specs": {
+      "Tipo": "DDR4",
+      "Capacidade": "16 GB (2 × 8 GB)",
+      "Taxa": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4",
+      "gb": 16,
+      "slots": 2
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "ddr5",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 32 GB DDR5-5600 KF556C36BBEK2-32",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF556C36BBEK2-32.pdf",
+    "descricao": "Dois módulos de 16 GB. A frequência efetiva depende do perfil e da placa-mãe.",
+    "destaque": "Dois módulos de 16 GB. A frequência efetiva depende do perfil e da placa-mãe.",
+    "specs": {
+      "Tipo": "DDR5",
+      "Capacidade": "32 GB (2 × 16 GB)",
+      "Taxa": "5600 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5",
+      "gb": 32,
+      "slots": 2
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "evo870",
+    "categoria": "ssd-sata",
+    "nome": "Samsung 870 EVO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/870evo/",
+    "descricao": "SSD de 2,5 polegadas para ampliar o armazenamento por SATA.",
+    "destaque": "SSD de 2,5 polegadas para ampliar o armazenamento por SATA.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 1978.65,
+    "estoque": 99,
     "nivel": "intermediario",
-    "destaque": "Para edição de vídeo e várias tarefas pesadas ao mesmo tempo.",
-    "specs": {
-      "Núcleos": "12",
-      "Socket": "N5",
-      "TDP": "125 W"
-    },
-    "compat": {
-      "socket": "N5",
-      "tdp": 125
-    },
-    "imagem": "assets/img/produtos/cpu.webp",
-    "alt": "Ilustração de um processador quadrado com topo metálico"
+    "fontePreco": "https://www.kabum.com.br/hardware/ssd-2-5/ssd-sata"
   },
   {
-    "id": "ram-polar-labs-fluxo-8",
-    "categoria": "ram",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Fluxo 8GB",
-    "preco": 129.9,
-    "estoque": 15,
-    "nivel": "iniciante",
-    "destaque": "Para navegar, estudar e usar aplicativos leves.",
+    "id": "mx500",
+    "categoria": "ssd-sata",
+    "nome": "Crucial MX500 1 TB CT1000MX500SSD1",
+    "marca": "Crucial",
+    "fonte": "https://www.crucial.com/ssd/mx500/ct1000mx500ssd1",
+    "descricao": "SSD de 2,5 polegadas para sistemas que já usam cabo SATA.",
+    "destaque": "SSD de 2,5 polegadas para sistemas que já usam cabo SATA.",
     "specs": {
-      "Capacidade": "8 GB",
-      "DDR": "DDR4",
-      "Velocidade": "3200 MT/s"
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
     },
     "compat": {
-      "ddr": "DDR4"
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
     },
-    "imagem": "assets/img/produtos/ram.webp",
-    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
-  },
-  {
-    "id": "ram-nexa-linha-16",
-    "categoria": "ram",
-    "marca": "Nexa",
-    "nome": "Nexa Linha 16GB",
-    "preco": 229.9,
-    "estoque": 13,
-    "nivel": "iniciante",
-    "destaque": "Dois pentes para montar um PC de estudos ou trabalho.",
-    "specs": {
-      "Capacidade": "2 × 8 GB",
-      "DDR": "DDR4",
-      "Velocidade": "3200 MT/s"
-    },
-    "compat": {
-      "ddr": "DDR4"
-    },
-    "imagem": "assets/img/produtos/ram.webp",
-    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
-  },
-  {
-    "id": "ram-voltra-viva-16",
-    "categoria": "ram",
-    "marca": "Voltra",
-    "nome": "Voltra Viva 16GB",
-    "preco": 339.9,
-    "estoque": 10,
-    "nivel": "iniciante",
-    "destaque": "Espaço para jogos e vários aplicativos abertos.",
-    "specs": {
-      "Capacidade": "2 × 8 GB",
-      "DDR": "DDR5",
-      "Velocidade": "5200 MT/s"
-    },
-    "compat": {
-      "ddr": "DDR5"
-    },
-    "imagem": "assets/img/produtos/ram.webp",
-    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
-  },
-  {
-    "id": "ram-kairo-feixe-32",
-    "categoria": "ram",
-    "marca": "Kairo",
-    "nome": "Kairo Feixe 32GB",
-    "preco": 599.9,
-    "estoque": 7,
+    "preco": null,
+    "estoque": 99,
     "nivel": "intermediario",
-    "destaque": "Dois pentes com luz RGB para editar vídeo e jogar.",
-    "specs": {
-      "Capacidade": "2 × 16 GB",
-      "DDR": "DDR5",
-      "Velocidade": "5600 MT/s"
-    },
-    "compat": {
-      "ddr": "DDR5"
-    },
-    "imagem": "assets/img/produtos/ram.webp",
-    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+    "imagem": "assets/img/fotos/mx500.webp",
+    "alt": "Fotografia de Crucial MX500 1 TB CT1000MX500SSD1",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:CT1000MX500SSD1_rear_20210220.jpg"
   },
   {
-    "id": "ram-polar-labs-fluxo-64",
-    "categoria": "ram",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Fluxo 64GB",
-    "preco": 1089.9,
-    "estoque": 3,
+    "id": "pro980",
+    "categoria": "ssd-nvme",
+    "nome": "Samsung 980 PRO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/980pro/",
+    "descricao": "SSD M.2 2280 que usa PCIe 4.0. Também opera em um slot PCIe 3.0, com velocidade reduzida.",
+    "destaque": "SSD M.2 2280 que usa PCIe 4.0. Também opera em um slot PCIe 3.0, com velocidade reduzida.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 1000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": null,
+    "estoque": 99,
     "nivel": "intermediario",
-    "destaque": "Ajuda a manter muitos arquivos de vídeo abertos.",
-    "specs": {
-      "Capacidade": "2 × 32 GB",
-      "DDR": "DDR5",
-      "Velocidade": "6000 MT/s"
-    },
-    "compat": {
-      "ddr": "DDR5"
-    },
-    "imagem": "assets/img/produtos/ram.webp",
-    "alt": "Ilustração de pentes de memória RAM com faixas azuis"
+    "imagem": "assets/img/fotos/pro980.webp",
+    "alt": "Fotografia de Samsung 980 PRO 1 TB",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg"
   },
   {
-    "id": "fonte-kairo-base-450",
+    "id": "nv2",
+    "categoria": "ssd-nvme",
+    "nome": "Kingston NV2 1 TB SNV2S/1000G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/SNV2S_en.pdf",
+    "descricao": "SSD M.2 2280 sem cabos, indicado para sistema e programas.",
+    "destaque": "SSD M.2 2280 sem cabos, indicado para sistema e programas.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 1000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "hdd2",
+    "categoria": "hd",
+    "nome": "Seagate BarraCuda 2 TB ST2000DM008",
+    "marca": "Seagate",
+    "fonte": "https://www.seagate.com/support/internal-hard-drives/desktop-hard-drives/barracuda-3-5/",
+    "descricao": "HD mecânico de 3,5 polegadas para arquivos e espaço adicional.",
+    "destaque": "HD mecânico de 3,5 polegadas para arquivos e espaço adicional.",
+    "specs": {
+      "Capacidade": "2 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "3,5 pol.",
+      "Rotação": "7200 RPM"
+    },
+    "compat": {
+      "gb": 2000,
+      "sata": 1,
+      "baia35": 1
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "cx550",
     "categoria": "fonte",
-    "marca": "Kairo",
-    "nome": "Kairo Base 450W",
-    "preco": 229.9,
-    "estoque": 11,
-    "nivel": "iniciante",
-    "destaque": "Para um conjunto simples de peças com baixo consumo.",
-    "specs": {
-      "Potência": "450 W",
-      "Formato": "ATX",
-      "Cabos": "Fixos"
-    },
-    "compat": {
-      "potencia": 450
-    },
-    "imagem": "assets/img/produtos/fonte.webp",
-    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
-  },
-  {
-    "id": "fonte-nexa-corrente-550",
-    "categoria": "fonte",
-    "marca": "Nexa",
-    "nome": "Nexa Corrente 550W",
-    "preco": 299.9,
-    "estoque": 9,
-    "nivel": "iniciante",
-    "destaque": "Para um PC de uso diário com placa de vídeo de entrada.",
+    "nome": "Corsair CX550 (2023) CP-9020277",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020277-na/cx-series-cx550-550-watt-80-plus-bronze-atx-power-supply-cp-9020277-na",
+    "descricao": "Fonte ATX de 550 W. Os dois conectores PCIe estão no mesmo cabo.",
+    "destaque": "Fonte ATX de 550 W. Os dois conectores PCIe estão no mesmo cabo.",
     "specs": {
       "Potência": "550 W",
       "Formato": "ATX",
-      "Cabos": "Fixos"
+      "Certificação": "80 PLUS Bronze"
     },
     "compat": {
-      "potencia": 550
+      "potencia": 550,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 3
     },
-    "imagem": "assets/img/produtos/fonte.webp",
-    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
   },
   {
-    "id": "fonte-voltra-nucleo-650",
+    "id": "rm750x",
     "categoria": "fonte",
-    "marca": "Voltra",
-    "nome": "Voltra Núcleo 650W",
-    "preco": 389.9,
-    "estoque": 8,
-    "nivel": "iniciante",
-    "destaque": "Dá margem para uma placa de vídeo intermediária.",
-    "specs": {
-      "Potência": "650 W",
-      "Formato": "ATX",
-      "Cabos": "Semimodulares"
-    },
-    "compat": {
-      "potencia": 650
-    },
-    "imagem": "assets/img/produtos/fonte.webp",
-    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
-  },
-  {
-    "id": "fonte-polar-labs-brisa-750",
-    "categoria": "fonte",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Brisa 750W",
-    "preco": 519.9,
-    "estoque": 5,
-    "nivel": "intermediario",
-    "destaque": "Permite remover os cabos que não serão usados.",
+    "nome": "Corsair RM750x (2021) CP-9020199",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020199-na/rmx-series-rm750x-750-watt-80-plus-gold-fully-modular-atx-psu-cp-9020199-na",
+    "descricao": "Fonte modular de 750 W com cabos PCIe separados para placas mais exigentes.",
+    "destaque": "Fonte modular de 750 W com cabos PCIe separados para placas mais exigentes.",
     "specs": {
       "Potência": "750 W",
       "Formato": "ATX",
-      "Cabos": "Modulares"
+      "Certificação": "80 PLUS Gold"
     },
     "compat": {
-      "potencia": 750
+      "potencia": 750,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 4,
+      "cabosPcie": 2,
+      "sata": 10
     },
-    "imagem": "assets/img/produtos/fonte.webp",
-    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
   },
   {
-    "id": "fonte-kairo-base-850",
-    "categoria": "fonte",
-    "marca": "Kairo",
-    "nome": "Kairo Base 850W",
-    "preco": 669.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Oferece folga para peças com maior consumo de energia.",
+    "id": "case4000d",
+    "categoria": "gabinete",
+    "nome": "Corsair 4000D Airflow CC-9011200",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/pc-cases/cc-9011200-ww/4000d-airflow-tempered-glass-mid-tower-atx-case-black-cc-9011200-ww",
+    "descricao": "Gabinete com frente ventilada. As folgas podem diminuir com radiador na frente.",
+    "destaque": "Gabinete com frente ventilada. As folgas podem diminuir com radiador na frente.",
     "specs": {
-      "Potência": "850 W",
-      "Formato": "ATX",
-      "Cabos": "Modulares"
+      "Formato": "ATX, Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 360 mm",
+      "Air cooler": "Até 170 mm",
+      "Radiador": "Até 360 mm na frente, 280 mm no topo"
     },
     "compat": {
-      "potencia": 850
-    },
-    "imagem": "assets/img/produtos/fonte.webp",
-    "alt": "Ilustração de uma fonte de alimentação grafite com grelha lateral"
-  },
-  {
-    "id": "placa-mae-nexa-base-a5",
-    "categoria": "placa-mae",
-    "marca": "Nexa",
-    "nome": "Nexa Base A5",
-    "preco": 449.9,
-    "estoque": 10,
-    "nivel": "iniciante",
-    "destaque": "Uma base compacta para PCs de estudo.",
-    "specs": {
-      "Socket": "N5",
-      "DDR": "DDR5",
-      "Formato": "microATX"
-    },
-    "compat": {
-      "socket": "N5",
-      "ddr": "DDR5",
-      "formato": "microATX"
-    },
-    "imagem": "assets/img/produtos/placa-mae.webp",
-    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
-  },
-  {
-    "id": "placa-mae-kairo-elo-k4",
-    "categoria": "placa-mae",
-    "marca": "Kairo",
-    "nome": "Kairo Elo K4",
-    "preco": 479.9,
-    "estoque": 8,
-    "nivel": "iniciante",
-    "destaque": "Boa opção para aproveitar pentes DDR4.",
-    "specs": {
-      "Socket": "K4",
-      "DDR": "DDR4",
-      "Formato": "microATX"
-    },
-    "compat": {
-      "socket": "K4",
-      "ddr": "DDR4",
-      "formato": "microATX"
-    },
-    "imagem": "assets/img/produtos/placa-mae.webp",
-    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
-  },
-  {
-    "id": "placa-mae-voltra-nexo-n5",
-    "categoria": "placa-mae",
-    "marca": "Voltra",
-    "nome": "Voltra Nexo N5",
-    "preco": 659.9,
-    "estoque": 6,
-    "nivel": "iniciante",
-    "destaque": "Oferece espaço para expansão em gabinete ATX.",
-    "specs": {
-      "Socket": "N5",
-      "DDR": "DDR5",
-      "Formato": "ATX"
-    },
-    "compat": {
-      "socket": "N5",
-      "ddr": "DDR5",
-      "formato": "ATX"
-    },
-    "imagem": "assets/img/produtos/placa-mae.webp",
-    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
-  },
-  {
-    "id": "placa-mae-polar-labs-elo-a4",
-    "categoria": "placa-mae",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Elo A4",
-    "preco": 739.9,
-    "estoque": 5,
-    "nivel": "intermediario",
-    "destaque": "Disponibiliza mais encaixes para atualizar o PC.",
-    "specs": {
-      "Socket": "K4",
-      "DDR": "DDR4",
-      "Formato": "ATX"
-    },
-    "compat": {
-      "socket": "K4",
-      "ddr": "DDR4",
-      "formato": "ATX"
-    },
-    "imagem": "assets/img/produtos/placa-mae.webp",
-    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
-  },
-  {
-    "id": "placa-mae-nexa-base-mini",
-    "categoria": "placa-mae",
-    "marca": "Nexa",
-    "nome": "Nexa Base Mini",
-    "preco": 849.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Para montar um computador pequeno.",
-    "specs": {
-      "Socket": "N5",
-      "DDR": "DDR5",
-      "Formato": "mini-ITX"
-    },
-    "compat": {
-      "socket": "N5",
-      "ddr": "DDR5",
-      "formato": "mini-ITX"
-    },
-    "imagem": "assets/img/produtos/placa-mae.webp",
-    "alt": "Ilustração de uma placa-mãe com trilhas e encaixes para as peças"
-  },
-  {
-    "id": "cooler-nexa-vento-92",
-    "categoria": "cooler",
-    "marca": "Nexa",
-    "nome": "Nexa Vento 92",
-    "preco": 79.9,
-    "estoque": 12,
-    "nivel": "iniciante",
-    "destaque": "Compacto para processadores de entrada.",
-    "specs": {
-      "Ventoinha": "92 mm",
-      "Dissipação": "95 W",
-      "Altura": "110 mm"
-    },
-    "compat": {
-      "sockets": [
-        "N5",
-        "K4"
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
       ],
-      "dissipacao": 95,
-      "altura": 110
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 360,
+      "altura": 170,
+      "baias25": 2,
+      "baias35": 2,
+      "fans": {
+        "frente": [
+          3,
+          2
+        ],
+        "topo": [
+          2,
+          2
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "topo": [
+          120,
+          140,
+          240,
+          280
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 2
     },
-    "imagem": "assets/img/produtos/cooler.webp",
-    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/case4000d.webp",
+    "alt": "Fotografia de Corsair 4000D Airflow CC-9011200",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif"
   },
   {
-    "id": "cooler-kairo-ar-120",
-    "categoria": "cooler",
-    "marca": "Kairo",
-    "nome": "Kairo Ar 120",
-    "preco": 129.9,
-    "estoque": 11,
-    "nivel": "iniciante",
-    "destaque": "Ventoinha maior para equilibrar fluxo de ar e ruído.",
+    "id": "q300lv2",
+    "categoria": "gabinete",
+    "nome": "Cooler Master Q300L V2",
+    "marca": "Cooler Master",
+    "fonte": "https://legacy.coolermaster.com/en-global/products/q300l-v2/",
+    "descricao": "Gabinete compacto que aceita placas micro-ATX e Mini-ITX.",
+    "destaque": "Gabinete compacto que aceita placas micro-ATX e Mini-ITX.",
     "specs": {
-      "Ventoinha": "120 mm",
-      "Dissipação": "130 W",
-      "Altura": "145 mm"
+      "Formato": "Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 360 mm",
+      "Air cooler": "Até 159 mm",
+      "Radiador": "Até 240 mm na frente"
     },
     "compat": {
-      "sockets": [
-        "N5",
-        "K4"
+      "formatosAceitos": [
+        "Micro-ATX",
+        "Mini-ITX"
       ],
-      "dissipacao": 130,
-      "altura": 145
-    },
-    "imagem": "assets/img/produtos/cooler.webp",
-    "alt": "Ilustração de um cooler com dissipador e ventoinha"
-  },
-  {
-    "id": "cooler-voltra-fluxo-120",
-    "categoria": "cooler",
-    "marca": "Voltra",
-    "nome": "Voltra Fluxo 120",
-    "preco": 159.9,
-    "estoque": 8,
-    "nivel": "iniciante",
-    "destaque": "Tem iluminação azul e instalação simples.",
-    "specs": {
-      "Ventoinha": "120 mm",
-      "Dissipação": "150 W",
-      "Altura": "150 mm"
-    },
-    "compat": {
-      "sockets": [
-        "N5",
-        "K4"
+      "fontes": [
+        "ATX"
       ],
-      "dissipacao": 150,
-      "altura": 150
+      "gpu": 360,
+      "altura": 159,
+      "baias25": 2,
+      "baias35": 1,
+      "fans": {
+        "frente": [
+          2,
+          2
+        ],
+        "topo": [
+          2,
+          0
+        ],
+        "traseira": [
+          1,
+          0
+        ],
+        "fundo": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          240
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 1
     },
-    "imagem": "assets/img/produtos/cooler.webp",
-    "alt": "Ilustração de um cooler com dissipador e ventoinha"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
   },
   {
-    "id": "cooler-polar-labs-sereno-140",
-    "categoria": "cooler",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Sereno 140",
-    "preco": 249.9,
-    "estoque": 4,
-    "nivel": "intermediario",
-    "destaque": "Voltado para quem prefere ruído mais baixo.",
-    "specs": {
-      "Ventoinha": "140 mm",
-      "Dissipação": "175 W",
-      "Altura": "158 mm"
-    },
-    "compat": {
-      "sockets": [
-        "N5",
-        "K4"
-      ],
-      "dissipacao": 175,
-      "altura": 158
-    },
-    "imagem": "assets/img/produtos/cooler.webp",
-    "alt": "Ilustração de um cooler com dissipador e ventoinha"
-  },
-  {
-    "id": "cooler-kairo-ar-duplo",
-    "categoria": "cooler",
-    "marca": "Kairo",
-    "nome": "Kairo Ar Duplo",
-    "preco": 319.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Duas ventoinhas ajudam em tarefas longas.",
-    "specs": {
-      "Ventoinhas": "2 × 120 mm",
-      "Dissipação": "210 W",
-      "Altura": "162 mm"
-    },
-    "compat": {
-      "sockets": [
-        "N5",
-        "K4"
-      ],
-      "dissipacao": 210,
-      "altura": 162
-    },
-    "imagem": "assets/img/produtos/cooler.webp",
-    "alt": "Ilustração de um cooler com dissipador e ventoinha"
-  },
-  {
-    "id": "armazenamento-nexa-pasta-250",
-    "categoria": "armazenamento",
-    "marca": "Nexa",
-    "nome": "Nexa Pasta 250",
-    "preco": 129.9,
-    "estoque": 14,
-    "nivel": "iniciante",
-    "destaque": "Para o sistema e os arquivos de estudo.",
-    "specs": {
-      "Capacidade": "250 GB",
-      "Conexão": "M.2 NVMe",
-      "Leitura": "2.000 MB/s"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/armazenamento.webp",
-    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
-  },
-  {
-    "id": "armazenamento-kairo-arquivo-500",
-    "categoria": "armazenamento",
-    "marca": "Kairo",
-    "nome": "Kairo Arquivo 500",
-    "preco": 189.9,
-    "estoque": 12,
-    "nivel": "iniciante",
-    "destaque": "Espaço para o sistema e alguns jogos.",
-    "specs": {
-      "Capacidade": "500 GB",
-      "Conexão": "M.2 NVMe",
-      "Leitura": "3.000 MB/s"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/armazenamento.webp",
-    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
-  },
-  {
-    "id": "armazenamento-voltra-prisma-1",
-    "categoria": "armazenamento",
-    "marca": "Voltra",
-    "nome": "Voltra Prisma 1TB",
-    "preco": 319.9,
-    "estoque": 9,
-    "nivel": "iniciante",
-    "destaque": "Armazena jogos e arquivos do dia a dia.",
-    "specs": {
-      "Capacidade": "1 TB",
-      "Conexão": "M.2 NVMe",
-      "Leitura": "4.600 MB/s"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/armazenamento.webp",
-    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
-  },
-  {
-    "id": "armazenamento-polar-labs-cofre-2",
-    "categoria": "armazenamento",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Cofre 2TB",
-    "preco": 599.9,
-    "estoque": 5,
-    "nivel": "intermediario",
-    "destaque": "Mais espaço para uma biblioteca de jogos e vídeos.",
-    "specs": {
-      "Capacidade": "2 TB",
-      "Conexão": "M.2 NVMe",
-      "Leitura": "5.200 MB/s"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/armazenamento.webp",
-    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
-  },
-  {
-    "id": "armazenamento-kairo-arquivo-4",
-    "categoria": "armazenamento",
-    "marca": "Kairo",
-    "nome": "Kairo Arquivo 4TB",
-    "preco": 1199.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Armazena projetos longos de vídeo e arquivos grandes.",
-    "specs": {
-      "Capacidade": "4 TB",
-      "Conexão": "M.2 NVMe",
-      "Leitura": "6.400 MB/s"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/armazenamento.webp",
-    "alt": "Ilustração de um SSD M.2 com dissipador e conector lateral"
-  },
-  {
-    "id": "ventoinhas-nexa-brisa-92",
+    "id": "p12",
     "categoria": "ventoinhas",
-    "marca": "Nexa",
-    "nome": "Nexa Brisa 92",
-    "preco": 29.9,
-    "estoque": 15,
-    "nivel": "iniciante",
-    "destaque": "Cabe em aberturas de gabinetes menores.",
-    "specs": {
-      "Diâmetro": "92 mm",
-      "Conexão": "3 pinos",
-      "Iluminação": "Sem luz"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/ventoinhas.webp",
-    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
-  },
-  {
-    "id": "ventoinhas-kairo-fluxo-120",
-    "categoria": "ventoinhas",
-    "marca": "Kairo",
-    "nome": "Kairo Fluxo 120",
-    "preco": 39.9,
-    "estoque": 18,
-    "nivel": "iniciante",
-    "destaque": "Ajuda a renovar o ar em gabinetes com encaixe de 120 mm.",
+    "nome": "ARCTIC P12 PWM PST",
+    "marca": "ARCTIC",
+    "fonte": "https://www.arctic.de/en/P12-PWM-PST/ACFAN00120A",
+    "descricao": "Ventoinha PWM de 120 mm com conector PST para encadear unidades compatíveis.",
+    "destaque": "Ventoinha PWM de 120 mm com conector PST para encadear unidades compatíveis.",
     "specs": {
       "Diâmetro": "120 mm",
-      "Conexão": "4 pinos",
-      "Iluminação": "Sem luz"
+      "Conector": "PWM 4 pinos",
+      "Ligação": "PST"
     },
-    "compat": {},
-    "imagem": "assets/img/produtos/ventoinhas.webp",
-    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+    "compat": {
+      "mm": 120,
+      "tdp": 2,
+      "encadeia": true
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
   },
   {
-    "id": "ventoinhas-voltra-aura-120",
+    "id": "nfa14",
     "categoria": "ventoinhas",
-    "marca": "Voltra",
-    "nome": "Voltra Aura 120",
-    "preco": 59.9,
-    "estoque": 13,
-    "nivel": "iniciante",
-    "destaque": "Acompanha um aro iluminado em azul.",
-    "specs": {
-      "Diâmetro": "120 mm",
-      "Conexão": "4 pinos",
-      "Iluminação": "Azul"
-    },
-    "compat": {},
-    "imagem": "assets/img/produtos/ventoinhas.webp",
-    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
-  },
-  {
-    "id": "ventoinhas-polar-labs-brisa-140",
-    "categoria": "ventoinhas",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Brisa 140",
-    "preco": 79.9,
-    "estoque": 7,
-    "nivel": "intermediario",
-    "destaque": "Uma opção de diâmetro maior para gabinetes espaçosos.",
+    "nome": "Noctua NF-A14 PWM",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nf-a14-pwm/specification",
+    "descricao": "Ventoinha de 140 mm para gabinetes que aceitam esse tamanho.",
+    "destaque": "Ventoinha de 140 mm para gabinetes que aceitam esse tamanho.",
     "specs": {
       "Diâmetro": "140 mm",
-      "Conexão": "4 pinos",
-      "Iluminação": "Sem luz"
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1500 RPM"
+    },
+    "compat": {
+      "mm": 140,
+      "tdp": 2
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "aio240",
+    "categoria": "water-cooler",
+    "nome": "ARCTIC Liquid Freezer III 240",
+    "marca": "ARCTIC",
+    "fonte": "https://www.arctic.de/en/Liquid-Freezer-III-240/ACFRE00134A",
+    "descricao": "Sistema fechado com radiador de 240 mm e dois ventiladores de 120 mm. A espessura exige checagem de espaço.",
+    "destaque": "Sistema fechado com radiador de 240 mm e dois ventiladores de 120 mm. A espessura exige checagem de espaço.",
+    "specs": {
+      "Sockets": "AM4, AM5, LGA1700",
+      "Radiador": "240 mm",
+      "Espessura do radiador": "38 mm"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700"
+      ],
+      "radiador": 240,
+      "espessura": 63,
+      "tdp": 8
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "u12s",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-U12S",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-u12s/specification",
+    "descricao": "Air cooler de torre com altura de 158 mm. Confira se a caixa inclui o suporte para seu socket.",
+    "destaque": "Air cooler de torre com altura de 158 mm. Confira se a caixa inclui o suporte para seu socket.",
+    "specs": {
+      "Altura": "158 mm",
+      "Ventoinha": "120 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 158,
+      "tdp": 2
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "d15",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-D15",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-d15/specification",
+    "descricao": "Torre dupla que exige folga para as ventoinhas, especialmente com pentes altos.",
+    "destaque": "Torre dupla que exige folga para as ventoinhas, especialmente com pentes altos.",
+    "specs": {
+      "Altura": "165 mm",
+      "Ventoinhas": "2 × 140 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 165,
+      "tdp": 3
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/d15.webp",
+    "alt": "Fotografia de Noctua NH-D15",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg"
+  },
+  {
+    "id": "dell",
+    "categoria": "monitor",
+    "nome": "Dell P2422H",
+    "marca": "Dell",
+    "fonte": "https://www.dell.com/support/home/en-us/product-support/product/dell-p2422h-monitor/docs",
+    "descricao": "Monitor IPS de 23,8 polegadas indicado para estudos e escritório.",
+    "destaque": "Monitor IPS de 23,8 polegadas indicado para estudos e escritório.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa de atualização": "60 Hz",
+      "Entradas": "HDMI, DisplayPort, VGA"
+    },
+    "compat": {
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "aoc",
+    "categoria": "monitor",
+    "nome": "AOC 24G2SP",
+    "marca": "AOC",
+    "fonte": "https://aoc.com/us/gaming/products/monitors/24g2sp",
+    "descricao": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
+    "destaque": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa máxima": "165 Hz",
+      "Entradas": "DisplayPort, HDMI, VGA"
+    },
+    "compat": {
+      "video": [
+        "DisplayPort",
+        "HDMI",
+        "VGA"
+      ]
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "k120",
+    "categoria": "teclado",
+    "nome": "Logitech K120",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/products/keyboards/k120-usb-standard-computer.920-002478.html",
+    "descricao": "Teclado com fio e teclado numérico para uso diário.",
+    "destaque": "Teclado com fio e teclado numérico para uso diário.",
+    "specs": {
+      "Conexão": "USB-A",
+      "Tipo": "Com fio",
+      "Teclado numérico": "Sim"
     },
     "compat": {},
-    "imagem": "assets/img/produtos/ventoinhas.webp",
-    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
+    "preco": 94.11,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/k120.webp",
+    "alt": "Fotografia de Logitech K120",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/20866/teclado-com-fio-usb-logitech-k120-resistente-a-respingos-e-layout-abnt2-920-004423"
   },
   {
-    "id": "ventoinhas-voltra-aura-trio",
-    "categoria": "ventoinhas",
-    "marca": "Voltra",
-    "nome": "Voltra Aura Trio",
-    "preco": 149.9,
-    "estoque": 5,
-    "nivel": "intermediario",
-    "destaque": "Kit com três ventoinhas para entrada e saída de ar.",
+    "id": "g502",
+    "categoria": "mouse",
+    "nome": "Logitech G G502 HERO",
+    "marca": "Logitech G",
+    "fonte": "https://www.logitechg.com/en-us/products/gaming-mice/g502-hero-gaming-mouse.html",
+    "descricao": "Mouse com fio e botões programáveis para jogos.",
+    "destaque": "Mouse com fio e botões programáveis para jogos.",
     "specs": {
-      "Diâmetro": "3 × 120 mm",
-      "Conexão": "4 pinos",
-      "Iluminação": "RGB"
+      "Conexão": "USB-A",
+      "Sensor": "HERO 25K",
+      "Botões": "11 programáveis"
     },
     "compat": {},
-    "imagem": "assets/img/produtos/ventoinhas.webp",
-    "alt": "Ilustração de uma ventoinha de gabinete com aro azul"
-  },
-  {
-    "id": "gabinete-nexa-cubo-mini",
-    "categoria": "gabinete",
-    "marca": "Nexa",
-    "nome": "Nexa Cubo Mini",
-    "preco": 159.9,
-    "estoque": 10,
-    "nivel": "iniciante",
-    "destaque": "Um gabinete pequeno para mesa de estudos.",
-    "specs": {
-      "Formato": "mini-ITX",
-      "Lateral": "Metal",
-      "Ventoinhas inclusas": "1"
-    },
-    "compat": {
-      "formato": "mini-ITX",
-      "formatosAceitos": [
-        "mini-ITX"
-      ]
-    },
-    "imagem": "assets/img/produtos/gabinete.webp",
-    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
-  },
-  {
-    "id": "gabinete-kairo-abrigo-m",
-    "categoria": "gabinete",
-    "marca": "Kairo",
-    "nome": "Kairo Abrigo M",
-    "preco": 219.9,
-    "estoque": 9,
-    "nivel": "iniciante",
-    "destaque": "Gabinete compacto com frente aberta para entrada de ar.",
-    "specs": {
-      "Formato": "microATX",
-      "Lateral": "Metal",
-      "Ventoinhas inclusas": "1"
-    },
-    "compat": {
-      "formato": "microATX",
-      "formatosAceitos": [
-        "microATX",
-        "mini-ITX"
-      ]
-    },
-    "imagem": "assets/img/produtos/gabinete.webp",
-    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
-  },
-  {
-    "id": "gabinete-voltra-vista-a",
-    "categoria": "gabinete",
-    "marca": "Voltra",
-    "nome": "Voltra Vista A",
-    "preco": 319.9,
-    "estoque": 8,
-    "nivel": "iniciante",
-    "destaque": "Lateral transparente para visualizar as peças.",
-    "specs": {
-      "Formato": "ATX",
-      "Lateral": "Vidro",
-      "Ventoinhas inclusas": "2"
-    },
-    "compat": {
-      "formato": "ATX",
-      "formatosAceitos": [
-        "ATX",
-        "microATX",
-        "mini-ITX"
-      ]
-    },
-    "imagem": "assets/img/produtos/gabinete.webp",
-    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
-  },
-  {
-    "id": "gabinete-polar-labs-halo",
-    "categoria": "gabinete",
-    "marca": "Polar Labs",
-    "nome": "Polar Labs Halo",
-    "preco": 449.9,
-    "estoque": 4,
+    "preco": 368.85,
+    "estoque": 99,
     "nivel": "intermediario",
-    "destaque": "Espaço para organizar cabos e adicionar ventoinhas.",
-    "specs": {
-      "Formato": "ATX",
-      "Lateral": "Vidro",
-      "Ventoinhas inclusas": "3"
-    },
-    "compat": {
-      "formato": "ATX",
-      "formatosAceitos": [
-        "ATX",
-        "microATX",
-        "mini-ITX"
-      ]
-    },
-    "imagem": "assets/img/produtos/gabinete.webp",
-    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+    "imagem": "assets/img/fotos/g502.webp",
+    "alt": "Fotografia de Logitech G G502 HERO",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:G502_Hero.jpg",
+    "fontePreco": "https://www.kabum.com.br/promocao/PERIFERICOS_20260903"
   },
   {
-    "id": "gabinete-voltra-vista-xl",
-    "categoria": "gabinete",
-    "marca": "Voltra",
-    "nome": "Voltra Vista XL",
-    "preco": 549.9,
-    "estoque": 0,
-    "nivel": "intermediario",
-    "destaque": "Gabinete espaçoso para atualizações futuras.",
+    "id": "qck",
+    "categoria": "mousepad",
+    "nome": "SteelSeries QcK Medium",
+    "marca": "SteelSeries",
+    "fonte": "https://steelseries.com/gaming-mousepads/qck-series",
+    "descricao": "Mousepad de tecido com base de borracha.",
+    "destaque": "Mousepad de tecido com base de borracha.",
     "specs": {
-      "Formato": "ATX",
-      "Lateral": "Vidro",
-      "Ventoinhas inclusas": "4"
+      "Material": "Tecido",
+      "Dimensões": "320 × 270 mm",
+      "Espessura": "2 mm"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "cloud2",
+    "categoria": "headset",
+    "nome": "HyperX Cloud II",
+    "marca": "HyperX",
+    "fonte": "https://hyperx.com/products/hyperx-cloud-ii",
+    "descricao": "Headset com microfone removível e adaptador USB na edição com fio.",
+    "destaque": "Headset com microfone removível e adaptador USB na edição com fio.",
+    "specs": {
+      "Conexão": "3,5 mm e adaptador USB",
+      "Tipo": "Com fio",
+      "Microfone": "Removível"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "z150",
+    "categoria": "caixas-som",
+    "nome": "Logitech Z150",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/z150-compact-stereo-speakers",
+    "descricao": "Par de caixas compactas para a mesa.",
+    "destaque": "Par de caixas compactas para a mesa.",
+    "specs": {
+      "Potência": "3 W RMS",
+      "Canais": "2.0",
+      "Entrada": "3,5 mm"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "c920",
+    "categoria": "webcam",
+    "nome": "Logitech C920 HD Pro",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/products/webcams/c920-pro-hd-webcam.960-000764.html",
+    "descricao": "Webcam USB para aulas, chamadas e transmissões.",
+    "destaque": "Webcam USB para aulas, chamadas e transmissões.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa": "30 fps em Full HD",
+      "Conexão": "USB-A"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario"
+  },
+  {
+    "id": "qvo870",
+    "categoria": "ssd-sata",
+    "nome": "Samsung 870 QVO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/870qvo/",
+    "descricao": "SSD SATA de 2,5 polegadas com memória QLC para armazenamento adicional.",
+    "destaque": "SSD SATA de 2,5 polegadas com memória QLC para armazenamento adicional.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
     },
     "compat": {
-      "formato": "ATX",
-      "formatosAceitos": [
-        "ATX",
-        "microATX",
-        "mini-ITX"
-      ]
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
     },
-    "imagem": "assets/img/produtos/gabinete.webp",
-    "alt": "Ilustração de um gabinete grafite com lateral de vidro"
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": null,
+    "imagem": "assets/img/fotos/qvo870.webp",
+    "alt": "Fotografia de Samsung 870 QVO 1 TB",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:SAMSUNG_SATA_SSD_870_QVO_1TB_FRONT.jpg"
+  },
+  {
+    "id": "nv2-2tb",
+    "categoria": "ssd-nvme",
+    "nome": "Kingston NV2 2 TB SNV2S/2000G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/SNV2S_en.pdf",
+    "descricao": "Versão de 2 TB para armazenar mais jogos e projetos.",
+    "destaque": "Versão de 2 TB para armazenar mais jogos e projetos.",
+    "specs": {
+      "Capacidade": "2 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 2000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/nv2-2tb.webp",
+    "alt": "Fotografia de Kingston NV2 2 TB SNV2S/2000G",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:2023_Dysk_SSD_Kingston_NV2_2TB.jpg",
+    "fontePreco": null
+  },
+  {
+    "id": "d15black",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-D15 chromax.black",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-d15-chromax-black/specification",
+    "descricao": "Versão preta do cooler de torre dupla. Confira espaço para os módulos de RAM.",
+    "destaque": "Versão preta do cooler de torre dupla. Confira espaço para os módulos de RAM.",
+    "specs": {
+      "Altura": "165 mm",
+      "Ventoinhas": "2 × 140 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 165,
+      "tdp": 3
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/fotos/d15black.webp",
+    "alt": "Fotografia de Noctua NH-D15 chromax.black",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:NH-D15_with_black_fans.jpg",
+    "fontePreco": null
+  },
+  {
+    "id": "c270",
+    "categoria": "webcam",
+    "nome": "Logitech C270 HD",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/c270-hd-webcam",
+    "descricao": "Webcam de 720p com microfone para chamadas.",
+    "destaque": "Webcam de 720p com microfone para chamadas.",
+    "specs": {
+      "Resolução": "1280 × 720",
+      "Taxa": "30 fps",
+      "Conexão": "USB-A"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": null,
+    "alt": null,
+    "creditoFoto": null,
+    "fontePreco": null
+  },
+  {
+    "id": "m185",
+    "categoria": "mouse",
+    "nome": "Logitech M185",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/m185-wireless-mouse",
+    "descricao": "Mouse compacto com receptor USB para trabalho.",
+    "destaque": "Mouse compacto com receptor USB para trabalho.",
+    "specs": {
+      "Conexão": "Receptor USB-A",
+      "Alimentação": "1 pilha AA",
+      "Botões": "3"
+    },
+    "compat": {},
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": null,
+    "alt": null,
+    "creditoFoto": null,
+    "fontePreco": null
+  },
+  {
+    "id": "a400",
+    "categoria": "ssd-sata",
+    "nome": "Kingston A400 480 GB SA400S37/480G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/en/ssd/a400-solid-state-drive",
+    "descricao": "SSD SATA compacto para sistemas e documentos.",
+    "destaque": "SSD SATA compacto para sistemas e documentos.",
+    "specs": {
+      "Capacidade": "480 GB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 480,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 749.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": null,
+    "alt": null,
+    "creditoFoto": null,
+    "fontePreco": "https://www.kabum.com.br/promocao/KINGSTONBF23"
+  },
+  {
+    "id": "r5700x",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 7 5700X",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5700x.html",
+    "descricao": "Processador AM4 de oito núcleos. Requer placa de vídeo dedicada.",
+    "destaque": "Processador AM4 de oito núcleos. Requer placa de vídeo dedicada.",
+    "specs": {
+      "Socket": "AM4",
+      "Núcleos": "8",
+      "Threads": "16",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM4",
+      "nucleos": 8,
+      "tdp": 65,
+      "video": false,
+      "pcie": 4
+    },
+    "preco": null,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": null,
+    "alt": null,
+    "creditoFoto": null,
+    "fontePreco": null
   }
 ]

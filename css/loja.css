@@ -366,3 +366,35 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.estoque-comparacao {
+  background: var(--surface);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  padding: var(--space-2);
+}
+
+.estoque-comparados {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  gap: var(--space-2);
+  overflow-wrap: anywhere;
+}
+
+.estoque-comparados dl { font-size: var(--font-14); }
+.estoque-comparados dt { font-weight: 600; }
+.estoque-comparados dd { margin: 0 0 .4rem; }
+.estoque-detalhe { font-size: var(--font-14); }
+.estoque-detalhe summary { cursor: pointer; min-block-size: 44px; display: list-item; padding-block: .6rem; }
+.estoque-detalhe a { display: block; padding-block: .4rem; }
+.estoque-produto > label { display: flex; gap: .4rem; align-items: center; min-block-size: 44px; cursor: pointer; }
+.estoque-produto-foto img { object-fit: contain; }
+.estoque-produto-foto > a { text-align: center; padding: var(--space-1); }
+.carrinho-compatibilidade li[data-estado="erro"] { border-inline-start-color: var(--danger); }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  :root:not([data-reduzir-movimento="true"]) .estoque-produto { transition: border-color .18s ease; }
+  .estoque-produto:hover { border-color: var(--accent); }
+}
+
+.estoque-produto-foto:has(> a) { display: grid; place-items: center; }
