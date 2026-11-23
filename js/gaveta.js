@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, normalizarBusca, precoEmReais } from './estoque.js';
+import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca } from './estoque.js';
 import { configurarGaveta } from './dialogo.js';
 
 function resumoProduto(produto) {
@@ -6,8 +6,9 @@ function resumoProduto(produto) {
   item.className = 'produto-resumo';
 
   const imagem = document.createElement('img');
-  imagem.src = produto.imagem;
-  imagem.alt = produto.alt;
+  if (produto.imagem) imagem.src = produto.imagem;
+  imagem.alt = produto.alt ?? '';
+  imagem.hidden = !produto.imagem;
   imagem.width = 56;
   imagem.height = 56;
   imagem.decoding = 'async';
@@ -16,10 +17,10 @@ function resumoProduto(produto) {
   const nome = document.createElement('h3');
   nome.textContent = produto.nome;
   const preco = document.createElement('p');
-  preco.textContent = precoEmReais.format(produto.preco);
+  preco.textContent = mostrarPreco(produto.preco);
   const situacao = document.createElement('p');
   situacao.className = 'estoque-situacao';
-  situacao.textContent = produto.estoque > 0 ? '✓ Em estoque' : '– Sem estoque';
+  situacao.textContent = 'Ficha no catálogo';
   conteudo.append(nome, preco, situacao);
   item.append(imagem, conteudo);
   return item;
@@ -72,7 +73,7 @@ export function iniciarGaveta(dialogo) {
     try {
       const catalogo = await carregarEstoque();
       if (selecao !== abertura || !dialogo.open) return;
-      produtos = catalogo.filter(produto => produto.categoria === categoria);
+      produtos = catalogo.filter(produto => mesmoGrupo(produto, categoria));
       busca.disabled = false;
       atualizarLista();
     } catch {

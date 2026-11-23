@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Explore o estoque fictício da GGTECH, filtre por preço e veja as especificações das peças.">
+    <meta name="description" content="Explore o catálogo de componentes reais da GGTECH, filtre por preço e veja as especificações das peças.">
     <title>Estoque — GGTECH</title>
     <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js"></script>
@@ -28,6 +28,7 @@
           <li><a href="./index.html">Início</a></li>
           <li><a href="./estoque.html" aria-current="page">Estoque</a></li>
           <li><a href="./montador.html">Monte seu PC</a></li>
+          <li><a href="./simulador.html">Simulador</a></li>
           <li><a href="./glossario.html">Glossário</a></li>
           <li><a href="./contato.html">Contato</a></li>
         </ul>
@@ -60,14 +61,14 @@
     <main class="estoque-pagina container" id="conteudo" data-pagina-estoque tabindex="-1">
       <header class="estoque-cabecalho">
         <h1>Estoque</h1>
-        <p>Encontre as peças do seu PC por categoria, preço ou nome.</p>
+        <p>Encontre as peças do seu PC por categoria, preço ou nome. <a href="https://github.com/gabrielguimaraes07/Trabalho_final_di/blob/main/docs/fontes-catalogo.md">Fontes e créditos</a>.</p>
       </header>
 
       <form class="estoque-filtros" aria-label="Filtrar estoque">
         <div class="estoque-campo estoque-busca">
           <label for="busca-produtos">Buscar peças</label>
           <input id="busca-produtos" data-busca-rapida type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
-            aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Voltra">
+            aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Kingston">
           <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
         </div>
         <div class="estoque-campo">
@@ -75,19 +76,32 @@
           <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite">
         </div>
         <div class="estoque-campo">
-          <label for="nivel-produto">Nível</label>
-          <select id="nivel-produto">
-            <option value="">Todos</option>
-            <option value="iniciante">Iniciante</option>
-            <option value="intermediario">Intermediário</option>
+          <label for="preco-minimo">Preço mínimo em reais</label>
+          <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal">
+        </div>
+        <div class="estoque-campo">
+          <label for="marca-produto">Marca</label>
+          <select id="marca-produto"><option value="">Todas</option></select>
+        </div>
+        <div class="estoque-campo">
+          <label for="ordem-produtos">Ordenar por</label>
+          <select id="ordem-produtos">
+            <option value="nome">Nome de A a Z</option>
+            <option value="menor">Menor preço</option>
+            <option value="maior">Maior preço</option>
           </select>
         </div>
         <label class="estoque-disponibilidade">
-          <input id="somente-disponiveis" type="checkbox">
-          Apenas em estoque
+          <input id="somente-compativeis" type="checkbox">
+          Sem novos conflitos com a montagem
         </label>
       </form>
 
+      <section class="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
+        <h2 id="comparacao-titulo">Comparação de produtos</h2>
+        <div class="estoque-comparados"></div>
+        <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>
+      </section>
       <div class="estoque-abas" role="tablist" aria-label="Categorias de peças"></div>
       <section id="estoque-resultados" role="tabpanel" aria-label="Produtos do estoque">
         <p class="estoque-status" role="status">Carregando peças…</p>
@@ -99,8 +113,10 @@
     <footer class="site-footer">
       <div class="container">
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
-        <p>A loja e os produtos são fictícios.</p>
+        <p>Simulação acadêmica com componentes reais.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./guia.html">Guia de componentes</a>
+          <a href="./setups.html">Setups recomendados</a>
           <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>

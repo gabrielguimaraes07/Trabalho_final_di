@@ -1,5 +1,7 @@
 # Auditoria técnica — GGTECH
 
+As medições de 18/11 registram a base de seis páginas. A seção final descreve os testes executados após a entrada do catálogo real e do simulador.
+
 Revisão local de 18/11/2026. O alvo de acessibilidade para a entrega é 95 ou mais no Lighthouse.
 
 ## Lighthouse e axe
@@ -50,3 +52,9 @@ As razões para superfícies translúcidas usam a cor após compor o fundo sobre
 - [x] Documentação, capturas e README para a entrega final.
 - [ ] Sessões com 3 a 5 pessoas, pontuação SUS e correções motivadas pelos testes. [Roteiro de usabilidade](usabilidade.md)
 - [ ] Publicação da entrega final no GitHub Pages com a tag `v1.0-final`.
+
+## Catálogo e simulador da versão final
+
+A auditoria acima é o registro da base anterior à ampliação do catálogo. A versão de novembro de 2026 inclui 40 modelos reais, 19 categorias e oito configurações. Os testes das regras conferiram cenários compatíveis, socket e DDR divergentes, excesso de RAM e unidades M.2, falta de baias, ventilação, altura do cooler e fonte insuficiente. Também foram conferidos os subtotais em centavos, os preços ausentes, a troca de peças e o salvamento local.
+
+As entrevistas e o questionário SUS seguem como etapas pendentes. O roteiro fica disponível para aplicação com participantes. [Roteiro de usabilidade](usabilidade.md)

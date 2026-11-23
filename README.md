@@ -1,61 +1,52 @@
 # GGTECH
 
-A GGTECH é uma loja acadêmica fictícia para quem vai montar o primeiro PC. O projeto foi desenvolvido para a disciplina de Desenvolvimento de Interfaces do CEUB em 2026, por **Gabriel Guimarães**.
+**Gabriel Guimarães · Desenvolvimento de Interfaces · CEUB, 2026**
 
-[Entrega parcial no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+A ideia do GGTECH surgiu de uma pergunta simples. Como montar o primeiro PC sem ficar perdido nos nomes das peças? Comecei por um gabinete que dá para girar e explorar. Na versão final, o modelo leva a um catálogo com componentes reais e a um simulador que confere as escolhas antes de fechar o orçamento.
 
-## Recursos da entrega final
+[Abra o GGTECH no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
-- PC 3D com nove categorias clicáveis, aproximação da câmera, vista explodida e alternativa estática.
-- Estoque com 45 produtos fictícios, sugestões de busca e filtros de preço, nível e disponibilidade.
-- Carrinho com orçamento, quantidade e avisos de compatibilidade.
-- Montador com três perguntas e configurações prontas para jogar, estudar e criar conteúdo.
-- Glossário de 29 termos, login fictício e formulário de contato simulado.
-- Painel de acessibilidade com tema, tipografia, contraste, espaçamento, sublinhado, redução de movimento e opção para desativar o atalho de busca.
+## O que dá para testar
 
-O código da entrega final está na branch `entrega-final`. A tag `v0.1-parcial` identifica a entrega parcial. O roteiro de usabilidade está disponível para as sessões com 3 a 5 pessoas.
+- Explore o gabinete 3D e abra as categorias clicando nas peças. Os botões abaixo do modelo fazem a mesma coisa pelo teclado.
+- Busque por nome e marca no catálogo. Dá para filtrar por preço, conferir as fichas e comparar até três produtos.
+- Abra o **Simulador** para escolher peças uma a uma. Ajuste quantidades, veja os conflitos, informe suas cotações e salve montagens no navegador. O botão **Exportar PDF** abre a impressão para salvar o resumo.
+- Abra **Setups recomendados** para experimentar oito pontos de partida. No **Guia de componentes**, cada categoria tem explicações e exemplos reais.
+- No botão **Acessibilidade**, experimente trocar o tema, ampliar a fonte, aumentar o contraste ou reduzir movimento.
 
-## Como rodar localmente
+## Para abrir no VS Code
 
-1. Baixe o repositório e abra a pasta `ggtech` no Visual Studio Code.
-2. Com a extensão **Live Server** instalada, clique com o botão direito em `index.html` e escolha **Open with Live Server**.
+1. Extraia o ZIP ou clone este repositório e abra a pasta no VS Code.
+2. Com a extensão Live Server instalada, abra `index.html` com **Open with Live Server**.
 
-Com Python instalado, você também pode abrir um servidor pelo terminal, na pasta do projeto.
+Também dá para iniciar um servidor no terminal, na pasta do projeto.
 
 ```sh
 python -m http.server 8765
 ```
 
-Abra a página pelo endereço do servidor. [http://localhost:8765](http://localhost:8765)
+Abra a página no navegador. [http://localhost:8765](http://localhost:8765/)
 
-O servidor permite que o navegador carregue os arquivos JSON usados no estoque, nas configurações prontas e no glossário. Three.js, GSAP e Inter são carregados pela internet. As ilustrações, a fonte de leitura e os dados estão no projeto.
+O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O Three.js e o GSAP são carregados pela internet. O gabinete tem uma vista estática de reserva e o catálogo funciona com os arquivos locais.
 
-### Atualizar a tabela de contraste
-
-Com Node.js instalado, rode o comando abaixo na pasta do projeto. Ele lê as cores de `css/tokens.css` e atualiza `docs/wcag-contraste.md`.
-
-```sh
-node scripts/contraste.js
-```
-
-## Construção por etapas
+## Como o projeto foi tomando forma
 
 | Etapa | Trabalho |
 |---|---|
-| Estrutura e design | Páginas, paleta Titânio, contraste, personas e primeiros esboços. |
-| Entrega parcial | PC com quatro partes selecionáveis, temas, cartões e carrossel. |
-| Acessibilidade e 3D | Painel de preferências, nove peças, câmera e vista explodida. |
-| Loja e montador | Catálogo, carrinho, compatibilidade, perguntas e configurações prontas. |
-| Ajuda e formulários | Glossário, login fictício, contato e perguntas frequentes. |
-| Revisão | Animações de texto, verificações de acessibilidade, capturas e roteiro de usabilidade. |
+| Primeira versão | Estruturei a página inicial, defini a paleta e usei o primeiro esboço do gabinete para ligar quatro categorias ao estoque. |
+| Parcial | Entraram os dois temas, os cartões explicativos e o carrossel. A versão publicada recebeu ajustes de contraste, foco e ícone. |
+| Base da final | Ampliei o modelo para nove áreas, acrescentei vista explodida, montador guiado, carrinho, login, contato, glossário e painel de acessibilidade. |
+| Catálogo e montagem | Organizei os dados por categoria, liguei as fichas reais às regras do simulador e coloquei as oito configurações como ponto de partida. |
+| Revisão | Conferi os dados, os cálculos e as mensagens de compatibilidade. Registrei as fontes, as licenças e o apoio de IA. |
 
-## Material para o relatório
+## Dados e documentação
 
-| Parte | Arquivos |
-|---|---|
-| A — Cores | [Paleta](docs/paleta.md) · [Psicologia das cores](docs/psicologia-cores.md) · [Tabela de contraste](docs/wcag-contraste.md) |
-| B — Design e telas | [Design do site e capturas](docs/design-site.md) |
-| C — IHC e experiência | [Heurísticas](docs/heuristicas-nielsen.md) · [IHC, UX e UI](docs/ihc-ux-ui.md) · [Design Thinking](docs/design-thinking.md) |
-| D — Processo e fontes | [Uso de IA](docs/registro-ia.md) · [Referências e créditos](docs/referencias.md) |
-| E — Código | [Índice dos arquivos](docs/codigo.md) |
-| Revisão | [Auditoria técnica](docs/auditoria.md) · [Roteiro e questionário SUS](docs/usabilidade.md) |
+O catálogo inclui **40 modelos em 19 categorias**. Os preços registrados têm fonte de referência. Quando falta preço, o simulador mostra o subtotal conhecido e permite completar a cotação. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
+
+- [Fontes e licenças](docs/fontes-catalogo.md)
+- [Paleta e contraste](docs/wcag-contraste.md) · [Psicologia das cores](docs/psicologia-cores.md)
+- [Design e capturas](docs/design-site.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
+- [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
+- [Índice do código](docs/codigo.md) · [Registro de uso de IA](docs/registro-ia.md)
+
+A tabela de contraste é gerada pelo comando `node scripts/contraste.js`.

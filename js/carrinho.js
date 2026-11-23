@@ -1,13 +1,14 @@
 import { verificarCompatibilidade } from './compatibilidade.js';
 import { configurarGaveta } from './dialogo.js';
-import { carregarEstoque, precoEmReais } from './estoque.js';
+import { carregarEstoque, mostrarPreco, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js';
 
-const chave = 'ggtech-carrinho';
+const chave = 'ggtech-carrinho-real';
 const eventoCarrinho = 'ggtech:carrinho';
 const orcamentoPadrao = 4000;
 const estadosCompatibilidade = {
   ok: '✓ Compatível',
-  aviso: '⚠ Atenção',
+  aviso: 'Atenção',
+  erro: 'Incompatível',
   pendente: '— Falta conferir',
 };
 let memoria = { orcamento: orcamentoPadrao, itens: [] };
@@ -133,7 +134,7 @@ function criarItem({ produto, quantidade }) {
   const titulo = document.createElement('h3');
   titulo.textContent = produto.nome;
   const subtotal = document.createElement('p');
-  subtotal.textContent = precoEmReais.format(produto.preco * quantidade);
+  subtotal.textContent = mostrarPreco(produto.preco === null ? null : produto.preco * quantidade);
   const controles = document.createElement('div');
   controles.className = 'carrinho-quantidade';
   const valor = document.createElement('span');
@@ -187,13 +188,13 @@ export function iniciarCarrinho(acionador) {
     if (document.activeElement !== campoOrcamento) campoOrcamento.value = carrinho.orcamento;
     const itens = produtos ? carrinho.itens.filter(item => produtos.has(item.id))
       .map(item => ({ ...item, produto: produtos.get(item.id) })) : [];
-    const soma = itens.reduce((valor, { produto, quantidade }) =>
-      valor + Math.round(produto.preco * 100) * quantidade, 0) / 100;
+    const cotacao = somarItens(itens);
+    const soma = cotacao.valor;
     const excedente = Math.round((soma - carrinho.orcamento) * 100) / 100;
-    total.textContent = precoEmReais.format(soma) + ' de ' + precoEmReais.format(carrinho.orcamento);
+    total.textContent = mostrarSubtotal(cotacao) + ' de ' + precoEmReais.format(carrinho.orcamento);
     limite.textContent = excedente > 0
       ? 'Acima do orçamento em ' + precoEmReais.format(excedente) + '.'
-      : 'Dentro do orçamento.';
+      : cotacao.faltam ? 'Complete as cotações para conferir o orçamento.' : 'Dentro do orçamento.';
     progresso.max = carrinho.orcamento;
     progresso.value = Math.min(soma, carrinho.orcamento);
     progresso.toggleAttribute('data-excedido', excedente > 0);

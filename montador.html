@@ -28,6 +28,7 @@
           <li><a href="./index.html">Início</a></li>
           <li><a href="./estoque.html">Estoque</a></li>
           <li><a href="./montador.html" aria-current="page">Monte seu PC</a></li>
+          <li><a href="./simulador.html">Simulador</a></li>
           <li><a href="./glossario.html">Glossário</a></li>
           <li><a href="./contato.html">Contato</a></li>
         </ul>
@@ -60,6 +61,7 @@
     <main class="montador-pagina container" id="conteudo" data-montador tabindex="-1">
       <header class="montador-cabecalho">
         <h1>Monte seu PC</h1>
+        <a href="./simulador.html">Escolher peças manualmente</a>
         <p>Responda três perguntas para encontrar uma configuração que caiba no seu orçamento.</p>
       </header>
       <p class="montador-status" role="status">Carregando peças…</p>
@@ -108,6 +110,7 @@
         <h2 id="montador-resultado-titulo" tabindex="-1"></h2>
         <p class="montador-explicacao"></p>
         <p class="montador-preco"></p>
+        <a class="botao-contorno" data-personalizar href="./simulador.html" hidden>Personalizar no simulador</a>
         <ul class="montador-pecas"></ul>
         <div class="montador-acoes">
           <button type="button" class="botao-contorno montador-editar">Editar respostas</button>
@@ -121,8 +124,10 @@
     <footer class="site-footer">
       <div class="container">
         <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
-        <p>A loja e os produtos são fictícios.</p>
+        <p>Simulação acadêmica com componentes reais.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
+          <a href="./guia.html">Guia de componentes</a>
+          <a href="./setups.html">Setups recomendados</a>
           <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>
