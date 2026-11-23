@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { carregarScrollTrigger } from './animacoes.js';
-import { categorias } from './estoque.js';
-import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js';
+import { carregarScrollTrigger } from './animacoes.js?v=1.0-final';
+import { categorias } from './estoque.js?v=1.0-final';
+import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
 
 const ordem = ['gabinete', 'ventoinhas', 'placa-mae', 'cpu', 'cooler', 'ram', 'armazenamento', 'gpu', 'fonte'];
 const deslocamentos = {

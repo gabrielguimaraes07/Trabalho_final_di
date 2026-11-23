@@ -1,5 +1,5 @@
-import { abaPorTecla } from './abas.js';
-import { prepararFormulario, validarEmail } from './formularios.js';
+import { abaPorTecla } from './abas.js?v=1.0-final';
+import { prepararFormulario, validarEmail } from './formularios.js?v=1.0-final';
 
 const chave = 'ggtech-usuario';
 let memoria;

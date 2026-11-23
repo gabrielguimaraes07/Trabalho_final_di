@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, ordemCatalogo } from './estoque.js';
+import { carregarEstoque, categorias, ordemCatalogo } from './estoque.js?v=1.0-final';
 
 const dicas = {
   cpu: 'Compare núcleos e a geração. Confira o socket, a versão da BIOS e se o modelo tem vídeo integrado.',

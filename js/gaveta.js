@@ -1,5 +1,5 @@
-import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca } from './estoque.js';
-import { configurarGaveta } from './dialogo.js';
+import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca } from './estoque.js?v=1.0-final';
+import { configurarGaveta } from './dialogo.js?v=1.0-final';
 
 function resumoProduto(produto) {
   const item = document.createElement('li');

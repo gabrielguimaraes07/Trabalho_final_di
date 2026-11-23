@@ -1,4 +1,4 @@
-import { categoriasMultiplas, perifericos, verificarCompatibilidade } from './compatibilidade.js';
+import { categoriasMultiplas, perifericos, verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
 
 const chave = 'ggtech-montagem';
 const chaveSalvas = 'ggtech-montagens-salvas';

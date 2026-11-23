@@ -1,15 +1,15 @@
-import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js';
-import { iniciarGaveta } from './gaveta.js';
-import { iniciarCarrossel } from './carrossel.js';
-import { iniciarAcessibilidade } from './acessibilidade.js';
-import { iniciarCarrinho } from './carrinho.js';
-import { iniciarPaginaEstoque } from './pagina-estoque.js';
-import { iniciarMontador } from './montador.js';
-import { iniciarBuildsProntos } from './builds-prontos.js';
-import { iniciarPaginaGlossario } from './glossario.js';
-import { iniciarAcesso } from './login.js';
-import { iniciarContato } from './formularios.js';
-import { iniciarRevelacaoDeTitulos } from './animacoes.js';
+import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=1.0-final';
+import { iniciarGaveta } from './gaveta.js?v=1.0-final';
+import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
+import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
+import { iniciarCarrinho } from './carrinho.js?v=1.0-final';
+import { iniciarPaginaEstoque } from './pagina-estoque.js?v=1.0-final';
+import { iniciarMontador } from './montador.js?v=1.0-final';
+import { iniciarBuildsProntos } from './builds-prontos.js?v=1.0-final';
+import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
+import { iniciarAcesso } from './login.js?v=1.0-final';
+import { iniciarContato } from './formularios.js?v=1.0-final';
+import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=1.0-final';
 
 const cabecalho = document.querySelector('.site-header');
 if (cabecalho) {
@@ -81,7 +81,7 @@ if (secaoExplodida) {
   const observador = new IntersectionObserver(([entrada]) => {
     if (!entrada.isIntersecting) return;
     observador.disconnect();
-    import('./vista-explodida.js')
+    import('./vista-explodida.js?v=1.0-final')
       .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
       .catch(() => {
         // A ilustração e a lista de peças continuam disponíveis.
@@ -165,10 +165,10 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+if (simulador) import('./simulador.js?v=1.0-final').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
-if (guia) import('./guia.js').then(({ iniciarGuia }) => iniciarGuia(guia));
+if (guia) import('./guia.js?v=1.0-final').then(({ iniciarGuia }) => iniciarGuia(guia));
 
 const videoNotebook = document.querySelector('[data-video-notebook]');
 if (videoNotebook) {

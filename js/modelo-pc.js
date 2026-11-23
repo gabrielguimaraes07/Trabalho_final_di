@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { categorias } from './estoque.js';
+import { categorias } from './estoque.js?v=1.0-final';
 
 export const CAMERA_PC = { fov: 33, posicao: [4.75, 2.32, 8.44], alvo: [0, -.02, 0] };
 

@@ -1,5 +1,5 @@
-import { verificarCompatibilidade } from './compatibilidade.js';
-import { carregarEstoque, somarItens } from './estoque.js';
+import { verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
+import { carregarEstoque, somarItens } from './estoque.js?v=1.0-final';
 
 export const usos = {
   jogar: { titulo: 'Seu PC para jogar', explicacao: 'A sugestão considera a placa de vídeo e a memória.' },
@@ -13,7 +13,7 @@ let buildsProntos;
 export function carregarBuildsProntos() {
   buildsProntos ??= Promise.all([
     carregarEstoque(),
-    fetch(new URL('../data/builds.json', import.meta.url)).then(resposta => {
+    fetch(new URL('../data/builds.json?v=1.0-final', import.meta.url)).then(resposta => {
       if (!resposta.ok) throw new Error('Configurações indisponíveis');
       return resposta.json();
     }),

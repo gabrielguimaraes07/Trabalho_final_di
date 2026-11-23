@@ -1,6 +1,6 @@
-import { adicionarConfiguracaoAoCarrinho } from './carrinho.js';
-import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js';
-import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js';
+import { adicionarConfiguracaoAoCarrinho } from './carrinho.js?v=1.0-final';
+import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=1.0-final';
+import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js?v=1.0-final';
 
 const chaveMontador = 'ggtech-montador';
 
