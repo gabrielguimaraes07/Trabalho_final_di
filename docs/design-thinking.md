@@ -8,27 +8,21 @@ As personas são perfis fictícios usados para orientar o projeto. Os mapas de e
 
 Quer montar o primeiro PC para jogar com os amigos. Tem orçamento curto e receio de comprar uma peça que não encaixe.
 
-| Mapa de empatia | Lucas |
-|---|---|
-| Pensa e sente | Quer rodar os jogos do grupo e teme gastar o dinheiro em uma combinação incompatível. |
-| Vê | Vídeos de montagem, fotos de gabinetes iluminados e catálogos cheios de siglas. |
-| Ouve | Amigos falam de placa de vídeo, memória e desempenho sem explicar como as peças trabalham juntas. |
-| Diz e faz | Pergunta quanto custa um PC para jogar, compara preços e guarda links de peças. |
-| Dores | Pouca margem para errar, dificuldade para entender especificações e dúvida sobre o que comprar primeiro. |
-| Ganhos | Encontrar uma configuração que caiba no orçamento e entender o papel de cada peça. |
+- **Pensa e sente.** Tem medo de economizar na peça errada e o PC não funcionar.
+- **Vê e ouve.** Acompanha vídeos de montagem e catálogos cheios de siglas. Os amigos falam de memória e placa de vídeo, mas ele ainda tem dúvidas sobre como elas trabalham juntas.
+- **Diz e faz.** Pergunta quanto custa um PC para jogar e guarda links para comparar.
+- **Onde trava.** Tem pouca margem para errar e fica na dúvida sobre qual peça escolher primeiro.
+- **O que ajudaria.** Ver um conjunto no orçamento e entender o papel de cada peça.
 
 ### Carla, 34 anos
 
 Quer um PC para editar vídeos do trabalho. Tem pouco tempo para pesquisar e encontra especificações que ainda não sabe interpretar.
 
-| Mapa de empatia | Carla |
-|---|---|
-| Pensa e sente | Quer editar e exportar vídeos com fluidez. Tem receio de gastar mais do que o necessário. |
-| Vê | Catálogos com muitos modelos e recomendações diferentes para edição de vídeo. |
-| Ouve | Colegas dizem que memória e armazenamento são importantes, mas dão recomendações variadas. |
-| Diz e faz | Procura uma opção pronta, consulta avaliações e anota os termos que precisa pesquisar. |
-| Dores | Diferenças pouco claras entre as peças, tempo curto para decidir e insegurança sobre compatibilidade. |
-| Ganhos | Receber uma sugestão adequada ao trabalho, com preço total e uma explicação em linguagem simples. |
+- **Pensa e sente.** Quer editar e exportar com fluidez e tem receio de gastar além do que precisa.
+- **Vê e ouve.** Encontra modelos muito parecidos e ouve recomendações diferentes sobre memória e armazenamento.
+- **Diz e faz.** Procura uma configuração pronta e anota termos que ainda precisa pesquisar.
+- **Onde trava.** Tem pouco tempo para comparar preços e confirmar se as peças funcionam juntas.
+- **O que ajudaria.** Ver o preço total e uma explicação do que aquela combinação oferece para edição de vídeo.
 
 ## Definir
 
@@ -122,8 +116,6 @@ Os protótipos de alta fidelidade estão nas capturas do projeto. [Telas e recur
 
 ## Testar
 
-A revisão técnica verificou os fluxos no navegador. A avaliação com participantes usará as tarefas de encontrar uma placa de vídeo, montar um PC para estudo e ajustar a acessibilidade. O roteiro, o questionário SUS e as tabelas de registro estão separados para receber os resultados reais. [Roteiro de usabilidade](usabilidade.md) · [Auditoria técnica](auditoria.md)
+A revisão técnica conferiu os fluxos no navegador. O roteiro com participantes parte das dúvidas de Lucas e Carla. Uma tarefa mede se a pessoa encontra uma peça dentro de um valor. Outra observa se ela consegue escolher e revisar um PC inteiro. Também há tarefas de comparação e acessibilidade. As sessões e os resultados do SUS ainda estão pendentes. [Roteiro](usabilidade.md) · [Testes técnicos](auditoria.md)
 
-## Da hipótese à próxima sessão
-
-As personas ajudaram a priorizar o preço, as explicações de hardware e o cuidado com escolhas já feitas. O orçamento digitável e a linha de preços na comparação atendem a quem precisa tomar uma decisão rápida. O glossário na montagem e a confirmação de substituição atendem a quem está aprendendo. Na próxima sessão, o roteiro mede se a pessoa encontra esses caminhos e observa onde ainda precisa de ajuda. [Roteiro de usabilidade](usabilidade.md)
+Alguns ajustes surgiram antes das sessões. O orçamento passou a aceitar digitação direta. A comparação ganhou uma linha de preços. A montagem passou a pedir confirmação antes de substituir uma configuração salva.

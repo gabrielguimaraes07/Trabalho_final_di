@@ -2,7 +2,7 @@
 
 ## Catálogo, setups e mídia
 
-A versão final usa fotos licenciadas de componentes e ambientes reais. O histórico do projeto registra as imagens usadas na parcial. As fichas de fabricantes, cotações e licenças ficam na lista de fontes. [Fontes do catálogo](fontes-catalogo.md)
+A versão de apresentação usa fotos reais de lojas, fabricantes e bancos de imagens. Os valores de 23/11/2026 têm a loja ou o comparador indicado junto de cada peça. Os créditos também registram as licenças e as alterações das imagens que têm essa informação. [Cotações e fotos](fontes-apresentacao.md) · [Fichas e licenças](fontes-catalogo.md)
 
 ## Fonte de leitura facilitada
 
@@ -25,4 +25,4 @@ A opção de leitura facilitada do painel usa a Atkinson Hyperlegible nos pesos 
 
 ## Recursos da edição local
 
-A revisão usa fotos e valores de referência de lojas, fabricantes e comparadores, com as páginas de origem reunidas na documentação. Three.js 0.179.1 e GSAP 3.13.0 acompanham a cópia local, com créditos e textos da distribuição. [Anúncios e fotos](fontes-apresentacao.md) · [Three.js no npm](https://www.npmjs.com/package/three/v/0.179.1) · [GSAP no npm](https://www.npmjs.com/package/gsap/v/3.13.0)
+Three.js 0.179.1 e GSAP 3.13.0 acompanham a cópia local, com os créditos e textos da distribuição. [Three.js no npm](https://www.npmjs.com/package/three/v/0.179.1) · [GSAP no npm](https://www.npmjs.com/package/gsap/v/3.13.0)

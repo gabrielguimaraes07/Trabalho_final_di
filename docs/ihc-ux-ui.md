@@ -1,46 +1,25 @@
-# C1 — IHC, UX, UI e marca
+# IHC, UX, UI e marca
 
-## Interação Humano-Computador
+## Decisões de interação
 
-- **Pistas de interação.** Contorno, cursor e rótulo mostram que a peça do 3D pode ser selecionada. Botões em texto replicam o caminho da categoria.
-- **Retorno imediato.** A gaveta mostra a categoria escolhida. O carrinho atualiza a quantidade e o total. O painel aplica as opções na hora.
-- **Lei de Fitts.** Os botões principais têm áreas grandes e ficam perto da pergunta ou do conteúdo relacionado.
-- **Lei de Hick.** O quiz divide as escolhas em três passos com poucas opções por vez.
-- **Carga cognitiva.** A ficha mostra três dados por peça. Termos sublinhados abrem uma definição curta quando necessário.
-- **Modelo mental.** Explorar o gabinete reproduz a ideia de olhar as peças que serão montadas. A vista explodida mostra a posição e o papel delas.
+- **Onde clicar.** A peça recebe um contorno ao passar o ponteiro. Os rótulos e os botões em texto dão outra pista de que é possível abrir a categoria.
+- **O que aconteceu.** A gaveta mostra o nome da categoria. O carrinho recalcula a quantidade e o total. O painel de acessibilidade aplica cada ajuste na hora.
+- **Lei de Fitts.** As ações principais têm alvos grandes e ficam próximas da pergunta ou da lista de peças.
+- **Lei de Hick.** O montador apresenta uma pergunta por vez, na ordem de uso, orçamento e prioridade.
+- **Carga cognitiva.** O catálogo mostra três especificações antes de abrir os detalhes. O glossário explica siglas na própria tela.
+- **Modelo mental.** A vista explodida ajuda a relacionar o nome da peça ao lugar onde ela fica no gabinete.
 
-## Jornada
+A pessoa começa reconhecendo as peças no gabinete. Pode checar o que cada uma faz no guia, usar os filtros para encontrar um modelo e validar a escolha com preço e compatibilidade. O carrinho deixa revisar a quantidade e o valor antes da confirmação simulada.
 
-| Momento | Suporte oferecido |
-|---|---|
-| Descobrir | Gabinete girável e legenda dos pontos selecionáveis. |
-| Entender | Vista das peças separadas, cartões, glossário e perguntas frequentes. |
-| Escolher | Filtros, busca, montador e configurações prontas. |
-| Validar | Compatibilidade, preço total e orçamento. |
-| Reunir para compra | Carrinho editável, com revisão de quantidade e total antes da confirmação simulada. |
+## Como a interface indica cada estado
 
-## Estados da interface
-
-| Estado | Como é mostrado |
-|---|---|
-| Normal | Nome e papel da peça, preço e ação disponível. |
-| Ponteiro sobre o controle | Contorno no 3D, sublinhado em links ou ação destacada. |
-| Foco por teclado | Anel visível na cor de destaque. |
-| Ativo ou selecionado | Categoria selecionada, etapas marcadas no montador e indicação de item escolhido. |
-| Desabilitado | Botão de adicionar quando a peça está sem estoque ou a quantidade chegou ao limite. |
-| Erro | Texto ligado ao campo e indicação visual ou aviso no carrinho. |
-| Vazio | Mensagem no catálogo, no glossário ou no carrinho. |
-| Carregando | Retorno de que peças ou termos estão sendo buscados. |
+- **Normal, hover e foco.** Nome, preço e ação ficam visíveis no cartão. Links ganham sublinhado, o gabinete destaca a peça sob o ponteiro e os controles mostram um anel ao navegar por teclado.
+- **Seleção e limite.** A categoria atual fica marcada. O simulador indica a peça já escolhida. Botões sinalizam quando a ação chegou ao limite de quantidade ou está indisponível.
+- **Erro e recuperação.** Se o preço mínimo ultrapassa o máximo, a tela indica o campo que precisa ser corrigido. Quando o orçamento é insuficiente, o montador mostra o menor valor e volta à pergunta de orçamento.
+- **Vazio e carregamento.** O catálogo e o glossário avisam quando não encontram resultados. Uma mensagem aparece enquanto os dados estão sendo buscados.
 
 ## Marca e acessibilidade
 
-A marca usa grafite, azul e tipografia Inter. O fundo escuro e as áreas espaçosas destacam o produto. A linguagem de loja acadêmica, as analogias e os preços em reais aproximam o site do público brasileiro.
+O fundo grafite deixa o gabinete em evidência. O azul aparece nas ações e nos indicadores de foco. A tipografia Inter, os preços em reais e as explicações de hardware em português aproximam a interface de quem está montando o primeiro PC. [Paleta e contraste](paleta.md)
 
-O painel permite trocar o tema, aumentar ou reduzir a fonte, usar uma fonte de leitura facilitada, ajustar o espaçamento, reforçar o contraste, sublinhar links e reduzir animações. As escolhas ficam no navegador e já são aplicadas na próxima abertura. Os detalhes da paleta e o escopo dos testes estão documentados. [Paleta](paleta.md) · [Auditoria](auditoria.md)
-
-## Decisões da revisão de interfaces
-
-- O menu compacto deixa marca e carrinho ao alcance. As outras páginas abrem pelo botão Menu, que informa o estado e recebe o foco ao fechar com Escape.
-- A busca e a categoria ficam à vista. Preço, marca e compatibilidade aparecem sob demanda, e a tabela compara valores e características na mesma linha. Isso aplica reconhecimento e reduz o esforço de lembrar dados de cartões diferentes.
-- A montagem manual mostra o total durante a escolha e explica siglas no mesmo lugar. As confirmações antes de apagar ou substituir peças ajudam a recuperar o controle em caso de engano.
-- A montagem guiada mostra os limites reais do orçamento, explica os critérios da sugestão e leva de volta ao valor se o orçamento ficar curto.
+O painel permite mudar de tema, tamanho de texto e espaçamento, usar a fonte Atkinson Hyperlegible, reforçar o contraste, sublinhar os links e reduzir animações. Essas opções ficam salvas no navegador. [Auditoria](auditoria.md)

@@ -1,37 +1,34 @@
 # GGTECH
 
+Um site para quem quer montar o primeiro PC e ainda está aprendendo o que cada peça faz. Comece pelo gabinete 3D, escolha uma configuração pronta ou monte a sua. O site soma os valores e avisa se houver problemas como um processador com socket diferente do da placa-mãe.
+
 **Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-A ideia do GGTECH é ajudar quem está montando o primeiro PC. Dá para explorar um gabinete, entender a função de cada peça e conferir se os componentes escolhidos funcionam juntos. [Abrir o GGTECH no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+[Abrir o GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
-## O que dá para fazer
+![Página inicial do GGTECH com o gabinete 3D e os botões para explorar as peças](docs/prints/versao-final-inicio.jpg)
 
-- **Explorar o gabinete.** Clique nas peças do modelo 3D ou use os botões com os nomes das categorias. O guia e o glossário explicam as especificações em linguagem simples.
-- **Pesquisar e comparar.** O catálogo tem 56 produtos em 19 tipos de peça. A barra de comparação guarda até três modelos do mesmo tipo enquanto você pesquisa.
-- **Montar com ajuda.** Diga para que vai usar o PC, quanto quer gastar e o que prioriza. O montador avisa cedo quando o orçamento fica abaixo dos setups disponíveis e separa as peças e os periféricos no resultado.
-- **Escolher peça por peça.** Comece do zero ou abra um dos 16 setups prontos. A montagem manual mostra o progresso, avisa sobre incompatibilidades e permite salvar ou compartilhar a configuração.
-- **Revisar no carrinho.** Confira os itens e o total antes de confirmar uma compra simulada. O painel de acessibilidade permite ajustar tema, leitura e movimento.
+## O que vale experimentar
 
-## Tecnologias e pastas
-
-O site usa HTML, CSS e JavaScript. O Three.js renderiza o gabinete e o GSAP cuida das animações. Produtos, setups e glossário são carregados de arquivos JSON. Preferências, carrinho e montagens salvas ficam no armazenamento local do navegador.
-
-- A raiz tem as páginas HTML, como `index.html`, `estoque.html` e `montador.html`.
-- `css/` reúne os estilos. `js/` contém as regras e interações das páginas.
-- `data/` guarda os dados do catálogo, dos setups e do glossário.
-- `assets/` reúne fotos, vídeo, ícones e bibliotecas. `docs/` tem os créditos, a documentação da disciplina e os testes.
+- **Explore o gabinete.** As peças abrem o catálogo da categoria. Também dá para chegar às mesmas opções pelos botões abaixo do 3D.
+- **Compare peças.** O catálogo tem 56 produtos em 19 categorias. A comparação coloca até três modelos do mesmo tipo lado a lado.
+- **Monte um PC.** O montador guiado sugere peças a partir do uso e do orçamento. Na montagem manual, dá para trocar itens de um dos 16 setups, salvar o resultado ou compartilhar por link.
+- **Ajuste a leitura.** O painel de acessibilidade deixa mudar o tema, o tamanho do texto, o contraste e o movimento. As preferências ficam salvas no navegador.
 
 ## Como rodar no seu computador
 
-1. Clone ou baixe o repositório e abra a pasta no VS Code.
-2. Abra `index.html` com **Open with Live Server**.
+Baixe ou clone o repositório. No VS Code, abra `index.html` com a extensão **Live Server**. Também dá para iniciar o servidor pelo terminal, na pasta do projeto.
 
-Se preferir, execute `python -m http.server 8765` no terminal a partir da pasta do projeto e abra [http://localhost:8765](http://localhost:8765/). O servidor local permite que as páginas carreguem os arquivos JSON. Sem WebGL, o gabinete aparece como uma imagem com os mesmos botões de categoria.
+```sh
+python -m http.server 8765
+```
 
-## Limites e créditos
+Em seguida, abra [localhost:8765](http://localhost:8765/). As páginas usam HTML, CSS e JavaScript, com Three.js para o gabinete e GSAP nas animações. Os arquivos em `data/` alimentam o catálogo e os setups.
 
-Compra e login são simulações. O site funciona sem servidor de contas ou pagamentos. Os preços, consultados em 23/11/2026, são referências em reais e sem frete. **Preço histórico** identifica um anúncio indisponível ou uma oferta encerrada na consulta. Os avisos de compatibilidade usam as fichas do catálogo. Confira no manual do fabricante detalhes como folgas, cabos e BIOS. [Cotações e créditos das fotos](docs/fontes-apresentacao.md)
+## Por trás do projeto
 
-- [IHC, experiência e interface](docs/ihc-ux-ui.md) · [Design Thinking](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
-- [Contraste](docs/wcag-contraste.md) · [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
-- [Mapa do código](docs/codigo.md) · [Registro de uso de IA](docs/registro-ia.md)
+- [Decisões de interface e capturas](docs/design-site.md) · [Personas e esboços](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
+- [Testes técnicos](docs/auditoria.md) · [Paleta e contraste](docs/paleta.md) · [Roteiro com participantes](docs/usabilidade.md)
+- [Arquivos do projeto](docs/codigo.md) · [Referências e cotações](docs/referencias.md) · [Como a IA ajudou](docs/registro-ia.md)
+
+Compra e login são simulações. Os preços foram consultados em 23/11/2026 e servem de referência, sem frete. O rótulo **Preço histórico** indica que a oferta já estava indisponível na consulta.

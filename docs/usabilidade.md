@@ -9,12 +9,10 @@
 
 ## Tarefas
 
-| Tarefa lida para a pessoa | Como observar a conclusão |
-|---|---|
-| Encontre uma placa de vídeo que custe até R$ 2.000. | A pessoa informa o nome da placa e um preço dentro do limite. Anote o caminho e os filtros usados. |
-| Encontre um PC para estudar com até R$ 8.500 e revise a compra simulada. | A pessoa usa a montagem guiada, explica o que o orçamento inclui e confirma o total na revisão da compra simulada. |
-| Compare dois processadores e use um na montagem manual. | A pessoa encontra os preços na mesma linha, entende o tipo de peça e identifica a diferença entre montagem e carrinho. |
-| Aumente o tamanho do texto e ative a redução de movimento. | A pessoa encontra o painel, aplica as duas preferências e identifica o efeito. |
+1. **Encontre uma placa de vídeo que custe até R$ 2.000.** Anote a placa indicada e os filtros que a pessoa usou.
+2. **Encontre um PC para estudar com até R$ 8.500 e revise a compra simulada.** Veja se a pessoa consegue explicar o que o orçamento inclui e encontrar o total.
+3. **Compare dois processadores e use um na montagem manual.** Observe se a pessoa encontra os preços na mesma linha e distingue a montagem do carrinho.
+4. **Aumente o texto e ative a redução de movimento.** Observe se a pessoa encontra o painel e percebe o efeito dos dois ajustes.
 
 Para cada tarefa, registre tempo aproximado, caminho, conclusão e falas que indiquem hesitação. Classifique a conclusão como **sem ajuda**, **com ajuda** ou **interrompida**.
 
@@ -37,19 +35,14 @@ Calcule por pessoa. Nos itens ímpares, use a resposta menos 1. Nos itens pares,
 
 ## Registro das sessões
 
-As linhas abaixo estão reservadas para respostas observadas durante as sessões.
+As sessões ainda estão pendentes. Use o mesmo modelo para todos os participantes e repita o campo de tarefa a cada atividade.
 
-Use uma linha por tarefa. Repita a tabela para cada participante.
+```text
+Participante / tela / navegador
+Tarefa / caminho / tempo aproximado
+Conclusão / dificuldade / ajuda dada
+Comentário da pessoa
+Respostas do SUS de 1 a 10 / pontuação
+```
 
-| Código | Tela e navegador | Tarefa | Conclusão | Tempo | Dificuldade ou ajuda | Comentário | SUS |
-|---|---|---|---|---|---|---|---|
-| — | — | Buscar e filtrar GPU | — | — | — | — | — |
-| — | — | Sugerir e simular compra | — | — | — | — | — |
-| — | — | Comparar e levar uma peça à montagem | — | — | — | — | — |
-| — | — | Ajustar a acessibilidade | — | — | — | — | — |
-
-| Dificuldade observada | Evidência | Ajuste aplicado | Verificação após o ajuste |
-|---|---|---|---|
-| — | — | — | — |
-
-A versão está preparada para a coleta. As sessões com participantes e o registro das correções que elas motivarem estão pendentes.
+Se um problema aparecer, anote a tarefa, o que aconteceu, a mudança proposta e o resultado ao repetir o teste.
