@@ -10,7 +10,7 @@ Esta edição é o pacote local para a apresentação da disciplina.
 
 - Explore o gabinete 3D e abra as categorias clicando nas peças. Os botões abaixo do modelo fazem a mesma coisa pelo teclado.
 - Busque por nome e marca no catálogo. Dá para filtrar por preço, conferir as fichas e comparar até três produtos.
-- Abra o **Simulador**, selecione uma categoria e clique em **Escolher peça** no cartão com foto e preço. Use **Próxima categoria** para avançar ou **Revisar montagem** para conferir a lista e o total. O botão **Exportar PDF** abre a impressão para salvar o resumo.
+- Abra o **Simulador** e escolha uma peça pelo cartão com foto e preço. Use **Continuar montagem** para ir à próxima etapa que falta. Quando a lista de peças essenciais estiver completa e sem incompatibilidades, leve a montagem ao carrinho e use **Simular compra** para revisar os itens e o total.
 - Compare **16 setups** de jogos, estudos, programação, edição de vídeo e produtividade. Cada uso tem opções de entrada, intermediária e avançada. Jogos também tem uma opção premium.
 - No **Guia de componentes**, abra uma categoria para ver o que cada peça faz, a foto do modelo, o preço de referência e a ficha técnica.
 - No botão **Acessibilidade**, experimente trocar o tema, ampliar a fonte, aumentar o contraste ou reduzir movimento.
@@ -42,9 +42,9 @@ O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O
 
 ## Dados e documentação
 
-O catálogo inclui **40 modelos em 19 categorias**, todos com foto e preço de referência pesquisado em 23/11/2026. A indicação de preço histórico identifica uma oferta encerrada ou um produto sem estoque na página consultada. Todos os totais excluem frete. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
+O catálogo inclui **56 modelos em 19 categorias**, todos com foto e preço de referência pesquisado em 23/11/2026. A indicação de preço histórico identifica uma oferta encerrada ou um produto sem estoque na página consultada. Todos os totais excluem frete. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
 
-- [Fontes dos 40 preços e fotos da apresentação](docs/fontes-apresentacao.md)
+- [Fontes dos preços e fotos da apresentação](docs/fontes-apresentacao.md)
 - [Paleta e contraste](docs/wcag-contraste.md) · [Psicologia das cores](docs/psicologia-cores.md)
 - [Design e capturas](docs/design-site.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
 - [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)

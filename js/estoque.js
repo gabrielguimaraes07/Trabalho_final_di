@@ -54,7 +54,7 @@ export const precoEmReais = new Intl.NumberFormat('pt-BR', {
 let catalogo;
 
 export function carregarEstoque() {
-  catalogo ??= fetch(new URL('../data/produtos.json?v=1.0-final', import.meta.url))
+  catalogo ??= fetch(new URL('../data/produtos.json?v=montagem-3', import.meta.url))
     .then(resposta => {
       if (!resposta.ok) throw new Error('Estoque indisponível');
       return resposta.json();

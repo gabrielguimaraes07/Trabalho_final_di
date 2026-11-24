@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=1.0-final';
+import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=montagem-3';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
 
 function resumoProduto(produto) {
@@ -12,6 +12,7 @@ function resumoProduto(produto) {
   imagem.width = 240;
   imagem.height = 180;
   imagem.decoding = 'async';
+  imagem.loading = 'lazy';
 
   const conteudo = document.createElement('div');
   const nome = document.createElement('h3');
@@ -19,9 +20,11 @@ function resumoProduto(produto) {
   const preco = document.createElement('p');
   preco.textContent = mostrarPreco(produto.preco);
   preco.className = 'produto-resumo-preco';
-  const situacao = document.createElement('p');
+  const situacao = document.createElement('a');
   situacao.className = 'estoque-situacao';
   situacao.textContent = rotuloCotacao(produto);
+  situacao.href = produto.fontePreco;
+  situacao.setAttribute('aria-label', rotuloCotacao(produto) + ' de ' + produto.nome);
   const montar = document.createElement('a');
   montar.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
   montar.textContent = 'Usar na montagem';
@@ -78,7 +81,7 @@ export function iniciarGaveta(dialogo) {
     try {
       const catalogo = await carregarEstoque();
       if (selecao !== abertura || !dialogo.open) return;
-      produtos = catalogo.filter(produto => mesmoGrupo(produto, categoria));
+      produtos = catalogo.filter(produto => mesmoGrupo(produto, categoria)).sort((a, b) => a.preco - b.preco);
       busca.disabled = false;
       atualizarLista();
     } catch {

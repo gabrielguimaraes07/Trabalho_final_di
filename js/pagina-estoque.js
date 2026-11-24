@@ -1,9 +1,9 @@
 import { abaPorTecla } from './abas.js?v=1.0-final';
-import { adicionarAoCarrinho } from './carrinho.js?v=1.0-final';
+import { adicionarAoCarrinho } from './carrinho.js?v=montagem-3';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
-import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao } from './estoque.js?v=1.0-final';
+import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao } from './estoque.js?v=montagem-3';
 
-import { lerMontagem, pecaCompativel } from './montagem.js?v=1.0-final';
+import { lerMontagem, pecaCompativel } from './montagem.js?v=montagem-3';
 
 const ordem = [...ordemCatalogo, ...Object.keys(grupos3d)];
 const todas = 'todas';

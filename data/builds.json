@@ -5,23 +5,23 @@
     "uso": "jogar",
     "ocasiao": "jogos",
     "nivel": "entrada",
-    "descricao": "Full HD com RX 6600 e gabinete compacto. Um ponto de partida para jogos leves e competitivos.",
+    "descricao": "RTX 3050 de 6 GB, gabinete compacto e SSD de 1 TB para começar no Full HD.",
     "produtos": [
       "r5600x",
-      "b550",
-      "ddr4",
+      "a520mk",
+      "beast16",
       "mx500",
       "cx550",
       "q300lv2",
       "u12s",
-      "rx6600",
+      "rtx3050",
       "aoc",
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/gamer-entrada.webp",
-    "alt": "Pessoa de fone jogando em uma mesa compacta com um monitor.",
-    "fonteImagem": "https://www.pexels.com/photo/12832570/"
+    "imagem": "assets/img/setups/gamer-entrada-mesa.webp",
+    "alt": "Computador preto, monitor e teclado em uma mesa simples.",
+    "fonteImagem": "https://www.pexels.com/photo/6804581/"
   },
   {
     "id": "gamer-intermediario",
@@ -29,23 +29,23 @@
     "uso": "jogar",
     "ocasiao": "jogos",
     "nivel": "intermediario",
-    "descricao": "RTX 4060, SSD NVMe e monitor de 180 Hz para quem já joga com frequência.",
+    "descricao": "RTX 5060, SSD NVMe e monitor de 180 Hz para quem joga com frequência.",
     "produtos": [
       "r5600x",
       "b550",
       "ddr4",
       "pro980",
-      "cx550",
+      "cx650",
       "case4000d",
       "u12s",
-      "rtx4060",
+      "rtx5060",
       "aoc",
       "k120",
       "g502"
     ],
-    "imagem": "assets/img/setups/gamer-intermediario.webp",
-    "alt": "Pessoa com headset e teclado iluminado jogando em um monitor.",
-    "fonteImagem": "https://www.pexels.com/photo/8791330/"
+    "imagem": "assets/img/setups/gamer-intermediario-mesa.webp",
+    "alt": "Mesa gamer com um monitor ao lado de um gabinete de três ventoinhas vermelhas.",
+    "fonteImagem": "https://www.pexels.com/photo/13071303/"
   },
   {
     "id": "gamer-avancado",
@@ -53,13 +53,13 @@
     "uso": "jogar",
     "ocasiao": "jogos",
     "nivel": "avancado",
-    "descricao": "Ryzen 5, 32 GB de RAM e RTX 4070 SUPER para jogos mais pesados.",
+    "descricao": "Plataforma AM5, 32 GB de memória e RTX 4070 SUPER para jogos mais pesados.",
     "produtos": [
       "r7600",
-      "b650",
+      "b650mp",
       "ddr5",
       "pro980",
-      "rm750x",
+      "a750gl",
       "case4000d",
       "u12s",
       "rtx4070s",
@@ -67,9 +67,9 @@
       "k120",
       "g502"
     ],
-    "imagem": "assets/img/setups/gamer-avancado.webp",
-    "alt": "Jogador com headset usa dois monitores em uma estação gamer.",
-    "fonteImagem": "https://www.pexels.com/photo/7915281/"
+    "imagem": "assets/img/setups/gamer-avancado-mesa.webp",
+    "alt": "Estação com monitor ultrawide, controles e um gabinete branco com lateral de vidro.",
+    "fonteImagem": "https://www.pexels.com/photo/27559560/"
   },
   {
     "id": "gamer-premium",
@@ -77,25 +77,25 @@
     "uso": "jogar",
     "ocasiao": "jogos",
     "nivel": "premium",
-    "descricao": "Ryzen 7, dois SSDs NVMe e refrigeração líquida, com headset e mousepad incluídos.",
+    "descricao": "Ryzen 7, RTX 5070, dois SSDs NVMe, refrigeração líquida e periféricos de jogo.",
     "produtos": [
       "r7700",
       "b650",
       "ddr5",
       "pro980",
       "nv2-2tb",
-      "rm750x",
-      "case4000d",
+      "rm850e",
+      "td500v2",
       "aio240",
-      "rtx4070s",
+      "rtx5070",
       "aoc",
       "k120",
       "g502",
       "qck",
       "cloud2"
     ],
-    "imagem": "assets/img/setups/gamer-premium.webp",
-    "alt": "Jogador em uma mesa com dois monitores e gabinete iluminado.",
+    "imagem": "assets/img/setups/gamer-premium-mesa.webp",
+    "alt": "Jogador diante de dois monitores e gabinete com refrigeração e iluminação RGB.",
     "fonteImagem": "https://www.pexels.com/photo/31862217/"
   },
   {

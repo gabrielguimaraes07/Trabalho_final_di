@@ -58,10 +58,10 @@ As fotos das mesas e das pessoas ilustram o tipo de uso de cada configuração. 
 
 | Configuração | Fotografia |
 |---|---|
-| Gamer de entrada | [Pessoa de fone jogando em uma mesa compacta com um monitor.](https://www.pexels.com/photo/12832570/) |
-| Gamer intermediário | [Pessoa com headset e teclado iluminado jogando em um monitor.](https://www.pexels.com/photo/8791330/) |
-| Gamer avançado | [Jogador com headset usa dois monitores em uma estação gamer.](https://www.pexels.com/photo/7915281/) |
-| Gamer premium | [Jogador em uma mesa com dois monitores e gabinete iluminado.](https://www.pexels.com/photo/31862217/) |
+| Gamer de entrada | [Computador preto, monitor e teclado em uma mesa simples.](https://www.pexels.com/photo/6804581/) |
+| Gamer intermediário | [Mesa gamer com um monitor ao lado de um gabinete de três ventoinhas vermelhas.](https://www.pexels.com/photo/13071303/) |
+| Gamer avançado | [Estação com monitor ultrawide, controles e um gabinete branco com lateral de vidro.](https://www.pexels.com/photo/27559560/) |
+| Gamer premium | [Jogador diante de dois monitores e gabinete com refrigeração e iluminação RGB.](https://www.pexels.com/photo/31862217/) |
 | PC de entrada para estudos | [Pessoa faz anotações ao lado de um computador em uma mesa simples.](https://www.pexels.com/photo/4238496/) |
 | PC intermediário para estudos | [Pessoa à frente de um computador de mesa em um ambiente claro com plantas.](https://www.pexels.com/photo/4185968/) |
 | PC avançado para estudos | [Pessoa trabalha diante de monitores em uma mesa ampla, com luz natural.](https://www.pexels.com/photo/1181635/) |
@@ -74,3 +74,28 @@ As fotos das mesas e das pessoas ilustram o tipo de uso de cada configuração. 
 | Produtividade de entrada | [Pessoa usa teclado e mouse em uma mesa simples com um monitor.](https://www.pexels.com/photo/19238352/) |
 | Produtividade intermediária | [Pessoa organiza documentos em uma mesa com monitor e notebook.](https://www.pexels.com/photo/9301399/) |
 | Produtividade avançada | [Pessoa trabalha em uma mesa com monitor amplo e luminária articulada.](https://www.pexels.com/photo/10050661/) |
+
+- [Ambiente de programação com monitor de código e notebook](https://www.pexels.com/photo/7988087/)
+
+## Peças adicionadas na revisão do montador
+
+Valores consultados em 23/11/2026. O rótulo histórico indica anúncio indisponível na consulta.
+
+| Modelo | Preço de referência | Tipo e fonte | Foto |
+|---|---:|---|---|
+| Corsair CX650 (2023) 650 W | R$ 349,99 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-com-cabo-preto-cp-9020278-br) | [Origem](https://images.kabum.com.br/produtos/fotos/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-sem-cabo-preto-cp-9020278-br_1714483460_g.jpg) |
+| MSI MAG A650BN 650 W | R$ 349,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/369658/fonte-msi-mag-a650bn-650w-80-plus-bronze-pfc-ativo-com-cabo-preto-306-7zp2b22-ce0) | [Origem](https://images.kabum.com.br/produtos/fotos/369658/fonte-msi-mag-a650bn-atx-650w-80-plus-bronze-pfc-ativo-entrada-bivolt-preto-306-7zp2b22-ce0_1665770996_g.jpg) |
+| MSI MAG A750GL PCIE5 750 W | R$ 741,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/462815/fonte-msi-mag-a750gl-750w-80-plus-gold-modular-pfc-ativo-com-cabo-preto) | [Origem](https://images.kabum.com.br/produtos/fotos/462815/fonte-msi-mag-a750gl-pcie5-atx-3-0-750w-80-plus-gold-modular-pfc-ativo-bivolt-preto_1699625425_g.jpg) |
+| Corsair RM850e (2025) 850 W | R$ 699,99 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br) | [Origem](https://images.kabum.com.br/produtos/fotos/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br_1738085690_g.jpg) |
+| MSI GeForce RTX 3050 VENTUS 2X 6G OC | R$ 1.999,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060) | [Origem](https://images.kabum.com.br/produtos/fotos/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060_1770130439_g.jpg) |
+| Sapphire PULSE Radeon RX 7600 8 GB | R$ 1.849,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/461103/placa-de-video-gaming-pulse-amd-radeon-rx-7600-8gb-gddr6-11324-01-20g) | [Origem](https://images.kabum.com.br/produtos/fotos/461103/placa-de-video-rx-7600-pulse-sapphire-gaming-oc-8gb-gddr6-hdmi-triple-dp-11324-01-20g_1686741052_g.jpg) |
+| MSI GeForce RTX 5060 VENTUS 2X OC 8 GB | R$ 3.999,99 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c) | [Origem](https://images.kabum.com.br/produtos/fotos/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c_1749557787_g.jpg) |
+| ASUS Prime GeForce RTX 5070 OC 12 GB | R$ 7.069,41 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/882087/placa-de-video-asus-geforce-rtx-5070-prime-oc-12gb-gddr7-192bits-prime-rtx5070-012g) | [Origem](https://images.kabum.com.br/produtos/fotos/sync_mirakl/882087/xlarge/Placa-De-V-deo-Asus-Prime-Nvidia-Geforce-RTX-5070-Oc-Edition-12gb-Gddr7-Dlss-Ray-Tracing-90yv0m10-m0na00_1791770615.jpg) |
+| ASUS PRIME A520M-K | R$ 499,91 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4-preto-90mb1500-m0eay0) | [Origem](https://images.kabum.com.br/produtos/fotos/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4_1597951180_g.jpg) |
+| MSI PRO B650M-P | R$ 896,99 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p) | [Origem](https://images.kabum.com.br/produtos/fotos/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p_1720007631_g.jpg) |
+| Kingston FURY Beast 16 GB DDR4-3200 KF432C16BB/16 | R$ 645,12 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/509632/memoria-ram-kingston-fury-beast-16gb-3200mhz-ddr4-preto-kf432c16bb-16) | [Origem](https://images.kabum.com.br/produtos/fotos/sync_mirakl/509632/xlarge/Mem-ria-Ram-Kingston-Fury-Beast-16GB-3200MHZ-DDR4-Preto-kf432c16bb-16_1771986262.jpg) |
+| Corsair Vengeance 32 GB DDR5-6000 CMK32GX5M2E6000C36 | R$ 5.199,99 | [Anúncio · KaBuM!](https://www.kabum.com.br/produto/506124/memoria-ram-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-cl36-preto-cmk32gx5m2e6000c36) | [Origem](https://images.kabum.com.br/produtos/fotos/506124/memoria-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-c36-preto-cmk32gx5m2e6000c36_1703857836_g.jpg) |
+| Corsair AF120 ELITE PWM | R$ 109,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/356875/ventoinha-corsair-af120-elite-120mm-preto-co-9050140-ww) | [Origem](https://images.kabum.com.br/produtos/fotos/356875/cooler-fan-corsair-af120-elite-120mm-intel-e-amd-preto-co-9050140-ww_1665516772_g.jpg) |
+| Cooler Master SickleFlow 120 ARGB | R$ 89,99 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/128996/ventoinha-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1) | [Origem](https://images.kabum.com.br/produtos/fotos/128996/cooler-fan-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1_1601488035_g.jpg) |
+| Noctua NF-P12 redux-1700 PWM | R$ 126,21 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm) | [Origem](https://images.kabum.com.br/produtos/fotos/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm_1630675640_g.jpg) |
+| Cooler Master TD500 Mesh V2 | R$ 554,89 | [Histórico · KaBuM!](https://www.kabum.com.br/produto/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00) | [Origem](https://images.kabum.com.br/produtos/fotos/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00_1681765070_g.jpg) |

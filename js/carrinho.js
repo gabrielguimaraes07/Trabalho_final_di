@@ -1,6 +1,6 @@
-import { verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
+import { verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
-import { carregarEstoque, mostrarPreco, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=1.0-final';
+import { carregarEstoque, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=montagem-3';
 
 const chave = 'ggtech-carrinho-real';
 const eventoCarrinho = 'ggtech:carrinho';
@@ -31,7 +31,9 @@ function lerCarrinho() {
     // Um valor inválido pode ser substituído na próxima alteração.
   }
   const itens = Array.isArray(dados?.itens) ? dados.itens.filter(item =>
-    typeof item?.id === 'string' && Number.isSafeInteger(item.quantidade) && item.quantidade > 0) : [];
+    typeof item?.id === 'string' && Number.isSafeInteger(item.quantidade) && item.quantidade > 0).map(item => ({
+      id: item.id, quantidade: item.quantidade, preco: Number.isFinite(item.preco) && item.preco >= 0 ? item.preco : undefined,
+    })) : [];
   const orcamento = Number.isFinite(dados?.orcamento) && dados.orcamento > 0 ? dados.orcamento : orcamentoPadrao;
   memoria = { orcamento, itens };
   return memoria;
@@ -65,6 +67,7 @@ export function adicionarAoCarrinho(produto) {
 export function adicionarConfiguracaoAoCarrinho(produtos, orcamento) {
   const carrinho = lerCarrinho();
   const quantidades = new Map(carrinho.itens.map(({ id, quantidade }) => [id, quantidade]));
+  const cotacoes = new Map(carrinho.itens.map(({ id, preco }) => [id, preco]));
   for (const produto of produtos) {
     const quantidade = (quantidades.get(produto.id) ?? 0) + 1;
     if (quantidade > produto.estoque) return { ok: false, produto };
@@ -73,9 +76,20 @@ export function adicionarConfiguracaoAoCarrinho(produtos, orcamento) {
 
   salvarCarrinho({
     orcamento: orcamento ?? carrinho.orcamento,
-    itens: [...quantidades].map(([id, quantidade]) => ({ id, quantidade })),
+    itens: [...quantidades].map(([id, quantidade]) => ({ id, quantidade, preco: cotacoes.get(id) })),
   });
   return { ok: true };
+}
+
+export function levarMontagemAoCarrinho(itens) {
+  if (!itens.length) return false;
+  const carrinho = lerCarrinho();
+  const selecao = itens.map(({ produto, quantidade, preco }) => ({ id: produto.id, quantidade, preco }));
+  const iguais = selecao.length === carrinho.itens.length && selecao.every(novo => carrinho.itens.some(atual =>
+    atual.id === novo.id && atual.quantidade === novo.quantidade && atual.preco === novo.preco));
+  if (!iguais && carrinho.itens.length && !confirm('Usar as peças desta montagem no lugar dos itens do carrinho?')) return false;
+  salvarCarrinho({ ...carrinho, itens: selecao });
+  return true;
 }
 
 const painel = `
@@ -90,27 +104,42 @@ const painel = `
         </button>
       </header>
 
-      <section class="carrinho-orcamento" aria-labelledby="orcamento-titulo">
-        <h3 id="orcamento-titulo">Orçamento</h3>
-        <p class="carrinho-total" role="status"></p>
-        <progress class="carrinho-progresso" value="0" max="4000" aria-label="Orçamento utilizado"></progress>
-        <p class="carrinho-limite"></p>
-        <form class="carrinho-form-orcamento">
-          <div class="estoque-campo">
-            <label for="orcamento-carrinho">Meu orçamento em reais</label>
-            <input id="orcamento-carrinho" type="number" min="0.01" step="0.01" inputmode="decimal" required>
-          </div>
-          <button class="botao-contorno" type="submit">Salvar</button>
-        </form>
-      </section>
+      <div class="carrinho-conteudo">
+        <section class="carrinho-orcamento" aria-labelledby="orcamento-titulo">
+          <h3 id="orcamento-titulo">Orçamento</h3>
+          <p class="carrinho-total" role="status"></p>
+          <progress class="carrinho-progresso" value="0" max="4000" aria-label="Orçamento utilizado"></progress>
+          <p class="carrinho-limite"></p>
+          <form class="carrinho-form-orcamento">
+            <div class="estoque-campo">
+              <label for="orcamento-carrinho">Meu orçamento em reais</label>
+              <input id="orcamento-carrinho" type="number" min="0.01" step="0.01" inputmode="decimal" required>
+            </div>
+            <button class="botao-contorno" type="submit">Salvar</button>
+          </form>
+        </section>
 
-      <p class="carrinho-status" role="status"></p>
-      <ul class="gaveta-lista carrinho-lista"></ul>
-      <a class="gaveta-link-estoque" href="./estoque.html">Explorar o estoque</a>
+        <button class="botao-primario carrinho-simular" type="button" hidden>Simular compra</button>
+        <p class="carrinho-status" role="status"></p>
+        <ul class="gaveta-lista carrinho-lista"></ul>
+        <a class="gaveta-link-estoque" href="./estoque.html">Explorar o estoque</a>
 
-      <section class="carrinho-compatibilidade" aria-labelledby="compatibilidade-titulo" hidden>
-        <h3 id="compatibilidade-titulo">Compatibilidade</h3>
-        <ul></ul>
+        <section class="carrinho-compatibilidade" aria-labelledby="compatibilidade-titulo" hidden>
+          <h3 id="compatibilidade-titulo">Compatibilidade</h3>
+          <ul></ul>
+        </section>
+      </div>
+      <section class="carrinho-compra" aria-labelledby="compra-titulo" hidden>
+        <h3 id="compra-titulo" tabindex="-1">Revisar compra simulada</h3>
+        <p>Esta é uma demonstração. O total usa os preços de referência do carrinho.</p>
+        <ul class="compra-itens"></ul>
+        <p class="compra-total"></p>
+        <p class="compra-alerta" hidden></p>
+        <p class="compra-confirmacao" role="status"></p>
+        <div class="compra-acoes">
+          <button class="botao-primario compra-confirmar" type="button">Confirmar simulação</button>
+          <button class="botao-contorno compra-voltar" type="button">Voltar ao carrinho</button>
+        </div>
       </section>
     </div>
   </dialog>
@@ -128,13 +157,22 @@ function botaoQuantidade(acao, produto, texto, rotulo, desativado = false) {
   return botao;
 }
 
-function criarItem({ produto, quantidade }) {
+function criarItem({ produto, quantidade, preco }) {
   const item = document.createElement('li');
   item.className = 'carrinho-item';
   const titulo = document.createElement('h3');
   titulo.textContent = produto.nome;
   const subtotal = document.createElement('p');
-  subtotal.textContent = mostrarPreco(produto.preco === null ? null : produto.preco * quantidade);
+  subtotal.textContent = mostrarSubtotal(somarItens([{ produto, quantidade, preco }]));
+  if (produto.imagem) {
+    const imagem = document.createElement('img');
+    imagem.src = produto.imagem;
+    imagem.alt = '';
+    imagem.width = 80;
+    imagem.height = 60;
+    item.append(imagem);
+  }
+  const dados = document.createElement('div');
   const controles = document.createElement('div');
   controles.className = 'carrinho-quantidade';
   const valor = document.createElement('span');
@@ -145,7 +183,8 @@ function criarItem({ produto, quantidade }) {
     botaoQuantidade('aumentar', produto, '+', 'Aumentar quantidade de', quantidade >= produto.estoque),
     botaoQuantidade('remover', produto, 'Remover', 'Remover'),
   );
-  item.append(titulo, subtotal, controles);
+  dados.append(titulo, subtotal, controles);
+  item.append(dados);
   return item;
 }
 
@@ -164,7 +203,22 @@ export function iniciarCarrinho(acionador) {
   document.body.insertAdjacentHTML('beforeend', painel);
   const dialogo = document.querySelector('#gaveta-carrinho');
   const fechar = dialogo.querySelector('.gaveta-fechar');
-  const abrir = configurarGaveta(dialogo, fechar);
+  const conteudo = dialogo.querySelector('.carrinho-conteudo');
+  const simular = dialogo.querySelector('.carrinho-simular');
+  const compra = dialogo.querySelector('.carrinho-compra');
+  const tituloCompra = compra.querySelector('h3');
+  const linhaCompra = compra.querySelector('.compra-itens');
+  const totalCompra = compra.querySelector('.compra-total');
+  const alertaCompra = compra.querySelector('.compra-alerta');
+  const confirmacaoCompra = compra.querySelector('.compra-confirmacao');
+  const confirmar = compra.querySelector('.compra-confirmar');
+  const voltar = compra.querySelector('.compra-voltar');
+  function voltarAoCarrinho() {
+    compra.hidden = true;
+    conteudo.hidden = false;
+    confirmacaoCompra.textContent = '';
+  }
+  const abrir = configurarGaveta(dialogo, fechar, voltarAoCarrinho);
   const contador = acionador.querySelector('.carrinho-contador');
   const lista = dialogo.querySelector('.carrinho-lista');
   const mensagem = dialogo.querySelector('.carrinho-status');
@@ -206,8 +260,21 @@ export function iniciarCarrinho(acionador) {
     mensagem.hidden = temItens;
     const foco = lista.contains(document.activeElement) ? document.activeElement : null;
     lista.replaceChildren(...itens.map(criarItem));
+    simular.hidden = !temItens;
     compatibilidade.hidden = !temItens;
-    resultados.replaceChildren(...(temItens ? verificarCompatibilidade(itens).map(criarResultado) : []));
+    const regras = temItens ? verificarCompatibilidade(itens) : [];
+    resultados.replaceChildren(...regras.map(criarResultado));
+    if (!compra.hidden) {
+      linhaCompra.replaceChildren(...itens.map(({ produto, quantidade, preco }) => {
+        const linha = document.createElement('li');
+        linha.textContent = quantidade + ' × ' + produto.nome + ' · ' + mostrarSubtotal(somarItens([{ produto, quantidade, preco }]));
+        return linha;
+      }));
+      totalCompra.textContent = 'Total sem frete · ' + mostrarSubtotal(cotacao);
+      alertaCompra.hidden = !regras.some(regra => regra.estado === 'erro');
+      alertaCompra.textContent = 'Há incompatibilidades entre as peças. Confira os alertas no carrinho.';
+      confirmar.disabled = !temItens || !!confirmacaoCompra.textContent;
+    }
     if (foco) {
       const linha = lista.querySelectorAll('button:not(:disabled)');
       const mesmoProduto = [...linha].filter(botao => botao.dataset.id === foco.dataset.id);
@@ -216,9 +283,10 @@ export function iniciarCarrinho(acionador) {
     }
   }
 
-  acionador.addEventListener('click', async () => {
+  async function mostrarCarrinho(origem) {
+    if (dialogo.open) return;
     falha = false;
-    abrir(acionador);
+    abrir(origem);
     atualizar();
     if (produtos) return;
     try {
@@ -228,6 +296,23 @@ export function iniciarCarrinho(acionador) {
       falha = true;
     }
     atualizar();
+  }
+  acionador.addEventListener('click', () => mostrarCarrinho(acionador));
+  window.addEventListener('ggtech:abrir-carrinho', evento => mostrarCarrinho(evento.detail));
+  simular.addEventListener('click', () => {
+    conteudo.hidden = true;
+    compra.hidden = false;
+    atualizar();
+    tituloCompra.focus();
+  });
+  voltar.addEventListener('click', () => {
+    voltarAoCarrinho();
+    (simular.hidden ? fechar : simular).focus();
+  });
+  confirmar.addEventListener('click', () => {
+    confirmacaoCompra.textContent = 'Simulação concluída. As peças continuam no seu carrinho.';
+    confirmar.disabled = true;
+    voltar.focus();
   });
   lista.addEventListener('click', evento => {
     const botao = evento.target.closest('button[data-acao]');

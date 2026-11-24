@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=1.0-final">
     <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
-    <link rel="stylesheet" href="css/loja.css?v=1.0-final">
-    <link rel="stylesheet" href="css/montador.css?v=setups-2">
+    <link rel="stylesheet" href="css/loja.css?v=montagem-3">
+    <link rel="stylesheet" href="css/montador.css?v=montagem-3">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
     <script type="importmap">
       {
@@ -26,7 +26,7 @@
         }
       }
     </script>
-    <script type="module" src="js/main.js?v=setups-2"></script>
+    <script type="module" src="js/main.js?v=montagem-3"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -74,7 +74,7 @@
         <div class="hero-copy">
           <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
           <p>Entenda o que cada peça faz e escolha o que você precisa para jogar, estudar, trabalhar ou criar conteúdo.</p>
-          <a class="botao-primario" href="./montador.html">Começar a montar</a>
+          <a class="botao-primario" href="./simulador.html">Montar meu PC</a>
         </div>
 
         <div class="visualizador">
@@ -198,6 +198,8 @@
                 <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para jogar" aria-current="true"></button>
                 <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para estudar"></button>
                 <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para criar conteúdo"></button>
+                <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para programar"></button>
+                <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para produtividade"></button>
               </div>
               <button type="button" class="botao-contorno carrossel-seta" data-passo="1" aria-label="Próximo setup">
                 <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
@@ -205,17 +207,25 @@
             </div>
           </div>
           <div class="carrossel-imagens">
-            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 3">
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 5">
               <img src="assets/img/apresentacao/jogos.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa gamer com gabinete branco e monitor ligado.">
               <figcaption><h3>Setup para jogar</h3><p>Monitor central e espaço livre para movimentar o mouse.</p></figcaption>
             </figure>
-            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 3" hidden>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 5" hidden>
               <img src="assets/img/apresentacao/estudo.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Monitor, teclado e uma planta em uma mesa de estudo.">
               <figcaption><h3>Setup para estudar</h3><p>Uma luminária e uma área para o caderno ajudam na hora de ler e fazer anotações.</p></figcaption>
             </figure>
-            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 3" hidden>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 5" hidden>
               <img src="assets/img/apresentacao/criacao.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa com dois monitores, teclado e iluminação azul.">
               <figcaption><h3>Setup para criar conteúdo</h3><p>Uma tela ampla ajuda na edição. Microfone e fones ficam à mão para gravar e revisar o áudio.</p></figcaption>
+            </figure>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="4 de 5" hidden>
+              <img src="assets/img/setups/ambiente-programacao.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Pessoa com notebook diante de um monitor aberto em um editor de código.">
+              <figcaption><h3>Setup para programar</h3><p>Uma tela maior deixa o código visível enquanto o terminal roda no notebook.</p></figcaption>
+            </figure>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="5 de 5" hidden>
+              <img src="assets/img/setups/produtividade-intermediario.webp" width="960" height="540" loading="lazy" decoding="async" alt="Pessoa conferindo papéis ao lado de um monitor e notebook.">
+              <figcaption><h3>Setup para trabalhar</h3><p>A mesa deixa espaço para documentos ao lado do monitor e do notebook.</p></figcaption>
             </figure>
           </div>
           <p class="somente-leitores carrossel-status" role="status"></p>

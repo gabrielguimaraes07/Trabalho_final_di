@@ -126,8 +126,17 @@
   .sim-linha, .sim-peca { break-inside: avoid; }
 }
 
-.setup-notebook { max-inline-size: 52rem; }
-.setup-notebook > p { margin-block-start: var(--space-1); }
+.setup-programacao { margin-block-start: var(--space-3); scroll-margin-block-start: 10rem; }
+.setup-programacao-grade { display: grid; gap: var(--space-2); }
+.setup-programacao-foto { margin: 0; min-inline-size: 0; }
+.setup-programacao-foto img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
+.setup-programacao-foto figcaption { margin-block-start: .45rem; color: var(--text-2); }
+.setup-notebook { border-radius: var(--radius-card); background: var(--bg); padding: var(--space-2); min-inline-size: 0; }
+.setup-notebook > h3 { margin: 0 0 var(--space-1); font-size: var(--font-20); }
+.setup-notebook > p { margin-block-start: var(--space-1); font-size: var(--font-14); }
+@media (min-width: 50rem) {
+  .setup-programacao-grade { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+}
 .notebook-foto { position: relative; margin: 0 0 var(--space-1); }
 .notebook-foto > img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
 .notebook-tela {
@@ -162,6 +171,16 @@
 }
 .sim-categorias button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 700; }
 .sim-categorias button[data-preenchida]::after { content: ' ✓'; }
+.sim-escolha details summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
+#sim-categorias { margin-block-end: var(--space-2); }
+#sim-categoria-titulo { scroll-margin-block-start: 10rem; }
+#sim-etapas { inline-size: 100%; block-size: .7rem; accent-color: var(--btn-primary); }
+#sim-essenciais { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); gap: .1rem .65rem; padding: 0; }
+#sim-essenciais button { text-align: start; }
+.sim-envio { display: grid; gap: .35rem; align-content: start; }
+.sim-envio button:disabled { background: var(--bg); color: var(--text-2); border-color: var(--text-2); cursor: default; text-decoration: none; }
+.sim-envio p, .sim-filtros #sim-categoria-dica { color: var(--text-2); font-size: var(--font-14); }
+#sim-conflito-atual { border-inline-start: 3px solid var(--danger); padding: .5rem .75rem; margin-block-end: .8rem; }
 .sim-filtros { display: flex; align-items: end; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; margin-block-end: 1rem; }
 .sim-filtros h3 { margin: 0; font-size: var(--font-20); }
 .sim-filtros p { color: var(--text-2); font-size: var(--font-14); }
@@ -199,5 +218,5 @@
 .sim-cotacao { flex: 1 1 7rem; min-inline-size: 0; font-size: var(--font-14); }
 #sim-resumo-titulo { scroll-margin-block-start: 8rem; }
 @media print {
-  .sim-atalhos, .sim-resumo > details { display: none !important; }
+  .sim-atalhos, .sim-envio, .sim-resumo > details { display: none !important; }
 }

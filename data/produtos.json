@@ -307,7 +307,8 @@
         "HDMI",
         "DisplayPort"
       ],
-      "classe": 3
+      "classe": 3,
+      "pcie16": true
     },
     "preco": 4699.99,
     "estoque": 99,
@@ -1292,5 +1293,587 @@
     "tipoPreco": "Anúncio",
     "lojaPreco": "KaBuM!",
     "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "cx650",
+    "categoria": "fonte",
+    "nome": "Corsair CX650 (2023) 650 W",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020278-na/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-cp-9020278-na",
+    "descricao": "Fonte ATX de 650 W. Os dois conectores PCIe ficam no mesmo cabo.",
+    "destaque": "Fonte ATX de 650 W. Os dois conectores PCIe ficam no mesmo cabo.",
+    "specs": {
+      "Potência": "650 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Bronze",
+      "Cabeamento": "Fixo"
+    },
+    "compat": {
+      "potencia": 650,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 3
+    },
+    "preco": 349.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-com-cabo-preto-cp-9020278-br",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cx650.webp",
+    "alt": "Foto de Corsair CX650 (2023) 650 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-sem-cabo-preto-cp-9020278-br_1714483460_g.jpg"
+  },
+  {
+    "id": "a650bn",
+    "categoria": "fonte",
+    "nome": "MSI MAG A650BN 650 W",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Power-Supply/MAG-A650BN/Specification",
+    "descricao": "Fonte ATX de 650 W com cinco conectores de energia SATA.",
+    "destaque": "Fonte ATX de 650 W com cinco conectores de energia SATA.",
+    "specs": {
+      "Potência": "650 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Bronze",
+      "Cabeamento": "Fixo"
+    },
+    "compat": {
+      "potencia": 650,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 5
+    },
+    "preco": 349.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/369658/fonte-msi-mag-a650bn-650w-80-plus-bronze-pfc-ativo-com-cabo-preto-306-7zp2b22-ce0",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a650bn.webp",
+    "alt": "Foto de MSI MAG A650BN 650 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/369658/fonte-msi-mag-a650bn-atx-650w-80-plus-bronze-pfc-ativo-entrada-bivolt-preto-306-7zp2b22-ce0_1665770996_g.jpg"
+  },
+  {
+    "id": "a750gl",
+    "categoria": "fonte",
+    "nome": "MSI MAG A750GL PCIE5 750 W",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Power-Supply/MAG-A750GL-PCIE5/Specification",
+    "descricao": "Fonte modular de 750 W com cabo direto de 16 pinos para placas compatíveis.",
+    "destaque": "Fonte modular de 750 W com cabo direto de 16 pinos para placas compatíveis.",
+    "specs": {
+      "Potência": "750 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Gold",
+      "Cabeamento": "Modular"
+    },
+    "compat": {
+      "potencia": 750,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 3,
+      "cabosPcie": 2,
+      "sata": 8,
+      "pcie16": true
+    },
+    "preco": 741.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/462815/fonte-msi-mag-a750gl-750w-80-plus-gold-modular-pfc-ativo-com-cabo-preto",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a750gl.webp",
+    "alt": "Foto de MSI MAG A750GL PCIE5 750 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/462815/fonte-msi-mag-a750gl-pcie5-atx-3-0-750w-80-plus-gold-modular-pfc-ativo-bivolt-preto_1699625425_g.jpg"
+  },
+  {
+    "id": "rm850e",
+    "categoria": "fonte",
+    "nome": "Corsair RM850e (2025) 850 W",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/ww/en/p/psu/cp-9020296-ww/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-ww-cp-9020296-ww",
+    "descricao": "Fonte ATX 3.1 modular de 850 W com cabo 12V-2x6 de 16 pinos.",
+    "destaque": "Fonte ATX 3.1 modular de 850 W com cabo 12V-2x6 de 16 pinos.",
+    "specs": {
+      "Potência": "850 W",
+      "Formato": "ATX",
+      "Certificação": "Cybenetics Gold",
+      "Cabeamento": "Modular"
+    },
+    "compat": {
+      "potencia": 850,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 3,
+      "cabosPcie": 2,
+      "sata": 6,
+      "pcie16": true
+    },
+    "preco": 699.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rm850e.webp",
+    "alt": "Foto de Corsair RM850e (2025) 850 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br_1738085690_g.jpg"
+  },
+  {
+    "id": "rtx3050",
+    "categoria": "gpu",
+    "nome": "MSI GeForce RTX 3050 VENTUS 2X 6G OC",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Graphics-Card/GeForce-RTX-3050-VENTUS-2X-6G-OC/Specification",
+    "descricao": "Placa de vídeo de 6 GB alimentada pelo slot PCIe da placa-mãe.",
+    "destaque": "Placa de vídeo de 6 GB alimentada pelo slot PCIe da placa-mãe.",
+    "specs": {
+      "VRAM": "6 GB GDDR6",
+      "Comprimento": "189 mm",
+      "Alimentação": "Pelo slot PCIe",
+      "Fonte recomendada": "300 W"
+    },
+    "compat": {
+      "vram": 6,
+      "mm": 189,
+      "tdp": 70,
+      "recomenda": 300,
+      "pcie8": 0,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 0
+    },
+    "preco": 1999.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx3050.webp",
+    "alt": "Foto de MSI GeForce RTX 3050 VENTUS 2X 6G OC",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060_1770130439_g.jpg"
+  },
+  {
+    "id": "rx7600",
+    "categoria": "gpu",
+    "nome": "Sapphire PULSE Radeon RX 7600 8 GB",
+    "marca": "Sapphire",
+    "fonte": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-7600-8g-gddr6",
+    "descricao": "Placa de vídeo de duas ventoinhas para jogos em Full HD.",
+    "destaque": "Placa de vídeo de duas ventoinhas para jogos em Full HD.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "240 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 240,
+      "tdp": 185,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": 1849.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/461103/placa-de-video-gaming-pulse-amd-radeon-rx-7600-8gb-gddr6-11324-01-20g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rx7600.webp",
+    "alt": "Foto de Sapphire PULSE Radeon RX 7600 8 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/461103/placa-de-video-rx-7600-pulse-sapphire-gaming-oc-8gb-gddr6-hdmi-triple-dp-11324-01-20g_1686741052_g.jpg"
+  },
+  {
+    "id": "rtx5060",
+    "categoria": "gpu",
+    "nome": "MSI GeForce RTX 5060 VENTUS 2X OC 8 GB",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Graphics-Card/GeForce-RTX-5060-8G-VENTUS-2X-OC/Specification",
+    "descricao": "Placa de vídeo compacta de 8 GB GDDR7 para jogos e criação.",
+    "destaque": "Placa de vídeo compacta de 8 GB GDDR7 para jogos e criação.",
+    "specs": {
+      "VRAM": "8 GB GDDR7",
+      "Comprimento": "197 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 197,
+      "tdp": 145,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": 3999.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx5060.webp",
+    "alt": "Foto de MSI GeForce RTX 5060 VENTUS 2X OC 8 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c_1749557787_g.jpg"
+  },
+  {
+    "id": "rtx5070",
+    "categoria": "gpu",
+    "nome": "ASUS Prime GeForce RTX 5070 OC 12 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/prime/prime-rtx5070-o12g/techspec/",
+    "descricao": "Placa de vídeo de 12 GB com alimentação de 16 pinos. Inclui adaptador para dois conectores PCIe.",
+    "destaque": "Placa de vídeo de 12 GB com alimentação de 16 pinos. Inclui adaptador para dois conectores PCIe.",
+    "specs": {
+      "VRAM": "12 GB GDDR7",
+      "Comprimento": "304 mm",
+      "Alimentação": "16 pinos, adaptador 2 × 8 pinos",
+      "Fonte recomendada": "750 W"
+    },
+    "compat": {
+      "vram": 12,
+      "mm": 304,
+      "tdp": 250,
+      "recomenda": 750,
+      "pcie8": 2,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 3,
+      "cabosPcie": 2,
+      "pcie16": true
+    },
+    "preco": 7069.41,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/882087/placa-de-video-asus-geforce-rtx-5070-prime-oc-12gb-gddr7-192bits-prime-rtx5070-012g",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx5070.webp",
+    "alt": "Foto de ASUS Prime GeForce RTX 5070 OC 12 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/882087/xlarge/Placa-De-V-deo-Asus-Prime-Nvidia-Geforce-RTX-5070-Oc-Edition-12gb-Gddr7-Dlss-Ray-Tracing-90yv0m10-m0na00_1791770615.jpg"
+  },
+  {
+    "id": "a520mk",
+    "categoria": "placa-mae",
+    "nome": "ASUS PRIME A520M-K",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/",
+    "descricao": "Placa compacta AM4 com dois slots de memória DDR4 e um slot M.2 PCIe 3.0.",
+    "destaque": "Placa compacta AM4 com dois slots de memória DDR4 e um slot M.2 PCIe 3.0.",
+    "specs": {
+      "Socket": "AM4",
+      "Memória": "2 slots DDR4",
+      "Armazenamento": "1 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM4",
+      "ddr": "DDR4",
+      "slotsRam": 2,
+      "limiteRam": 64,
+      "formato": "Micro-ATX",
+      "nvme": 1,
+      "sata": 4,
+      "fans": 1,
+      "eps": 1,
+      "pcieNvme": 3,
+      "video": [
+        "HDMI",
+        "VGA"
+      ]
+    },
+    "preco": 499.91,
+    "estoque": 99,
+    "nivel": "entrada",
+    "fontePreco": "https://www.kabum.com.br/produto/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4-preto-90mb1500-m0eay0",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a520mk.webp",
+    "alt": "Foto de ASUS PRIME A520M-K",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4_1597951180_g.jpg"
+  },
+  {
+    "id": "b650mp",
+    "categoria": "placa-mae",
+    "nome": "MSI PRO B650M-P",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/PRO-B650M-P/Specification",
+    "descricao": "Placa micro-ATX AM5 com quatro slots de RAM e dois slots M.2 PCIe 4.0.",
+    "destaque": "Placa micro-ATX AM5 com quatro slots de RAM e dois slots M.2 PCIe 4.0.",
+    "specs": {
+      "Socket": "AM5",
+      "Memória": "4 slots DDR5",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM5",
+      "ddr": "DDR5",
+      "slotsRam": 4,
+      "limiteRam": 256,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": 896.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b650mp.webp",
+    "alt": "Foto de MSI PRO B650M-P",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p_1720007631_g.jpg"
+  },
+  {
+    "id": "beast16",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 16 GB DDR4-3200 KF432C16BB/16",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF432C16BB_16.pdf",
+    "descricao": "Um módulo DDR4 de 16 GB, que ocupa um slot.",
+    "destaque": "Um módulo DDR4 de 16 GB, que ocupa um slot.",
+    "specs": {
+      "Tipo": "DDR4",
+      "Capacidade": "16 GB (1 × 16 GB)",
+      "Taxa": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4",
+      "gb": 16,
+      "slots": 1
+    },
+    "preco": 645.12,
+    "estoque": 99,
+    "nivel": "entrada",
+    "fontePreco": "https://www.kabum.com.br/produto/509632/memoria-ram-kingston-fury-beast-16gb-3200mhz-ddr4-preto-kf432c16bb-16",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/beast16.webp",
+    "alt": "Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BB/16",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/509632/xlarge/Mem-ria-Ram-Kingston-Fury-Beast-16GB-3200MHZ-DDR4-Preto-kf432c16bb-16_1771986262.jpg"
+  },
+  {
+    "id": "vengeance32",
+    "categoria": "ram",
+    "nome": "Corsair Vengeance 32 GB DDR5-6000 CMK32GX5M2E6000C36",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2e6000c36/vengeance-32gb-2x16gb-ddr5-dram-6000mt-s-cl36-memory-kit-black-cmk32gx5m2e6000c36",
+    "descricao": "Kit com dois módulos DDR5 de 16 GB. Confira o perfil de memória da placa-mãe.",
+    "destaque": "Kit com dois módulos DDR5 de 16 GB. Confira o perfil de memória da placa-mãe.",
+    "specs": {
+      "Tipo": "DDR5",
+      "Capacidade": "32 GB (2 × 16 GB)",
+      "Taxa": "6000 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5",
+      "gb": 32,
+      "slots": 2
+    },
+    "preco": 5199.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/506124/memoria-ram-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-cl36-preto-cmk32gx5m2e6000c36",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/vengeance32.webp",
+    "alt": "Foto de Corsair Vengeance 32 GB DDR5-6000 CMK32GX5M2E6000C36",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/506124/memoria-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-c36-preto-cmk32gx5m2e6000c36_1703857836_g.jpg"
+  },
+  {
+    "id": "af120",
+    "categoria": "ventoinhas",
+    "nome": "Corsair AF120 ELITE PWM",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/case-fans/co-9050140-ww/af120-elite-high-performance-120mm-pwm-fluid-dynamic-bearing-fan-co-9050140-ww",
+    "descricao": "Ventoinha PWM de 120 mm com rolamento fluido.",
+    "destaque": "Ventoinha PWM de 120 mm com rolamento fluido.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1850 RPM"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 4
+    },
+    "preco": 109.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/356875/ventoinha-corsair-af120-elite-120mm-preto-co-9050140-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/af120.webp",
+    "alt": "Foto de Corsair AF120 ELITE PWM",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/356875/cooler-fan-corsair-af120-elite-120mm-intel-e-amd-preto-co-9050140-ww_1665516772_g.jpg"
+  },
+  {
+    "id": "sickleflow",
+    "categoria": "ventoinhas",
+    "nome": "Cooler Master SickleFlow 120 ARGB",
+    "marca": "Cooler Master",
+    "fonte": "https://www.coolermaster.com/en-global/products/sickleflow-120-argb.html",
+    "descricao": "Ventoinha PWM de 120 mm com conector separado ARGB de 5 V para a iluminação.",
+    "destaque": "Ventoinha PWM de 120 mm com conector separado ARGB de 5 V para a iluminação.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1800 RPM",
+      "Iluminação": "ARGB 5 V, 3 pinos"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 2
+    },
+    "preco": 89.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/128996/ventoinha-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/sickleflow.webp",
+    "alt": "Foto de Cooler Master SickleFlow 120 ARGB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/128996/cooler-fan-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1_1601488035_g.jpg"
+  },
+  {
+    "id": "p12redux",
+    "categoria": "ventoinhas",
+    "nome": "Noctua NF-P12 redux-1700 PWM",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nf-p12-redux-1700-pwm/specification",
+    "descricao": "Ventoinha PWM de 120 mm para gabinete ou radiador.",
+    "destaque": "Ventoinha PWM de 120 mm para gabinete ou radiador.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1700 RPM"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 2
+    },
+    "preco": 126.21,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/p12redux.webp",
+    "alt": "Foto de Noctua NF-P12 redux-1700 PWM",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm_1630675640_g.jpg"
+  },
+  {
+    "id": "td500v2",
+    "categoria": "gabinete",
+    "nome": "Cooler Master TD500 Mesh V2",
+    "marca": "Cooler Master",
+    "fonte": "https://www.coolermaster.com/en-us/products/masterbox-td500-mesh-v2.html",
+    "descricao": "Gabinete ATX com frente ventilada, três ventoinhas ARGB e espaço para placas longas.",
+    "destaque": "Gabinete ATX com frente ventilada, três ventoinhas ARGB e espaço para placas longas.",
+    "specs": {
+      "Formato": "ATX, Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 410 mm",
+      "Air cooler": "Até 165 mm",
+      "Radiador": "Até 360 mm na frente e no topo"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 410,
+      "altura": 165,
+      "baias25": 3,
+      "baias35": 2,
+      "fans": {
+        "frente": [
+          3,
+          2
+        ],
+        "topo": [
+          3,
+          2
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "topo": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 3
+    },
+    "preco": 554.89,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/td500v2.webp",
+    "alt": "Foto de Cooler Master TD500 Mesh V2",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00_1681765070_g.jpg"
   }
 ]

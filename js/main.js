@@ -1,11 +1,11 @@
-import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=1.0-final';
-import { iniciarGaveta } from './gaveta.js?v=1.0-final';
+import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=montagem-3';
+import { iniciarGaveta } from './gaveta.js?v=montagem-3';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
-import { iniciarCarrinho } from './carrinho.js?v=1.0-final';
-import { iniciarPaginaEstoque } from './pagina-estoque.js?v=1.0-final';
-import { iniciarMontador } from './montador.js?v=setups-2';
-import { iniciarBuildsProntos } from './builds-prontos.js?v=setups-2';
+import { iniciarCarrinho } from './carrinho.js?v=montagem-3';
+import { iniciarPaginaEstoque } from './pagina-estoque.js?v=montagem-3';
+import { iniciarMontador } from './montador.js?v=montagem-3';
+import { iniciarBuildsProntos } from './builds-prontos.js?v=montagem-3';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
@@ -165,10 +165,10 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js?v=1.0-final').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+if (simulador) import('./simulador.js?v=montagem-3').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
-if (guia) import('./guia.js?v=setups-2').then(({ iniciarGuia }) => iniciarGuia(guia));
+if (guia) import('./guia.js?v=montagem-3').then(({ iniciarGuia }) => iniciarGuia(guia));
 
 const videoNotebook = document.querySelector('[data-video-notebook]');
 if (videoNotebook) {

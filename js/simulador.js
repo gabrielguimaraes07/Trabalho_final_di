@@ -1,7 +1,8 @@
-import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, ordemCatalogo, rotuloCotacao, somarItens } from './estoque.js?v=1.0-final';
-import { categoriasMultiplas, estimarConsumo, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
+import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, rotuloCotacao, somarItens } from './estoque.js?v=montagem-3';
+import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
+import { levarMontagemAoCarrinho } from './carrinho.js?v=montagem-3';
 import { gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
-  normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js?v=1.0-final';
+  normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js?v=montagem-3';
 
 function elemento(tag, texto, atributos = {}) {
   const no = document.createElement(tag);
@@ -75,12 +76,19 @@ function montarLinha(item) {
   return linha;
 }
 
-function testarCompletude(itens) {
-  const categorias = new Set(itens.map(({ produto }) => produto.categoria));
-  return ['cpu', 'placa-mae', 'ram', 'fonte', 'gabinete'].every(categoria => categorias.has(categoria))
-    && ['ssd-nvme', 'ssd-sata', 'hd'].some(categoria => categorias.has(categoria))
-    && ['air-cooler', 'water-cooler'].some(categoria => categorias.has(categoria))
-    && (categorias.has('gpu') || itens.some(({ produto }) => produto.categoria === 'cpu' && produto.compat.video));
+const etapas = [
+  ['Processador', 'cpu'], ['Placa-mãe', 'placa-mae'], ['Memória RAM', 'ram'],
+  ['Armazenamento', 'ssd-nvme', 'ssd-sata', 'hd'], ['Saída de vídeo', 'gpu'],
+  ['Fonte', 'fonte'], ['Gabinete', 'gabinete'], ['Refrigeração', 'air-cooler', 'water-cooler'],
+];
+
+function estadoDasEtapas(itens) {
+  const escolhidas = new Set(itens.map(({ produto }) => produto.categoria));
+  const videoIntegrado = itens.some(({ produto }) => produto.categoria === 'cpu' && produto.compat.video);
+  return etapas.map(([nome, categoria, ...alternativas]) => ({
+    nome, categoria,
+    pronta: escolhidas.has(categoria) || alternativas.some(id => escolhidas.has(id)) || (categoria === 'gpu' && videoIntegrado),
+  }));
 }
 
 export async function iniciarSimulador(raiz) {
@@ -123,16 +131,23 @@ export async function iniciarSimulador(raiz) {
   const compativeis = localizar('#sim-compativeis');
   const proxima = localizar('#sim-proxima');
   const lista = localizar('#sim-lista');
+  const essenciais = localizar('#sim-essenciais');
+  const levar = localizar('#sim-levar-carrinho');
+  const tituloCategoria = localizar('#sim-categoria-titulo');
   const salvas = localizar('#sim-salvas');
   const comparar = localizar('#sim-comparar');
   const saidaComparacao = localizar('#sim-comparacao');
   const nome = localizar('#sim-nome');
   const link = localizar('#sim-link');
   let categoria = sugestao?.categoria ?? 'cpu';
+  let proximaEtapa;
 
-  grupos.append(...ordemCatalogo.map(id => elemento('button', categorias[id].nome, {
-    type: 'button', 'data-categoria': id, 'aria-pressed': 'false',
-  })));
+  const ordemMontagem = [...etapas.flatMap(([, ...ids]) => ids), 'ventoinhas', ...perifericos];
+  for (const id of ordemMontagem) {
+    const grupo = localizar(perifericos.has(id) ? '#sim-externas' : '#sim-internas');
+    grupo.append(elemento('button', categorias[id].nome, { type: 'button', 'data-categoria': id, 'aria-pressed': 'false' }));
+  }
+  if (perifericos.has(categoria)) localizar('#sim-opcionais').open = true;
 
   function cartao(produto, jaNaMontagem, compativel, categoriaOcupada) {
     const bloco = elemento('article', undefined, { class: 'sim-card', 'data-selecionada': String(!!jaNaMontagem) });
@@ -159,32 +174,37 @@ export async function iniciarSimulador(raiz) {
     });
     botao.setAttribute('aria-disabled', String(!!jaNaMontagem && (!multipla || jaNaMontagem.quantidade >= 20)));
     dados.append(botao);
+    if (jaNaMontagem) dados.append(elemento('button', proximaEtapa ? 'Continuar montagem' : 'Revisar montagem', {
+      type: 'button', class: 'botao-texto', 'data-continuar': '',
+    }));
     bloco.append(dados);
     return bloco;
   }
 
   function atualizarOpcoes() {
     const preenchidas = new Set(itensDaMontagem(linhas, catalogo).map(({ produto }) => produto.categoria));
-    for (const botao of grupos.children) {
+    for (const botao of grupos.querySelectorAll('[data-categoria]')) {
       botao.setAttribute('aria-pressed', String(botao.dataset.categoria === categoria));
       botao.toggleAttribute('data-preenchida', preenchidas.has(botao.dataset.categoria));
     }
     const escolhas = catalogo.filter(produto => produto.categoria === categoria)
       .map(produto => ({ produto, compativel: pecaCompativel(linhas, produto, catalogo),
         item: linhas.find(linha => linha.id === produto.id) }))
-      .filter(({ compativel, item }) => !compativeis.checked || compativel || item);
-    localizar('#sim-categoria-titulo').textContent = categorias[categoria].nome;
+      .filter(({ compativel, item }) => !compativeis.checked || compativel || item)
+      .sort((a, b) => Number(b.compativel) - Number(a.compativel) || a.produto.preco - b.produto.preco);
+    tituloCategoria.textContent = categorias[categoria].nome;
+    localizar('#sim-categoria-dica').textContent = categorias[categoria].descricao;
     localizar('#sim-contagem').textContent = escolhas.length + (escolhas.length === 1 ? ' opção' : ' opções');
     const outroTipoDeCooler = { 'air-cooler': 'water-cooler', 'water-cooler': 'air-cooler' }[categoria];
     const categoriaOcupada = preenchidas.has(categoria) || preenchidas.has(outroTipoDeCooler);
     cartoes.replaceChildren(...escolhas.map(({ produto, compativel, item }) => cartao(produto, item, compativel, categoriaOcupada)));
     if (!escolhas.length) cartoes.append(elemento('p', 'Nenhuma peça compatível nesta categoria. Desmarque o filtro para ver as demais.'));
-    proxima.disabled = ordemCatalogo.indexOf(categoria) === ordemCatalogo.length - 1;
   }
 
   function mudarCategoria(nova) {
     categoria = nova;
     atualizarOpcoes();
+    tituloCategoria.focus();
   }
 
   function atualizarCombinacoes() {
@@ -200,19 +220,36 @@ export async function iniciarSimulador(raiz) {
     const itens = itensDaMontagem(linhas, catalogo);
     const { internos, acessorios } = separarItens(itens);
     const regras = verificarCompatibilidade(itens);
-    const erros = regras.filter(regra => regra.estado === 'erro').length;
+    const incompatibilidades = regras.filter(regra => regra.estado === 'erro');
+    const erros = incompatibilidades.length;
+    const etapasAtuais = estadoDasEtapas(itens);
+    const completas = etapasAtuais.filter(etapa => etapa.pronta).length;
+    proximaEtapa = etapasAtuais.find(etapa => !etapa.pronta);
+    const conflito = localizar('#sim-conflito-atual');
+    conflito.hidden = !erros;
+    conflito.textContent = incompatibilidades[0]?.mensagem ?? '';
+    essenciais.replaceChildren(...etapasAtuais.map(etapa => {
+      const linha = elemento('li', undefined);
+      const botao = elemento('button', (etapa.pronta ? '✓ ' : 'Escolher ') + etapa.nome,
+        { type: 'button', class: 'botao-texto', 'data-etapa-categoria': etapa.categoria });
+      linha.append(botao);
+      return linha;
+    }));
+    localizar('#sim-etapas').value = completas;
+    localizar('#sim-progresso').textContent = completas + ' de ' + etapasAtuais.length + ' etapas essenciais preenchidas';
+    levar.disabled = !!proximaEtapa || !!erros;
+    localizar('#sim-envio-dica').textContent = erros ? 'Corrija as incompatibilidades para continuar.'
+      : proximaEtapa ? 'Complete as etapas essenciais para enviar ao carrinho.' : 'Confira as peças e simule a compra no carrinho.';
+    proxima.textContent = proximaEtapa ? 'Próxima pendência · ' + proximaEtapa.nome : 'Revisar montagem';
     localizar('#sim-internos').textContent = mostrarSubtotal(somarItens(internos));
     localizar('#sim-perifericos').textContent = mostrarSubtotal(somarItens(acessorios));
     const total = mostrarSubtotal(somarItens(itens));
     localizar('#sim-total').textContent = total;
     localizar('#sim-total-movel').textContent = total;
     const watts = estimarConsumo(itens);
-    const unidades = itens.reduce((total, item) => total + item.quantidade, 0);
-    localizar('#sim-progresso').textContent = unidades
-      ? unidades + (unidades === 1 ? ' unidade escolhida' : ' unidades escolhidas') : 'Escolha a primeira peça para começar.';
     localizar('#sim-watts').textContent = watts === null ? 'Selecione CPU ou GPU' : watts + ' W estimados';
     localizar('#sim-estado').textContent = erros ? erros + (erros === 1 ? ' incompatibilidade' : ' incompatibilidades')
-      : testarCompletude(itens) ? 'Montagem completa nas regras verificadas' : 'Montagem em andamento';
+      : !proximaEtapa ? 'Montagem completa nas regras verificadas' : 'Montagem em andamento';
     localizar('#sim-alertas').replaceChildren(...regras.filter(regra => regra.estado !== 'pendente').map(regraVisual));
     localizar('#sim-visual').replaceChildren(...(internos.length ? internos.map(pecaVisual)
       : [elemento('p', 'As peças internas aparecem aqui conforme você escolhe.')]));
@@ -235,17 +272,32 @@ export async function iniciarSimulador(raiz) {
     if (botao) mudarCategoria(botao.dataset.categoria);
   });
   compativeis.addEventListener('change', atualizarOpcoes);
-  proxima.addEventListener('click', () => {
-    mudarCategoria(ordemCatalogo[ordemCatalogo.indexOf(categoria) + 1]);
-    grupos.querySelector('[aria-pressed="true"]').focus();
+  function continuar() {
+    if (proximaEtapa) mudarCategoria(proximaEtapa.categoria);
+    else localizar('#sim-resumo-titulo').focus();
+  }
+  proxima.addEventListener('click', continuar);
+  essenciais.addEventListener('click', evento => {
+    const botao = evento.target.closest('[data-etapa-categoria]');
+    if (botao) mudarCategoria(botao.dataset.etapaCategoria);
+  });
+  levar.addEventListener('click', () => {
+    if (levarMontagemAoCarrinho(itensDaMontagem(linhas, catalogo))) {
+      window.dispatchEvent(new CustomEvent('ggtech:abrir-carrinho', { detail: levar }));
+    }
   });
   cartoes.addEventListener('click', evento => {
+    if (evento.target.closest('[data-continuar]')) {
+      continuar();
+      return;
+    }
     const botao = evento.target.closest('[data-escolher]');
     if (!botao || botao.getAttribute('aria-disabled') === 'true') return;
     const escolhida = catalogo.find(produto => produto.id === botao.dataset.escolher);
     aplicar(incluirPeca(linhas, escolhida, catalogo), escolhida.nome + ' na montagem.');
     const equivalente = [...cartoes.querySelectorAll('[data-escolher]')].find(item => item.dataset.escolher === escolhida.id);
-    (equivalente ?? grupos.querySelector('[aria-pressed="true"]')).focus({ preventScroll: true });
+    (equivalente?.closest('article').querySelector('[data-continuar]') ?? equivalente ?? tituloCategoria)
+      .focus({ preventScroll: true });
   });
   lista.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-remover]');
@@ -323,5 +375,6 @@ export async function iniciarSimulador(raiz) {
   atualizarCombinacoes();
   atualizar();
   localizar('#sim-conteudo').hidden = false;
-  status.textContent = sugestao ? sugestao.nome + ' na montagem.' : 'Selecione um cartão para começar.';
+  status.textContent = sugestao ? sugestao.nome + ' na montagem.'
+    : linhas.length ? 'Sua montagem está carregada.' : 'Selecione o processador para começar.';
 }

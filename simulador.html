@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=1.0-final">
     <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
-    <link rel="stylesheet" href="css/loja.css?v=1.0-final">
-    <link rel="stylesheet" href="css/montador.css?v=1.0-final">
+    <link rel="stylesheet" href="css/loja.css?v=montagem-3">
+    <link rel="stylesheet" href="css/montador.css?v=montagem-3">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <link rel="stylesheet" href="css/simulador.css?v=1.0-final">
-    <script type="module" src="js/main.js?v=1.0-final"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=montagem-3">
+    <script type="module" src="js/main.js?v=montagem-3"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -62,7 +62,7 @@
     <main class="container sim-pagina" id="conteudo" data-simulador tabindex="-1">
       <header class="sim-cabecalho">
         <h1>Simulador de montagem</h1>
-        <p>Abra uma categoria, escolha pelo cartão e acompanhe o total.</p>
+        <p>Escolha as peças essenciais, confira a compatibilidade e leve sua montagem ao carrinho para simular a compra.</p>
         <div class="sim-atalhos">
           <a href="./setups.html">Começar com um setup pronto</a>
           <a href="./montador.html">Usar o montador guiado</a>
@@ -74,14 +74,22 @@
           <section class="sim-painel sim-escolha" aria-labelledby="escolha-titulo">
             <h2 id="escolha-titulo">Escolha suas peças</h2>
             <p class="sim-total-movel"><span>Total <strong id="sim-total-movel"></strong></span><a href="#sim-resumo-titulo">Ver montagem</a></p>
-            <div class="sim-categorias" id="sim-categorias" role="group" aria-label="Categorias de peças"></div>
+            <div id="sim-categorias">
+              <div class="sim-categorias" id="sim-internas" role="group" aria-label="Peças do computador"></div>
+              <details id="sim-opcionais">
+                <summary>Periféricos opcionais</summary>
+                <div class="sim-categorias" id="sim-externas" role="group" aria-label="Periféricos opcionais"></div>
+              </details>
+            </div>
             <div class="sim-filtros">
               <div>
-                <h3 id="sim-categoria-titulo">Processador</h3>
+                <h3 id="sim-categoria-titulo" tabindex="-1">Processador</h3>
+                <p id="sim-categoria-dica"></p>
                 <p id="sim-contagem"></p>
               </div>
               <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Só peças compatíveis</label>
             </div>
+            <p class="sim-conflito" id="sim-conflito-atual" hidden></p>
             <div class="sim-cartoes" id="sim-cartoes" aria-labelledby="sim-categoria-titulo"></div>
             <div class="sim-acoes-categoria">
               <button class="botao-contorno" id="sim-proxima" type="button">Próxima categoria</button>
@@ -110,7 +118,16 @@
         <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
           <h2 id="sim-resumo-titulo" tabindex="-1">Sua montagem</h2>
           <p id="sim-progresso"></p>
+          <progress id="sim-etapas" value="0" max="8" aria-label="Etapas essenciais preenchidas"></progress>
+          <details class="sim-extra sim-checklist">
+            <summary>Conferir peças essenciais</summary>
+            <ul id="sim-essenciais"></ul>
+          </details>
           <p class="sim-total-destaque"><span>Total de referência, sem frete</span><strong id="sim-total"></strong></p>
+          <div class="sim-envio">
+            <button class="botao-primario" id="sim-levar-carrinho" type="button" aria-describedby="sim-envio-dica" disabled>Levar montagem ao carrinho</button>
+            <p id="sim-envio-dica"></p>
+          </div>
           <dl class="sim-totais">
             <div><dt>Componentes internos</dt><dd id="sim-internos"></dd></div>
             <div><dt>Periféricos opcionais</dt><dd id="sim-perifericos"></dd></div>

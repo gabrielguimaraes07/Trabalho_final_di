@@ -52,6 +52,8 @@ export function verificarCompatibilidade(itens) {
   const consumo = estimarConsumo(itens);
   const recomendacao = Math.max(gpu?.recomenda ?? 0, Math.ceil((consumo ?? 0) / .8));
   const saidas = gpu?.video ?? (cpu?.video ? placa?.video : []);
+  const alimentacaoGpu = (gpu?.pcie16 && psu?.pcie16) || (psu?.pcie8 >= (gpu?.pcie8 ?? 0)
+    && psu?.cabosPcie >= (gpu?.cabosPcie ?? 0));
   const resultado = (titulo, estado, mensagem) => ({ titulo, estado, mensagem });
   function conferir(titulo, pronto, compativel, certo, errado) {
     if (!pronto) return resultado(titulo, 'pendente', 'Selecione as peças relacionadas para conferir.');
@@ -69,8 +71,7 @@ export function verificarCompatibilidade(itens) {
     conferir('Espaço para a placa de vídeo', gabinete && gpu, gpu?.mm <= gabinete?.gpu,
       'Comprimento dentro da folga nominal do gabinete.', 'Escolha uma GPU de até ' + (gabinete?.gpu ?? '') + ' mm ou um gabinete maior.'),
     conferir('Fonte e conectores', psu && cpu && placa, psu?.potencia >= recomendacao
-      && psu.eps >= placa.eps && psu.pcie8 >= (gpu?.pcie8 ?? 0)
-      && psu.cabosPcie >= (gpu?.cabosPcie ?? 0) && psu.sata >= sata
+      && psu.eps >= placa.eps && alimentacaoGpu && psu.sata >= sata
       && (!gabinete || gabinete.fontes.includes(psu.formato)),
       'Potência e conectores atendem aos requisitos informados.',
       'Confira formato, EPS, SATA e cabos PCIe. A referência de potência é de ' + recomendacao + ' W.'),
@@ -97,7 +98,8 @@ export function verificarCompatibilidade(itens) {
   if (placa && fans.length && pequenas + grandes + (gabinete?.incluidos ?? 0) > placa.fans) {
     regras.push(resultado('Conectores de ventoinha', 'aviso', 'Avalie um hub ou encadeamento PWM e respeite a corrente máxima por conector.'));
   }
-  if (placa && selecionar('ssd-nvme').some(({ produto }) => produto.compat.pcie > (placa.socket === 'AM4' && (cpu?.pcie === 3 || nvme > 1) ? 3 : 4))) {
+  if (placa && selecionar('ssd-nvme').some(({ produto }) => produto.compat.pcie >
+      (placa.pcieNvme ?? (placa.socket === 'AM4' && (cpu?.pcie === 3 || nvme > 1) ? 3 : 4)))) {
     regras.push(resultado('Velocidade do SSD', 'aviso', 'Um SSD pode operar na geração PCIe inferior do slot disponível.'));
   }
   return regras;

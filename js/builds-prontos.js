@@ -1,5 +1,5 @@
-import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=setups-2';
-import { mostrarPreco, mostrarSubtotal } from './estoque.js?v=1.0-final';
+import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=montagem-3';
+import { mostrarPreco, mostrarSubtotal } from './estoque.js?v=montagem-3';
 
 const ocasioes = {
   jogos: 'Jogos',
