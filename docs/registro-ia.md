@@ -92,3 +92,7 @@
 
 - Gabriel definiu o que queria comparar em cada tipo de uso e pediu que as fotos mostrassem pessoas usando os setups. Também pediu que cada peça do guia mostrasse o preço ao lado da foto.
 - O Codex ajudou a pesquisar fotografias, organizar os níveis, ajustar os cartões, integrar os preços e conferir a importação dos setups pelo simulador. [Fotos e cotações](fontes-apresentacao.md)
+
+## Revisão de interfaces
+
+Gabriel definiu os pontos da revisão pela experiência de uso e pediu que a versão fosse publicada. O Codex ajudou a ajustar menu, catálogo, regras de sugestão, confirmações da montagem e roteiro para testes. Os registros anteriores e as sessões com participantes têm escopos diferentes. [Auditoria técnica](auditoria.md)

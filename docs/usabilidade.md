@@ -12,7 +12,8 @@
 | Tarefa lida para a pessoa | Como observar a conclusão |
 |---|---|
 | Encontre uma placa de vídeo que custe até R$ 2.000. | A pessoa informa o nome da placa e um preço dentro do limite. Anote o caminho e os filtros usados. |
-| Monte um PC para estudar com até R$ 3.500 e adicione as peças ao carrinho. | A pessoa conclui o quiz, vê uma configuração completa e confirma o total no carrinho. |
+| Encontre um PC para estudar com até R$ 8.500 e revise a compra simulada. | A pessoa usa a montagem guiada, explica o que o orçamento inclui e confirma o total na revisão da compra simulada. |
+| Compare dois processadores e use um na montagem manual. | A pessoa encontra os preços na mesma linha, entende o tipo de peça e identifica a diferença entre montagem e carrinho. |
 | Aumente o tamanho do texto e ative a redução de movimento. | A pessoa encontra o painel, aplica as duas preferências e identifica o efeito. |
 
 Para cada tarefa, registre tempo aproximado, caminho, conclusão e falas que indiquem hesitação. Classifique a conclusão como **sem ajuda**, **com ajuda** ou **interrompida**.
@@ -38,13 +39,14 @@ Calcule por pessoa. Nos itens ímpares, use a resposta menos 1. Nos itens pares,
 
 As linhas abaixo estão reservadas para respostas observadas durante as sessões.
 
-| Código | Tela e navegador | Tarefa 1 | Tarefa 2 | Tarefa 3 | SUS |
-|---|---|---|---|---|---|
-| P1 | — | — | — | — | — |
-| P2 | — | — | — | — | — |
-| P3 | — | — | — | — | — |
-| P4 | — | — | — | — | — |
-| P5 | — | — | — | — | — |
+Use uma linha por tarefa. Repita a tabela para cada participante.
+
+| Código | Tela e navegador | Tarefa | Conclusão | Tempo | Dificuldade ou ajuda | Comentário | SUS |
+|---|---|---|---|---|---|---|---|
+| — | — | Buscar e filtrar GPU | — | — | — | — | — |
+| — | — | Sugerir e simular compra | — | — | — | — | — |
+| — | — | Comparar e levar uma peça à montagem | — | — | — | — | — |
+| — | — | Ajustar a acessibilidade | — | — | — | — | — |
 
 | Dificuldade observada | Evidência | Ajuste aplicado | Verificação após o ajuste |
 |---|---|---|---|

@@ -1,6 +1,6 @@
 # B — Design do site
 
-A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. A edição de apresentação é executada localmente. [Como abrir no VS Code](../README.md#para-abrir-no-vs-code)
+A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. A edição pode ser aberta no GitHub Pages ou executada localmente. [Como abrir no VS Code](../README.md#para-abrir-no-vs-code)
 
 | Tela ou recurso | O que a pessoa faz |
 |---|---|
@@ -10,9 +10,9 @@ A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primei
 | O que cada peça faz | Usa analogias como a mesa de trabalho para RAM e o armário para SSD. |
 | Carrossel | Explora setups ilustrativos para jogar, estudar e criar conteúdo com setas, indicadores e botão de pausa. |
 | Configurações prontas | Compara 16 montagens em cinco tipos de uso, vê as peças e abre uma configuração no simulador. |
-| Estoque | Busca 40 modelos reais em 19 categorias e combina filtros de preço, marca, nome e compatibilidade. |
+| Estoque | Busca 56 modelos reais em 19 categorias e combina filtros de preço, marca, nome e compatibilidade. |
 | Simulador | Escolhe cada peça, ajusta quantidades, consulta o consumo estimado e compara duas montagens. |
-| Guia | Abre as 19 categorias e consulta fotos, preços e fichas dos 40 modelos. |
+| Guia | Abre as 19 categorias e consulta fotos, preços e fichas dos 56 modelos. |
 | Montador guiado | Responde três perguntas, vê um conjunto compatível e pode adicionar todas as peças de uma vez. |
 | Carrinho | Ajusta quantidades, compara o total com o orçamento e confere encaixe, memória, formato e potência. |
 | Glossário | Procura 29 termos e abre explicações rápidas no próprio estoque, por ponteiro ou teclado. |

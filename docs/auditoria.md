@@ -66,3 +66,18 @@ No Chrome da versão publicada, foram verificados o painel de acessibilidade, o 
 O teste automatizado de interface conferiu o carregamento dos 40 registros, as 40 relações entre imagem e modelo, a busca, a seleção por cartão, o filtro de compatibilidade, a troca de placa-mãe, o cálculo do total, a quantidade de memória, a reabertura de montagens e a gaveta do 3D. Foram conferidos os arquivos de mídia e as oito configurações recomendadas. A prévia visual desta edição ficou indisponível no ambiente de verificação.
 
 Na revisão dos setups, foram conferidos os 16 totais, as imagens, as regras de compatibilidade e a importação pelo simulador. O teste do guia verificou a foto e o preço com a origem da cotação para cada um dos 40 modelos. A prévia visual desta revisão ficou indisponível.
+
+## Revisão de interfaces de 24/11/2026
+
+A edição reúne 9 páginas, 56 produtos, 19 tipos de peça e 16 setups. Os preços são referências, com as ofertas indisponíveis marcadas como históricas.
+
+| Verificação | O que passou nesta revisão |
+|---|---|
+| Navegação | Abertura do menu compacto, fechamento com Escape, retorno do foco ao botão e transição para a navegação de computador no teste de DOM. |
+| Catálogo | Todas as fotos e cotações, busca, categoria e tipo, faixa invertida, limpeza de filtros e comparação de preços na mesma linha. |
+| Montagem guiada | Limite de R$ 25.000, sincronização entre campo e régua, mensagem de orçamento insuficiente e critérios de economia, desempenho e RGB. |
+| Montagem manual | Importação dos 16 setups, total, troca de peças, conflito de socket e de alimentação, salvamento e cancelamento de substituição ou sobrescrita. |
+| Carrinho e formulários | Quantidades e cotações preservadas até a compra simulada. Contato e login conferidos em estados inválido e válido, com confirmação fictícia. |
+| Contraste | O texto secundário ficou em 4,65:1 ou mais sobre os fundos sólidos usados nos dois temas. Links e foco passaram de 5,1:1, e o texto branco nos botões azuis ficou em 4,70:1. |
+
+O contraste foi calculado para as cores usadas e os fluxos foram conferidos com testes automatizados de interface. As notas Lighthouse e axe acima pertencem à base indicada no início. As sessões com participantes e a pontuação SUS ainda dependem da aplicação do roteiro. [Roteiro de usabilidade](usabilidade.md)

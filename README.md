@@ -1,53 +1,29 @@
 # GGTECH
 
-**Gabriel Guimarães · Desenvolvimento de Interfaces · CEUB, 2026**
+**Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-A ideia do GGTECH surgiu de uma pergunta simples. Como montar o primeiro PC sem ficar perdido nos nomes das peças? Comecei por um gabinete que dá para girar e explorar. Na versão final, o modelo leva a um catálogo com componentes reais e a um simulador que confere as escolhas antes de fechar o orçamento.
-
-Esta edição é o pacote local para a apresentação da disciplina.
+A ideia do GGTECH é ajudar quem está montando o primeiro PC. Dá para explorar as peças no gabinete, entender as especificações e conferir se os componentes escolhidos funcionam juntos. [Abrir o GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
 ## O que dá para testar
 
-- Explore o gabinete 3D e abra as categorias clicando nas peças. Os botões abaixo do modelo fazem a mesma coisa pelo teclado.
-- Busque por nome e marca no catálogo. Dá para filtrar por preço, conferir as fichas e comparar até três produtos.
-- Abra o **Simulador** e escolha uma peça pelo cartão com foto e preço. Use **Continuar montagem** para ir à próxima etapa que falta. Quando a lista de peças essenciais estiver completa e sem incompatibilidades, leve a montagem ao carrinho e use **Simular compra** para revisar os itens e o total.
-- Compare **16 setups** de jogos, estudos, programação, edição de vídeo e produtividade. Cada uso tem opções de entrada, intermediária e avançada. Jogos também tem uma opção premium.
-- No **Guia de componentes**, abra uma categoria para ver o que cada peça faz, a foto do modelo, o preço de referência e a ficha técnica.
-- No botão **Acessibilidade**, experimente trocar o tema, ampliar a fonte, aumentar o contraste ou reduzir movimento.
+- **Montagem guiada.** Responda três perguntas e receba uma sugestão para o seu uso. O orçamento inclui o computador e os periféricos que aparecem na lista.
+- **Montagem manual.** Escolha peça por peça, veja o que falta e confira os avisos. Salve a configuração no navegador ou compartilhe o link. Depois de reunir as peças essenciais, leve a montagem ao carrinho e simule a compra.
+- **Setups prontos.** Abra um dos 16 PCs para jogos, estudos, programação, edição de vídeo ou produtividade. Cada configuração pode ser ajustada na montagem manual.
+- **Catálogo.** Pesquise entre 56 modelos em 19 tipos de peça e compare até três produtos do mesmo tipo. O filtro de compatibilidade usa a montagem manual. O carrinho é uma lista separada para a compra simulada.
+- **Gabinete, guia e glossário.** Selecione as peças no gabinete 3D ou pelos botões abaixo da imagem. O guia traz fotos, preços e fichas, e o glossário explica as siglas mais comuns.
+- **Acessibilidade.** Os dois temas e as preferências de leitura e movimento ficam guardados no navegador.
 
-## Para abrir no VS Code
+## Como rodar localmente
 
-1. Extraia o ZIP ou clone este repositório e abra a pasta no VS Code.
-2. Com a extensão Live Server instalada, abra `index.html` com **Open with Live Server**.
+1. Clone ou baixe o repositório e abra a pasta no VS Code.
+2. Abra `index.html` com **Open with Live Server**.
 
-Também dá para iniciar um servidor no terminal, na pasta do projeto.
+Também dá para abrir um terminal na pasta, executar `python -m http.server 8765` e acessar [http://localhost:8765](http://localhost:8765/). O servidor permite ler os dados JSON. Fotos, vídeo, Three.js e GSAP acompanham o projeto. Sem WebGL, o gabinete funciona com uma imagem e os botões das categorias.
 
-```sh
-python -m http.server 8765
-```
+## Preços e documentação
 
-Abra a página no navegador. [http://localhost:8765](http://localhost:8765/)
+Os preços em reais são referências da consulta de 23/11/2026, sem frete. O rótulo **Preço histórico** indica uma oferta encerrada ou um anúncio indisponível naquele dia. A compatibilidade usa dados das fichas e sinaliza pontos que valem uma conferida no manual. [Fontes das cotações e fotos](docs/fontes-apresentacao.md)
 
-O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O Three.js, o GSAP, as fotos, os dados e o vídeo estão no ZIP e carregam pelo servidor local. O gabinete tem uma vista estática de reserva se o navegador não conseguir exibir WebGL.
-
-## Como o projeto foi tomando forma
-
-| Etapa | Trabalho |
-|---|---|
-| Primeira versão | Estruturei a página inicial, defini a paleta e usei o primeiro esboço do gabinete para ligar quatro categorias ao estoque. |
-| Parcial | Entraram os dois temas, os cartões explicativos e o carrossel. A versão publicada recebeu ajustes de contraste, foco e ícone. |
-| Base da final | Ampliei o modelo para nove áreas, acrescentei vista explodida, montador guiado, carrinho, login, contato, glossário e painel de acessibilidade. |
-| Catálogo e montagem | Organizei os dados por categoria, liguei as fichas reais às regras do simulador e coloquei as oito configurações como ponto de partida. |
-| Revisão | Conferi os dados, os cálculos e as mensagens de compatibilidade. Registrei as fontes, as licenças e o apoio de IA. |
-
-## Dados e documentação
-
-O catálogo inclui **56 modelos em 19 categorias**, todos com foto e preço de referência pesquisado em 23/11/2026. A indicação de preço histórico identifica uma oferta encerrada ou um produto sem estoque na página consultada. Todos os totais excluem frete. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
-
-- [Fontes dos preços e fotos da apresentação](docs/fontes-apresentacao.md)
-- [Paleta e contraste](docs/wcag-contraste.md) · [Psicologia das cores](docs/psicologia-cores.md)
-- [Design e capturas](docs/design-site.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
-- [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
-- [Índice do código](docs/codigo.md) · [Registro de uso de IA](docs/registro-ia.md)
-
-A tabela de contraste é gerada pelo comando `node scripts/contraste.js`.
+- [IHC, UX e interface](docs/ihc-ux-ui.md) · [Design Thinking](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
+- [Paleta e cálculo de contraste](docs/wcag-contraste.md) · [Auditoria técnica](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
+- [Mapa do código](docs/codigo.md) · [Registro de uso de IA](docs/registro-ia.md)

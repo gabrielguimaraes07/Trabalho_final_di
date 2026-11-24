@@ -123,3 +123,7 @@ Os protótipos de alta fidelidade estão nas capturas do projeto. [Telas e recur
 ## Testar
 
 A revisão técnica verificou os fluxos no navegador. A avaliação com participantes usará as tarefas de encontrar uma placa de vídeo, montar um PC para estudo e ajustar a acessibilidade. O roteiro, o questionário SUS e as tabelas de registro estão separados para receber os resultados reais. [Roteiro de usabilidade](usabilidade.md) · [Auditoria técnica](auditoria.md)
+
+## Da hipótese à próxima sessão
+
+As personas ajudaram a priorizar o preço, as explicações de hardware e o cuidado com escolhas já feitas. O orçamento digitável e a linha de preços na comparação atendem a quem precisa tomar uma decisão rápida. O glossário na montagem e a confirmação de substituição atendem a quem está aprendendo. Na próxima sessão, o roteiro mede se a pessoa encontra esses caminhos e observa onde ainda precisa de ajuda. [Roteiro de usabilidade](usabilidade.md)
