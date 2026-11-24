@@ -1,5 +1,11 @@
 # Testes do GGTECH
 
+## Depois de reorganizar os arquivos
+
+Os caminhos foram conferidos com as duas versões em uma subpasta, como no GitHub Pages. A final carregou os módulos de Three.js e GSAP, o gabinete, a vista explodida, o catálogo e os dois pesos da fonte Atkinson. O vídeo e a capa abriram no caminho novo. O teste dos 16 setups conferiu a importação das peças e os totais na montagem.
+
+Na parcial, o gabinete girável e a gaveta abriram no Chromium. Os 24 arquivos que compõem o site dessa versão têm o mesmo conteúdo do commit `5615947`. As nove páginas da final foram novamente abertas nos dois temas a 390 e 1.440 px.
+
 ## Navegação e catálogo
 
 - **Telas e teclado.** As nove páginas da final foram abertas no Chromium a 1.440 e 390 px, nos temas claro e escuro. O menu compacto abriu pelo teclado. Escape fechou o menu e devolveu o foco ao botão. A barra de total levou ao resumo da montagem.
