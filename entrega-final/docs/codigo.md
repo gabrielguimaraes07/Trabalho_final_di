@@ -1,6 +1,6 @@
 # Mapa do código
 
-Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. O `main.js` carrega as interações da página, `pagina-estoque.js` desenha os produtos e os filtros, e `simulador.js` monta a tela de seleção. As regras de encaixe e energia ficam em `compatibilidade.js`.
+Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. O `principal.js` carrega as interações da página, `pagina-estoque.js` desenha os produtos e os filtros, e `simulador.js` monta a tela de seleção. As regras de encaixe e energia ficam em `compatibilidade.js`.
 
 ## Páginas
 
@@ -28,7 +28,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 
 ## Comportamento e regras
 
-- [js/main.js](../js/main.js) — Inicia páginas, componentes e atalhos.
+- [js/principal.js](../js/principal.js) — Inicia páginas, componentes e atalhos.
 - [js/navegacao.js](../js/navegacao.js) — Menu compacto, retorno de foco e espaçamento dos atalhos de rolagem.
 - [js/abas.js](../js/abas.js) — Calcula a próxima aba para as teclas de navegação.
 - [js/acessibilidade.js](../js/acessibilidade.js) — Interface de ajustes, prévia e restauração das preferências.
@@ -36,7 +36,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 - [js/animacoes.js](../js/animacoes.js) — Carrega GSAP e revela títulos ao rolar.
 - [js/cena3d.js](../js/cena3d.js) — Renderiza, gira, seleciona e aproxima a câmera do gabinete.
 - [js/modelo-pc.js](../js/modelo-pc.js) — Constrói as peças do PC com formas e materiais do Three.js.
-- [js/hotspots.js](../js/hotspots.js) — Projeta as posições das peças em botões HTML.
+- [js/pontos-interativos.js](../js/pontos-interativos.js) — Projeta as posições das peças em botões HTML.
 - [js/vista-explodida.js](../js/vista-explodida.js) — Anima a separação das peças durante a rolagem.
 - [js/gaveta.js](../js/gaveta.js) — Abre o estoque no PC 3D e filtra as peças da categoria.
 - [js/dialogo.js](../js/dialogo.js) — Controla foco, Escape e fechamento das gavetas.
@@ -45,7 +45,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 - [js/pagina-estoque.js](../js/pagina-estoque.js) — Exibe categorias, filtros, sugestões e a tabela de comparação.
 - [js/carrinho.js](../js/carrinho.js) — Salva itens e orçamento e mostra a revisão da compra simulada.
 - [js/compatibilidade.js](../js/compatibilidade.js) — Compara encaixe, memória, formato e potência.
-- [js/builds-prontos.js](../js/builds-prontos.js) — Agrupa as configurações por tipo de uso e mostra exemplos na página inicial.
+- [js/configuracoes-prontas.js](../js/configuracoes-prontas.js) — Agrupa as configurações por tipo de uso e mostra exemplos na página inicial.
 - [js/configuracoes.js](../js/configuracoes.js) — Valida os conjuntos prontos e busca combinações para o quiz.
 - [js/simulador.js](../js/simulador.js) — Interações do simulador, vista, alertas e compartilhamento.
 - [js/montagem.js](../js/montagem.js) — Seleção de peças, validação dos dados e gravação local.
@@ -61,6 +61,6 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 
 ## Dados
 
-- [produtos.json](../data/produtos.json) registra 62 produtos reais em 19 tipos, com preços e dados de compatibilidade.
-- [builds.json](../data/builds.json) reúne 16 conjuntos de peças, organizados por uso e nível.
-- [glossario.json](../data/glossario.json) reúne os termos e suas definições.
+- [produtos.json](../dados/produtos.json) registra 62 produtos reais em 19 tipos, com preços e dados de compatibilidade.
+- [configuracoes.json](../dados/configuracoes.json) reúne 16 conjuntos de peças, organizados por uso e nível.
+- [glossario.json](../dados/glossario.json) reúne os termos e suas definições.

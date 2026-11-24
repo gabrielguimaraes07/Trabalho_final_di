@@ -9,9 +9,9 @@ A ideia do GGTECH é ajudar quem está montando o primeiro PC. Quando ainda se e
 - **Parcial.** O gabinete tem quatro categorias clicáveis, com 20 produtos demonstrativos. Também dá para trocar o tema e navegar pelo carrossel. A cópia vem do commit `5615947`, que corrigiu o contraste, o foco e o ícone da aba depois da primeira publicação. [Entrega parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Arquivos da parcial](entrega-parcial/)
 - **Final.** O catálogo tem 62 produtos reais em 19 categorias e 16 setups. Entraram a montagem guiada, a montagem manual, a comparação, o guia, o glossário, o carrinho e o painel de acessibilidade. [Entrega final](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Arquivos da final](entrega-final/)
 
-![Página inicial do GGTECH com as opções de montagem e o gabinete interativo](entrega-final/docs/prints/apresentacao-inicio.jpg)
+![Página inicial do GGTECH com as opções de montagem e o gabinete interativo](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
-[Catálogo](entrega-final/docs/prints/apresentacao-catalogo.jpg) · [Montagem guiada](entrega-final/docs/prints/apresentacao-montador.jpg) · [Montagem manual](entrega-final/docs/prints/apresentacao-simulador.jpg) · [Início no celular](entrega-final/docs/prints/apresentacao-celular.jpg) · [Painel de acessibilidade](entrega-final/docs/prints/apresentacao-acessibilidade.jpg)
+[Catálogo](entrega-final/docs/capturas/apresentacao-catalogo.jpg) · [Montagem guiada](entrega-final/docs/capturas/apresentacao-montador.jpg) · [Montagem manual](entrega-final/docs/capturas/apresentacao-simulador.jpg) · [Início no celular](entrega-final/docs/capturas/apresentacao-celular.jpg) · [Painel de acessibilidade](entrega-final/docs/capturas/apresentacao-acessibilidade.jpg)
 
 ## Como o site foi construído
 
@@ -84,9 +84,9 @@ Depois, abra `http://localhost:8765/entrega-parcial/` ou `http://localhost:8765/
 
 - **HTML** define a página e os controles. Dentro da final, `index.html` é o início, `estoque.html` abre o catálogo e `simulador.html` abre a montagem manual.
 - **CSS** fica em `css/`. `tokens.css` guarda a paleta e `layout.css` cuida do menu e do rodapé. Há estilos separados para o catálogo, a montagem e a acessibilidade.
-- **JavaScript** fica em `js/`. `main.js` inicia as páginas e `compatibilidade.js` reúne as regras de encaixe e conexão.
-- **JSON** fica em `data/`. `produtos.json` guarda as fichas, `builds.json` tem os setups e `glossario.json` traz as definições.
-- **Mídia e bibliotecas** ficam em `assets/`. Three.js desenha o gabinete, e GSAP controla as animações, como a separação das peças. [Mapa do código](entrega-final/docs/codigo.md)
+- **JavaScript** fica em `js/`. `principal.js` inicia as páginas e `compatibilidade.js` reúne as regras de encaixe e conexão.
+- **JSON** fica em `dados/`. `produtos.json` guarda as fichas, `configuracoes.json` tem os setups e `glossario.json` traz as definições.
+- **Mídia e bibliotecas** ficam em `recursos/`. Three.js desenha o gabinete, e GSAP controla as animações, como a separação das peças. [Mapa do código](entrega-final/docs/codigo.md)
 
 ## Limites da demonstração
 

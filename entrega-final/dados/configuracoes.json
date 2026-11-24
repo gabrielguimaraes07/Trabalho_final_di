@@ -19,7 +19,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/gamer-entrada-mesa.webp",
+    "imagem": "recursos/img/ambientes/gamer-entrada-mesa.webp",
     "alt": "Computador preto, monitor e teclado em uma mesa simples.",
     "fonteImagem": "https://www.pexels.com/photo/6804581/"
   },
@@ -43,7 +43,7 @@
       "k120",
       "g502"
     ],
-    "imagem": "assets/img/setups/gamer-intermediario-mesa.webp",
+    "imagem": "recursos/img/ambientes/gamer-intermediario-mesa.webp",
     "alt": "Mesa gamer com um monitor ao lado de um gabinete de três ventoinhas vermelhas.",
     "fonteImagem": "https://www.pexels.com/photo/13071303/"
   },
@@ -67,7 +67,7 @@
       "k120",
       "g502"
     ],
-    "imagem": "assets/img/setups/gamer-avancado-mesa.webp",
+    "imagem": "recursos/img/ambientes/gamer-avancado-mesa.webp",
     "alt": "Estação com monitor ultrawide, controles e um gabinete branco com lateral de vidro.",
     "fonteImagem": "https://www.pexels.com/photo/27559560/"
   },
@@ -94,7 +94,7 @@
       "qck",
       "cloud2"
     ],
-    "imagem": "assets/img/setups/gamer-premium-mesa.webp",
+    "imagem": "recursos/img/ambientes/gamer-premium-mesa.webp",
     "alt": "Jogador diante de dois monitores e gabinete com refrigeração e iluminação RGB.",
     "fonteImagem": "https://www.pexels.com/photo/31862217/"
   },
@@ -117,7 +117,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/estudo.webp",
+    "imagem": "recursos/img/ambientes/estudo.webp",
     "alt": "Pessoa faz anotações ao lado de um computador em uma mesa simples.",
     "fonteImagem": "https://www.pexels.com/photo/4238496/"
   },
@@ -141,7 +141,7 @@
       "m185",
       "c270"
     ],
-    "imagem": "assets/img/setups/estudo-intermediario.webp",
+    "imagem": "recursos/img/ambientes/estudo-intermediario.webp",
     "alt": "Pessoa à frente de um computador de mesa em um ambiente claro com plantas.",
     "fonteImagem": "https://www.pexels.com/photo/4185968/"
   },
@@ -166,7 +166,7 @@
       "m185",
       "c920"
     ],
-    "imagem": "assets/img/setups/estudo-avancado.webp",
+    "imagem": "recursos/img/ambientes/estudo-avancado.webp",
     "alt": "Pessoa trabalha diante de monitores em uma mesa ampla, com luz natural.",
     "fonteImagem": "https://www.pexels.com/photo/1181635/"
   },
@@ -189,7 +189,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/programacao-entrada.webp",
+    "imagem": "recursos/img/ambientes/programacao-entrada.webp",
     "alt": "Pessoa digita diante de uma tela com código em uma mesa compacta.",
     "fonteImagem": "https://www.pexels.com/photo/4709289/"
   },
@@ -212,7 +212,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/programacao.webp",
+    "imagem": "recursos/img/ambientes/programacao.webp",
     "alt": "Programadora trabalha com duas telas em um escritório.",
     "fonteImagem": "https://www.pexels.com/photo/3861958/"
   },
@@ -236,7 +236,7 @@
       "nv2-2tb",
       "m185"
     ],
-    "imagem": "assets/img/setups/programacao-avancado.webp",
+    "imagem": "recursos/img/ambientes/programacao-avancado.webp",
     "alt": "Desenvolvedor trabalha diante de vários monitores com janelas de código.",
     "fonteImagem": "https://www.pexels.com/photo/36706460/"
   },
@@ -260,7 +260,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/edicao-entrada.webp",
+    "imagem": "recursos/img/ambientes/edicao-entrada.webp",
     "alt": "Pessoa edita vídeo diante de monitores em uma estação compacta.",
     "fonteImagem": "https://www.pexels.com/photo/10942478/"
   },
@@ -285,7 +285,7 @@
       "rtx4060",
       "m185"
     ],
-    "imagem": "assets/img/setups/edicao-intermediario.webp",
+    "imagem": "recursos/img/ambientes/edicao-intermediario.webp",
     "alt": "Editor trabalha em um projeto com notebook e dois monitores.",
     "fonteImagem": "https://www.pexels.com/photo/29475620/"
   },
@@ -310,7 +310,7 @@
       "hdd2",
       "m185"
     ],
-    "imagem": "assets/img/setups/criacao.webp",
+    "imagem": "recursos/img/ambientes/criacao.webp",
     "alt": "Duas pessoas analisam as cores de um vídeo em monitores de estúdio.",
     "fonteImagem": "https://www.pexels.com/photo/8102691/"
   },
@@ -333,7 +333,7 @@
       "k120",
       "m185"
     ],
-    "imagem": "assets/img/setups/produtividade-entrada.webp",
+    "imagem": "recursos/img/ambientes/produtividade-entrada.webp",
     "alt": "Pessoa usa teclado e mouse em uma mesa simples com um monitor.",
     "fonteImagem": "https://www.pexels.com/photo/19238352/"
   },
@@ -358,7 +358,7 @@
       "nv2",
       "c920"
     ],
-    "imagem": "assets/img/setups/produtividade-intermediario.webp",
+    "imagem": "recursos/img/ambientes/produtividade-intermediario.webp",
     "alt": "Pessoa organiza documentos em uma mesa com monitor e notebook.",
     "fonteImagem": "https://www.pexels.com/photo/9301399/"
   },
@@ -383,7 +383,7 @@
       "m185",
       "z150"
     ],
-    "imagem": "assets/img/setups/produtividade.webp",
+    "imagem": "recursos/img/ambientes/produtividade.webp",
     "alt": "Pessoa trabalha em uma mesa com monitor amplo e luminária articulada.",
     "fonteImagem": "https://www.pexels.com/photo/10050661/"
   }

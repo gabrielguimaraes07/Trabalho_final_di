@@ -13,7 +13,7 @@ let buildsProntos;
 export function carregarBuildsProntos() {
   buildsProntos ??= Promise.all([
     carregarEstoque(),
-    fetch(new URL('../data/builds.json?v=montagem-3', import.meta.url)).then(resposta => {
+    fetch(new URL('../dados/configuracoes.json?v=montagem-3', import.meta.url)).then(resposta => {
       if (!resposta.ok) throw new Error('Configurações indisponíveis');
       return resposta.json();
     }),

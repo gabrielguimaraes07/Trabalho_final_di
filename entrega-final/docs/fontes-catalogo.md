@@ -10,7 +10,7 @@ Os arquivos listados foram redimensionados e convertidos para WebP.
 - [r5600x.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg) — Phiarc · CC BY-SA 4.0
 - [mx500.webp](https://commons.wikimedia.org/wiki/File:CT1000MX500SSD1_rear_20210220.jpg) — Solomon203 · CC BY-SA 4.0
 - [pro980.webp](https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg) — D-Kuru · CC BY-SA 4.0
-- [case4000d.webp](https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif) — PJ · CC BY-SA 4.0
+- [gabinete-4000d.webp](https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif) — PJ · CC BY-SA 4.0
 - [d15.webp](https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg) — Kaleb Kloppe · CC BY 2.0
 - [g502.webp](https://commons.wikimedia.org/wiki/File:G502_Hero.jpg) — Spiileer · CC0
 - [k120.webp](https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg) — TaurusEmerald · CC BY-SA 4.0

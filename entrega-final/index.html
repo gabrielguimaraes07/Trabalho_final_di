@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, um simulador acadêmico para quem está começando.">
     <title>GGTECH — Monte seu primeiro PC sem medo</title>
-    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg">
     <script src="js/tema.js?v=1.0-final"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css?v=interfaces-8">
@@ -14,19 +14,19 @@
     <link rel="stylesheet" href="css/componentes.css?v=interfaces-8">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
-    <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-7">
+    <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-10">
     <script type="importmap">
       {
         "imports": {
-          "three": "./assets/vendor/three/build/three.module.js",
-          "three/addons/": "./assets/vendor/three/examples/jsm/",
-          "gsap": "./assets/vendor/gsap/index.js",
-          "gsap/ScrollTrigger": "./assets/vendor/gsap/ScrollTrigger.js",
-          "gsap/SplitText": "./assets/vendor/gsap/SplitText.js"
+          "three": "./recursos/bibliotecas/three/build/three.module.js",
+          "three/addons/": "./recursos/bibliotecas/three/examples/jsm/",
+          "gsap": "./recursos/bibliotecas/gsap/index.js",
+          "gsap/ScrollTrigger": "./recursos/bibliotecas/gsap/ScrollTrigger.js",
+          "gsap/SplitText": "./recursos/bibliotecas/gsap/SplitText.js"
         }
       }
     </script>
-    <script type="module" src="js/main.js?v=interfaces-8"></script>
+    <script type="module" src="js/principal.js?v=interfaces-8"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -86,7 +86,7 @@
 
         <div class="visualizador">
           <div class="cena-pc" id="cena-pc">
-            <img class="pc-estatico" src="assets/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis.">
+            <img class="pc-estatico" src="recursos/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis.">
             <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro e nove peças selecionáveis. Use os botões sobre o modelo ou a lista abaixo." hidden></canvas>
             <button class="hotspot" type="button" data-categoria="gabinete" style="--x: 63.24%; --y: 10.90%" aria-label="Ver no catálogo de gabinetes" aria-haspopup="dialog"></button>
             <button class="hotspot" type="button" data-categoria="placa-mae" style="--x: 50.19%; --y: 19.40%" aria-label="Ver no catálogo de placas-mãe" aria-haspopup="dialog"></button>
@@ -121,7 +121,7 @@
         <h2 id="titulo-por-dentro" data-revelar-titulo>Por dentro do seu PC</h2>
         <div class="vista-explodida-palco">
           <div class="vista-explodida-imagem">
-            <img src="assets/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
+            <img src="recursos/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
             <canvas role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></canvas>
           </div>
           <div class="vista-explodida-texto" aria-hidden="true" hidden>
@@ -151,27 +151,27 @@
         <p><a href="./guia.html">Abrir o guia completo das 19 categorias</a></p>
         <ul class="grade-pecas">
           <li class="cartao-peca">
-            <img src="assets/img/apresentacao/r5600g.webp" alt="Foto de AMD Ryzen 5 5600G" width="720" height="540" loading="lazy" decoding="async">
+            <img src="recursos/img/apresentacao/r5600g.webp" alt="Foto de AMD Ryzen 5 5600G" width="720" height="540" loading="lazy" decoding="async">
             <h3><a href="./guia.html#cpu" aria-label="Ver Processador no guia">Processador</a></h3>
             <p>É o cérebro do PC. Segue as instruções dos programas e coordena o trabalho das outras peças.</p>
           </li>
           <li class="cartao-peca">
-            <img src="assets/img/apresentacao/ddr4.webp" alt="Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16" width="720" height="540" loading="lazy" decoding="async">
+            <img src="recursos/img/apresentacao/ddr4.webp" alt="Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16" width="720" height="540" loading="lazy" decoding="async">
             <h3><a href="./guia.html#ram" aria-label="Ver Memória RAM no guia">Memória RAM</a></h3>
             <p>É a mesa de trabalho. Mantém à mão os arquivos e dados que você está usando naquele momento.</p>
           </li>
           <li class="cartao-peca">
-            <img src="assets/img/apresentacao/nv2.webp" alt="Foto de Kingston NV2 1 TB SNV2S/1000G" width="720" height="540" loading="lazy" decoding="async">
+            <img src="recursos/img/apresentacao/nv2.webp" alt="Foto de Kingston NV2 1 TB SNV2S/1000G" width="720" height="540" loading="lazy" decoding="async">
             <h3><a href="./guia.html#ssd-nvme" aria-label="Ver SSD no guia">SSD</a></h3>
             <p>É o armário. Guarda jogos, programas e arquivos mesmo depois que você desliga o computador.</p>
           </li>
           <li class="cartao-peca">
-            <img src="assets/img/apresentacao/rtx4060.webp" alt="Foto de ASUS Dual GeForce RTX 4060 OC 8 GB" width="720" height="540" loading="lazy" decoding="async">
+            <img src="recursos/img/apresentacao/rtx4060.webp" alt="Foto de ASUS Dual GeForce RTX 4060 OC 8 GB" width="720" height="540" loading="lazy" decoding="async">
             <h3><a href="./guia.html#gpu" aria-label="Ver Placa de vídeo no guia">Placa de vídeo</a></h3>
             <p>É a artista do PC. Desenha as imagens que aparecem no monitor, como os cenários de um jogo.</p>
           </li>
           <li class="cartao-peca">
-            <img src="assets/img/apresentacao/rm750x.webp" alt="Foto de Corsair RM750x (2021) CP-9020199" width="720" height="540" loading="lazy" decoding="async">
+            <img src="recursos/img/apresentacao/rm750x.webp" alt="Foto de Corsair RM750x (2021) CP-9020199" width="720" height="540" loading="lazy" decoding="async">
             <h3><a href="./guia.html#fonte" aria-label="Ver Fonte no guia">Fonte</a></h3>
             <p>É como o coração. Distribui a energia da tomada para todas as peças do computador.</p>
           </li>
@@ -201,23 +201,23 @@
           </div>
           <div class="carrossel-imagens">
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 5">
-              <img src="assets/img/apresentacao/setup-gamer-carrossel.webp" width="1120" height="627" loading="lazy" decoding="async" alt="Mesa gamer com gabinete iluminado e dois monitores, um deles na vertical.">
+              <img src="recursos/img/apresentacao/ambiente-gamer-carrossel.webp" width="1120" height="627" loading="lazy" decoding="async" alt="Mesa gamer com gabinete iluminado e dois monitores, um deles na vertical.">
               <figcaption><h3>Setup para jogar</h3><p>O monitor principal fica de frente e a segunda tela, na vertical, deixa espaço na mesa.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 5" hidden>
-              <img src="assets/img/apresentacao/estudo.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Monitor, teclado e uma planta em uma mesa de estudo.">
+              <img src="recursos/img/apresentacao/estudo.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Monitor, teclado e uma planta em uma mesa de estudo.">
               <figcaption><h3>Setup para estudar</h3><p>Uma luminária e uma área para o caderno ajudam na hora de ler e fazer anotações.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 5" hidden>
-              <img src="assets/img/apresentacao/criacao.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa com dois monitores, teclado e iluminação azul.">
+              <img src="recursos/img/apresentacao/criacao.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa com dois monitores, teclado e iluminação azul.">
               <figcaption><h3>Setup para criar conteúdo</h3><p>Uma tela ampla ajuda na edição. Microfone e fones ficam à mão para gravar e revisar o áudio.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="4 de 5" hidden>
-              <img src="assets/img/setups/ambiente-programacao.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Pessoa com notebook diante de um monitor aberto em um editor de código.">
+              <img src="recursos/img/ambientes/ambiente-programacao.webp" width="1280" height="800" loading="lazy" decoding="async" alt="Pessoa com notebook diante de um monitor aberto em um editor de código.">
               <figcaption><h3>Setup para programar</h3><p>Uma tela maior deixa o código visível enquanto o terminal roda no notebook.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="5 de 5" hidden>
-              <img src="assets/img/setups/produtividade-intermediario.webp" width="960" height="540" loading="lazy" decoding="async" alt="Pessoa conferindo papéis ao lado de um monitor e notebook.">
+              <img src="recursos/img/ambientes/produtividade-intermediario.webp" width="960" height="540" loading="lazy" decoding="async" alt="Pessoa conferindo papéis ao lado de um monitor e notebook.">
               <figcaption><h3>Setup para trabalhar</h3><p>A mesa deixa espaço para documentos ao lado do monitor e do notebook.</p></figcaption>
             </figure>
           </div>

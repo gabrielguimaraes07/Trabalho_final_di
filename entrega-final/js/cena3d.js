@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { projetorHotspots } from './hotspots.js?v=1.0-final';
+import { projetorHotspots } from './pontos-interativos.js?v=1.0-final';
 import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
 import { carregarGSAP } from './animacoes.js?v=1.0-final';
 
