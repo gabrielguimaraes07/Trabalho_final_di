@@ -28,4 +28,4 @@ O cálculo usa o menor contraste entre os fundos da página, dos cartões e das 
 
 Para repetir o cálculo, execute `node scripts/contraste.js`. Os valores vêm da paleta em `css/tokens.css`.
 
-[Contraste de texto na WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [Contraste de componentes](https://www.w3.org/TR/WCAG22/#non-text-contrast)
+[Testes no Adobe Color](contraste-adobe.md) · [Contraste de texto na WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [Contraste de componentes](https://www.w3.org/TR/WCAG22/#non-text-contrast)

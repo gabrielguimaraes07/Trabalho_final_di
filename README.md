@@ -17,7 +17,7 @@ A ideia do GGTECH é ajudar quem está montando o primeiro PC. Quando ainda se e
 
 ### 1. A base da página
 
-A primeira página ganhou cabeçalho, menu, conteúdo principal e rodapé em HTML. O link **Pular para o conteúdo** ajuda quem navega com Tab a chegar direto à parte útil. No CSS, reuni cores, tamanhos de fonte, espaçamentos e cantos dos cartões no mesmo arquivo. Assim a página inicial e as telas que vieram depois podiam usar a mesma paleta. [Paleta](entrega-final/docs/paleta.md)
+A primeira página ganhou cabeçalho, menu, conteúdo principal e rodapé em HTML. O link **Pular para o conteúdo** ajuda quem navega com Tab a chegar direto à parte útil. No CSS, reuni cores, tamanhos de fonte, espaçamentos e cantos dos cartões no mesmo arquivo. Assim a página inicial e as telas que vieram depois podiam usar a mesma paleta. [Paleta e psicologia das cores](entrega-final/docs/paleta.md)
 
 ### 2. O gabinete virou o ponto de partida
 
@@ -61,7 +61,7 @@ O carrinho mostra as peças escolhidas, suas quantidades e o total antes da comp
 
 ### 9. Revisei o que mais importa ao apresentar o projeto
 
-As verificações cobrem navegação por teclado, contraste, telas largas e estreitas, importação de setups, comparação, carrinho e salvamento. Foram conferidas também a ampliação do texto a 200% e a imagem de reserva do gabinete. A auditoria informa qual versão foi testada e o que ainda falta conferir, como o uso em aparelhos Apple. [Testes do projeto](entrega-final/docs/auditoria.md) · [Registro de uso de IA](entrega-final/docs/registro-ia.md)
+As verificações cobrem navegação por teclado, contraste, telas largas e estreitas, importação de setups, comparação, carrinho e salvamento. Também entraram o texto ampliado a 200% e a imagem de reserva do gabinete. No Adobe Color, foram conferidos 15 pares de cores da versão final. O texto branco do botão principal ficou em 4,70:1. [Testes do projeto](entrega-final/docs/auditoria.md) · [Resultados no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Registro de uso de IA](entrega-final/docs/registro-ia.md)
 
 ## Um exemplo para mostrar na apresentação
 

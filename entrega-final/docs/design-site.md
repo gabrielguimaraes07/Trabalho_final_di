@@ -1,10 +1,10 @@
 # Design do site
 
-O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial dá dois caminhos para começar. **Começar a montar** abre a montagem guiada. **Escolher cada peça** leva direto ao simulador manual.
+O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial dá dois caminhos para começar. **Começar pela montagem guiada** abre a seleção por uso e orçamento. **Escolher cada peça** leva direto ao simulador manual.
 
 ## Identidade visual e navegação
 
-A tela inicial dá destaque ao gabinete. O fundo escuro e os cartões em grafite deixam as fotos e os nomes das peças visíveis. O tema claro usa a mesma ordem de leitura. Azul indica links, seleção e foco de teclado. Os avisos de compatibilidade e orçamento usam cor junto de uma explicação em texto. Nome e preço ganham mais destaque no cartão, enquanto as especificações principais aparecem logo abaixo. [Paleta](paleta.md) · [Medições de contraste](wcag-contraste.md)
+A tela inicial dá destaque ao gabinete. O fundo escuro e os cartões em grafite deixam as fotos e os nomes das peças visíveis. O tema claro usa a mesma ordem de leitura. Azul indica links, seleção e foco de teclado. Os avisos de compatibilidade e orçamento usam cor junto de uma explicação em texto. Nome e preço ganham mais destaque no cartão, enquanto as especificações principais aparecem logo abaixo. [Paleta e psicologia das cores](paleta.md) · [Medições no Adobe Color](contraste-adobe.md)
 
 O menu leva ao catálogo, aos dois montadores, aos setups e às páginas de consulta. Em telas menores, os links ficam no botão **Menu**. O carrinho segue acessível pelo cabeçalho. Na montagem manual, as áreas de escolha e resumo ficam lado a lado no computador. No celular, a barra com o total leva ao resumo completo. [Início no celular](capturas/final-inicio-celular-claro.png) · [Montagem manual](capturas/versao-final-simulador.jpg)
 
