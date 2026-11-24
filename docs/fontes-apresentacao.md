@@ -47,7 +47,7 @@ Consulta em **23/11/2026**. Os valores são referências em reais, sem frete. Hi
 
 ## Ambientes reais
 
-- [Mesa gamer com gabinete branco e monitor ligado.](https://www.pexels.com/photo/34724554/)
+- [Mesa gamer com dois monitores — minhphuc .workspace](https://www.pexels.com/photo/monitors-and-accessories-on-desk-18304030/)
 - [Monitor, teclado e uma planta em uma mesa de estudo.](https://www.pexels.com/photo/17136608/)
 - [Mesa com dois monitores, teclado e iluminação azul.](https://www.pexels.com/photo/777001/)
 - [ThinkPad T480 — Elizabeth K. Joseph](https://commons.wikimedia.org/wiki/File:ThinkPad_T480.jpg). O vídeo da tela foi produzido para o GGTECH.
