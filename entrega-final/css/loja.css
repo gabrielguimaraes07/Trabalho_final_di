@@ -15,9 +15,47 @@
   color: var(--text-2);
 }
 
+.estoque-abas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  padding-block-end: var(--space-2);
+  border-block-end: 1px solid var(--text-2);
+}
+
+.estoque-abas button {
+  min-block-size: 44px;
+  max-inline-size: 100%;
+  padding: .4rem .8rem;
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--font-14);
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.estoque-abas button:hover { border-color: var(--accent); }
+
+.estoque-abas button[aria-selected="true"] {
+  border-color: var(--btn-primary);
+  background: var(--btn-primary);
+  color: var(--btn-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
+
+.estoque-painel {
+  display: grid;
+  gap: var(--space-3);
+  min-inline-size: 0;
+}
+
 .estoque-filtros {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
   align-items: end;
   gap: var(--space-2);
   padding: var(--space-2);
@@ -25,7 +63,7 @@
   background: var(--surface);
 }
 
-
+.estoque-busca:has(+ #estoque-tipo[hidden]),
 .estoque-filtros-extra { grid-column: 1 / -1; }
 .estoque-filtros-extra summary { min-block-size: 44px; padding-block: .65rem; cursor: pointer; }
 .estoque-filtros-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); padding-block: var(--space-1); }
@@ -366,12 +404,6 @@
 :root[data-contraste="true"] :is(.estoque-produto, .carrinho-item, .carrinho-orcamento, .carrinho-compatibilidade) {
   outline: 1px solid var(--text);
   outline-offset: -1px;
-}
-
-@media (max-width: 55rem) {
-  .estoque-filtros {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 32rem) {

@@ -1,15 +1,24 @@
+import { abaPorTecla } from './abas.js?v=1.0-final';
 import { adicionarAoCarrinho } from './carrinho.js?v=interfaces-11';
+import { perifericos } from './compatibilidade.js?v=interfaces-4';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
 import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao, avisoDeVideo } from './estoque.js?v=interfaces-4';
 
 import { conflitosDaPeca, lerMontagem } from './montagem.js?v=interfaces-4';
 
-const ordem = [...ordemCatalogo, ...Object.keys(grupos3d)];
 const todas = 'todas';
-const categoriasPrincipais = [...new Set(ordemCatalogo.map(paiDaCategoria))];
+const gruposCatalogo = {
+  armazenamento: grupos3d.armazenamento,
+  refrigeracao: ['cooler', ...grupos3d.cooler, 'ventoinhas'],
+  perifericos: ordemCatalogo.filter(id => perifericos.has(id)),
+};
+const abasCatalogo = [todas, 'cpu', 'gpu', 'ram', 'armazenamento', 'placa-mae', 'fonte', 'gabinete',
+  'refrigeracao', 'perifericos'];
+const nomesDasAbas = { [todas]: 'Todas', refrigeracao: 'Refrigeração', perifericos: 'Periféricos' };
+const categoriasValidas = new Set([...ordemCatalogo, ...Object.keys(grupos3d), ...abasCatalogo]);
 
 function paiDaCategoria(id) {
-  return Object.keys(grupos3d).find(pai => grupos3d[pai].includes(id)) ?? id;
+  return Object.keys(gruposCatalogo).find(pai => gruposCatalogo[pai].includes(id)) ?? id;
 }
 
 function dadosDaComparacao({ categoria, specs, compat }) {
@@ -122,6 +131,8 @@ function criarCartao(produto, termos, selecionado, conflitos) {
 }
 
 export async function iniciarPaginaEstoque(raiz) {
+  const listaAbas = raiz.querySelector('#estoque-abas');
+  const painelAbas = raiz.querySelector('#estoque-painel');
   const formulario = raiz.querySelector('form');
   const busca = raiz.querySelector('#busca-produtos');
   const preco = raiz.querySelector('#preco-maximo');
@@ -137,7 +148,6 @@ export async function iniciarPaginaEstoque(raiz) {
   const contagemComparacao = barra.querySelector('.estoque-comparacao-contagem');
   const selecionados = new Set();
   const sugestoes = raiz.querySelector('#sugestoes-produtos');
-  const categoriaCampo = raiz.querySelector('#categoria-produto');
   const grupoTipo = raiz.querySelector('#estoque-tipo');
   const tipoCampo = raiz.querySelector('#tipo-produto');
   const faixaErro = raiz.querySelector('#preco-aviso');
@@ -152,19 +162,34 @@ export async function iniciarPaginaEstoque(raiz) {
 
   function categoriaDaURL() {
     const cat = new URL(location.href).searchParams.get('cat');
-    return ordem.includes(cat) ? cat : todas;
+    return categoriasValidas.has(cat) ? cat : todas;
   }
 
   let categoria = categoriaDaURL();
-  for (const id of categoriasPrincipais) categoriaCampo.add(new Option(categorias[id].nome, id));
+  const abas = abasCatalogo.map(id => {
+    const aba = document.createElement('button');
+    aba.type = 'button';
+    aba.id = 'estoque-aba-' + id;
+    aba.dataset.categoria = id;
+    aba.setAttribute('role', 'tab');
+    aba.setAttribute('aria-controls', painelAbas.id);
+    aba.textContent = nomesDasAbas[id] ?? categorias[id].titulo;
+    return aba;
+  });
+  listaAbas.replaceChildren(...abas);
 
   function atualizarCategorias() {
     const pai = paiDaCategoria(categoria);
-    categoriaCampo.value = pai;
-    const tipos = grupos3d[pai];
+    for (const aba of abas) {
+      const selecionada = aba.dataset.categoria === pai;
+      aba.setAttribute('aria-selected', String(selecionada));
+      aba.tabIndex = selecionada ? 0 : -1;
+      if (selecionada) painelAbas.setAttribute('aria-labelledby', aba.id);
+    }
+    const tipos = gruposCatalogo[pai];
     grupoTipo.hidden = !tipos;
     tipoCampo.replaceChildren(...(tipos ? [new Option('Todos os tipos', pai), ...tipos.map(id =>
-      new Option(categorias[id].nome, id))] : []));
+      new Option(id === 'cooler' ? 'Todos os coolers' : categorias[id].nome, id))] : []));
     tipoCampo.value = categoria;
   }
 
@@ -205,7 +230,8 @@ export async function iniciarPaginaEstoque(raiz) {
     const teto = preco.valueAsNumber;
     const piso = minimo.valueAsNumber;
     const temPreco = Number.isFinite(produto.preco);
-    return (categoria === todas || mesmoGrupo(produto, categoria))
+    const tipos = gruposCatalogo[categoria];
+    return (categoria === todas || (tipos ? tipos.includes(produto.categoria) : mesmoGrupo(produto, categoria)))
       && (!marca.value || marca.value === produto.marca)
       && (!Number.isFinite(teto) || (temPreco && produto.preco <= teto))
       && (!Number.isFinite(piso) || (temPreco && produto.preco >= piso))
@@ -310,13 +336,23 @@ export async function iniciarPaginaEstoque(raiz) {
     atualizar();
   }
 
-  categoriaCampo.addEventListener('change', () => ativarCategoria(categoriaCampo.value, 'pushState'));
+  function selecionarAba(aba) {
+    if (aba.dataset.categoria !== paiDaCategoria(categoria)) ativarCategoria(aba.dataset.categoria, 'pushState');
+  }
+
+  for (const aba of abas) aba.addEventListener('click', () => selecionarAba(aba));
+  listaAbas.addEventListener('keydown', evento => {
+    const proxima = abaPorTecla(evento, abas);
+    if (!proxima) return;
+    selecionarAba(proxima);
+    proxima.focus();
+  });
   tipoCampo.addEventListener('change', () => ativarCategoria(tipoCampo.value, 'pushState'));
   window.addEventListener('popstate', () => ativarCategoria(categoriaDaURL()));
 
   formulario.addEventListener('submit', evento => evento.preventDefault());
   formulario.addEventListener('input', evento => {
-    if (evento.target !== categoriaCampo && evento.target !== tipoCampo) atualizar(evento.target === busca);
+    if (evento.target !== tipoCampo) atualizar(evento.target === busca);
   });
   raiz.querySelector('.estoque-reset').addEventListener('click', () => {
     formulario.reset();
@@ -413,6 +449,7 @@ export async function iniciarPaginaEstoque(raiz) {
   });
 
   atualizarCategorias();
+  listaAbas.hidden = false;
   atualizar();
   try {
     const [catalogo, glossario] = await Promise.all([carregarEstoque(), carregarGlossario().catch(() => [])]);

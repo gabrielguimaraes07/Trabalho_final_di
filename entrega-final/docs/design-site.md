@@ -16,7 +16,7 @@ A seção **Por dentro do seu PC** separa visualmente as peças para mostrar ond
 
 ## Encontrar e comparar modelos
 
-O catálogo tem 62 modelos. Dá para começar pela busca ou pela categoria e abrir os filtros de preço, marca e compatibilidade quando precisar. Cada cartão traz uma foto, o nome, o preço e algumas especificações. **Detalhes da peça** abre a ficha e **Usar na montagem manual** leva o modelo ao simulador. [Catálogo](capturas/versao-final-catalogo.jpg)
+O catálogo tem 62 modelos. As abas deixam os grupos de peças à vista. Ao escolher **Armazenamento**, **Refrigeração** ou **Periféricos**, dá para refinar a lista em **Tipo de peça**. A busca e os filtros de preço, marca e compatibilidade continuam disponíveis. Cada cartão traz foto, nome, preço e algumas especificações. **Detalhes da peça** abre a ficha e **Usar na montagem manual** leva o modelo ao simulador. [Catálogo com as abas](capturas/apresentacao-catalogo.jpg)
 
 Dá para comparar até três modelos do mesmo tipo. As escolhas ficam em uma barra enquanto a pessoa pesquisa. O quadro compara preço e características equivalentes na mesma linha. Por exemplo, quem está escolhendo um processador consegue ver quais modelos têm vídeo integrado. O filtro de compatibilidade usa as peças já selecionadas na montagem manual.
 

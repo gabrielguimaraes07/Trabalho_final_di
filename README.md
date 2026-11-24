@@ -39,7 +39,7 @@ Troquei os produtos de exemplo por modelos reais. Cada peça tem foto, marca, mo
 
 ### 6. A busca e a comparação
 
-No catálogo, dá para buscar pelo nome e filtrar por categoria, marca, preço ou compatibilidade. **Detalhes da peça** abre a ficha completa. Dá para comparar até três modelos do mesmo tipo lado a lado. Por exemplo, ao comparar processadores, dá para ver quais têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+No catálogo, dá para escolher uma categoria pelas abas e buscar pelo nome. Em **Armazenamento**, por exemplo, o filtro **Tipo de peça** separa SSD SATA, SSD NVMe e HD. Também dá para filtrar por marca, preço ou compatibilidade. **Detalhes da peça** abre a ficha completa. Na comparação, dá para ver até três modelos do mesmo tipo lado a lado e conferir, por exemplo, quais processadores têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Dois jeitos de montar o PC
 

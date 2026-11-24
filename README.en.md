@@ -39,7 +39,7 @@ I replaced the sample products with real models. Each part has a photo, brand, m
 
 ### 6. Search and comparisons
 
-In the catalog, you can search by name and filter by category, brand, price, or compatibility. **Detalhes da peça** (Part details) opens the full specs. You can compare up to three models of the same type side by side. For example, you can see which processors have built-in graphics. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+In the catalog, you can choose a category from the tabs and search by name. Under **Armazenamento** (Storage), for example, the **Tipo de peça** (Part type) filter lets you choose between SATA SSDs, NVMe SSDs, and hard drives. You can also filter by brand, price, or compatibility. **Detalhes da peça** (Part details) opens the full specs. The comparison shows up to three models of the same type side by side, so you can see which processors have built-in graphics, for example. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Two ways to build a PC
 

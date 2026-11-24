@@ -12,6 +12,8 @@ Na final, o gabinete girou, a vista explodida carregou e a gaveta mostrou as fot
 
 Os filtros do catálogo encontraram os três gabinetes e os três headsets adicionados, com as seis fotos. Quando a faixa de preço foi preenchida ao contrário, apareceu um aviso. Na comparação, os modelos ficaram selecionados durante a rolagem e os preços apareceram junto das características. Os 16 setups abriram na montagem manual com suas peças e totais.
 
+As abas do catálogo foram testadas com clique, setas, Home e End. Os links diretos para as 19 categorias abriram a aba e o tipo certos. Também foi conferido o que acontece ao voltar no navegador, combinar a busca com filtros e limpar a seleção. As abas couberam em telas de 320 e 390 px e continuaram acessíveis com o texto ampliado a 200% em 390 px.
+
 A entrega parcial foi aberta em uma subpasta, como no GitHub Pages. O gabinete girou, e as quatro categorias abriram a gaveta. Os 24 arquivos do site dessa versão foram comparados com o commit `5615947`.
 
 ## Da escolha das peças ao carrinho
