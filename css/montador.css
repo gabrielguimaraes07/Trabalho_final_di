@@ -145,10 +145,6 @@
   margin-inline-start: auto;
 }
 
-.montador-form fieldset,
-.montador-resultado h2 {
-}
-
 .montador-resultado h2 {
   margin: 0;
   font-size: var(--font-28);
@@ -156,8 +152,33 @@
 }
 
 .montador-preco {
+  color: var(--accent);
   font-size: var(--font-20);
   font-weight: 700;
+}
+
+.montador-orcamento-contexto {
+  display: grid;
+  gap: .45rem;
+  padding: .8rem 1rem;
+  border-inline-start: 3px solid var(--accent);
+  border-radius: .35rem;
+  background: var(--bg);
+}
+.montador-orcamento-contexto p:first-child { font-weight: 600; }
+.montador-orcamento-contexto p + p { color: var(--text-2); }
+.montador-totais dl { display: grid; gap: .45rem var(--space-2); margin: 0; }
+.montador-totais dl div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .2rem .65rem; }
+.montador-totais dd { margin: 0; font-weight: 600; }
+.montador-saldo { margin-block-start: .5rem; color: var(--text-2); }
+.montador-saldo[data-excedido] { color: var(--danger); }
+.montador-grupos { display: grid; gap: var(--space-3); }
+.montador-grupos h3 { margin: 0 0 var(--space-1); font-size: var(--font-20); }
+.montador-resultado .montador-acoes { justify-content: start; }
+.montador-resultado .montador-adicionar { margin-inline-start: 0; }
+@media (max-width: 40rem) {
+  .montador-resultado .montador-acoes { display: grid; grid-template-columns: 1fr; }
+  .montador-resultado [data-personalizar] { text-align: center; }
 }
 
 .montador-pecas,
@@ -170,13 +191,29 @@
 }
 
 .montador-pecas li {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: var(--space-1);
+  gap: .25rem .75rem;
   padding-block: var(--space-1);
-  border-block-start: 1px solid var(--text-2);
+  border-block-start: 1px solid color-mix(in srgb, var(--text-2) 40%, var(--surface));
+  overflow-wrap: anywhere;
+}
+.montador-pecas li:has(img) { grid-template-columns: 4rem minmax(0, 1fr) auto; }
+.montador-pecas img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 3;
+  border-radius: .4rem;
+  background: #fff;
+  object-fit: contain;
+}
+.montador-peca-preco { color: var(--text-2); font-size: var(--font-14); }
+@media (max-width: 32rem) {
+  .montador-pecas li { grid-template-columns: minmax(0, 1fr); }
+  .montador-pecas li:has(img) { grid-template-columns: 3.5rem minmax(0, 1fr); }
+  .montador-pecas img { grid-row: span 2; }
 }
 
 .montador-peca-categoria {

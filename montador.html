@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/montador.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-5">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <script type="module" src="js/main.js?v=interfaces-4a"></script>
+    <script type="module" src="js/main.js?v=interfaces-5"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -100,6 +100,10 @@
           <output class="montador-valor" for="montador-orcamento montador-orcamento-numero"></output>
           <input id="montador-orcamento" name="orcamento" type="range" min="1500" max="25000" step="1" value="4000" aria-describedby="montador-orcamento-dica">
           <div class="montador-faixa"><span></span><span></span></div>
+          <div class="montador-orcamento-contexto" id="montador-orcamento-contexto" hidden>
+            <p role="status"></p>
+            <p>Você pode continuar com esse valor, ajustar o orçamento ou <a href="./simulador.html">escolher as peças na montagem manual</a>.</p>
+          </div>
         </fieldset>
 
         <fieldset tabindex="-1" data-etapa="2" hidden disabled>
@@ -121,13 +125,29 @@
         <h2 id="montador-resultado-titulo" tabindex="-1"></h2>
         <p class="montador-explicacao"></p>
         <p class="montador-preco"></p>
-        <a class="botao-contorno" data-personalizar href="./simulador.html" hidden>Personalizar na montagem manual</a>
-        <ul class="montador-pecas"></ul>
+        <div class="montador-totais" hidden>
+          <dl>
+            <div><dt>Subtotal do computador</dt><dd id="montador-subtotal-pc"></dd></div>
+            <div><dt>Subtotal dos periféricos</dt><dd id="montador-subtotal-perifericos"></dd></div>
+          </dl>
+          <p class="montador-saldo" hidden></p>
+        </div>
         <div class="montador-acoes">
-          <button type="button" class="botao-contorno montador-editar">Editar respostas</button>
           <button type="button" class="botao-primario estoque-adicionar montador-adicionar">Levar configuração ao carrinho</button>
+          <a class="botao-contorno" data-personalizar href="./simulador.html" hidden>Personalizar na montagem manual</a>
+          <button type="button" class="botao-texto montador-editar">Editar respostas</button>
         </div>
         <p class="montador-feedback" role="status"></p>
+        <div class="montador-grupos" hidden>
+          <section aria-labelledby="montador-pecas-pc">
+            <h3 id="montador-pecas-pc">Computador</h3>
+            <ul class="montador-pecas" id="montador-lista-pc"></ul>
+          </section>
+          <section aria-labelledby="montador-pecas-perifericos">
+            <h3 id="montador-pecas-perifericos">Periféricos</h3>
+            <ul class="montador-pecas" id="montador-lista-perifericos"></ul>
+          </section>
+        </div>
       </section>
       <noscript><p>Ative o JavaScript para usar o montador.</p></noscript>
     </main>

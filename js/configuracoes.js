@@ -44,9 +44,14 @@ function capacidade(build, uso) {
   return { ordem: criterios[uso], detalhe: cpu + ' núcleos e ' + ram + ' GB de memória' + video };
 }
 
+export function menorPrecoConfiguracao(builds, uso) {
+  const minimo = Math.min(...builds.filter(build => build.uso === uso && Number.isFinite(build.preco)).map(build => build.preco));
+  return Number.isFinite(minimo) ? minimo : null;
+}
+
 export function sugerirConfiguracao(builds, { uso, prioridade, orcamento }) {
   const candidatas = builds.filter(build => build.uso === uso).sort((a, b) => a.cotacao.valor - b.cotacao.valor);
-  const minimo = Math.min(...candidatas.filter(build => build.preco !== null).map(build => build.preco));
+  const minimo = menorPrecoConfiguracao(candidatas, uso);
   const dentro = candidatas.filter(build => build.preco !== null && build.preco <= orcamento);
   let perfil = dentro[0];
   let motivo = 'É a configuração completa de menor custo para esse uso.';
@@ -63,7 +68,7 @@ export function sugerirConfiguracao(builds, { uso, prioridade, orcamento }) {
       : 'Nenhuma opção desse uso com RGB coube no orçamento. Esta é a alternativa de menor custo.';
   }
   const alternativa = candidatas.find(build => build.cotacao.faltam && build.cotacao.valor <= orcamento);
-  return { configuracao: perfil ?? alternativa ?? null, minimo: Number.isFinite(minimo) ? minimo : null,
+  return { configuracao: perfil ?? alternativa ?? null, minimo,
     motivo: perfil ? motivo : 'Há peças com preço pendente. Confira o valor completo antes de decidir.' };
 }
 

@@ -1,6 +1,7 @@
 import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4a';
-import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=interfaces-4';
-import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js?v=interfaces-4';
+import { carregarBuildsProntos, linkDaConfiguracao, menorPrecoConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=interfaces-5';
+import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=interfaces-4';
+import { separarItens } from './montagem.js?v=interfaces-4';
 
 const chaveMontador = 'ggtech-montador';
 
@@ -35,10 +36,25 @@ function linhaProduto(produto) {
   const nome = document.createElement('strong');
   nome.textContent = produto.nome;
   const preco = document.createElement('span');
+  preco.className = 'montador-peca-preco';
   preco.textContent = mostrarPreco(produto.preco);
   dados.append(categoria, nome);
+  if (produto.imagem) {
+    const foto = document.createElement('img');
+    foto.src = produto.imagem;
+    foto.alt = '';
+    foto.width = 80;
+    foto.height = 60;
+    foto.loading = 'lazy';
+    linha.append(foto);
+  }
   linha.append(dados, preco);
   return linha;
+}
+
+function avisoSemConfiguracao(minimo) {
+  return 'Não encontramos uma configuração pronta para esse valor. A opção mais econômica deste catálogo para esse uso custa '
+    + precoEmReais.format(minimo) + '.';
 }
 
 export async function iniciarMontador(pagina) {
@@ -51,6 +67,7 @@ export async function iniciarMontador(pagina) {
   const orcamento = form.elements.orcamento;
   const digitado = form.querySelector('#montador-orcamento-numero');
   const avisoOrcamento = form.querySelector('#montador-orcamento-erro');
+  const contextoOrcamento = form.querySelector('#montador-orcamento-contexto');
   const valor = form.querySelector('output');
   const status = pagina.querySelector('.montador-status');
   const retomar = pagina.querySelector('.montador-retomar');
@@ -58,7 +75,9 @@ export async function iniciarMontador(pagina) {
   const titulo = resultado.querySelector('h2');
   const explicacao = resultado.querySelector('.montador-explicacao');
   const preco = resultado.querySelector('.montador-preco');
-  const pecas = resultado.querySelector('.montador-pecas');
+  const grupos = resultado.querySelector('.montador-grupos');
+  const totais = resultado.querySelector('.montador-totais');
+  const saldo = resultado.querySelector('.montador-saldo');
   const editar = resultado.querySelector('.montador-editar');
   const adicionar = resultado.querySelector('.montador-adicionar');
   const feedback = resultado.querySelector('.montador-feedback');
@@ -78,12 +97,19 @@ export async function iniciarMontador(pagina) {
     digitado.setAttribute('aria-invalid', String(!valido));
     avisoOrcamento.hidden = valido;
     avisoOrcamento.textContent = valido ? '' : 'Digite um valor inteiro entre ' + minimo.textContent + ' e ' + maximo.textContent + '.';
+    if (!valido) contextoOrcamento.hidden = true;
     return valido;
   }
 
   function atualizarOrcamento() {
     valor.textContent = precoEmReais.format(orcamento.valueAsNumber);
     orcamento.setAttribute('aria-valuetext', valor.textContent);
+    if (etapa !== 1) return;
+    const piso = menorPrecoConfiguracao(catalogo, form.elements.uso.value);
+    contextoOrcamento.hidden = !digitado.validity.valid || piso === null || orcamento.valueAsNumber >= piso;
+    const aviso = contextoOrcamento.querySelector('[role="status"]');
+    const mensagem = contextoOrcamento.hidden ? '' : avisoSemConfiguracao(piso);
+    if (aviso.textContent !== mensagem) aviso.textContent = mensagem;
   }
 
   function mostrarEtapa(indice, moverFoco = true) {
@@ -110,15 +136,27 @@ export async function iniciarMontador(pagina) {
     titulo.textContent = nome;
     explicacao.textContent = texto;
     revisarOrcamento = !atual && menorPreco !== null;
-    preco.hidden = !atual && menorPreco === null;
+    preco.hidden = grupos.hidden = totais.hidden = !atual;
     if (atual) {
-      preco.textContent = mostrarSubtotal(atual.cotacao)
-        + (limite === undefined ? '' : ' · orçamento de ' + precoEmReais.format(limite));
-    } else {
-      preco.textContent = menorPreco === null ? '' : 'Configuração completa a partir de ' + precoEmReais.format(menorPreco);
+      preco.textContent = 'Total de referência · ' + mostrarSubtotal(atual.cotacao);
+      const { internos, acessorios } = separarItens(atual.produtos.map(produto => ({ produto, quantidade: 1 })));
+      for (const [id, itens] of [['pc', internos], ['perifericos', acessorios]]) {
+        resultado.querySelector('#montador-subtotal-' + id).textContent = mostrarSubtotal(somarItens(itens));
+        const lista = resultado.querySelector('#montador-lista-' + id);
+        lista.replaceChildren(...itens.map(({ produto }) => linhaProduto(produto)));
+        lista.closest('section').hidden = !itens.length;
+      }
+      saldo.hidden = limite === undefined;
+      if (limite !== undefined) {
+        const diferenca = Math.round((limite - atual.cotacao.valor) * 100) / 100;
+        const valorDiferenca = precoEmReais.format(Math.abs(diferenca));
+        const situacao = atual.cotacao.faltam ? 'Confira os preços pendentes para calcular a diferença.'
+          : diferenca < 0 ? 'Excede em ' + valorDiferenca + '.'
+            : diferenca > 0 ? 'Sobram ' + valorDiferenca + '.' : 'O total bate com o orçamento.';
+        saldo.textContent = 'Orçamento de ' + precoEmReais.format(limite) + '. ' + situacao;
+        saldo.toggleAttribute('data-excedido', !atual.cotacao.faltam && diferenca < 0);
+      }
     }
-    pecas.replaceChildren(...(atual?.produtos ?? []).map(linhaProduto));
-    pecas.hidden = !atual;
     const personalizar = resultado.querySelector('[data-personalizar]');
     personalizar.hidden = !atual;
     if (atual) personalizar.href = linkDaConfiguracao(atual.produtos);
@@ -138,7 +176,7 @@ export async function iniciarMontador(pagina) {
         configuracao, orcamento);
     } else if (minimo !== null) {
       mostrarResultado('O orçamento precisa de um ajuste',
-        'Seu limite de ' + precoEmReais.format(orcamento) + ' está abaixo do preço das peças necessárias para um PC completo.',
+        avisoSemConfiguracao(minimo) + ' Faltam ' + precoEmReais.format(minimo - orcamento) + ' para essa opção.',
         null, orcamento, minimo);
     } else {
       mostrarResultado('Configuração completa indisponível',
