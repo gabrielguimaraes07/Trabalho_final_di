@@ -2,7 +2,7 @@
 
 ## O site em telas grandes e pequenas
 
-As nove páginas da entrega final foram abertas no Chromium, a 390 e 1.440 px, nos temas claro e escuro. No celular, deu para abrir o menu compacto pelo teclado, fechar com Esc e continuar do mesmo botão. Na montagem manual, a barra de total levou direto ao resumo.
+O teste no Chromium passou pelas nove páginas da final, com larguras de 390 e 1.440 px e nos dois temas. Na tela pequena, deu para abrir o menu pelo teclado, fechar com Esc e voltar ao mesmo botão. Na montagem manual, a barra de total levou direto ao resumo.
 
 Com o texto a 200% numa tela de 390 px, algumas palavras passavam da largura na página inicial. A quebra de linha foi ajustada, e as nove páginas foram conferidas de novo. Também foi testado o link dos cinco cartões de peças na home. Cada um abriu a categoria certa no guia e levou o foco ao título. [Capturas do site](design-site.md#capturas-da-versão-publicada)
 
@@ -25,7 +25,7 @@ A entrega parcial foi aberta em uma subpasta, como no GitHub Pages. O gabinete g
 
 A transparência da gaveta foi um dos pontos que precisaram de ajuste. No tema escuro, uma legenda chegou a **3,84:1** com um fundo claro atrás da gaveta. A mudança de opacidade e de cor levou o cálculo para **5,26:1** no escuro e **5,71:1** no claro, mesmo nos fundos mais desfavoráveis usados no teste.
 
-Depois, a conferência no Adobe Color usou 15 pares de cores. O texto branco do botão principal ficou em **4,70:1**. O item atual do menu deu **4,89:1** no escuro e **5,71:1** no claro com os códigos HEX. No navegador, o item atual foi medido também com as cores da tela e ficou em **4,88:1** e **5,69:1**. O total no PDF, em grafite sobre branco, ficou em **16,83:1**. [Resultados e captura do Adobe Color](contraste-adobe.md)
+No Adobe Color, o item atual do menu deu **4,89:1** no escuro e **5,71:1** no claro com os códigos das cores. O teste no navegador usou as cores aplicadas na tela e deu **4,88:1** e **5,69:1** para o mesmo item. No PDF, o total em grafite sobre branco ficou em **16,83:1**. [Resultados no Adobe Color](contraste-adobe.md)
 
 Em uma revisão anterior, o axe checou o contraste em 48 estados e não apontou violações automáticas dessa regra. A gaveta, o carrinho, o menu e o painel também foram conferidos com atenção às cores em camadas. O campo de mensagem foi testado nos dois temas. [Cálculo do projeto](wcag-contraste.md)
 

@@ -1,12 +1,12 @@
 # Créditos e referências
 
-Os links de fotos, fichas técnicas e cotações ficam nos dados de cada produto. As cotações de 23 e 24/11/2026 são referências sem frete. O preço histórico vem de anúncio indisponível ou oferta encerrada. [Dados dos produtos](../dados/produtos.json)
+Para conferir uma foto, uma ficha técnica ou um preço, procure a peça nos dados do catálogo. Os valores cotados em 23 e 24/11/2026 são referências sem frete. Quando o anúncio saiu do ar ou a oferta acabou, a ficha indica o preço como histórico. [Dados dos produtos](../dados/produtos.json)
 
 A Corsair informa até 425 mm de folga para a placa de vídeo no 3500X. Uma ficha de loja informa 410 mm. O simulador usa 410 mm como margem de segurança. [Corsair](https://www.corsair.com/br/pt/p/pc-cases/cc-9011279-ww/3500x-argb-mid-tower-pc-case-white-cc-9011279-ww) · [Ficha de loja](https://www.tudogamer.com.br/gabinete-gamer-corsair-3500x-argb-mid-tower-lateral-de-vidro-com-3-fans-branco-cc-9011279-ww)
 
 ## Fotos das peças e do notebook
 
-Os arquivos listados foram redimensionados e convertidos para WebP.
+As fotos abaixo foram ajustadas para caber nas páginas e convertidas para WebP.
 
 - [r5600g.webp](https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg) — FritzchensFritz · [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 - [r5600x.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg) — Phiarc · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
@@ -78,7 +78,9 @@ As fotos são exemplos de mesas e ambientes. Para conferir as peças de cada sug
 
 ## Acessibilidade e design
 
-- Critérios de acessibilidade e técnicas para atender cada requisito. [WCAG 2.2 — W3C](https://www.w3.org/TR/WCAG22/)
+- Critérios de acessibilidade, incluindo contraste e avisos que funcionam também sem cor. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) · [Uso da cor](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)
+- Ferramenta usada para conferir os pares de cores da final. [Adobe Color](https://color.adobe.com/create/color-contrast-analyzer)
+- Leituras sobre como o contexto muda a interpretação das cores e como elas aparecem na identidade de uma marca. [Elliot e Maier](https://pmc.ncbi.nlm.nih.gov/articles/PMC4383146/) · [Labrecque e Milne](https://doi.org/10.1007/s11747-010-0245-y)
 - Heurísticas de usabilidade usadas no relatório. [Nielsen Norman Group](https://www.nngroup.com/articles/ten-usability-heuristics/)
 - Referências de HTML, armazenamento e preferência por movimento reduzido. [MDN dialog](https://developer.mozilla.org/pt-BR/docs/Web/HTML/Reference/Elements/dialog) · [MDN localStorage](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/localStorage) · [MDN prefers-reduced-motion](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion)
 - Inspiração de hierarquia, foco no conteúdo e uso de cores. [Apple Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)

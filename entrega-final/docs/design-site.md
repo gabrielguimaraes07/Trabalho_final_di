@@ -4,7 +4,7 @@ O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendend
 
 ## Identidade visual e navegação
 
-A tela inicial dá destaque ao gabinete. O fundo escuro e os cartões em grafite deixam as fotos e os nomes das peças visíveis. O tema claro usa a mesma ordem de leitura. Azul indica links, seleção e foco de teclado. Os avisos de compatibilidade e orçamento usam cor junto de uma explicação em texto. Nome e preço ganham mais destaque no cartão, enquanto as especificações principais aparecem logo abaixo. [Paleta e psicologia das cores](paleta.md) · [Medições no Adobe Color](contraste-adobe.md)
+O gabinete é a primeira coisa que ganha destaque. No catálogo, a foto, o nome e o preço vêm antes dos detalhes da peça nos dois temas. O azul marca links, seleções e foco no teclado. Nos avisos de montagem e orçamento, a cor chama a atenção e o texto explica o que aconteceu. [Psicologia das cores](psicologia-cores.md)
 
 O menu leva ao catálogo, aos dois montadores, aos setups e às páginas de consulta. Em telas menores, os links ficam no botão **Menu**. O carrinho segue acessível pelo cabeçalho. Na montagem manual, as áreas de escolha e resumo ficam lado a lado no computador. No celular, a barra com o total leva ao resumo completo. [Início no celular](capturas/final-inicio-celular-claro.png) · [Montagem manual](capturas/versao-final-simulador.jpg)
 
@@ -16,7 +16,7 @@ A seção **Por dentro do seu PC** separa visualmente as peças para mostrar ond
 
 ## Encontrar e comparar modelos
 
-O catálogo reúne 62 modelos. A busca e a categoria ficam à vista, e os filtros de preço, marca e compatibilidade aparecem quando precisam ser usados. O cartão traz foto, nome, preço e especificações curtas. **Detalhes da peça** abre mais informações e **Usar na montagem manual** leva o modelo escolhido ao simulador. [Catálogo](capturas/versao-final-catalogo.jpg)
+O catálogo tem 62 modelos. Dá para começar pela busca ou pela categoria e abrir os filtros de preço, marca e compatibilidade quando precisar. Cada cartão traz uma foto, o nome, o preço e algumas especificações. **Detalhes da peça** abre a ficha e **Usar na montagem manual** leva o modelo ao simulador. [Catálogo](capturas/versao-final-catalogo.jpg)
 
 Dá para comparar até três modelos do mesmo tipo. As escolhas ficam em uma barra enquanto a pessoa pesquisa. O quadro compara preço e características equivalentes na mesma linha. Por exemplo, quem está escolhendo um processador consegue ver quais modelos têm vídeo integrado. O filtro de compatibilidade usa as peças já selecionadas na montagem manual.
 

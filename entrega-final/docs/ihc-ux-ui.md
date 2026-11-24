@@ -14,6 +14,6 @@ O menu marca a página atual e o foco do teclado tem um contorno próprio. Se a 
 
 ## O visual e as opções de leitura
 
-O grafite deixa as peças e as fotografias em destaque. O azul reaparece em ações, links, foco e seleção. Usei preços em reais e explicações como a da RAM, que funciona como a mesa de trabalho onde ficam as coisas em uso. Isso ajuda a ler a ficha antes de conhecer todos os nomes de hardware. [Paleta e contraste](paleta.md)
+O grafite dá espaço para as fotos, e o azul reaparece nas ações, nos links e no foco. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim dá para entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
 
 O painel tem tema, tamanho de texto, espaçamento, alto contraste e opções para sublinhar links ou reduzir movimento. Dá para conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)

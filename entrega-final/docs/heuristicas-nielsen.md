@@ -1,6 +1,6 @@
 # Heurísticas de Nielsen no GGTECH
 
-Cada exemplo liga uma heurística a uma decisão do GGTECH. As capturas registram a versão de novembro usada no relatório.
+As ideias de Nielsen aparecem em situações do dia a dia do site. Abaixo dá para ver como cada uma funciona, do contador no carrinho ao aviso de incompatibilidade. As imagens são da versão usada no relatório.
 
 1. **Visibilidade do estado.** O contador mostra quantas unidades foram adicionadas. A barra do carrinho mostra o total e quanto excedeu o orçamento. A montagem também indica quantas etapas essenciais foram atendidas. [Carrinho](capturas/final-carrinho-orcamento.png)
 2. **Correspondência com o mundo real.** A RAM é comparada à mesa de trabalho e o SSD ao armário. Os termos técnicos têm explicações próximas ao produto. [Início e analogias](capturas/final-inicio-desktop-escuro.png)
@@ -9,7 +9,7 @@ Cada exemplo liga uma heurística a uma decisão do GGTECH. As capturas registra
 5. **Prevenção de erros.** O carrinho verifica a compatibilidade antes da compra simulada. Os filtros indicam quando o preço máximo está abaixo do mínimo. [Carrinho e compatibilidade](capturas/final-carrinho-compatibilidade.png)
 6. **Reconhecimento.** As categorias ficam visíveis e a comparação alinha preço e características na mesma linha. O montador também pode retomar a última escolha. [Filtros de estoque](capturas/final-estoque-desktop-escuro.png)
 7. **Flexibilidade e eficiência.** A busca sugere peças e responde a `/` no estoque e no glossário. O painel permite desligar o atalho. As configurações prontas reduzem o número de passos. [Configuração pronta](capturas/final-montador-resultado.png) · [Painel](capturas/final-painel-acessibilidade.png)
-8. **Estética e simplicidade.** As perguntas do montador são exibidas uma por vez, com uma ação principal em evidência. [Primeira pergunta](capturas/final-montador-desktop-escuro.png)
+8. **Estética e simplicidade.** O montador mostra uma pergunta por vez. A ação para seguir fica mais fácil de achar. [Primeira pergunta](capturas/final-montador-desktop-escuro.png)
 9. **Reconhecer e corrigir erros.** O carrinho explica a incompatibilidade e aponta o motivo. Se o valor for insuficiente, o montador indica o mínimo e volta à etapa de orçamento. [Compatibilidade](capturas/final-carrinho-compatibilidade.png) · [Orçamento](capturas/final-carrinho-orcamento.png)
 10. **Ajuda e documentação.** O glossário, os cartões explicativos e o link do rodapé para perguntas frequentes dão caminhos para buscar ajuda. [Perguntas frequentes](capturas/final-perguntas-frequentes.png)
 

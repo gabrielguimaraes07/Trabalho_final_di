@@ -1,12 +1,12 @@
 # Revisão da entrega parcial
 
-A revisão de 18/11/2026 começou no commit `c44953d`, quando o nome já tinha sido corrigido. A cópia que abre no navegador vem do commit `5615947`, com os ajustes de contraste, foco e ícone. É a mesma edição da tag `v0.1.1-parcial`. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Baixar a parcial](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
+A revisão começou em 18/11/2026, quando a parcial já estava com o nome corrigido no commit `c44953d`. A versão que dá para abrir hoje vem do commit `5615947`. É a mesma edição da tag `v0.1.1-parcial`, já com os ajustes de contraste, foco e ícone. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Baixar a parcial](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
 
 ## O que estava pronto
 
 - A página inicial tinha cabeçalho, menu, rodapé e link para pular ao conteúdo. Cinco cartões explicavam as peças e o carrossel tinha navegação e pausa.
 - O gabinete abria quatro categorias. Cada uma mostrava cinco produtos fictícios e busca por modelo ou marca. Era possível navegar com Tab, abrir com Enter e fechar com Esc. O foco voltava à peça selecionada.
-- Os temas claro e escuro persistiam ao recarregar. A paleta ficava no CSS, com cálculo de contraste reproduzível. As instruções para abrir o site já estavam no repositório. [Paleta](paleta.md)
+- O navegador lembrava o tema ao recarregar a página. As cores ficavam no CSS e dava para refazer o cálculo de contraste. O repositório já explicava como abrir o site.
 
 No Chromium, a página abriu com zoom de 200% sem rolagem horizontal. Ao bloquear a biblioteca 3D, a imagem de reserva continuou dando acesso às quatro categorias. Naquela versão, o Lighthouse marcou 100/100 no item de acessibilidade para computador e celular, e o axe apontou zero violações automáticas no início e no estoque, nos dois temas.
 

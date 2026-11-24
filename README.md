@@ -17,7 +17,7 @@ A ideia do GGTECH é ajudar quem está montando o primeiro PC. Quando ainda se e
 
 ### 1. A base da página
 
-A primeira página ganhou cabeçalho, menu, conteúdo principal e rodapé em HTML. O link **Pular para o conteúdo** ajuda quem navega com Tab a chegar direto à parte útil. No CSS, reuni cores, tamanhos de fonte, espaçamentos e cantos dos cartões no mesmo arquivo. Assim a página inicial e as telas que vieram depois podiam usar a mesma paleta. [Paleta e psicologia das cores](entrega-final/docs/paleta.md)
+A primeira página ganhou cabeçalho, menu, conteúdo principal e rodapé em HTML. Com **Pular para o conteúdo**, quem navega com Tab pode ir direto ao que veio procurar. Reuni as cores, os tamanhos de texto e os espaçamentos no mesmo arquivo CSS para reaproveitar o visual nas páginas que vieram depois. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
 
 ### 2. O gabinete virou o ponto de partida
 
@@ -39,7 +39,7 @@ No painel de acessibilidade, dá para mudar o tema, o tamanho e o espaçamento d
 
 Cada peça da final tem um `id` usado no catálogo, no guia, no carrinho e nas montagens salvas. A ficha reúne nome, marca, especificações, preço, data e origem da cotação. As fotos ficam no projeto, o que ajuda na apresentação local.
 
-A ampliação mais recente trouxe três gabinetes aquário — MSI MAG PANO M100R PZ White, NZXT H6 Flow Black e Corsair 3500X ARGB White — e três headsets — Razer BlackShark V2 X, Logitech G432 e HyperX Cloud III Wireless. No guia, é possível consultar as portas, os acessórios e os limites de montagem informados para cada modelo. [Dados dos produtos](entrega-final/dados/produtos.json)
+A última leva trouxe três gabinetes aquário (MSI MAG PANO M100R PZ White, NZXT H6 Flow Black e Corsair 3500X ARGB White) e três headsets (Razer BlackShark V2 X, Logitech G432 e HyperX Cloud III Wireless). No guia, dá para conferir as portas, os acessórios e os limites de montagem de cada modelo. [Dados dos produtos](entrega-final/dados/produtos.json)
 
 ### 6. A busca e a comparação ficaram no catálogo
 
@@ -61,7 +61,7 @@ O carrinho mostra as peças escolhidas, suas quantidades e o total antes da comp
 
 ### 9. Revisei o que mais importa ao apresentar o projeto
 
-As verificações cobrem navegação por teclado, contraste, telas largas e estreitas, importação de setups, comparação, carrinho e salvamento. Também entraram o texto ampliado a 200% e a imagem de reserva do gabinete. No Adobe Color, foram conferidos 15 pares de cores da versão final. O texto branco do botão principal ficou em 4,70:1. [Testes do projeto](entrega-final/docs/auditoria.md) · [Resultados no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Registro de uso de IA](entrega-final/docs/registro-ia.md)
+Os testes passaram pelos caminhos mais usados. Entraram o teclado, a leitura em telas grandes e pequenas, a comparação de peças e o que acontece ao abrir, salvar e levar um setup ao carrinho. Na parte de leitura, também foram conferidos o texto ampliado a 200% e o contraste nos dois temas. [Testes do projeto](entrega-final/docs/auditoria.md) · [Contraste no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Como usei IA](entrega-final/docs/registro-ia.md)
 
 ## Um exemplo para mostrar na apresentação
 

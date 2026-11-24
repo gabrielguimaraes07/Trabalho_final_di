@@ -1,12 +1,12 @@
 # Mapa do código
 
-Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. O `principal.js` carrega as interações da página, `pagina-estoque.js` desenha os produtos e os filtros, e `simulador.js` monta a tela de seleção. As regras de encaixe e energia ficam em `compatibilidade.js`.
+Se quiser ver como uma peça sai do catálogo e vai parar na montagem, comece por `estoque.html`. O `principal.js` liga os controles, o `pagina-estoque.js` mostra as peças e os filtros, e o `simulador.js` cuida da tela de escolha. As regras de encaixe e energia ficam em `compatibilidade.js`.
 
 ## Páginas
 
 - [index.html](../index.html) — Página inicial com PC 3D, carrossel, explicações e configurações prontas.
 - [estoque.html](../estoque.html) — Catálogo, busca, filtros e comparação.
-- [montador.html](../montador.html) — Quiz de três etapas e visualização da configuração sugerida.
+- [montador.html](../montador.html) — Três perguntas para chegar a uma sugestão de montagem.
 - [simulador.html](../simulador.html) — Seleção manual, resumo, preços, compatibilidade e comparação de montagens.
 - [guia.html](../guia.html) — Guia das 19 categorias com fotos, preços e exemplos.
 - [setups.html](../setups.html) — 16 configurações personalizáveis e vídeo integrado ao notebook.
@@ -46,7 +46,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 - [js/carrinho.js](../js/carrinho.js) — Salva itens e orçamento e mostra a revisão da compra simulada.
 - [js/compatibilidade.js](../js/compatibilidade.js) — Compara encaixe, memória, formato e potência.
 - [js/configuracoes-prontas.js](../js/configuracoes-prontas.js) — Agrupa as configurações por tipo de uso e mostra exemplos na página inicial.
-- [js/configuracoes.js](../js/configuracoes.js) — Valida os conjuntos prontos e busca combinações para o quiz.
+- [js/configuracoes.js](../js/configuracoes.js) — Confere os setups prontos e procura peças que combinam com as respostas.
 - [js/simulador.js](../js/simulador.js) — Interações do simulador, vista, alertas e compartilhamento.
 - [js/montagem.js](../js/montagem.js) — Seleção de peças, validação dos dados e gravação local.
 - [js/guia.js](../js/guia.js) — Explicações e fichas do guia de componentes.

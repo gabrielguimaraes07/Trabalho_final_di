@@ -1,6 +1,6 @@
 # GGTECH — Entrega final
 
-Esta pasta reúne o site completo. O catálogo tem 62 produtos e 16 setups, com montagem guiada, montagem manual, comparação e revisão de compra simulada.
+Aqui está a versão completa do site. Dá para explorar 62 produtos, partir de um dos 16 setups ou montar o PC peça por peça. Também dá para comparar modelos e revisar o carrinho antes da compra simulada.
 
 [Abrir a entrega final no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/)
 
@@ -8,10 +8,10 @@ Esta pasta reúne o site completo. O catálogo tem 62 produtos e 16 setups, com 
 
 Abra esta pasta no VS Code e execute **Open with Live Server** em `index.html`. Com Python, rode `python -m http.server 8765` nesta pasta e abra [localhost:8765](http://localhost:8765/).
 
-## Onde consultar
+## Para conhecer melhor o projeto
 
 - [Construção do projeto passo a passo](../README.md#como-o-site-foi-construído)
 - [Design e capturas](docs/design-site.md)
-- [Paleta e psicologia das cores](docs/paleta.md) · [Contraste no Adobe Color](docs/contraste-adobe.md)
+- [Paleta](docs/paleta.md) · [Psicologia das cores](docs/psicologia-cores.md) · [Contraste no Adobe Color](docs/contraste-adobe.md)
 - [Dados do catálogo](dados/produtos.json) · [Créditos das fotos](docs/referencias.md)
-- [Verificações e limitações](docs/auditoria.md)
+- [O que foi testado](docs/auditoria.md) · [Como usei IA](docs/registro-ia.md)
