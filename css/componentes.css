@@ -141,7 +141,6 @@
 
 .pecas-alternativas {
   margin-block-start: var(--space-1);
-  scroll-margin-block-start: var(--space-12);
   font-size: var(--font-14);
 }
 

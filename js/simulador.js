@@ -375,6 +375,7 @@ export async function iniciarSimulador(raiz) {
   atualizarCombinacoes();
   atualizar();
   localizar('#sim-conteudo').hidden = false;
+  localizar('#sim-barra').hidden = false;
   status.textContent = sugestao ? sugestao.nome + ' na montagem.'
     : linhas.length ? 'Sua montagem está carregada.' : 'Selecione o processador para começar.';
 }

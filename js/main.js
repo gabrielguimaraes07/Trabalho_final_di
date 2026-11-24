@@ -11,18 +11,10 @@ import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
 import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=1.0-final';
 
+import { iniciarNavegacao } from './navegacao.js?v=interfaces-4';
+
 const cabecalho = document.querySelector('.site-header');
-if (cabecalho) {
-  document.addEventListener('focusin', ({ target }) => {
-    if (!target.closest('main, footer') || target.closest('dialog')) return;
-    requestAnimationFrame(() => {
-      if (document.activeElement !== target) return;
-      const limite = cabecalho.getBoundingClientRect().bottom + 8;
-      const topo = target.getBoundingClientRect().top;
-      if (topo < limite) window.scrollBy({ top: topo - limite, behavior: 'instant' });
-    });
-  });
-}
+if (cabecalho) iniciarNavegacao(cabecalho);
 
 const titulosAnimados = document.querySelectorAll('[data-revelar-titulo]');
 if (titulosAnimados.length) iniciarRevelacaoDeTitulos(titulosAnimados);

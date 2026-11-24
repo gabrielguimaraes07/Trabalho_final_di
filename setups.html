@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore oito montagens e personalize as peças no simulador.">
-    <title>Setups recomendados — GGTECH</title>
+    <title>Setups prontos — GGTECH</title>
     <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
     <script src="js/tema.js?v=1.0-final"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
-    <link rel="stylesheet" href="css/layout.css?v=1.0-final">
+    <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
     <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
     <link rel="stylesheet" href="css/loja.css?v=montagem-3">
     <link rel="stylesheet" href="css/montador.css?v=montagem-3">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <link rel="stylesheet" href="css/simulador.css?v=montagem-3">
-    <script type="module" src="js/main.js?v=montagem-3"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=interfaces-4">
+    <script type="module" src="js/main.js?v=interfaces-4"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -25,16 +25,32 @@
       <nav class="site-nav container" aria-label="Navegação principal">
         <a class="brand" href="./index.html">GGTECH</a>
 
-        <ul class="nav-menu">
-          <li><a href="./index.html">Início</a></li>
-          <li><a href="./estoque.html">Estoque</a></li>
-          <li><a href="./montador.html">Monte seu PC</a></li>
-          <li><a href="./simulador.html">Simulador</a></li>
-          <li><a href="./glossario.html">Glossário</a></li>
-          <li><a href="./contato.html">Contato</a></li>
-        </ul>
-
-        <div class="nav-actions">
+        <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
+        <div class="nav-painel" id="nav-painel">
+          <ul class="nav-menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./estoque.html">Catálogo</a></li>
+            <li><a href="./montador.html">Montagem guiada</a></li>
+            <li><a href="./simulador.html">Montagem manual</a></li>
+            <li><a href="./setups.html" aria-current="page">Setups prontos</a></li>
+            <li><a href="./glossario.html">Glossário</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+              </svg>
+              Acessibilidade
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions nav-carrinho">
           <!-- Ícones Lucide 0.468.0 — licença em assets/icones/lucide-licenca.txt. -->
           <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -44,24 +60,13 @@
             </svg>
             <span class="carrinho-contador" aria-hidden="true">0</span>
           </button>
-          <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
-          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="16" cy="4" r="1"></circle>
-              <path d="m18 19 1-7-6 1"></path>
-              <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
-              <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
-              <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
-            </svg>
-            Acessibilidade
-          </button>
         </div>
       </nav>
     </header>
 
     <main class="container sim-pagina setups-pagina" id="conteudo" data-builds-prontos tabindex="-1">
       <header class="sim-cabecalho">
-        <h1>Setups recomendados</h1>
+        <h1>Setups prontos</h1>
         <p>Compare configurações de entrada a avançadas para jogar, estudar ou trabalhar. Abra a lista de peças ou personalize um setup no simulador.</p>
         <p class="builds-nota">As fotos mostram ambientes de referência. Os totais usam os preços do catálogo, sem frete. <a href="./docs/fontes-apresentacao.md">Fontes e créditos</a>.</p>
         <p><a href="#ambiente-programacao">Ver o ambiente de programação</a></p>
@@ -97,7 +102,7 @@
         <p>Simulação acadêmica com componentes reais.</p>
         <nav class="rodape-links" aria-label="Ajuda e contato">
           <a href="./guia.html">Guia de componentes</a>
-          <a href="./setups.html">Setups recomendados</a>
+          <a href="./setups.html">Setups prontos</a>
           <a href="./contato.html#perguntas">Perguntas frequentes</a>
           <a href="./glossario.html">Glossário</a>
           <a href="./contato.html">Contato</a>

@@ -48,7 +48,6 @@
 }
 
 .apoio-form :is(input, select, textarea, h2) {
-  scroll-margin-block-start: var(--space-12);
 }
 
 .apoio-form textarea {
@@ -129,7 +128,6 @@
 .glossario-definicao h2 {
   margin: 0;
   font-size: var(--font-20);
-  scroll-margin-block-start: var(--space-12);
 }
 
 .glossario-definicao:has(h2:target) {
@@ -171,7 +169,6 @@
 .apoio-faq {
   display: grid;
   gap: var(--space-1);
-  scroll-margin-block-start: var(--space-12);
 }
 
 .apoio-faq h2 {

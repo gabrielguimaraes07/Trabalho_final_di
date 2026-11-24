@@ -112,7 +112,7 @@
 
 @media (min-width: 64rem) {
   .sim-grade { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
-  .sim-resumo { position: sticky; inset-block-start: 6.5rem; max-block-size: calc(100dvh - 8rem); overflow: auto; }
+  .sim-resumo { position: sticky; inset-block-start: calc(var(--cabecalho-altura, 4.5rem) + 1rem); max-block-size: calc(100dvh - var(--cabecalho-altura, 4.5rem) - 2rem); overflow: auto; }
 }
 
 @media print {
@@ -126,7 +126,7 @@
   .sim-linha, .sim-peca { break-inside: avoid; }
 }
 
-.setup-programacao { margin-block-start: var(--space-3); scroll-margin-block-start: 10rem; }
+.setup-programacao { margin-block-start: var(--space-3); }
 .setup-programacao-grade { display: grid; gap: var(--space-2); }
 .setup-programacao-foto { margin: 0; min-inline-size: 0; }
 .setup-programacao-foto img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
@@ -151,9 +151,22 @@
 
 .sim-atalhos { display: flex; flex-wrap: wrap; gap: .4rem var(--space-2); }
 .sim-escolha { padding: clamp(1rem, 2.4vw, 1.6rem); }
-.sim-total-movel { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.sim-total-movel {
+  position: sticky;
+  z-index: 2;
+  inset-block-start: var(--cabecalho-altura, 4.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 .65rem;
+  padding: .25rem .75rem;
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: 0 2px 6px #0003;
+}
 .sim-total-movel strong { color: var(--text); }
-.sim-total-movel a { padding-block: .6rem; }
+.sim-total-movel a { display: inline-flex; align-items: center; min-block-size: 44px; }
 @media (min-width: 64rem) {
   .sim-total-movel { display: none; }
 }
@@ -173,7 +186,6 @@
 .sim-categorias button[data-preenchida]::after { content: ' ✓'; }
 .sim-escolha details summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
 #sim-categorias { margin-block-end: var(--space-2); }
-#sim-categoria-titulo { scroll-margin-block-start: 10rem; }
 #sim-etapas { inline-size: 100%; block-size: .7rem; accent-color: var(--btn-primary); }
 #sim-essenciais { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); gap: .1rem .65rem; padding: 0; }
 #sim-essenciais button { text-align: start; }
@@ -216,7 +228,6 @@
 .sim-extra summary, .sim-cotacao summary { min-block-size: 44px; cursor: pointer; padding-block: .6rem; }
 .sim-extra .sim-gestao { padding-block-start: .7rem; }
 .sim-cotacao { flex: 1 1 7rem; min-inline-size: 0; font-size: var(--font-14); }
-#sim-resumo-titulo { scroll-margin-block-start: 8rem; }
 @media print {
-  .sim-atalhos, .sim-envio, .sim-resumo > details { display: none !important; }
+  .sim-atalhos, .sim-total-movel, .sim-envio, .sim-resumo > details { display: none !important; }
 }
