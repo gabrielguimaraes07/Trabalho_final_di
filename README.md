@@ -33,13 +33,13 @@ Os cartões explicam as peças com analogias do dia a dia. A RAM, por exemplo, �
 
 Na final, o menu ganhou caminhos para catálogo, montagens, setups, glossário e contato. No celular, os links ficam dentro de um menu expansível. Os nomes e a ordem dos links se repetem nas páginas, e o item atual é indicado pelo azul.
 
-No painel de acessibilidade, dá para mudar o tema, o tamanho e o espaçamento do texto, aumentar o contraste, sublinhar links ou usar a fonte Atkinson Hyperlegible. A prévia mostra o resultado na hora. A opção de reduzir movimento pausa a rotação automática e as trocas do carrossel. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
+No painel de acessibilidade, dá para mudar o tema, o tamanho e o espaçamento do texto, aumentar o contraste ou sublinhar links. A prévia mostra o resultado na hora. A opção de reduzir movimento pausa a rotação automática e as trocas do carrossel. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
 
 ### 5. Os produtos de exemplo deram lugar a modelos reais
 
 Cada peça da final tem um `id` usado no catálogo, no guia, no carrinho e nas montagens salvas. A ficha reúne nome, marca, especificações, preço, data e origem da cotação. As fotos ficam no projeto, o que ajuda na apresentação local.
 
-A ampliação mais recente trouxe três gabinetes aquário — MSI MAG PANO M100R PZ White, NZXT H6 Flow Black e Corsair 3500X ARGB White — e três headsets — Razer BlackShark V2 X, Logitech G432 e HyperX Cloud III Wireless. No guia, é possível consultar as portas, os acessórios e os limites de montagem informados para cada modelo. [Fotos, fichas e cotações](entrega-final/docs/fontes-apresentacao.md#gabinetes-aquário-e-headsets)
+A ampliação mais recente trouxe três gabinetes aquário — MSI MAG PANO M100R PZ White, NZXT H6 Flow Black e Corsair 3500X ARGB White — e três headsets — Razer BlackShark V2 X, Logitech G432 e HyperX Cloud III Wireless. No guia, é possível consultar as portas, os acessórios e os limites de montagem informados para cada modelo. [Dados dos produtos](entrega-final/dados/produtos.json)
 
 ### 6. A busca e a comparação ficaram no catálogo
 
@@ -92,4 +92,4 @@ Depois, abra `http://localhost:8765/entrega-parcial/` ou `http://localhost:8765/
 
 Os preços são referências em reais e sem frete. Cotações históricas vêm de anúncios indisponíveis ou encerrados. A checagem considera as medidas e conexões cadastradas. BIOS, folga para cabos e posição do radiador ainda dependem da montagem física. O login, o contato e a compra são simulados. O carrinho, as preferências e as montagens salvas ficam no navegador usado.
 
-As origens das fotos, a fonte de leitura e as licenças das bibliotecas estão nas referências. [Créditos e licenças](entrega-final/docs/referencias.md)
+Os créditos das fotos e as referências do projeto estão na documentação. [Créditos e referências](entrega-final/docs/referencias.md)

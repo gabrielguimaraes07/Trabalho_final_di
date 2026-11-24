@@ -8,7 +8,7 @@ export function carregarGSAP() {
 export async function carregarScrollTrigger() {
   const gsap = await carregarGSAP();
   if (!gsap) return;
-  const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+  const { ScrollTrigger } = await import('gsap/gatilho-rolagem');
   gsap.registerPlugin(ScrollTrigger);
   return ScrollTrigger;
 }
@@ -37,7 +37,7 @@ export function iniciarRevelacaoDeTitulos(titulos) {
       return;
     }
 
-    dependencias ??= Promise.all([carregarGSAP(), carregarScrollTrigger(), import('gsap/SplitText')])
+    dependencias ??= Promise.all([carregarGSAP(), carregarScrollTrigger(), import('gsap/divisor-texto')])
       .catch(() => []);
     const [gsap, ScrollTrigger, modulo] = await dependencias;
     if (movimentoReduzido() || !gsap || !ScrollTrigger || !modulo) return;

@@ -526,3 +526,16 @@ body:has(.gaveta[open]) {
 :root[data-contraste="true"] .vista-explodida-imagem {
   background: var(--bg);
 }
+
+.icone-ui {
+  display: inline-block;
+  flex: none;
+  inline-size: var(--tamanho-icone, 20px);
+  block-size: var(--tamanho-icone, 20px);
+  background-color: currentColor;
+  mask: var(--imagem-icone) center / contain no-repeat;
+}
+
+.icone-acessibilidade { --imagem-icone: url("../recursos/icones/acessibilidade.svg"); }
+.icone-carrinho { --imagem-icone: url("../recursos/icones/carrinho.svg"); }
+.icone-simbolo { font-size: 1.5em; line-height: 1; }

@@ -1544,7 +1544,7 @@ export var GSCache = function GSCache(target, harness) {
   this.set = harness ? harness.getSetter : _getSetter;
 };
 
-export var Animation = /*#__PURE__*/function () {
+export var Animation = function () {
   function Animation(vars) {
     this.vars = vars;
     this._delay = +vars.delay || 0;
@@ -1900,7 +1900,7 @@ _setDefaults(Animation.prototype, {
 });
 
 
-export var Timeline = /*#__PURE__*/function (_Animation) {
+export var Timeline = function (_Animation) {
   _inheritsLoose(Timeline, _Animation);
 
   function Timeline(vars, position) {
@@ -3003,7 +3003,7 @@ _forEachName(_staggerTweenProps + ",id,stagger,delay,duration,paused,scrollTrigg
 });
 
 
-export var Tween = /*#__PURE__*/function (_Animation2) {
+export var Tween = function (_Animation2) {
   _inheritsLoose(Tween, _Animation2);
 
   function Tween(targets, vars, position, skipInherit) {
@@ -3604,7 +3604,7 @@ var _setterPlain = function _setterPlain(target, property, value) {
 };
 
 
-export var PropTween = /*#__PURE__*/function () {
+export var PropTween = function () {
   function PropTween(next, target, prop, start, change, renderer, data, setter, priority) {
     this.t = target;
     this.s = start;
@@ -3706,7 +3706,7 @@ var _media = [],
   }
 };
 
-var Context = /*#__PURE__*/function () {
+var Context = function () {
   function Context(func, scope) {
     this.selector = scope && selector(scope);
     this.data = [];
@@ -3846,7 +3846,7 @@ var Context = /*#__PURE__*/function () {
   return Context;
 }();
 
-var MatchMedia = /*#__PURE__*/function () {
+var MatchMedia = function () {
   function MatchMedia(scope) {
     this.contexts = [];
     this.scope = scope;

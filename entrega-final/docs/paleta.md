@@ -12,4 +12,4 @@
 - **Verde.** Confirmações e compatibilidade usam `#30d158` no escuro e `#176e32` no claro.
 - **Vermelho.** Erros e incompatibilidades usam `#ff5d52` no escuro e `#b52825` no claro.
 
-A fonte é Inter, os espaçamentos seguem múltiplos de 8 px e os cartões têm cantos de 12 px. [CSS da paleta](../css/tokens.css) · [Contraste medido](wcag-contraste.md)
+O texto usa a fonte do sistema. Os espaçamentos seguem múltiplos de 8 px e os cartões têm cantos de 12 px. [CSS da paleta](../css/tokens.css) · [Contraste medido](wcag-contraste.md)

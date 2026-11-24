@@ -12,5 +12,5 @@ Abra esta pasta no VS Code e execute **Open with Live Server** em `index.html`. 
 
 - [Construção do projeto passo a passo](../README.md#como-o-site-foi-construído)
 - [Design e capturas](docs/design-site.md)
-- [Catálogo, fotos e preços](docs/fontes-apresentacao.md)
+- [Dados do catálogo](dados/produtos.json) · [Créditos das fotos](docs/referencias.md)
 - [Verificações e limitações](docs/auditoria.md)

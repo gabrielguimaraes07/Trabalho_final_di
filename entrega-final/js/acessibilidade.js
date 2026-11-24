@@ -3,19 +3,14 @@ const painel = `
     <form class="acessibilidade-form">
       <header class="acessibilidade-cabecalho">
         <span class="acessibilidade-sinal" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="16" cy="4" r="1"></circle>
-            <path d="m18 19 1-7-6 1M5 8l3-3 5.5 3-2.36 3.5M4.24 14.5a5 5 0 0 0 6.88 6M13.76 17.5a5 5 0 0 0-6.88-6"></path>
-          </svg>
+          <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
         </span>
         <div>
           <h2 id="acessibilidade-titulo">Acessibilidade</h2>
           <p>Ajuste como você vê e usa o site.</p>
         </div>
         <button class="botao-contorno acessibilidade-fechar" type="button" aria-label="Fechar acessibilidade" autofocus>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="m18 6-12 12M6 6l12 12"></path>
-          </svg>
+          <span class="icone-simbolo" aria-hidden="true">×</span>
         </button>
       </header>
 
@@ -32,7 +27,7 @@ const painel = `
           </fieldset>
 
           <fieldset class="acessibilidade-cartao">
-            <legend>Tamanho da fonte</legend>
+            <legend>Tamanho do texto</legend>
             <div class="acessibilidade-opcoes acessibilidade-tamanhos">
               <label><input type="radio" name="tamanhoTexto" value="menor"><span>A− <small>90%</small></span></label>
               <label><input type="radio" name="tamanhoTexto" value="normal" checked><span>A <small>100%</small></span></label>
@@ -50,10 +45,6 @@ const painel = `
             <label class="acessibilidade-interruptor">
               <span><strong id="pref-espacamento">Espaçamento de texto</strong><span id="pref-espacamento-texto">Mais espaço entre letras, palavras e linhas.</span></span>
               <input type="checkbox" role="switch" name="espacamento" aria-labelledby="pref-espacamento" aria-describedby="pref-espacamento-texto">
-            </label>
-            <label class="acessibilidade-interruptor">
-              <span><strong id="pref-fonte">Fonte de leitura facilitada</strong><span id="pref-fonte-texto">Usa Atkinson Hyperlegible.</span></span>
-              <input type="checkbox" role="switch" name="fonteLeitura" aria-labelledby="pref-fonte" aria-describedby="pref-fonte-texto">
             </label>
             <label class="acessibilidade-interruptor">
               <span><strong id="pref-links">Sublinhar links</strong><span id="pref-links-texto">Identifica os links pelo sublinhado.</span></span>

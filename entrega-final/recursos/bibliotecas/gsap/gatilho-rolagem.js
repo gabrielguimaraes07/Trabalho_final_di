@@ -7,8 +7,7 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
-/* eslint-disable */
-import { Observer, _getTarget, _vertical, _horizontal, _scrollers, _proxies, _getScrollFunc, _getProxyProp, _getVelocityProp } from "./Observer.js";
+import { Observer, _getTarget, _vertical, _horizontal, _scrollers, _proxies, _getScrollFunc, _getProxyProp, _getVelocityProp } from "./observador.js";
 
 var gsap,
     _coreInitted,
@@ -369,14 +368,13 @@ _pointerDownHandler = function _pointerDownHandler() {
   return _getTime() - _lastScrollTime > 34 && (_rafID || (_rafID = requestAnimationFrame(_updateAll)));
 },
     _onScroll = function _onScroll() {
-  // previously, we tried to optimize performance by batching/deferring to the next requestAnimationFrame(), but discovered that Safari has a few bugs that make this unworkable (especially on iOS). See https://codepen.io/GreenSock/pen/16c435b12ef09c38125204818e7b45fc?editors=0010 and https://codepen.io/GreenSock/pen/JjOxYpQ/3dd65ccec5a60f1d862c355d84d14562?editors=0010 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503?editors=0010
   if (!_normalizer || !_normalizer.isPressed || _normalizer.startX > _body.clientWidth) {
     _scrollers.cache++;
 
     if (_normalizer) {
       _rafID || (_rafID = requestAnimationFrame(_updateAll));
     } else {
-      _updateAll(); // Safari in particular (on desktop) NEEDS the immediate update rather than waiting for a requestAnimationFrame() whereas iOS seems to benefit from waiting for the requestAnimationFrame() tick, at least when normalizing. See https://codepen.io/GreenSock/pen/qBYozqO?editors=0110
+      _updateAll();
 
     }
 
@@ -884,7 +882,7 @@ _getTweenCreator = function _getTweenCreator(scroller, direction) {
   return getTween;
 };
 
-export var ScrollTrigger = /*#__PURE__*/function () {
+export var ScrollTrigger = function () {
   function ScrollTrigger(vars, animation) {
     _coreInitted || ScrollTrigger.register(gsap) || console.warn("Please gsap.registerPlugin(ScrollTrigger)");
 
@@ -1032,7 +1030,7 @@ export var ScrollTrigger = /*#__PURE__*/function () {
 
     if (animation) {
       animation.vars.lazy = false;
-      animation._initted && !self.isReverted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true); // special case: if this ScrollTrigger gets re-initted, a from() tween with a stagger could get initted initially and then reverted on the re-init which means it'll need to get rendered again here to properly display things. Otherwise, See https://gsap.com/forums/topic/36777-scrollsmoother-splittext-nextjs/ and https://codepen.io/GreenSock/pen/eYPyPpd?editors=0010
+      animation._initted && !self.isReverted || animation.vars.immediateRender !== false && vars.immediateRender !== false && animation.duration() && animation.render(0, true, true);
 
       self.animation = animation.pause();
       animation.scrollTrigger = self;
@@ -1042,7 +1040,6 @@ export var ScrollTrigger = /*#__PURE__*/function () {
     }
 
     if (snap) {
-      // TODO: potential idea: use legitimate CSS scroll snapping by pushing invisible elements into the DOM that serve as snap positions, and toggle the document.scrollingElement.style.scrollSnapType onToggle. See https://codepen.io/GreenSock/pen/JjLrgWM for a quick proof of concept.
       if (!_isObject(snap) || snap.push) {
         snap = {
           snapTo: snap
@@ -1166,7 +1163,7 @@ export var ScrollTrigger = /*#__PURE__*/function () {
       cs = _getComputedStyle(pin);
       spacingStart = cs[pinSpacing + direction.os2];
       pinGetter = gsap.getProperty(pin);
-      pinSetter = gsap.quickSetter(pin, direction.a, _px); // pin.firstChild && !_maxScroll(pin, direction) && (pin.style.overflow = "hidden"); // protects from collapsing margins, but can have unintended consequences as demonstrated here: https://codepen.io/GreenSock/pen/1e42c7a73bfa409d2cf1e184e7a4248d so it was removed in favor of just telling people to set up their CSS to avoid the collapsing margins (overflow: hidden | auto is just one option. Another is border-top: 1px solid transparent).
+      pinSetter = gsap.quickSetter(pin, direction.a, _px);
 
       _swapPinIn(pin, spacer, cs);
 
@@ -1406,7 +1403,6 @@ export var ScrollTrigger = /*#__PURE__*/function () {
         pinStart = parseFloat(pinGetter(direction.a)) + otherPinOffset;
 
         if (!max && end > 1) {
-          // makes sure the scroller has a scrollbar, otherwise if something has width: 100%, for example, it would be too big (exclude the scrollbar). See https://gsap.com/forums/topic/25182-scrolltrigger-width-of-page-increase-where-markers-are-set-to-false/
           forcedOverflow = (isViewport ? _doc.scrollingElement || _docEl : scroller).style;
           forcedOverflow = {
             style: forcedOverflow,
@@ -1653,7 +1649,6 @@ export var ScrollTrigger = /*#__PURE__*/function () {
             if (scrubTween.resetTo) {
               scrubTween.resetTo("totalProgress", clipped, animation._tTime / animation._tDur);
             } else {
-              // legacy support (courtesy), before 3.10.0
               scrubTween.vars.totalProgress = clipped;
               scrubTween.invalidate().restart();
             }
@@ -1876,7 +1871,7 @@ export var ScrollTrigger = /*#__PURE__*/function () {
 
       self.update = function () {
         self.update = updateFunc;
-        _scrollers.cache++; // otherwise a cached scroll position may get used in the refresh() in a very rare scenario, like if ScrollTriggers are created inside a DOMContentLoaded event and the queued requestAnimationFrame() fires beforehand. See https://gsap.com/community/forums/topic/41267-scrolltrigger-breaks-on-refresh-when-using-domcontentloaded/
+        _scrollers.cache++;
 
         start || end || self.refresh();
       };
@@ -1972,7 +1967,7 @@ export var ScrollTrigger = /*#__PURE__*/function () {
         Observer.register(gsap);
 
         ScrollTrigger.isTouch = Observer.isTouch;
-        _fixIOSBug = Observer.isTouch && /(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent); // since 2017, iOS has had a bug that causes event.clientX/Y to be inaccurate when a scroll occurs, thus we must alternate ignoring every other touchmove event to work around it. See https://bugs.webkit.org/show_bug.cgi?id=181954 and https://codepen.io/GreenSock/pen/ExbrPNa/087cef197dc35445a0951e8935c41503
+        _fixIOSBug = Observer.isTouch && /(iPad|iPhone|iPod|Mac)/g.test(navigator.userAgent);
 
         _ignoreMobileResize = Observer.isTouch === 1;
 
@@ -2055,7 +2050,7 @@ export var ScrollTrigger = /*#__PURE__*/function () {
         _addListener(_doc, "touchcancel", _passThrough);
 
 
-        _addListener(_body, "touchstart", _passThrough); //works around Safari bug: https://gsap.com/forums/topic/21450-draggable-in-iframe-on-mobile-is-buggy/
+        _addListener(_body, "touchstart", _passThrough);
 
 
         _multiListener(_addListener, _doc, "pointerdown,touchstart,mousedown", _pointerDownHandler);

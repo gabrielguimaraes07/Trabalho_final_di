@@ -14,7 +14,7 @@
   const tamanho = preferencias.tamanhoTexto;
   if (['menor', 'normal', 'maior', 'maximo'].includes(tamanho)) raiz.dataset.tamanhoTexto = tamanho;
 
-  for (const chave of ['contraste', 'espacamento', 'fonteLeitura', 'sublinharLinks', 'reduzirMovimento', 'desativarAtalhoBusca']) {
+  for (const chave of ['contraste', 'espacamento', 'sublinharLinks', 'reduzirMovimento', 'desativarAtalhoBusca']) {
     if (preferencias[chave] === true) raiz.dataset[chave] = 'true';
   }
 

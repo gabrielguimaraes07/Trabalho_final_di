@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { carregarScrollTrigger } from './animacoes.js?v=1.0-final';
+import { carregarScrollTrigger } from './animacoes.js?v=interfaces-11';
 import { categorias } from './estoque.js?v=1.0-final';
 import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
 

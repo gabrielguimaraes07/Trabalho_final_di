@@ -1,15 +1,15 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
 import { iniciarGaveta } from './gaveta.js?v=interfaces-6';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
-import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
-import { iniciarCarrinho } from './carrinho.js?v=interfaces-4a';
+import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
+import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
 import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-6';
 import { iniciarMontador } from './montador.js?v=interfaces-5';
 import { iniciarBuildsProntos } from './configuracoes-prontas.js?v=interfaces-5';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
-import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=1.0-final';
+import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=interfaces-11';
 
 import { iniciarNavegacao } from './navegacao.js?v=interfaces-5';
 
@@ -73,7 +73,7 @@ if (secaoExplodida) {
   const observador = new IntersectionObserver(([entrada]) => {
     if (!entrada.isIntersecting) return;
     observador.disconnect();
-    import('./vista-explodida.js?v=1.0-final')
+    import('./vista-explodida.js?v=interfaces-11')
       .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
       .catch(() => {});
   }, { rootMargin: '320px 0px' });

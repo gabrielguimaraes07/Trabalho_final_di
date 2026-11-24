@@ -13,7 +13,7 @@
   --glass: rgba(29, 29, 31, .96);
   --glass-blur: blur(20px);
 
-  --font-family: "Inter", system-ui, sans-serif;
+  --font-family: system-ui, sans-serif;
   --font-scale: 1;
   --font-14: .875rem;
   --font-16: 1rem;

@@ -96,9 +96,7 @@ const painel = `
       <header class="gaveta-cabecalho">
         <h2 id="carrinho-titulo">Seu carrinho</h2>
         <button class="botao-contorno gaveta-fechar" type="button" aria-label="Fechar carrinho" autofocus>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-            <path d="m18 6-12 12M6 6l12 12"></path>
-          </svg>
+          <span class="icone-simbolo" aria-hidden="true">×</span>
         </button>
       </header>
 

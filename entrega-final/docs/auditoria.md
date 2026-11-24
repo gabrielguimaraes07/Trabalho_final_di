@@ -2,7 +2,7 @@
 
 ## Depois de reorganizar os arquivos
 
-Os caminhos foram conferidos com as duas versões em uma subpasta, como no GitHub Pages. A final carregou os módulos de Three.js e GSAP, o gabinete, a vista explodida, o catálogo e os dois pesos da fonte Atkinson. O vídeo e a capa abriram no caminho novo. O teste dos 16 setups conferiu a importação das peças e os totais na montagem.
+Os caminhos foram conferidos com as duas versões em uma subpasta, como no GitHub Pages. A final carregou os módulos de Three.js e GSAP, o gabinete, a vista explodida, o catálogo. O vídeo e a capa abriram no caminho novo. O teste dos 16 setups conferiu a importação das peças e os totais na montagem.
 
 Na parcial, o gabinete girável e a gaveta abriram no Chromium. Os 24 arquivos que compõem o site dessa versão têm o mesmo conteúdo do commit `5615947`. As nove páginas da final foram novamente abertas nos dois temas a 390 e 1.440 px.
 

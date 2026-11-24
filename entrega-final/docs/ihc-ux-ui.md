@@ -16,4 +16,4 @@ O menu marca a página atual e o foco do teclado tem um contorno próprio. Se a 
 
 O grafite deixa as peças e as fotografias em destaque. O azul reaparece em ações, links, foco e seleção. Usei preços em reais e explicações como a da RAM, que funciona como a mesa de trabalho onde ficam as coisas em uso. Isso ajuda a ler a ficha antes de conhecer todos os nomes de hardware. [Paleta e contraste](paleta.md)
 
-O painel tem tema, tamanho de texto, espaçamento, Atkinson Hyperlegible, alto contraste e opções para sublinhar links ou reduzir movimento. Dá para conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)
+O painel tem tema, tamanho de texto, espaçamento, alto contraste e opções para sublinhar links ou reduzir movimento. Dá para conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)

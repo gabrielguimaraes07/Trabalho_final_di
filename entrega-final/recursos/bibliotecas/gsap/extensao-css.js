@@ -7,9 +7,8 @@
  * @author: Jack Doyle, jack@greensock.com
 */
 
-/* eslint-disable */
 import { gsap, _getProperty, _numExp, _numWithUnitExp, getUnit, _isString, _isUndefined, _renderComplexString, _relExp, _forEachName, _sortPropTweensByPriority, _colorStringFilter, _checkPlugin, _replaceRandom, _plugins, GSCache, PropTween, _config, _ticker, _round, _missingPlugin, _getSetter, _getCache, _colorExp, _parseRelative, _setDefaults, _removeLinkedListItem
-} from "./gsap-core.js";
+} from "./nucleo-gsap.js";
 
 var _win,
     _doc,
@@ -185,7 +184,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
     _createElement = function _createElement(type, ns) {
   var e = _doc.createElementNS ? _doc.createElementNS((ns || "http://www.w3.org/1999/xhtml").replace(/^https/, "http"), type) : _doc.createElement(type);
 
-  return e && e.style ? e : _doc.createElement(type); //some environments won't allow access to the element's style when created with a namespace in which case we default to the standard createElement() to work around the issue. Also note that when GSAP is embedded directly inside an SVG file, createElement() won't allow access to the style object in Firefox (see https://gsap.com/forums/topic/20215-problem-using-tweenmax-in-standalone-self-containing-svg-file-err-cannot-set-property-csstext-of-undefined/).
+  return e && e.style ? e : _doc.createElement(type);
 },
     _getComputedProperty = function _getComputedProperty(target, property, skipPrefixFallback) {
   var cs = getComputedStyle(target);
@@ -259,7 +258,7 @@ _renderRoundedCSSProp = function _renderRoundedCSSProp(ratio, data) {
   var bounds, cloned;
 
   try {
-    bounds = target.getBBox(); //Firefox throws errors if you try calling getBBox() on an SVG element that's not rendered (like in a <symbol> or <defs>). https://bugzilla.mozilla.org/show_bug.cgi?id=612118
+    bounds = target.getBBox();
   } catch (error) {
     bounds = _getReparentedCloneBBox(target);
     cloned = 1;
@@ -412,7 +411,6 @@ _convertToUnit = function _convertToUnit(target, property, value, unit) {
 },
     _tweenComplexCSSString = function _tweenComplexCSSString(target, prop, start, end) {
   if (!start || start === "none") {
-    // some browsers like Safari actually PREFER the prefixed property and mis-report the unprefixed value like clipPath (BUG). In other words, even though clipPath exists in the style ("clipPath" in target.style) and it's set in the CSS properly (along with -webkit-clip-path), Safari reports clipPath as "none" whereas WebkitClipPath reports accurately like "ellipse(100% 0% at 50% 0%)", so in this case we must SWITCH to using the prefixed property instead. See https://gsap.com/forums/topic/18310-clippath-doesnt-work-on-ios/
     var p = _checkPropPrefix(prop, target, 1),
         s = p && _getComputedProperty(target, p, 1);
 
@@ -420,7 +418,7 @@ _convertToUnit = function _convertToUnit(target, property, value, unit) {
       prop = p;
       start = s;
     } else if (prop === "borderColor") {
-      start = _getComputedProperty(target, "borderTopColor"); // Firefox bug: always reports "borderColor" as "", so we must fall back to borderTopColor. See https://gsap.com/forums/topic/24583-how-to-return-colors-that-i-had-after-reverse/
+      start = _getComputedProperty(target, "borderTopColor");
     }
   }
 
@@ -601,69 +599,6 @@ _specialProps = {
       return 1;
     }
   }
-  /* className feature (about 0.4kb gzipped).
-  , className(plugin, target, property, endValue, tween) {
-  	let _renderClassName = (ratio, data) => {
-  			data.css.render(ratio, data.css);
-  			if (!ratio || ratio === 1) {
-  				let inline = data.rmv,
-  					target = data.t,
-  					p;
-  				target.setAttribute("class", ratio ? data.e : data.b);
-  				for (p in inline) {
-  					_removeProperty(target, p);
-  				}
-  			}
-  		},
-  		_getAllStyles = (target) => {
-  			let styles = {},
-  				computed = getComputedStyle(target),
-  				p;
-  			for (p in computed) {
-  				if (isNaN(p) && p !== "cssText" && p !== "length") {
-  					styles[p] = computed[p];
-  				}
-  			}
-  			_setDefaults(styles, _parseTransform(target, 1));
-  			return styles;
-  		},
-  		startClassList = target.getAttribute("class"),
-  		style = target.style,
-  		cssText = style.cssText,
-  		cache = target._gsap,
-  		classPT = cache.classPT,
-  		inlineToRemoveAtEnd = {},
-  		data = {t:target, plugin:plugin, rmv:inlineToRemoveAtEnd, b:startClassList, e:(endValue.charAt(1) !== "=") ? endValue : startClassList.replace(new RegExp("(?:\\s|^)" + endValue.substr(2) + "(?![\\w-])"), "") + ((endValue.charAt(0) === "+") ? " " + endValue.substr(2) : "")},
-  		changingVars = {},
-  		startVars = _getAllStyles(target),
-  		transformRelated = /(transform|perspective)/i,
-  		endVars, p;
-  	if (classPT) {
-  		classPT.r(1, classPT.d);
-  		_removeLinkedListItem(classPT.d.plugin, classPT, "_pt");
-  	}
-  	target.setAttribute("class", data.e);
-  	endVars = _getAllStyles(target, true);
-  	target.setAttribute("class", startClassList);
-  	for (p in endVars) {
-  		if (endVars[p] !== startVars[p] && !transformRelated.test(p)) {
-  			changingVars[p] = endVars[p];
-  			if (!style[p] && style[p] !== "0") {
-  				inlineToRemoveAtEnd[p] = 1;
-  			}
-  		}
-  	}
-  	cache.classPT = plugin._pt = new PropTween(plugin._pt, target, "className", 0, 0, _renderClassName, data, 0, -11);
-  	if (style.cssText !== cssText) { //only apply if things change. Otherwise, in cases like a background-image that's pulled dynamically, it could cause a refresh. See https://gsap.com/forums/topic/20368-possible-gsap-bug-switching-classnames-in-chrome/.
-  		style.cssText = cssText; //we recorded cssText before we swapped classes and ran _getAllStyles() because in cases when a className tween is overwritten, we remove all the related tweening properties from that class change (otherwise class-specific stuff can't override properties we've directly set on the target's style object due to specificity).
-  	}
-  	_parseTransform(target, true); //to clear the caching of transforms
-  	data.css = new gsap.plugins.css();
-  	data.css.init(target, changingVars, tween);
-  	plugin._props.push(...data.css._props);
-  	return 1;
-  }
-  */
 
 },
 
@@ -692,13 +627,11 @@ _identity2DMatrix = [1, 0, 0, 1, 0, 0],
     matrix = [temp.a, temp.b, temp.c, temp.d, temp.e, temp.f];
     return matrix.join(",") === "1,0,0,1,0,0" ? _identity2DMatrix : matrix;
   } else if (matrix === _identity2DMatrix && !target.offsetParent && target !== _docElement && !cache.svg) {
-    //note: if offsetParent is null, that means the element isn't in the normal document flow, like if it has display:none or one of its ancestors has display:none). Firefox returns null for getComputedStyle() if the element is in an iframe that has display:none. https://bugzilla.mozilla.org/show_bug.cgi?id=548397
     temp = style.display;
     style.display = "block";
     parent = target.parentNode;
 
     if (!parent || !target.offsetParent && !target.getBoundingClientRect().width) {
-      // note: in 3.3.0 we switched target.offsetParent to _doc.body.contains(target) to avoid [sometimes unnecessary] MutationObserver calls but that wasn't adequate because there are edge cases where nested position: fixed elements need to get reparented to accurately sense transforms. See https://github.com/greensock/GSAP/issues/388 and https://github.com/greensock/GSAP/issues/375. Note: position: fixed elements report a null offsetParent but they could also be invisible because they're in an ancestor with display: none, so we check getBoundingClientRect(). We only want to alter the DOM if we absolutely have to because it can cause iframe content to reload, like a Vimeo video.
       addedToDOM = 1;
 
       nextSibling = target.nextElementSibling;

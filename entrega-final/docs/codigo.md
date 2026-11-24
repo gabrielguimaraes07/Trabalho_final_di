@@ -24,7 +24,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 - [css/montador.css](../css/montador.css) — Passos do quiz, resultado e cartões de configurações.
 - [css/simulador.css](../css/simulador.css) — Layout do simulador, impressão, guia e tela do notebook.
 - [css/apoio.css](../css/apoio.css) — Glossário, dicas, formulários e perguntas frequentes.
-- [css/acessibilidade.css](../css/acessibilidade.css) — Painel, preferências de leitura e fonte Atkinson.
+- [css/acessibilidade.css](../css/acessibilidade.css) — Painel e preferências de leitura.
 
 ## Comportamento e regras
 

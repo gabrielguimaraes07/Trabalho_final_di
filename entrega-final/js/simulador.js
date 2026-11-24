@@ -1,7 +1,7 @@
 import { avisoDeVideo, carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, resumoEspecificacoes, rotuloCotacao, somarItens } from './estoque.js?v=interfaces-4';
 import { carregarGlossario } from './glossario.js?v=1.0-final';
 import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=interfaces-4';
-import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4a';
+import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-11';
 import { conflitosDaPeca, excluirSalva, gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
   limiteMontagensSalvas, mesmaMontagem, normalizarMontagem, salvarComNome, separarItens } from './montagem.js?v=interfaces-4';
 

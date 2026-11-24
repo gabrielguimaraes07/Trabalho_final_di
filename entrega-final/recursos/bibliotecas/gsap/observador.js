@@ -11,7 +11,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * @author: Jack Doyle, jack@greensock.com
 */
 
-/* eslint-disable */
 var gsap,
     _coreInitted,
     _clamp,
@@ -238,7 +237,7 @@ var gsap,
 
 _horizontal.op = _vertical;
 _scrollers.cache = 0;
-export var Observer = /*#__PURE__*/function () {
+export var Observer = function () {
   function Observer(vars) {
     this.init(vars);
   }

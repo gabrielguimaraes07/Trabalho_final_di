@@ -32,7 +32,7 @@ O carrinho mostra as quantidades e o total e aponta diferenças em relação ao 
 
 ## Acessibilidade
 
-O link para pular ao conteúdo e os indicadores de foco ajudam quem usa teclado. As gavetas e o painel fecham com Esc e devolvem o foco ao botão que os abriu. No painel de acessibilidade, é possível escolher tema, tamanho da fonte, espaçamento, sublinhado de links, leitura com Atkinson Hyperlegible e alto contraste. A opção de reduzir movimento pausa o giro automático do gabinete e a troca de fotos. Os ajustes aparecem na prévia e ficam salvos no mesmo navegador. [Painel de acessibilidade](capturas/versao-final-acessibilidade.jpg) · [Testes do projeto](auditoria.md)
+O link para pular ao conteúdo e os indicadores de foco ajudam quem usa teclado. As gavetas e o painel fecham com Esc e devolvem o foco ao botão que os abriu. No painel de acessibilidade, é possível escolher tema, tamanho da fonte, espaçamento, sublinhado de links e alto contraste. A opção de reduzir movimento pausa o giro automático do gabinete e a troca de fotos. Os ajustes aparecem na prévia e ficam salvos no mesmo navegador. [Painel de acessibilidade](capturas/versao-final-acessibilidade.jpg) · [Testes do projeto](auditoria.md)
 
 ## Capturas da versão publicada
 

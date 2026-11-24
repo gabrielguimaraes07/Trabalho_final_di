@@ -1,7 +1,7 @@
 # Como usei IA no GGTECH
 
-Usei o **OpenAI Codex** na implementação, nos testes e na documentação. O apoio começou com a estrutura das páginas, o CSS e o cálculo de contraste. Depois incluiu o gabinete em Three.js, as opções de acessibilidade, o catálogo, a montagem e o carrinho. Também ajudou na consulta das fichas e dos preços, nos ajustes de navegação e formulários e na revisão dos textos.
+O **OpenAI Codex** me ajudou a fazer o computador 3D no Three.js e a ligar as peças ao catálogo. Também ajudou a organizar o GitHub, separar as pastas da parcial e da final, revisar o README e conferir os endereços publicados.
 
-Nas revisões, priorizei manter o gabinete 3D, facilitar a escolha de peças e mostrar foto e preço na própria tela. Também pedi o painel de acessibilidade e uma etapa de compra simulada. Os testes e as evidências de cada versão estão na auditoria. [Auditoria](auditoria.md)
+Usei o Codex também para implementar partes da interface, da acessibilidade, da montagem e do carrinho, consultar fichas e preços e rodar testes. Durante as revisões, defini como prioridade manter o gabinete 3D e facilitar a escolha de peças com fotos e preços na própria tela. [Auditoria](auditoria.md)
 
-O **OpenAI ImageGen** foi usado para três imagens ilustrativas do carrossel da parcial. Elas continuam naquela edição. Na final, o carrossel usa fotos de ambientes reais. [Créditos das imagens](fontes-apresentacao.md)
+O **OpenAI ImageGen** ajudou a produzir as três imagens ilustrativas da entrega parcial. Na final, o carrossel usa fotos reais. [Créditos das imagens](referencias.md#ambientes-reais)
