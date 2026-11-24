@@ -2,6 +2,8 @@
 
 Esta revisão foi feita em 18/11/2026, com o commit `c44953d` como referência. A tag `v0.1-parcial` identifica a primeira publicação e antecede a correção do nome. [Versão usada na revisão](https://github.com/gabrielguimaraes07/Trabalho_final_di/tree/c44953d) · [Site atual](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
+A edição para baixar reúne a correção do nome e os ajustes de contraste, foco e ícone descritos abaixo. [Entrega parcial revisada](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
+
 ## O que estava pronto
 
 - A página inicial tinha cabeçalho, menu, rodapé e link para pular ao conteúdo. Cinco cartões explicavam as peças e o carrossel tinha navegação e pausa.

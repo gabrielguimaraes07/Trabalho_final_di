@@ -4,7 +4,7 @@ Um site para quem quer montar o primeiro PC e ainda está aprendendo o que cada 
 
 **Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-[Abrir o GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+[Abrir o GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/) · [Entrega parcial revisada](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
 
 ![Página inicial do GGTECH com o gabinete 3D e os botões para explorar as peças](docs/prints/versao-final-inicio.jpg)
 

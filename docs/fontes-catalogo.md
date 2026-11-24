@@ -2,24 +2,28 @@
 
 As cotações em reais são referências da fonte indicada e podem mudar. O simulador permite inserir a própria cotação.
 
-## Fotografias licenciadas
+## Fotografias
 
-- [r5600g.webp](https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg) — FritzchensFritz · CC0 · Redimensionada e convertida para WebP. [Termos](http://creativecommons.org/publicdomain/zero/1.0/deed.en)
-- [r5600x.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg) — Phiarc · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [mx500.webp](https://commons.wikimedia.org/wiki/File:CT1000MX500SSD1_rear_20210220.jpg) — Solomon203 · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [pro980.webp](https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg) — D-Kuru · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [case4000d.webp](https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif) — PJ · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [d15.webp](https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg) — Kaleb Kloppe · CC BY 2.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by/2.0)
-- [g502.webp](https://commons.wikimedia.org/wiki/File:G502_Hero.jpg) — Spiileer · CC0 · Redimensionada e convertida para WebP. [Termos](http://creativecommons.org/publicdomain/zero/1.0/deed.en)
-- [k120.webp](https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg) — TaurusEmerald · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [jogos.webp](https://commons.wikimedia.org/wiki/File:RGB_desktop_computer_setup_with_keyboard_and_monitor.jpg) — SankalpSasnur · CC0 · Redimensionada e convertida para WebP. [Termos](http://creativecommons.org/publicdomain/zero/1.0/deed.en)
-- [estudo.webp](https://commons.wikimedia.org/wiki/File:ABS_PC_and_monitor_setup.jpg) — Masterandbeef · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [criacao.webp](https://commons.wikimedia.org/wiki/File:Dual_monitor_setup_in_a_gaming_room_with_keyboard_and_mouse_in_focus.jpg) — Shixart1985 · CC BY 2.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by/2.0)
-- [notebook.webp](https://commons.wikimedia.org/wiki/File:ThinkPad_T480.jpg) — Elizabeth K. Joseph · CC BY 2.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by/2.0)
-- [qvo870.webp](https://commons.wikimedia.org/wiki/File:SAMSUNG_SATA_SSD_870_QVO_1TB_FRONT.jpg) — Dinkun Chen · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [nv2-2tb.webp](https://commons.wikimedia.org/wiki/File:2023_Dysk_SSD_Kingston_NV2_2TB.jpg) — Jacek Halicki · CC BY-SA 4.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by-sa/4.0)
-- [d15black.webp](https://commons.wikimedia.org/wiki/File:NH-D15_with_black_fans.jpg) — Kaleb Kloppe · CC BY 2.0 · Redimensionada e convertida para WebP. [Termos](https://creativecommons.org/licenses/by/2.0)
-- [r7600.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg) — Smial (talk) · FAL · Redimensionada e convertida para WebP. [Termos](http://artlibre.org/licence/lal/en)
+Os arquivos listados foram redimensionados e convertidos para WebP.
+
+- [r5600g.webp](https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg) — FritzchensFritz · CC0
+- [r5600x.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg) — Phiarc · CC BY-SA 4.0
+- [mx500.webp](https://commons.wikimedia.org/wiki/File:CT1000MX500SSD1_rear_20210220.jpg) — Solomon203 · CC BY-SA 4.0
+- [pro980.webp](https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg) — D-Kuru · CC BY-SA 4.0
+- [case4000d.webp](https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif) — PJ · CC BY-SA 4.0
+- [d15.webp](https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg) — Kaleb Kloppe · CC BY 2.0
+- [g502.webp](https://commons.wikimedia.org/wiki/File:G502_Hero.jpg) — Spiileer · CC0
+- [k120.webp](https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg) — TaurusEmerald · CC BY-SA 4.0
+- [jogos.webp](https://commons.wikimedia.org/wiki/File:RGB_desktop_computer_setup_with_keyboard_and_monitor.jpg) — SankalpSasnur · CC0
+- [estudo.webp](https://commons.wikimedia.org/wiki/File:ABS_PC_and_monitor_setup.jpg) — Masterandbeef · CC BY-SA 4.0
+- [criacao.webp](https://commons.wikimedia.org/wiki/File:Dual_monitor_setup_in_a_gaming_room_with_keyboard_and_mouse_in_focus.jpg) — Shixart1985 · CC BY 2.0
+- [notebook.webp](https://commons.wikimedia.org/wiki/File:ThinkPad_T480.jpg) — Elizabeth K. Joseph · CC BY 2.0
+- [qvo870.webp](https://commons.wikimedia.org/wiki/File:SAMSUNG_SATA_SSD_870_QVO_1TB_FRONT.jpg) — Dinkun Chen · CC BY-SA 4.0
+- [nv2-2tb.webp](https://commons.wikimedia.org/wiki/File:2023_Dysk_SSD_Kingston_NV2_2TB.jpg) — Jacek Halicki · CC BY-SA 4.0
+- [d15black.webp](https://commons.wikimedia.org/wiki/File:NH-D15_with_black_fans.jpg) — Kaleb Kloppe · CC BY 2.0
+- [r7600.webp](https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg) — Smial (talk) · FAL
+
+Licenças das fotos. [CC0](https://creativecommons.org/publicdomain/zero/1.0/) · [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) · [Licença Arte Livre](http://artlibre.org/licence/lal/en)
 
 A animação do terminal no notebook foi produzida para o GGTECH a partir dos dados reais do projeto e é licenciada sob [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). A montagem sobreposta mantém a atribuição da fotografia.
 
