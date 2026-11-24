@@ -86,7 +86,7 @@ export function iniciarGaveta(dialogo) {
       atualizarLista();
     } catch {
       if (selecao !== abertura || !dialogo.open) return;
-      status.textContent = 'Não foi possível carregar o estoque. Feche a gaveta e tente novamente.';
+      status.textContent = 'Não foi possível carregar o catálogo. Feche a gaveta e tente novamente.';
     }
   };
 }

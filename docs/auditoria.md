@@ -81,3 +81,5 @@ A edição reúne 9 páginas, 56 produtos, 19 tipos de peça e 16 setups. Os pre
 | Contraste | O texto secundário ficou em 4,65:1 ou mais sobre os fundos sólidos usados nos dois temas. Links e foco passaram de 5,1:1, e o texto branco nos botões azuis ficou em 4,70:1. |
 
 O contraste foi calculado para as cores usadas e os fluxos foram conferidos com testes automatizados de interface. As notas Lighthouse e axe acima pertencem à base indicada no início. As sessões com participantes e a pontuação SUS ainda dependem da aplicação do roteiro. [Roteiro de usabilidade](usabilidade.md)
+
+No Chromium, na versão publicada, foram conferidos o tema claro e o escuro, a gaveta com seis fontes e o catálogo com sete placas de vídeo. Com 393 px de largura útil via zoom, o menu abriu por teclado, fechou com Escape e devolveu o foco. A barra de total levou ao resumo abaixo do cabeçalho. Também foi conferida a sincronização do orçamento digitado. Esse teste de largura foi feito no Chromium de computador.

@@ -1,4 +1,4 @@
-import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4';
+import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4a';
 import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=interfaces-4';
 import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js?v=interfaces-4';
 

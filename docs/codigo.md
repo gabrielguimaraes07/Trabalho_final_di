@@ -21,6 +21,7 @@
 | [css/apoio.css](../css/apoio.css) | Glossário, dicas, formulários e perguntas frequentes. |
 | [css/acessibilidade.css](../css/acessibilidade.css) | Painel, preferências de leitura e fonte Atkinson. |
 | [js/main.js](../js/main.js) | Inicia páginas, componentes e atalhos. |
+| [js/navegacao.js](../js/navegacao.js) | Menu compacto, retorno de foco e espaçamento dos atalhos de rolagem. |
 | [js/abas.js](../js/abas.js) | Calcula a próxima aba para as teclas de navegação. |
 | [js/acessibilidade.js](../js/acessibilidade.js) | Interface de ajustes, prévia e restauração das preferências. |
 | [js/tema.js](../js/tema.js) | Aplica a preferência salva antes da primeira pintura e acompanha o tema do sistema. |
@@ -33,8 +34,8 @@
 | [js/dialogo.js](../js/dialogo.js) | Controla foco, Escape e fechamento das gavetas. |
 | [js/carrossel.js](../js/carrossel.js) | Alterna as imagens e controla a pausa e o movimento reduzido. |
 | [js/estoque.js](../js/estoque.js) | Carrega produtos e fornece nomes, descrições e formatação de preços. |
-| [js/pagina-estoque.js](../js/pagina-estoque.js) | Exibe abas, filtros, sugestões e cartões de produto. |
-| [js/carrinho.js](../js/carrinho.js) | Salva itens e orçamento e atualiza o painel do carrinho. |
+| [js/pagina-estoque.js](../js/pagina-estoque.js) | Exibe categorias, filtros, sugestões e a tabela de comparação. |
+| [js/carrinho.js](../js/carrinho.js) | Salva itens e orçamento e mostra a revisão da compra simulada. |
 | [js/compatibilidade.js](../js/compatibilidade.js) | Compara encaixe, memória, formato e potência. |
 | [js/builds-prontos.js](../js/builds-prontos.js) | Agrupa as configurações por tipo de uso e mostra exemplos na página inicial. |
 | [js/configuracoes.js](../js/configuracoes.js) | Valida os conjuntos prontos e busca combinações para o quiz. |
@@ -49,6 +50,6 @@
 
 ## Dados
 
-- [produtos.json](../data/produtos.json) registra produtos, disponibilidade, preços e compatibilidade.
+- [produtos.json](../data/produtos.json) registra 56 produtos reais em 19 tipos, com preços e dados de compatibilidade.
 - [builds.json](../data/builds.json) reúne 16 conjuntos de peças, organizados por uso e nível.
 - [glossario.json](../data/glossario.json) reúne os termos e suas definições.

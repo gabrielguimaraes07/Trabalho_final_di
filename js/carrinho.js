@@ -122,7 +122,7 @@ const painel = `
         <button class="botao-primario carrinho-simular" type="button" hidden>Simular compra</button>
         <p class="carrinho-status" role="status"></p>
         <ul class="gaveta-lista carrinho-lista"></ul>
-        <a class="gaveta-link-estoque" href="./estoque.html">Explorar o estoque</a>
+        <a class="gaveta-link-estoque" href="./estoque.html">Explorar o catálogo</a>
 
         <section class="carrinho-compatibilidade" aria-labelledby="compatibilidade-titulo" hidden>
           <h3 id="compatibilidade-titulo">Compatibilidade</h3>

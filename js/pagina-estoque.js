@@ -1,4 +1,4 @@
-import { adicionarAoCarrinho } from './carrinho.js?v=interfaces-4';
+import { adicionarAoCarrinho } from './carrinho.js?v=interfaces-4a';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
 import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao, avisoDeVideo } from './estoque.js?v=interfaces-4';
 

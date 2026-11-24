@@ -1,5 +1,7 @@
 # C1 — As dez heurísticas de Nielsen
 
+As imagens da primeira tabela registram a base de novembro. Veja as decisões da revisão mais abaixo.
+
 | Heurística | Exemplo no GGTECH | Evidência |
 |---|---|---|
 | Visibilidade do estado | O contador mostra quantas unidades foram adicionadas. A barra do carrinho mostra o total e informa quanto excedeu o orçamento. | [Carrinho](prints/final-carrinho-orcamento.png) |
@@ -14,3 +16,13 @@
 | Ajuda e documentação | O glossário, os cartões explicativos e o link do rodapé para perguntas frequentes dão caminhos para buscar ajuda. | [Perguntas frequentes](prints/final-perguntas-frequentes.png) |
 
 [Nielsen Norman Group — 10 Usability Heuristics](https://www.nngroup.com/articles/ten-usability-heuristics/)
+
+## Na revisão de interfaces
+
+| Heurística | Aplicação |
+|---|---|
+| Visibilidade | Total fixo na montagem em tela estreita, quantidade de peças encontradas e progresso das etapas essenciais. |
+| Consistência | Catálogo, montagem guiada, montagem manual e setups prontos têm os mesmos nomes no menu e nas páginas. |
+| Reconhecimento | Comparação de modelos equivalentes e definições do glossário dentro da montagem. |
+| Controle | Confirmação antes de substituir itens, abrir outro setup ou sobrescrever uma montagem salva. |
+| Prevenção e recuperação | Faixa de preço invertida mostra qual campo corrigir, e o quiz volta ao orçamento quando ele é insuficiente. |

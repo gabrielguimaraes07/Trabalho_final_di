@@ -40,6 +40,18 @@
 .estoque-reset { grid-column: 1 / -1; justify-self: start; }
 @media (max-width: 32rem) { .estoque-filtros-grade { grid-template-columns: 1fr; } }
 
+.login-abas { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.login-abas button {
+  min-block-size: 44px;
+  padding: .4rem 1rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--bg);
+  color: var(--accent);
+  cursor: pointer;
+}
+.login-abas button[aria-selected="true"] { border-color: var(--accent); font-weight: 700; text-decoration: underline; }
+
 .estoque-campo {
   display: grid;
   gap: var(--space-1);
