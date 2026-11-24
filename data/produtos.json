@@ -20,12 +20,16 @@
       "video": true,
       "pcie": 3
     },
-    "preco": null,
+    "preco": 1020.23,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/r5600g.webp",
-    "alt": "Fotografia de AMD Ryzen 5 5600G",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg"
+    "imagem": "assets/img/apresentacao/r5600g.webp",
+    "alt": "Foto de AMD Ryzen 5 5600G",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg",
+    "fontePreco": "https://barracadobyte.com.br/processador/amd-ryzen-5-5600g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "r5600x",
@@ -48,12 +52,16 @@
       "video": false,
       "pcie": 4
     },
-    "preco": null,
+    "preco": 970.0,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/r5600x.webp",
-    "alt": "Fotografia de AMD Ryzen 5 5600X",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg"
+    "imagem": "assets/img/apresentacao/r5600x.webp",
+    "alt": "Foto de AMD Ryzen 5 5600X",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg",
+    "fontePreco": "https://barracadobyte.com.br/processador/amd-ryzen-5-5600x",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "r7600",
@@ -76,12 +84,16 @@
       "video": true,
       "pcie": 5
     },
-    "preco": null,
+    "preco": 1582.22,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/r7600.webp",
-    "alt": "Fotografia de AMD Ryzen 5 7600",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg"
+    "imagem": "assets/img/apresentacao/r7600.webp",
+    "alt": "Foto de AMD Ryzen 5 7600",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/422164/processador-amd-ryzen-5-7600-4-00ghz-6-core-38mb-am5",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "r7700",
@@ -104,9 +116,16 @@
       "video": true,
       "pcie": 5
     },
-    "preco": null,
+    "preco": 2542.34,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/442570/processador-amd-ryzen-7-7700-3-80ghz-8-core-40mb-am5",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/r7700.webp",
+    "alt": "Foto de AMD Ryzen 7 7700",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/442570/xlarge/Processador-AMD-Ryzen-7-7700-3-80ghz-8-core-40MB-Am5_1774378431.jpg"
   },
   {
     "id": "b550",
@@ -138,9 +157,16 @@
         "VGA"
       ]
     },
-    "preco": null,
+    "preco": 799.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://pcfinder.com.br/produto/placa-mae-msi-b550m-pro-vdh-wifi",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "PCFinder",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b550.webp",
+    "alt": "Foto de MSI B550M PRO-VDH WIFI",
+    "creditoFoto": "https://img-canonical.pcfinder.com.br/produtos/31f66d3b-cd08-4677-86c8-c35cbdafa737/01.webp"
   },
   {
     "id": "b650",
@@ -171,9 +197,16 @@
         "DisplayPort"
       ]
     },
-    "preco": null,
+    "preco": 1189.15,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.guerradigital.com.br/produtos/msi-pro-b650m-a-wifi-chipset-b650-amd-am5-matx-ddr5-911-7d77-001/",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Guerra Digital",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b650.webp",
+    "alt": "Foto de MSI PRO B650M-A WIFI",
+    "creditoFoto": "https://acdn-us.mitiendanube.com/stores/002/025/067/products/pro-b650m-a-wifi4-84b16d85f8bb979b1c17109926516688-480-0.webp"
   },
   {
     "id": "rx6600",
@@ -201,9 +234,16 @@
       ],
       "classe": 1
     },
-    "preco": null,
+    "preco": 1962.14,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/19810/placa-de-video-sapphire-pulse-radeon-rx-6600-8gb-gddr6-fsr-ray-tracing-11310-01-20g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rx6600.webp",
+    "alt": "Foto de Sapphire PULSE Radeon RX 6600 8 GB",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/placa-de-video-sapphire-pulse-radeon-rx-6600-8gb-gddr6-fsr-ray-tracing-11310-01-20g_133364.jpg"
   },
   {
     "id": "rtx4060",
@@ -231,9 +271,16 @@
       ],
       "classe": 2
     },
-    "preco": null,
+    "preco": 1881.47,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/25228/placa-de-video-asus-dual-nvidia-geforce-rtx-4060-oc-8gb-gddr6-dlss-ray-tracing-90yv0jc0-m0na00",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx4060.webp",
+    "alt": "Foto de ASUS Dual GeForce RTX 4060 OC 8 GB",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/placa-de-video-asus-dual-nvidia-geforce-rtx-4060-oc-8gb-gddr6-dlss-ray-tracing-90yv0jc0-m0na00_172861.jpg"
   },
   {
     "id": "rtx4070s",
@@ -262,9 +309,16 @@
       ],
       "classe": 3
     },
-    "preco": null,
+    "preco": 4699.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/516997/placa-de-video-rtx-4070-super-oc-dual-o12g-asus-nvidia-geforce-12gb-gddr6x-dlss-ray-tracing-dual-rtx4070s-o12g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx4070s.webp",
+    "alt": "Foto de ASUS Dual GeForce RTX 4070 SUPER OC 12 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/516997/placa-de-video-rtx4070s-asus-dual-o12g-90yv0k82-m0na00_1705349139_g.jpg"
   },
   {
     "id": "ddr4",
@@ -284,9 +338,16 @@
       "gb": 16,
       "slots": 2
     },
-    "preco": null,
+    "preco": 1282.5,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://barracadobyte.com.br/memoria-ram/kingston-fury-beast-ddr4-3200-16gb-2x8gb",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/ddr4.webp",
+    "alt": "Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16",
+    "creditoFoto": "https://barracadobyte.com.br/img/1ab35141-c429-4152-97d5-3c84e4b75e45-l.jpg?v=fa0644b705bb"
   },
   {
     "id": "ddr5",
@@ -306,9 +367,16 @@
       "gb": 32,
       "slots": 2
     },
-    "preco": null,
+    "preco": 4707.63,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.vtrimports.com/memoria-ram-kingston-fury-beast-ddr5-32gb-2x16gb-5600-mt-s-preto-kf556c36bbek2-32",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "VTR Imports",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/ddr5.webp",
+    "alt": "Foto de Kingston FURY Beast 32 GB DDR5-5600 KF556C36BBEK2-32",
+    "creditoFoto": "https://www.kingstonstore.com.br/cdn/shop/products/FuryDIMMK21_10cb09ab-76cf-4ee0-964c-f70566122f0b.jpg?v=1663684829&width=1920"
   },
   {
     "id": "evo870",
@@ -331,7 +399,13 @@
     "preco": 1978.65,
     "estoque": 99,
     "nivel": "intermediario",
-    "fontePreco": "https://www.kabum.com.br/hardware/ssd-2-5/ssd-sata"
+    "fontePreco": "https://www.kabum.com.br/produto/351998/ssd-samsung-870-evo-1tb-sata-mz-77e1t0b-am",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/evo870.webp",
+    "alt": "Foto de Samsung 870 EVO 1 TB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/351998/xlarge/SSD-Samsung-870-Evo-1TB-SATA-mz-77e1t0b-am_1792437813.jpg"
   },
   {
     "id": "mx500",
@@ -351,12 +425,16 @@
       "sata": 1,
       "baia25": 1
     },
-    "preco": null,
+    "preco": 499.99,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/mx500.webp",
-    "alt": "Fotografia de Crucial MX500 1 TB CT1000MX500SSD1",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:CT1000MX500SSD1_rear_20210220.jpg"
+    "imagem": "assets/img/apresentacao/mx500.webp",
+    "alt": "Foto de Crucial MX500 1 TB CT1000MX500SSD1",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/94892/94892_1519150470_index_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/94892/ssd-crucial-mx500-sata-1tb-2-5-leitura-560mb-s-e-gravacao-510mb-s-branco-ct1000mx500ssd1",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "pro980",
@@ -376,12 +454,16 @@
       "nvme": 1,
       "pcie": 4
     },
-    "preco": null,
+    "preco": 650.25,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/pro980.webp",
-    "alt": "Fotografia de Samsung 980 PRO 1 TB",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg"
+    "imagem": "assets/img/apresentacao/pro980.webp",
+    "alt": "Foto de Samsung 980 PRO 1 TB",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg",
+    "fontePreco": "https://www.guerradigital.com.br/produtos/ssd-samsung-980-pro-1tb-nvme-m-2-2280-leitura-ate-6900mb-s-e-gravacao-ate-5000mb-s-mz-v8p1t0/",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Guerra Digital",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "nv2",
@@ -401,9 +483,16 @@
       "nvme": 1,
       "pcie": 4
     },
-    "preco": null,
+    "preco": 640.0,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://barracadobyte.com.br/ssd/kingston-nv2-snv2s-1000g-1tb-snv2s-1000g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/nv2.webp",
+    "alt": "Foto de Kingston NV2 1 TB SNV2S/1000G",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/n/snv2s1000g.jpg"
   },
   {
     "id": "hdd2",
@@ -424,9 +513,16 @@
       "sata": 1,
       "baia35": 1
     },
-    "preco": null,
+    "preco": 1289,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/217616/hd-seagate-2tb-barracuda-3-5-sata-iii-para-desktop-st2000dm008",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/hdd2.webp",
+    "alt": "Foto de Seagate BarraCuda 2 TB ST2000DM008",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/217616/xlarge/HD-Seagate-2TB-Barracuda-3-5-SATA-III-Para-Desktop-ST2000DM008_1782463116.jpg"
   },
   {
     "id": "cx550",
@@ -449,9 +545,16 @@
       "cabosPcie": 1,
       "sata": 3
     },
-    "preco": null,
+    "preco": 532,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/543513/fonte-corsair-cx550-550w-80-plus-bronze-preto-cp-9020277",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cx550.webp",
+    "alt": "Foto de Corsair CX550 (2023) CP-9020277",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/543513/xlarge/Fonte-Corsair-Cx550-550W-80-Plus-Bronze-Preto-Cp-9020277_1794335628.png"
   },
   {
     "id": "rm750x",
@@ -474,9 +577,16 @@
       "cabosPcie": 2,
       "sata": 10
     },
-    "preco": null,
+    "preco": 729.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/156945/fonte-corsair-rm750x-750w-80-plus-gold-modular-sem-cabo-preto-cp-9020199-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rm750x.webp",
+    "alt": "Foto de Corsair RM750x (2021) CP-9020199",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/156945/fonte-corsair-rm750x-750w-80-plus-gold-modular-preto-cp-9020199-ww_1628281649_g.jpg"
   },
   {
     "id": "case4000d",
@@ -539,12 +649,16 @@
       },
       "incluidos": 2
     },
-    "preco": null,
+    "preco": 666.9,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/case4000d.webp",
-    "alt": "Fotografia de Corsair 4000D Airflow CC-9011200",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Corsair_4000D_Airflow_mid-tower_ATX_case.tif"
+    "imagem": "assets/img/apresentacao/case4000d.webp",
+    "alt": "Foto de Corsair 4000D Airflow CC-9011200",
+    "creditoFoto": "https://cdn-hardstore.s3-sa-east-1.amazonaws.com/23948/1280x960/1.webp",
+    "fontePreco": "https://hardstore.com.br/shop/products/gabinete-corsair-4000d-airflow-lateral-em-vidro-temperado-2-fans-mid-tower-preto-cc-9011200-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Hardstore",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "q300lv2",
@@ -601,9 +715,16 @@
       },
       "incluidos": 1
     },
-    "preco": null,
+    "preco": 535.31,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/568312/gabinete-cooler-master-masterbox-q300l-v2-lateral-vidro-temperado-q300lv2-kgnn-s00",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/q300lv2.webp",
+    "alt": "Foto de Cooler Master Q300L V2",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/568312/xlarge/Gabinete-Cooler-Master-Masterbox-Q300l-V2-Lateral-Vidro-Temperado-Q300lv2-kgnn-s00_1793238518.png"
   },
   {
     "id": "p12",
@@ -623,9 +744,16 @@
       "tdp": 2,
       "encadeia": true
     },
-    "preco": null,
+    "preco": 135.04,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/464964/cooler-fan-arctic-p12-pwm-pst-120mm-preto-acfan00120a",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/p12.webp",
+    "alt": "Foto de ARCTIC P12 PWM PST",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/464964/Cooler-Fan-Arctic-P12-Pwm-Pst-120mm-Preto-ACFAN00120A_1701276493_g.jpg"
   },
   {
     "id": "nfa14",
@@ -644,9 +772,16 @@
       "mm": 140,
       "tdp": 2
     },
-    "preco": null,
+    "preco": 194.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.pichau.com.br/ventoinha-noctua-140mm-marrom-nf-a14-pwm",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Pichau",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/nfa14.webp",
+    "alt": "Foto de Noctua NF-A14 PWM",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/n/f/nf-a14-pwm.jpg"
   },
   {
     "id": "aio240",
@@ -671,9 +806,16 @@
       "espessura": 63,
       "tdp": 8
     },
-    "preco": null,
+    "preco": 636.72,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/30367/water-cooler-arctic-liquid-freezer-iii-240-240mm-intel-amd-black-acfre00134a",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/aio240.webp",
+    "alt": "Foto de ARCTIC Liquid Freezer III 240",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/water-cooler-arctic-liquid-freezer-iii-240-240mm-intel-amd-black-acfre00134a_206684.jpg"
   },
   {
     "id": "u12s",
@@ -696,9 +838,16 @@
       "altura": 158,
       "tdp": 2
     },
-    "preco": null,
+    "preco": 469.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://setupbarato.com.br/modelo/coolers/noctua-u12s--cmuvmco0a0hvrmv1v8bkvdym3",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "SetupBarato",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/u12s.webp",
+    "alt": "Foto de Noctua NH-U12S",
+    "creditoFoto": "https://waz.vteximg.com.br/arquivos/ids/168965/105758-1-cooler_cpu_noctua_nh_u12s-5.jpg?v=636438361852870000"
   },
   {
     "id": "d15",
@@ -721,12 +870,16 @@
       "altura": 165,
       "tdp": 3
     },
-    "preco": null,
+    "preco": 819.99,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/d15.webp",
-    "alt": "Fotografia de Noctua NH-D15",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:NH-D15_with_classic_fans.jpg"
+    "imagem": "assets/img/apresentacao/d15.webp",
+    "alt": "Foto de Noctua NH-D15",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/cooler-para-processador-noctua-nh-d15-140mm-intel-amd-nh-d15_114907.jpg",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/16753/cooler-para-processador-noctua-nh-d15-140mm-intel-amd-nh-d15",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "dell",
@@ -748,33 +901,46 @@
         "VGA"
       ]
     },
-    "preco": null,
+    "preco": 1613.1,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.newblu.com.br/produtos/monitor-dell-23-8-full-hd-60hz-p2422h/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "NewBlu",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/dell.webp",
+    "alt": "Foto de Dell P2422H",
+    "creditoFoto": "https://dcdn-us.mitiendanube.com/stores/007/000/741/products/monitor-dell-23-8-391156862afdfd884a17684026152077-480-0.webp"
   },
   {
     "id": "aoc",
     "categoria": "monitor",
-    "nome": "AOC 24G2SP",
+    "nome": "AOC 24G4/P",
     "marca": "AOC",
-    "fonte": "https://aoc.com/us/gaming/products/monitors/24g2sp",
+    "fonte": "https://www.kabum.com.br/produto/704039/monitor-gamer-aoc-24-180hz-0-5ms-ips-ajuste-de-altura-24g4-p",
     "descricao": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
     "destaque": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
     "specs": {
       "Resolução": "1920 × 1080",
-      "Taxa máxima": "165 Hz",
-      "Entradas": "DisplayPort, HDMI, VGA"
+      "Taxa máxima": "180 Hz",
+      "Entradas": "DisplayPort, HDMI"
     },
     "compat": {
       "video": [
         "DisplayPort",
-        "HDMI",
-        "VGA"
+        "HDMI"
       ]
     },
-    "preco": null,
+    "preco": 1528.03,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/704039/monitor-gamer-aoc-24-180hz-0-5ms-ips-ajuste-de-altura-24g4-p",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/aoc.webp",
+    "alt": "Foto de AOC 24G4/P",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/704039/xlarge/Monitor-Gamer-Aoc-24-180hz-0-5ms-Ips-Ajuste-De-Altura-24g4-p_1786816415.jpg"
   },
   {
     "id": "k120",
@@ -790,13 +956,16 @@
       "Teclado numérico": "Sim"
     },
     "compat": {},
-    "preco": 94.11,
+    "preco": 79.99,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/k120.webp",
-    "alt": "Fotografia de Logitech K120",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Logitech_K120_Keyboard.jpg",
-    "fontePreco": "https://www.kabum.com.br/produto/20866/teclado-com-fio-usb-logitech-k120-resistente-a-respingos-e-layout-abnt2-920-004423"
+    "imagem": "assets/img/apresentacao/k120.webp",
+    "alt": "Foto de Logitech K120",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/20866/teclado-logitech-k120-abnt2-920-004423_1614628451_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/20866/teclado-com-fio-usb-logitech-k120-resistente-a-respingos-e-layout-abnt2-920-004423",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "g502",
@@ -815,10 +984,13 @@
     "preco": 368.85,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/g502.webp",
-    "alt": "Fotografia de Logitech G G502 HERO",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:G502_Hero.jpg",
-    "fontePreco": "https://www.kabum.com.br/promocao/PERIFERICOS_20260903"
+    "imagem": "assets/img/apresentacao/g502.webp",
+    "alt": "Foto de Logitech G G502 HERO",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/98244/mouse-gamer-logitech-g502-hero-16k-rgb-lightsync-11-botoes-16000-dpi-910-005550_1626297206_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/98244/mouse-gamer-logitech-g502-hero-com-rgb-lightsync-ajustes-de-peso-11-botoes-programaveis-sensor-hero-25k-910-005550",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "qck",
@@ -834,14 +1006,21 @@
       "Espessura": "2 mm"
     },
     "compat": {},
-    "preco": null,
+    "preco": 93.9,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/115341/mousepad-gamer-steelseries-qck-medio-320x270mm-63004",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/qck.webp",
+    "alt": "Foto de SteelSeries QcK Medium",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/115341/mousepad-gamer-steelseries-qck-pequeno-250x210mm-63004_1595870745_g.jpg"
   },
   {
     "id": "cloud2",
     "categoria": "headset",
-    "nome": "HyperX Cloud II",
+    "nome": "HyperX Cloud II 4P5M0AA",
     "marca": "HyperX",
     "fonte": "https://hyperx.com/products/hyperx-cloud-ii",
     "descricao": "Headset com microfone removível e adaptador USB na edição com fio.",
@@ -852,9 +1031,16 @@
       "Microfone": "Removível"
     },
     "compat": {},
-    "preco": null,
+    "preco": 529.99,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.escorregaopreco.com.br/ofertas/pichau/1334724",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Pichau via Escorrega o Preço",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cloud2.webp",
+    "creditoFoto": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_ii_red_1_main.jpg?v=1763563198",
+    "alt": "Headset HyperX Cloud II preto e vermelho"
   },
   {
     "id": "z150",
@@ -870,9 +1056,16 @@
       "Entrada": "3,5 mm"
     },
     "compat": {},
-    "preco": null,
+    "preco": 501.14,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.magazineluiza.com.br/alto-falantes-multimidia-logitech-z150-stereo-sound-black/p/gc4debh1ge/ea/easm/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Magazine Luiza",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/z150.webp",
+    "alt": "Foto de Logitech Z150",
+    "creditoFoto": "https://a-static.mlcdn.com.br/450pxx450px/alto-falantes-multimidia-logitech-z150-stereo-sound-black/nocnocestadosunidos/buybox-cpb00ez9xley/7154cc10e2698db9522e93f3af154da7.jpeg"
   },
   {
     "id": "c920",
@@ -888,9 +1081,16 @@
       "Conexão": "USB-A"
     },
     "compat": {},
-    "preco": null,
+    "preco": 614.3,
     "estoque": 99,
-    "nivel": "intermediario"
+    "nivel": "intermediario",
+    "fontePreco": "https://www.magazineluiza.com.br/webcam-logitech-hd-pro-c920-1080p-para-desktop-e-laptop/p/cgf9f0fkd8/in/webc/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Magazine Luiza",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/c920.webp",
+    "alt": "Foto de Logitech C920 HD Pro",
+    "creditoFoto": "https://a-static.mlcdn.com.br/450pxx450px/webcam-logitech-hd-pro-c920-1080p-para-desktop-e-laptop/nocnocestadosunidos/buybox-cpb006jh8t3s/6247f11e31c6fb1178f5f4eafd7df250.jpeg"
   },
   {
     "id": "qvo870",
@@ -910,13 +1110,16 @@
       "sata": 1,
       "baia25": 1
     },
-    "preco": null,
+    "preco": 1119.6,
     "estoque": 99,
     "nivel": "intermediario",
-    "fontePreco": null,
-    "imagem": "assets/img/fotos/qvo870.webp",
-    "alt": "Fotografia de Samsung 870 QVO 1 TB",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:SAMSUNG_SATA_SSD_870_QVO_1TB_FRONT.jpg"
+    "fontePreco": "https://barracadobyte.com.br/ssd/samsung-870-qvo-mz-77q1t0b-1tb",
+    "imagem": "assets/img/apresentacao/qvo870.webp",
+    "alt": "Foto de Samsung 870 QVO 1 TB",
+    "creditoFoto": "https://barracadobyte.com.br/img/57b6c602-53fd-4e69-b892-1129c9a166db-l.jpg?v=84561309d3ef",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "nv2-2tb",
@@ -936,13 +1139,16 @@
       "nvme": 1,
       "pcie": 4
     },
-    "preco": null,
+    "preco": 2303.7,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/nv2-2tb.webp",
-    "alt": "Fotografia de Kingston NV2 2 TB SNV2S/2000G",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:2023_Dysk_SSD_Kingston_NV2_2TB.jpg",
-    "fontePreco": null
+    "imagem": "assets/img/apresentacao/nv2-2tb.webp",
+    "alt": "Foto de Kingston NV2 2 TB SNV2S/2000G",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/n/snv2s2000g1.jpg",
+    "fontePreco": "https://barracadobyte.com.br/ssd/kingston-nv2-snv2s-2000g-2tb-snv2s-2000g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "d15black",
@@ -965,13 +1171,16 @@
       "altura": 165,
       "tdp": 3
     },
-    "preco": null,
+    "preco": 1281.8,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": "assets/img/fotos/d15black.webp",
-    "alt": "Fotografia de Noctua NH-D15 chromax.black",
-    "creditoFoto": "https://commons.wikimedia.org/wiki/File:NH-D15_with_black_fans.jpg",
-    "fontePreco": null
+    "imagem": "assets/img/apresentacao/d15black.webp",
+    "alt": "Foto de Noctua NH-D15 chromax.black",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/cooler-para-processador-noctua-nh-d15-140mm-black-intel-amd-nh-d15-chromaxblack_114914.jpg",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/16754/cooler-para-processador-noctua-nh-d15-140mm-black-intel-amd-nh-d15-chromaxblack",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "c270",
@@ -987,13 +1196,16 @@
       "Conexão": "USB-A"
     },
     "compat": {},
-    "preco": null,
+    "preco": 152.1,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": null,
-    "alt": null,
-    "creditoFoto": null,
-    "fontePreco": null
+    "imagem": "assets/img/apresentacao/c270.webp",
+    "alt": "Foto de Logitech C270 HD",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/677167/xlarge/Webcam-Logitech-C270-HD-720p-Microfone-Integrado-USB-2-0-com-3MP-Cinza-Preta_1783965211.png",
+    "fontePreco": "https://www.kabum.com.br/produto/677167/webcam-logitech-c270-hd-720p-microfone-integrado-usb-2-0-com-3mp-cinza-preta",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "m185",
@@ -1009,13 +1221,16 @@
       "Botões": "3"
     },
     "compat": {},
-    "preco": null,
+    "preco": 71.66,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": null,
-    "alt": null,
-    "creditoFoto": null,
-    "fontePreco": null
+    "imagem": "assets/img/apresentacao/m185.webp",
+    "alt": "Foto de Logitech M185",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/254705/xlarge/Mouse-Sem-Fio-Logitech-M185-USB-3-Bot-es-Cinza-E-Preto-910-002225_1794836221.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/254705/mouse-sem-fio-logitech-m185-usb-3-botoes-cinza-e-preto-910-002225",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "a400",
@@ -1035,13 +1250,16 @@
       "sata": 1,
       "baia25": 1
     },
-    "preco": 749.99,
+    "preco": 538.34,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": null,
-    "alt": null,
-    "creditoFoto": null,
-    "fontePreco": "https://www.kabum.com.br/promocao/KINGSTONBF23"
+    "imagem": "assets/img/apresentacao/a400.webp",
+    "alt": "Foto de Kingston A400 480 GB SA400S37/480G",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/174032/xlarge/SSD-Kingston-480GB-A400-SATA-Leitura-500MB-s-e-Grava-o-450MB-s-SA400S37-480G_1792150454.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/174032/ssd-kingston-480gb-a400-sata-leitura-500mb-s-e-gravacao-450mb-s-sa400s37-480g",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   },
   {
     "id": "r5700x",
@@ -1064,12 +1282,15 @@
       "video": false,
       "pcie": 4
     },
-    "preco": null,
+    "preco": 1830.61,
     "estoque": 99,
     "nivel": "intermediario",
-    "imagem": null,
-    "alt": null,
-    "creditoFoto": null,
-    "fontePreco": null
+    "imagem": "assets/img/apresentacao/r5700x.webp",
+    "alt": "Foto de AMD Ryzen 7 5700X",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/320797/processador-amd-ryzen-7-5700x-cache-36mb-3-8ghz-4-6ghz-max-turbo-am4-100-100000926wof_1647636511_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/320797/processador-amd-ryzen-7-5700x-3-4ghz-4-6ghz-max-turbo-cache-36mb-8-nucleos-16-threads-am4-sem-video-integrado-100-100000926wof",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
   }
 ]

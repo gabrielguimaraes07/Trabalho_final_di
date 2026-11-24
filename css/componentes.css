@@ -242,7 +242,7 @@ body:has(.gaveta[open]) {
 
 .produto-resumo {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr);
+  grid-template-columns: minmax(6rem, .85fr) minmax(0, 1.15fr);
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-1) var(--space-2);
@@ -253,7 +253,14 @@ body:has(.gaveta[open]) {
 .produto-resumo img {
   inline-size: 100%;
   block-size: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
 }
+
+.produto-resumo a { display: inline-flex; align-items: center; min-block-size: 44px; }
+.produto-resumo .produto-resumo-preco { font-size: var(--font-20); font-weight: 700; }
 
 .produto-resumo h3 {
   margin: 0;

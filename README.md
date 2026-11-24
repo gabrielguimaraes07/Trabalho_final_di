@@ -4,13 +4,13 @@
 
 A ideia do GGTECH surgiu de uma pergunta simples. Como montar o primeiro PC sem ficar perdido nos nomes das peças? Comecei por um gabinete que dá para girar e explorar. Na versão final, o modelo leva a um catálogo com componentes reais e a um simulador que confere as escolhas antes de fechar o orçamento.
 
-[Abra o GGTECH no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+Esta edição é o pacote local para a apresentação da disciplina.
 
 ## O que dá para testar
 
 - Explore o gabinete 3D e abra as categorias clicando nas peças. Os botões abaixo do modelo fazem a mesma coisa pelo teclado.
 - Busque por nome e marca no catálogo. Dá para filtrar por preço, conferir as fichas e comparar até três produtos.
-- Abra o **Simulador** para escolher peças uma a uma. Ajuste quantidades, veja os conflitos, informe suas cotações e salve montagens no navegador. O botão **Exportar PDF** abre a impressão para salvar o resumo.
+- Abra o **Simulador**, selecione uma categoria e clique em **Escolher peça** no cartão com foto e preço. Use **Próxima categoria** para avançar ou **Revisar montagem** para conferir a lista e o total. O botão **Exportar PDF** abre a impressão para salvar o resumo.
 - Abra **Setups recomendados** para experimentar oito pontos de partida. No **Guia de componentes**, cada categoria tem explicações e exemplos reais.
 - No botão **Acessibilidade**, experimente trocar o tema, ampliar a fonte, aumentar o contraste ou reduzir movimento.
 
@@ -27,7 +27,7 @@ python -m http.server 8765
 
 Abra a página no navegador. [http://localhost:8765](http://localhost:8765/)
 
-O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O Three.js e o GSAP são carregados pela internet. O gabinete tem uma vista estática de reserva e o catálogo funciona com os arquivos locais.
+O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O Three.js, o GSAP, as fotos, os dados e o vídeo estão no ZIP e carregam pelo servidor local. O gabinete tem uma vista estática de reserva se o navegador não conseguir exibir WebGL.
 
 ## Como o projeto foi tomando forma
 
@@ -41,9 +41,9 @@ O servidor permite que o navegador leia o catálogo e os outros arquivos JSON. O
 
 ## Dados e documentação
 
-O catálogo inclui **40 modelos em 19 categorias**. Os preços registrados têm fonte de referência. Quando falta preço, o simulador mostra o subtotal conhecido e permite completar a cotação. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
+O catálogo inclui **40 modelos em 19 categorias**, todos com foto e preço de referência pesquisado em 23/11/2026. A indicação de preço histórico identifica uma oferta encerrada ou um produto sem estoque na página consultada. Todos os totais excluem frete. A checagem de compatibilidade usa os dados de cada ficha e orienta a confirmação de folgas, cabos e BIOS no manual.
 
-- [Fontes e licenças](docs/fontes-catalogo.md)
+- [Fontes dos 40 preços e fotos da apresentação](docs/fontes-apresentacao.md)
 - [Paleta e contraste](docs/wcag-contraste.md) · [Psicologia das cores](docs/psicologia-cores.md)
 - [Design e capturas](docs/design-site.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
 - [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)

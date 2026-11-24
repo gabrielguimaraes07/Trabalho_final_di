@@ -1,5 +1,5 @@
-import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, ordemCatalogo, somarItens } from './estoque.js?v=1.0-final';
-import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
+import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, ordemCatalogo, rotuloCotacao, somarItens } from './estoque.js?v=1.0-final';
+import { categoriasMultiplas, estimarConsumo, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=1.0-final';
 import { gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
   normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js?v=1.0-final';
 
@@ -56,6 +56,8 @@ function montarLinha(item) {
   const dados = elemento('div', undefined);
   dados.append(elemento('strong', produto.nome), elemento('p', mostrarPreco(preco ?? produto.preco) + ' por unidade'));
   const campos = elemento('div', undefined, { class: 'sim-campos-linha' });
+  const ajustar = elemento('details', undefined, { class: 'sim-cotacao' });
+  ajustar.append(elemento('summary', 'Editar cotação'));
   if (categoriasMultiplas.has(produto.categoria)) {
     const qtd = elemento('label', 'Unidades');
     qtd.append(elemento('input', undefined, { 'data-alterar': 'quantidade', 'data-id': produto.id,
@@ -65,7 +67,8 @@ function montarLinha(item) {
   const cotacao = elemento('label', 'Sua cotação em R$');
   cotacao.append(elemento('input', undefined, { 'data-alterar': 'preco', 'data-id': produto.id,
     'aria-label': 'Cotação unitária de ' + produto.nome, type: 'number', value: preco ?? '', min: 0, max: 1000000, step: '.01', inputmode: 'decimal' }));
-  campos.append(cotacao, elemento('button', 'Remover', { type: 'button', class: 'botao-texto',
+  ajustar.append(cotacao);
+  campos.append(ajustar, elemento('button', 'Remover', { type: 'button', class: 'botao-texto',
     'data-remover': produto.id, 'aria-label': 'Remover ' + produto.nome }));
   dados.append(campos);
   linha.append(dados);
@@ -115,43 +118,73 @@ export async function iniciarSimulador(raiz) {
     history.replaceState(null, '', url);
   }
 
-  const categoria = localizar('#sim-categoria');
-  const produto = localizar('#sim-produto');
+  const grupos = localizar('#sim-categorias');
+  const cartoes = localizar('#sim-cartoes');
   const compativeis = localizar('#sim-compativeis');
+  const proxima = localizar('#sim-proxima');
   const lista = localizar('#sim-lista');
   const salvas = localizar('#sim-salvas');
   const comparar = localizar('#sim-comparar');
   const saidaComparacao = localizar('#sim-comparacao');
   const nome = localizar('#sim-nome');
   const link = localizar('#sim-link');
+  let categoria = sugestao?.categoria ?? 'cpu';
 
-  for (const externo of [false, true]) {
-    const grupo = elemento('optgroup', undefined, { label: externo ? 'Periféricos opcionais' : 'Componentes internos' });
-    grupo.append(...ordemCatalogo.filter(id => perifericos.has(id) === externo)
-      .map(id => elemento('option', categorias[id].nome, { value: id })));
-    categoria.append(grupo);
+  grupos.append(...ordemCatalogo.map(id => elemento('button', categorias[id].nome, {
+    type: 'button', 'data-categoria': id, 'aria-pressed': 'false',
+  })));
+
+  function cartao(produto, jaNaMontagem, compativel, categoriaOcupada) {
+    const bloco = elemento('article', undefined, { class: 'sim-card', 'data-selecionada': String(!!jaNaMontagem) });
+    const imagem = foto(produto);
+    if (imagem) {
+      imagem.height = 210;
+      imagem.width = 280;
+      bloco.append(imagem);
+    }
+    const dados = elemento('div', undefined, { class: 'sim-card-dados' });
+    const rotuloPreco = rotuloCotacao(produto);
+    dados.append(elemento('h4', produto.nome),
+      elemento('p', Object.values(produto.specs).slice(0, 3).join(' · ')),
+      elemento('strong', mostrarPreco(produto.preco)),
+      elemento('a', rotuloPreco, { href: produto.fontePreco, class: 'sim-card-fonte',
+        'aria-label': rotuloPreco + ' de ' + produto.nome }));
+    if (!compativel) dados.append(elemento('p', 'Conflito com a seleção atual', { class: 'sim-conflito' }));
+    if (jaNaMontagem) dados.append(elemento('p', jaNaMontagem.quantidade + ' na montagem', { class: 'sim-selecionada' }));
+    const multipla = categoriasMultiplas.has(produto.categoria);
+    const rotulo = jaNaMontagem ? (multipla ? 'Adicionar unidade' : 'Selecionada')
+      : !multipla && categoriaOcupada ? 'Trocar por esta' : 'Escolher peça';
+    const botao = elemento('button', rotulo, {
+      type: 'button', class: 'botao-contorno', 'data-escolher': produto.id, 'aria-label': rotulo + ' — ' + produto.nome,
+    });
+    botao.setAttribute('aria-disabled', String(!!jaNaMontagem && (!multipla || jaNaMontagem.quantidade >= 20)));
+    dados.append(botao);
+    bloco.append(dados);
+    return bloco;
   }
 
   function atualizarOpcoes() {
-    const anterior = produto.value;
-    const opcoes = catalogo.filter(item => item.categoria === categoria.value
-      && (!compativeis.checked || pecaCompativel(linhas, item, catalogo)));
-    produto.replaceChildren(elemento('option', opcoes.length ? 'Escolha um modelo' : 'Nenhuma opção com este filtro', { value: '' }),
-      ...opcoes.map(item => elemento('option', item.nome + ' · ' + mostrarPreco(item.preco), { value: item.id })));
-    if (opcoes.some(opcao => opcao.id === anterior)) produto.value = anterior;
-    atualizarDetalhe();
+    const preenchidas = new Set(itensDaMontagem(linhas, catalogo).map(({ produto }) => produto.categoria));
+    for (const botao of grupos.children) {
+      botao.setAttribute('aria-pressed', String(botao.dataset.categoria === categoria));
+      botao.toggleAttribute('data-preenchida', preenchidas.has(botao.dataset.categoria));
+    }
+    const escolhas = catalogo.filter(produto => produto.categoria === categoria)
+      .map(produto => ({ produto, compativel: pecaCompativel(linhas, produto, catalogo),
+        item: linhas.find(linha => linha.id === produto.id) }))
+      .filter(({ compativel, item }) => !compativeis.checked || compativel || item);
+    localizar('#sim-categoria-titulo').textContent = categorias[categoria].nome;
+    localizar('#sim-contagem').textContent = escolhas.length + (escolhas.length === 1 ? ' opção' : ' opções');
+    const outroTipoDeCooler = { 'air-cooler': 'water-cooler', 'water-cooler': 'air-cooler' }[categoria];
+    const categoriaOcupada = preenchidas.has(categoria) || preenchidas.has(outroTipoDeCooler);
+    cartoes.replaceChildren(...escolhas.map(({ produto, compativel, item }) => cartao(produto, item, compativel, categoriaOcupada)));
+    if (!escolhas.length) cartoes.append(elemento('p', 'Nenhuma peça compatível nesta categoria. Desmarque o filtro para ver as demais.'));
+    proxima.disabled = ordemCatalogo.indexOf(categoria) === ordemCatalogo.length - 1;
   }
 
-  function atualizarDetalhe() {
-    const peca = catalogo.find(item => item.id === produto.value);
-    const detalhe = localizar('#sim-detalhe');
-    detalhe.replaceChildren();
-    localizar('#sim-adicionar').disabled = !peca;
-    if (peca) {
-      const imagem = foto(peca);
-      if (imagem) detalhe.append(imagem);
-      detalhe.append(elemento('p', peca.descricao), elemento('a', 'Ficha e foto no fabricante', { href: peca.fonte }));
-    }
+  function mudarCategoria(nova) {
+    categoria = nova;
+    atualizarOpcoes();
   }
 
   function atualizarCombinacoes() {
@@ -170,8 +203,13 @@ export async function iniciarSimulador(raiz) {
     const erros = regras.filter(regra => regra.estado === 'erro').length;
     localizar('#sim-internos').textContent = mostrarSubtotal(somarItens(internos));
     localizar('#sim-perifericos').textContent = mostrarSubtotal(somarItens(acessorios));
-    localizar('#sim-total').textContent = mostrarSubtotal(somarItens(itens));
+    const total = mostrarSubtotal(somarItens(itens));
+    localizar('#sim-total').textContent = total;
+    localizar('#sim-total-movel').textContent = total;
     const watts = estimarConsumo(itens);
+    const unidades = itens.reduce((total, item) => total + item.quantidade, 0);
+    localizar('#sim-progresso').textContent = unidades
+      ? unidades + (unidades === 1 ? ' unidade escolhida' : ' unidades escolhidas') : 'Escolha a primeira peça para começar.';
     localizar('#sim-watts').textContent = watts === null ? 'Selecione CPU ou GPU' : watts + ' W estimados';
     localizar('#sim-estado').textContent = erros ? erros + (erros === 1 ? ' incompatibilidade' : ' incompatibilidades')
       : testarCompletude(itens) ? 'Montagem completa nas regras verificadas' : 'Montagem em andamento';
@@ -192,20 +230,28 @@ export async function iniciarSimulador(raiz) {
     status.textContent = guardou ? mensagem : mensagem + ' O navegador bloqueou o salvamento local.';
   }
 
-  categoria.addEventListener('change', atualizarOpcoes);
+  grupos.addEventListener('click', evento => {
+    const botao = evento.target.closest('[data-categoria]');
+    if (botao) mudarCategoria(botao.dataset.categoria);
+  });
   compativeis.addEventListener('change', atualizarOpcoes);
-  produto.addEventListener('change', atualizarDetalhe);
-  localizar('#sim-escolha').addEventListener('submit', evento => {
-    evento.preventDefault();
-    const escolhida = catalogo.find(item => item.id === produto.value);
-    if (!escolhida) return;
+  proxima.addEventListener('click', () => {
+    mudarCategoria(ordemCatalogo[ordemCatalogo.indexOf(categoria) + 1]);
+    grupos.querySelector('[aria-pressed="true"]').focus();
+  });
+  cartoes.addEventListener('click', evento => {
+    const botao = evento.target.closest('[data-escolher]');
+    if (!botao || botao.getAttribute('aria-disabled') === 'true') return;
+    const escolhida = catalogo.find(produto => produto.id === botao.dataset.escolher);
     aplicar(incluirPeca(linhas, escolhida, catalogo), escolhida.nome + ' na montagem.');
+    const equivalente = [...cartoes.querySelectorAll('[data-escolher]')].find(item => item.dataset.escolher === escolhida.id);
+    (equivalente ?? grupos.querySelector('[aria-pressed="true"]')).focus({ preventScroll: true });
   });
   lista.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-remover]');
     if (!botao) return;
     aplicar(linhas.filter(item => item.id !== botao.dataset.remover), 'Peça removida.');
-    (lista.querySelector('button') ?? categoria).focus();
+    (lista.querySelector('button') ?? grupos.querySelector('[aria-pressed="true"]')).focus();
   });
   lista.addEventListener('change', ({ target }) => {
     const campo = target.dataset.alterar;
@@ -217,7 +263,9 @@ export async function iniciarSimulador(raiz) {
     const id = target.dataset.id;
     aplicar(linhas.map(item => item.id === id ? { ...item, [campo]: target.value === '' ? undefined : target.valueAsNumber } : item),
       'Montagem atualizada.');
-    [...lista.querySelectorAll('input')].find(input => input.dataset.id === id && input.dataset.alterar === campo)?.focus({ preventScroll: true });
+    const entrada = [...lista.querySelectorAll('input')].find(input => input.dataset.id === id && input.dataset.alterar === campo);
+    if (campo === 'preco' && entrada) entrada.closest('details').open = true;
+    entrada?.focus({ preventScroll: true });
   });
 
   localizar('#sim-salvar').addEventListener('click', () => {
@@ -275,5 +323,5 @@ export async function iniciarSimulador(raiz) {
   atualizarCombinacoes();
   atualizar();
   localizar('#sim-conteudo').hidden = false;
-  status.textContent = sugestao ? sugestao.nome + ' na montagem.' : 'Catálogo de montagem carregado.';
+  status.textContent = sugestao ? sugestao.nome + ' na montagem.' : 'Selecione um cartão para começar.';
 }

@@ -81,3 +81,9 @@
 - **IA usada** — OpenAI Codex para análise do código existente, implementação incremental, pesquisa de fontes, verificação das regras e preparação do relatório.
 - **Como foi usada** — manteve o PC 3D e a acessibilidade. Estruturou o catálogo, o guia, os setups e a montagem manual, com cotações, armazenamento local e compatibilidade.
 - **Fontes** — fichas dos fabricantes, preços de referência, fotografias licenciadas e créditos do vídeo. [Fontes do catálogo](fontes-catalogo.md)
+
+## Apresentação — Fotos, preços e seleção de peças
+
+- **IA usada** — OpenAI Codex para pesquisa, revisão do fluxo e documentação.
+- **Pesquisa** — consultou anúncios e comparadores para os 40 modelos. Separou ofertas observadas, valores de comparadores e preços históricos. As origens das fotos e números ficaram registradas. [Fontes da apresentação](fontes-apresentacao.md)
+- **Mudanças** — colocou fotos na lista do 3D, no catálogo e nos cartões do simulador, trocou as fotos dos ambientes e incluiu as bibliotecas 3D no pacote local.

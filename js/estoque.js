@@ -103,6 +103,12 @@ export function mostrarPreco(valor) {
   return Number.isFinite(valor) ? precoEmReais.format(valor) : 'Preço indisponível';
 }
 
+export function rotuloCotacao(produto) {
+  return produto.tipoPreco === 'Histórico'
+    ? 'Preço histórico' : produto.tipoPreco === 'Comparador'
+      ? 'Preço de referência' : 'Preço anunciado';
+}
+
 export function somarItens(itens) {
   const conhecidos = itens.filter(({ produto, preco }) => Number.isFinite(preco ?? produto.preco));
   const valor = conhecidos.reduce((soma, { produto, quantidade, preco }) =>

@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca } from './estoque.js?v=1.0-final';
+import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=1.0-final';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
 
 function resumoProduto(produto) {
@@ -9,8 +9,8 @@ function resumoProduto(produto) {
   if (produto.imagem) imagem.src = produto.imagem;
   imagem.alt = produto.alt ?? '';
   imagem.hidden = !produto.imagem;
-  imagem.width = 56;
-  imagem.height = 56;
+  imagem.width = 240;
+  imagem.height = 180;
   imagem.decoding = 'async';
 
   const conteudo = document.createElement('div');
@@ -18,10 +18,15 @@ function resumoProduto(produto) {
   nome.textContent = produto.nome;
   const preco = document.createElement('p');
   preco.textContent = mostrarPreco(produto.preco);
+  preco.className = 'produto-resumo-preco';
   const situacao = document.createElement('p');
   situacao.className = 'estoque-situacao';
-  situacao.textContent = 'Ficha no catálogo';
-  conteudo.append(nome, preco, situacao);
+  situacao.textContent = rotuloCotacao(produto);
+  const montar = document.createElement('a');
+  montar.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
+  montar.textContent = 'Usar na montagem';
+  montar.setAttribute('aria-label', 'Usar ' + produto.nome + ' na montagem');
+  conteudo.append(nome, preco, situacao, montar);
   item.append(imagem, conteudo);
   return item;
 }

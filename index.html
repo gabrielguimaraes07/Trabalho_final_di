@@ -18,11 +18,11 @@
     <script type="importmap">
       {
         "imports": {
-          "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
-          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/",
-          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/index.js",
-          "gsap/ScrollTrigger": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/ScrollTrigger.js",
-          "gsap/SplitText": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/SplitText.js"
+          "three": "./assets/vendor/three/build/three.module.js",
+          "three/addons/": "./assets/vendor/three/examples/jsm/",
+          "gsap": "./assets/vendor/gsap/index.js",
+          "gsap/ScrollTrigger": "./assets/vendor/gsap/ScrollTrigger.js",
+          "gsap/SplitText": "./assets/vendor/gsap/SplitText.js"
         }
       }
     </script>
@@ -206,20 +206,20 @@
           </div>
           <div class="carrossel-imagens">
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 3">
-              <img src="assets/img/fotos/jogos.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Setup com monitor, teclado e gabinete com iluminação RGB.">
+              <img src="assets/img/apresentacao/jogos.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa gamer com gabinete branco e monitor ligado.">
               <figcaption><h3>Setup para jogar</h3><p>Monitor central e espaço livre para movimentar o mouse.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 3" hidden>
-              <img src="assets/img/fotos/estudo.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Computador de mesa ao lado de um monitor.">
+              <img src="assets/img/apresentacao/estudo.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Monitor, teclado e uma planta em uma mesa de estudo.">
               <figcaption><h3>Setup para estudar</h3><p>Uma luminária e uma área para o caderno ajudam na hora de ler e fazer anotações.</p></figcaption>
             </figure>
             <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 3" hidden>
-              <img src="assets/img/fotos/criacao.webp" width="1120" height="747" loading="lazy" decoding="async" alt="Estação de trabalho com dois monitores, teclado e mouse.">
+              <img src="assets/img/apresentacao/criacao.webp" width="1120" height="690" loading="lazy" decoding="async" alt="Mesa com dois monitores, teclado e iluminação azul.">
               <figcaption><h3>Setup para criar conteúdo</h3><p>Uma tela ampla ajuda na edição. Microfone e fones ficam à mão para gravar e revisar o áudio.</p></figcaption>
             </figure>
           </div>
           <p class="somente-leitores carrossel-status" role="status"></p>
-          <p class="carrossel-credito">Fotografias de ambientes reais. <a href="https://github.com/gabrielguimaraes07/Trabalho_final_di/blob/main/docs/fontes-catalogo.md">Créditos e licenças</a>.</p>
+          <p class="carrossel-credito">Fotografias de ambientes reais. <a href="./docs/fontes-apresentacao.md">Fontes das fotos</a>.</p>
         </div>
       </section>
 

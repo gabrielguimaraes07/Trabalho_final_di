@@ -1,7 +1,7 @@
 import { abaPorTecla } from './abas.js?v=1.0-final';
 import { adicionarAoCarrinho } from './carrinho.js?v=1.0-final';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
-import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo } from './estoque.js?v=1.0-final';
+import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao } from './estoque.js?v=1.0-final';
 
 import { lerMontagem, pecaCompativel } from './montagem.js?v=1.0-final';
 
@@ -60,7 +60,7 @@ function criarCartao(produto, termos, selecionado) {
   if (produto.fontePreco) {
     const fonte = document.createElement('a');
     fonte.href = produto.fontePreco;
-    fonte.textContent = 'Fonte da cotação';
+    fonte.textContent = rotuloCotacao(produto) + ' · ' + produto.lojaPreco;
     disponivel.append(fonte);
   }
   const adicionar = document.createElement('button');

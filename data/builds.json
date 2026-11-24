@@ -16,7 +16,8 @@
       "aoc"
     ],
     "foto": "jogos",
-    "imagem": "assets/img/fotos/jogos.webp"
+    "imagem": "assets/img/apresentacao/jogos.webp",
+    "fonteImagem": "https://www.pexels.com/photo/34724554/"
   },
   {
     "id": "gamer-intermediario",
@@ -36,7 +37,8 @@
       "g502"
     ],
     "foto": "jogos",
-    "imagem": "assets/img/fotos/jogos.webp"
+    "imagem": "assets/img/apresentacao/jogos.webp",
+    "fonteImagem": "https://www.pexels.com/photo/34724554/"
   },
   {
     "id": "gamer-avancado",
@@ -55,7 +57,8 @@
       "aoc"
     ],
     "foto": "jogos",
-    "imagem": "assets/img/fotos/jogos.webp"
+    "imagem": "assets/img/apresentacao/jogos.webp",
+    "fonteImagem": "https://www.pexels.com/photo/34724554/"
   },
   {
     "id": "gamer-premium",
@@ -77,7 +80,8 @@
       "cloud2"
     ],
     "foto": "jogos",
-    "imagem": "assets/img/fotos/jogos.webp"
+    "imagem": "assets/img/apresentacao/jogos.webp",
+    "fonteImagem": "https://www.pexels.com/photo/34724554/"
   },
   {
     "id": "estudo",
@@ -97,7 +101,8 @@
       "c920"
     ],
     "foto": "estudo",
-    "imagem": "assets/img/fotos/estudo.webp"
+    "imagem": "assets/img/apresentacao/estudo.webp",
+    "fonteImagem": "https://www.pexels.com/photo/17136608/"
   },
   {
     "id": "programacao",
@@ -116,7 +121,8 @@
       "k120"
     ],
     "foto": "estudo",
-    "imagem": "assets/img/fotos/estudo.webp"
+    "imagem": "assets/img/apresentacao/estudo.webp",
+    "fonteImagem": "https://www.pexels.com/photo/17136608/"
   },
   {
     "id": "criacao",
@@ -136,7 +142,8 @@
       "dell"
     ],
     "foto": "criacao",
-    "imagem": "assets/img/fotos/criacao.webp"
+    "imagem": "assets/img/apresentacao/criacao.webp",
+    "fonteImagem": "https://www.pexels.com/photo/777001/"
   },
   {
     "id": "produtividade",
@@ -157,6 +164,7 @@
       "z150"
     ],
     "foto": "criacao",
-    "imagem": "assets/img/fotos/criacao.webp"
+    "imagem": "assets/img/apresentacao/criacao.webp",
+    "fonteImagem": "https://www.pexels.com/photo/777001/"
   }
 ]

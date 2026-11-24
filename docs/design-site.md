@@ -1,6 +1,6 @@
 # B — Design do site
 
-A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. O site é distribuído pelo GitHub Pages. [GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primeiro computador a entender as peças e escolher uma configuração compatível. A edição de apresentação é executada localmente. [Como abrir no VS Code](../README.md#para-abrir-no-vs-code)
 
 | Tela ou recurso | O que a pessoa faz |
 |---|---|
@@ -21,6 +21,10 @@ A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primei
 | Acessibilidade | Ajusta tema e leitura em uma prévia, guarda as preferências, reduz movimento e permite desativar o atalho de busca. |
 
 A visualização chama a atenção para o gabinete. As analogias e o glossário ajudam a entender as escolhas. O montador e o carrinho oferecem as etapas seguintes mantendo o valor e a compatibilidade visíveis.
+
+## Edição para apresentação
+
+O catálogo, a gaveta do PC 3D e o simulador mostram a foto e o preço junto ao nome da peça. No simulador, selecionar uma categoria abre cartões com foto, especificações e a ação de escolher ou trocar. O total e os componentes selecionados aparecem no resumo, com a vista ilustrativa logo abaixo dos cartões. [Fontes das fotos e preços](fontes-apresentacao.md)
 
 ## Capturas da versão publicada
 

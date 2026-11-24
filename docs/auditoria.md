@@ -60,3 +60,7 @@ A auditoria acima é o registro da base anterior à ampliação do catálogo. A 
 As entrevistas e o questionário SUS seguem como etapas pendentes. O roteiro fica disponível para aplicação com participantes. [Roteiro de usabilidade](usabilidade.md)
 
 No Chrome da versão publicada, foram verificados o painel de acessibilidade, o catálogo, a troca de placa-mãe após um conflito de socket e a pausa do vídeo do notebook. O navegador exibiu a alternativa estática do gabinete. A vista interativa em WebGL já tinha sido testada na base, e o modelo 3D foi preservado. As capturas atuais registram a viewport de computador. [Capturas](design-site.md#capturas-da-versão-publicada)
+
+## Edição local para apresentação
+
+O teste automatizado de interface conferiu o carregamento dos 40 registros, as 40 relações entre imagem e modelo, a busca, a seleção por cartão, o filtro de compatibilidade, a troca de placa-mãe, o cálculo do total, a quantidade de memória, a reabertura de montagens e a gaveta do 3D. Foram conferidos os arquivos de mídia e as oito configurações recomendadas. A prévia visual desta edição ficou indisponível no ambiente de verificação.

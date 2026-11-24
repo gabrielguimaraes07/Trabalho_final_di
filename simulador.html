@@ -62,23 +62,31 @@
     <main class="container sim-pagina" id="conteudo" data-simulador tabindex="-1">
       <header class="sim-cabecalho">
         <h1>Simulador de montagem</h1>
-        <p>Escolha as peças, confira se elas funcionam juntas e monte seu orçamento.</p>
-        <a href="./montador.html">Prefiro uma sugestão guiada</a>
+        <p>Abra uma categoria, escolha pelo cartão e acompanhe o total.</p>
+        <div class="sim-atalhos">
+          <a href="./setups.html">Começar com um setup pronto</a>
+          <a href="./montador.html">Usar o montador guiado</a>
+        </div>
       </header>
       <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
       <div class="sim-grade" id="sim-conteudo" hidden>
         <div class="sim-principal">
-          <section class="sim-painel" aria-labelledby="escolha-titulo">
-            <h2 id="escolha-titulo">Escolher peças</h2>
-            <form id="sim-escolha">
-              <label for="sim-categoria">Categoria</label>
-              <select id="sim-categoria"></select>
-              <label for="sim-produto">Modelo</label>
-              <select id="sim-produto"></select>
-              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Mostrar apenas opções sem novos conflitos</label>
-              <div id="sim-detalhe" class="sim-detalhe"></div>
-              <button class="botao-contorno" id="sim-adicionar" type="submit" disabled>Incluir ou trocar peça</button>
-            </form>
+          <section class="sim-painel sim-escolha" aria-labelledby="escolha-titulo">
+            <h2 id="escolha-titulo">Escolha suas peças</h2>
+            <p class="sim-total-movel"><span>Total <strong id="sim-total-movel"></strong></span><a href="#sim-resumo-titulo">Ver montagem</a></p>
+            <div class="sim-categorias" id="sim-categorias" role="group" aria-label="Categorias de peças"></div>
+            <div class="sim-filtros">
+              <div>
+                <h3 id="sim-categoria-titulo">Processador</h3>
+                <p id="sim-contagem"></p>
+              </div>
+              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Só peças compatíveis</label>
+            </div>
+            <div class="sim-cartoes" id="sim-cartoes" aria-labelledby="sim-categoria-titulo"></div>
+            <div class="sim-acoes-categoria">
+              <button class="botao-contorno" id="sim-proxima" type="button">Próxima categoria</button>
+              <a href="#sim-resumo-titulo">Revisar montagem</a>
+            </div>
           </section>
           <section class="sim-painel" aria-labelledby="sim-visual-titulo">
             <h2 id="sim-visual-titulo">Vista da montagem</h2>
@@ -100,34 +108,38 @@
           </section>
         </div>
         <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
-          <h2 id="sim-resumo-titulo">Resumo da montagem</h2>
+          <h2 id="sim-resumo-titulo" tabindex="-1">Sua montagem</h2>
+          <p id="sim-progresso"></p>
+          <p class="sim-total-destaque"><span>Total de referência, sem frete</span><strong id="sim-total"></strong></p>
           <dl class="sim-totais">
             <div><dt>Componentes internos</dt><dd id="sim-internos"></dd></div>
             <div><dt>Periféricos opcionais</dt><dd id="sim-perifericos"></dd></div>
-            <div><dt>Total</dt><dd id="sim-total"></dd></div>
             <div><dt>Consumo</dt><dd id="sim-watts"></dd></div>
           </dl>
           <ul id="sim-lista" class="sim-lista"></ul>
-          <div class="sim-gestao">
-            <label for="sim-nome">Nome da montagem</label>
-            <input id="sim-nome" type="text" maxlength="60" placeholder="Ex. PC para estudar">
-            <div class="sim-acoes">
-              <button class="botao-contorno" id="sim-salvar" type="button">Salvar</button>
-              <button class="botao-contorno" id="sim-limpar" type="button">Limpar</button>
+          <details class="sim-extra">
+            <summary>Salvar, abrir ou comparar</summary>
+            <div class="sim-gestao">
+              <label for="sim-nome">Nome da montagem</label>
+              <input id="sim-nome" type="text" maxlength="60" placeholder="Ex. PC para estudar">
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-salvar" type="button">Salvar</button>
+                <button class="botao-contorno" id="sim-limpar" type="button">Limpar</button>
+              </div>
+              <label for="sim-salvas">Montagens salvas</label>
+              <select id="sim-salvas"></select>
+              <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
+              <label for="sim-comparar">Comparar a atual com</label>
+              <select id="sim-comparar"></select>
+              <button class="botao-contorno" id="sim-acao-comparar" type="button">Comparar montagens</button>
+              <div id="sim-comparacao" class="sim-comparacao" aria-live="polite"></div>
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-imprimir" type="button">Exportar PDF</button>
+                <button class="botao-contorno" id="sim-compartilhar" type="button">Compartilhar link</button>
+              </div>
+              <input id="sim-link" type="url" aria-label="Link para compartilhar a montagem" readonly hidden>
             </div>
-            <label for="sim-salvas">Montagens salvas</label>
-            <select id="sim-salvas"></select>
-            <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
-            <label for="sim-comparar">Comparar a atual com</label>
-            <select id="sim-comparar"></select>
-            <button class="botao-contorno" id="sim-acao-comparar" type="button">Comparar montagens</button>
-            <div id="sim-comparacao" class="sim-comparacao" aria-live="polite"></div>
-            <div class="sim-acoes">
-              <button class="botao-contorno" id="sim-imprimir" type="button">Exportar PDF</button>
-              <button class="botao-contorno" id="sim-compartilhar" type="button">Compartilhar link</button>
-            </div>
-            <input id="sim-link" type="url" aria-label="Link para compartilhar a montagem" readonly hidden>
-          </div>
+          </details>
         </aside>
       </div>
       <noscript><p>Ative o JavaScript para usar a montagem interativa.</p></noscript>

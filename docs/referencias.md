@@ -22,3 +22,7 @@ A opção de leitura facilitada do painel usa a Atkinson Hyperlegible nos pesos 
 - Biblioteca de auditoria automatizada e ferramenta de pontuação. [axe-core](https://github.com/dequelabs/axe-core) · [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
 - Tipografia principal e ícones. [Inter](https://rsms.me/inter/) · [Lucide](https://lucide.dev/) · [Licença dos ícones](../assets/icones/lucide-licenca.txt)
 - Animação de títulos por linha. [GSAP SplitText](https://gsap.com/docs/v3/Plugins/SplitText/)
+
+## Recursos da edição local
+
+A revisão usa fotos e valores de referência de lojas, fabricantes e comparadores, com as páginas de origem reunidas na documentação. Three.js 0.179.1 e GSAP 3.13.0 acompanham a cópia local, com créditos e textos da distribuição. [Anúncios e fotos](fontes-apresentacao.md) · [Three.js no npm](https://www.npmjs.com/package/three/v/0.179.1) · [GSAP no npm](https://www.npmjs.com/package/gsap/v/3.13.0)
