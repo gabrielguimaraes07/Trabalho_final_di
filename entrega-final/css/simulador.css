@@ -1,0 +1,248 @@
+.sim-pagina {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding-block: var(--space-6);
+}
+
+.sim-cabecalho {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.sim-cabecalho p,
+.sim-painel > p,
+.sim-status { color: var(--text-2); }
+
+.sim-grade,
+.sim-principal,
+.guia-lista { display: grid; gap: var(--space-2); align-content: start; }
+.sim-grade { min-inline-size: 0; }
+
+.sim-painel,
+.guia-lista details {
+  min-inline-size: 0;
+  padding: var(--space-2);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow-wrap: anywhere;
+}
+
+.sim-painel h2 { margin: 0 0 var(--space-1); font-size: var(--font-28); line-height: 1.2; }
+.sim-painel .sim-gestao { display: grid; align-content: start; gap: var(--space-1); }
+.sim-painel :is(input:not([type=checkbox]), select) {
+  min-block-size: 44px;
+  inline-size: 100%;
+  padding-inline: var(--space-1);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  font: inherit;
+}
+
+.sim-painel label { color: var(--text); }
+.sim-check { min-block-size: 44px; display: flex; align-items: center; gap: var(--space-1); }
+.sim-linha img,
+.sim-peca img { object-fit: contain; border-radius: 6px; background: #f5f5f7; }
+
+.sim-gabinete {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+  gap: var(--space-1);
+  padding: var(--space-2);
+  margin-block-start: var(--space-2);
+  background: var(--bg);
+  border: 2px solid var(--text-2);
+  border-radius: var(--radius-card);
+}
+.sim-peca {
+  display: grid;
+  align-content: start;
+  gap: .3rem;
+  border-block-start: 2px solid var(--accent);
+  background: var(--surface);
+  border-radius: 6px;
+  padding: var(--space-1);
+}
+.sim-peca span { font-size: var(--font-14); color: var(--text); }
+
+.sim-alertas,
+.sim-lista { display: grid; gap: var(--space-1); padding: 0; list-style: none; }
+.sim-alertas:empty { display: none; }
+.sim-alertas li { padding: var(--space-1); border-inline-start: 3px solid var(--text-2); }
+.sim-alertas [data-estado="ok"] { border-color: var(--success); }
+.sim-alertas [data-estado="erro"] { border-color: var(--danger); }
+.sim-alertas [data-estado="aviso"] { border-color: var(--accent); }
+.sim-lista li { padding-block: var(--space-1); border-block-start: 1px solid var(--text-2); }
+.sim-linha { display: flex; align-items: flex-start; gap: var(--space-1); }
+.sim-linha img { inline-size: 4rem; block-size: 4rem; }
+.sim-peca img { inline-size: 100%; block-size: 5.3rem; }
+.sim-linha > div { flex: 1; min-inline-size: 0; }
+.sim-campos-linha { display: flex; flex-wrap: wrap; gap: var(--space-1); align-items: end; }
+.sim-campos-linha label { flex: 1 1 8rem; min-inline-size: 0; font-size: var(--font-14); }
+.sim-campos-linha button { padding-inline: .25rem; }
+
+.sim-totais { display: grid; gap: var(--space-1); }
+.sim-totais div { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-1); }
+.sim-totais dd { margin: 0; text-align: end; font-weight: 600; }
+.sim-acoes { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+.sim-comparacao { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr)); gap: var(--space-1); }
+.sim-comparacao:empty { display: none; }
+.sim-comparacao ul { padding-inline-start: 1.2rem; }
+
+.guia-lista summary { cursor: pointer; padding-block: var(--space-1); min-block-size: 44px; font-size: var(--font-20); font-weight: 600; }
+.guia-lista details p { margin-block: var(--space-1); }
+.guia-exemplos { display: grid; gap: var(--space-1); list-style: none; padding: 0; }
+.guia-exemplos li { display: grid; gap: var(--space-2); background: var(--bg); border-radius: var(--radius-card); padding: var(--space-2); }
+.guia-exemplos img { display: block; object-fit: contain; inline-size: min(15rem, 100%); block-size: auto; border-radius: 8px; }
+.guia-produto-dados { min-inline-size: 0; }
+.guia-preco { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; margin-block: .35rem; }
+.guia-preco strong { font-size: var(--font-20); }
+@media (min-width: 38rem) {
+  .guia-exemplos li { grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr); align-items: start; }
+}
+
+@media (min-width: 64rem) {
+  .sim-grade { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
+  .sim-resumo { position: sticky; inset-block-start: calc(var(--cabecalho-altura, 4.5rem) + 1rem); max-block-size: calc(100dvh - var(--cabecalho-altura, 4.5rem) - 2rem); overflow: auto; }
+}
+
+@media print {
+  body:has([data-simulador]) {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --text-2: #606067;
+    --accent: #005bb5;
+    --success: #176e32;
+    --danger: #b52825;
+  }
+
+  .site-header, .site-footer, .skip-link, .sim-cabecalho a, .sim-status, .sim-gestao,
+  .sim-campos-linha, .sim-escolha { display: none !important; }
+  .sim-grade, .sim-principal { display: block; }
+  .sim-painel, .sim-gabinete, .sim-peca { background: white; color: black; }
+  .sim-painel { margin-block-end: .4cm; }
+  .sim-painel p, .sim-peca span { color: #292929; }
+  .sim-resumo { position: static; max-block-size: none; overflow: visible; }
+  .sim-linha, .sim-peca { break-inside: avoid; }
+}
+
+.setup-programacao { margin-block-start: var(--space-3); }
+.setup-programacao-grade { display: grid; gap: var(--space-2); }
+.setup-programacao-foto { margin: 0; min-inline-size: 0; }
+.setup-programacao-foto img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
+.setup-programacao-foto figcaption { margin-block-start: .45rem; color: var(--text-2); }
+.setup-notebook { border-radius: var(--radius-card); background: var(--bg); padding: var(--space-2); min-inline-size: 0; }
+.setup-notebook > h3 { margin: 0 0 var(--space-1); font-size: var(--font-20); }
+.setup-notebook > p { margin-block-start: var(--space-1); font-size: var(--font-14); }
+@media (min-width: 50rem) {
+  .setup-programacao-grade { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+}
+.notebook-foto { position: relative; margin: 0 0 var(--space-1); }
+.notebook-foto > img { display: block; inline-size: 100%; block-size: auto; border-radius: var(--radius-card); }
+.notebook-tela {
+  position: absolute;
+  inset-inline-start: 31%;
+  inset-block-start: 11.1%;
+  inline-size: 36%;
+  block-size: 35.4%;
+  object-fit: fill;
+  transform: skewY(-.85deg);
+}
+
+.sim-atalhos { display: flex; flex-wrap: wrap; gap: .4rem var(--space-2); }
+.sim-escolha { padding: clamp(1rem, 2.4vw, 1.6rem); }
+.sim-total-movel {
+  position: sticky;
+  z-index: 2;
+  inset-block-start: var(--cabecalho-altura, 4.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 .65rem;
+  padding: .25rem .75rem;
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: 0 2px 6px #0003;
+}
+.sim-total-movel strong { color: var(--text); }
+.sim-total-movel a { display: inline-flex; align-items: center; min-block-size: 44px; }
+@media (min-width: 64rem) {
+  .sim-total-movel { display: none; }
+}
+.sim-categorias { display: flex; flex-wrap: wrap; gap: .42rem; padding-block: .5rem 1rem; }
+.sim-categorias button {
+  border: 1px solid var(--text-2);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--text);
+  padding: .45rem .7rem;
+  min-block-size: 44px;
+  font: inherit;
+  font-size: var(--font-14);
+  cursor: pointer;
+}
+.sim-categorias button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.sim-categorias button[data-preenchida]::after { content: ' ✓'; }
+.sim-escolha details summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
+#sim-categorias { margin-block-end: var(--space-2); }
+#sim-etapas { inline-size: 100%; block-size: .7rem; accent-color: var(--btn-primary); }
+#sim-essenciais { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); gap: .1rem .65rem; padding: 0; }
+#sim-essenciais button { display: grid; justify-items: start; gap: .1rem; text-align: start; padding: .4rem .25rem; }
+.sim-etapa-estado { color: var(--text-2); font-size: var(--font-14); }
+#sim-essenciais [data-estado="escolhida"] .sim-etapa-estado { color: var(--success); }
+#sim-essenciais [data-estado="automatica"] .sim-etapa-estado { font-weight: 700; }
+#sim-video-integrado { margin-block: .35rem; color: var(--text-2); font-size: var(--font-14); }
+.sim-envio { display: grid; gap: .35rem; align-content: start; }
+.sim-envio button:disabled { background: var(--bg); color: var(--text-2); border-color: var(--text-2); cursor: default; text-decoration: none; }
+.sim-envio p, .sim-filtros #sim-categoria-dica { color: var(--text-2); font-size: var(--font-14); }
+#sim-conflito-atual { border-inline-start: 3px solid var(--danger); padding: .5rem .75rem; margin-block-end: .8rem; }
+.sim-filtros { display: flex; align-items: end; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; margin-block-end: 1rem; }
+.sim-filtros h3 { margin: 0; font-size: var(--font-20); }
+.sim-filtros p { color: var(--text-2); font-size: var(--font-14); }
+.sim-cartoes { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); }
+.sim-card {
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--surface) 45%, var(--bg));
+  border: 1px solid transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sim-card[data-selecionada="true"] { border-color: var(--accent); }
+.sim-card img {
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: #f5f5f7;
+  padding: .7rem;
+}
+.sim-card-dados { flex: 1; display: flex; flex-direction: column; gap: .45rem; padding: .8rem; }
+.sim-card h4 { margin: 0; line-height: 1.3; }
+.sim-card strong { font-size: var(--font-20); }
+.sim-card p { font-size: var(--font-14); }
+.sim-card .sim-conflito { color: var(--danger); }
+.sim-card .sim-selecionada { color: var(--success); }
+.sim-card button { align-self: start; }
+.sim-card [data-escolher] { margin-block-start: auto; }
+.sim-card button[aria-disabled="true"] { cursor: default; color: var(--text-2); border-color: var(--text-2); text-decoration: none; }
+.sim-acoes-categoria { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; margin-block-start: 1rem; }
+.sim-total-destaque { display: grid; gap: .15rem; padding: .65rem 0; }
+.sim-total-destaque strong { font-size: clamp(1.35rem, 1.25rem + .5vw, 2rem); color: var(--text); line-height: 1.15; }
+.sim-extra summary, .sim-cotacao summary { min-block-size: 44px; cursor: pointer; padding-block: .6rem; }
+.sim-extra .sim-gestao { padding-block-start: .7rem; }
+.sim-cotacao { flex: 1 1 7rem; min-inline-size: 0; font-size: var(--font-14); }
+@media print {
+  .sim-atalhos, .sim-total-movel, .sim-envio, .sim-resumo > details { display: none !important; }
+}
+
+.sim-glossario { margin-block-end: 1rem; padding-inline: .75rem; background: var(--bg); border-radius: 8px; }
+.sim-glossario dl { margin: 0; padding-block-end: .75rem; }
+.sim-glossario dt { font-weight: 700; }
+.sim-glossario dd { margin: 0 0 .4rem; color: var(--text-2); }

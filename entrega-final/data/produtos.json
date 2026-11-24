@@ -1,0 +1,2200 @@
+[
+  {
+    "id": "r5600g",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 5 5600G",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/support/downloads/drivers.html/processors/ryzen/ryzen-5000-series/amd-ryzen-5-5600g.html",
+    "descricao": "Tem vídeo integrado e permite começar sem placa de vídeo dedicada.",
+    "destaque": "Tem vídeo integrado e permite começar sem placa de vídeo dedicada.",
+    "specs": {
+      "Socket": "AM4",
+      "Núcleos": "6",
+      "Threads": "12",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM4",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": true,
+      "pcie": 3
+    },
+    "preco": 1020.23,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/r5600g.webp",
+    "alt": "Foto de AMD Ryzen 5 5600G",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD@7nm@Zen3@Cezanne@Ryzen_5_5600G@100-000000252_EF_2127SUS_9JP9827S10002_DSCx1.jpg",
+    "fontePreco": "https://barracadobyte.com.br/processador/amd-ryzen-5-5600g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "r5600x",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 5 5600X",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-5-5600x.html",
+    "descricao": "Processador de seis núcleos para AM4. A saída de vídeo depende de uma placa dedicada.",
+    "destaque": "Processador de seis núcleos para AM4. A saída de vídeo depende de uma placa dedicada.",
+    "specs": {
+      "Socket": "AM4",
+      "Núcleos": "6",
+      "Threads": "12",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM4",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": false,
+      "pcie": 4
+    },
+    "preco": 970.0,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/r5600x.webp",
+    "alt": "Foto de AMD Ryzen 5 5600X",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_5600X.jpg",
+    "fontePreco": "https://barracadobyte.com.br/processador/amd-ryzen-5-5600x",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "r7600",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 5 7600",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-5-7600.html",
+    "descricao": "Plataforma AM5, memória DDR5 e vídeo integrado para uso básico.",
+    "destaque": "Plataforma AM5, memória DDR5 e vídeo integrado para uso básico.",
+    "specs": {
+      "Socket": "AM5",
+      "Núcleos": "6",
+      "Threads": "12",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM5",
+      "nucleos": 6,
+      "tdp": 65,
+      "video": true,
+      "pcie": 5
+    },
+    "preco": 1582.22,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/r7600.webp",
+    "alt": "Foto de AMD Ryzen 5 7600",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_5_7600_top_IMGP6773_smial_wp.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/422164/processador-amd-ryzen-5-7600-4-00ghz-6-core-38mb-am5",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "r7700",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 7 7700",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/7000-series/amd-ryzen-7-7700.html",
+    "descricao": "Oito núcleos para compilar, renderizar e executar várias tarefas.",
+    "destaque": "Oito núcleos para compilar, renderizar e executar várias tarefas.",
+    "specs": {
+      "Socket": "AM5",
+      "Núcleos": "8",
+      "Threads": "16",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM5",
+      "nucleos": 8,
+      "tdp": 65,
+      "video": true,
+      "pcie": 5
+    },
+    "preco": 2542.34,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/442570/processador-amd-ryzen-7-7700-3-80ghz-8-core-40mb-am5",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/r7700.webp",
+    "alt": "Foto de AMD Ryzen 7 7700",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/442570/xlarge/Processador-AMD-Ryzen-7-7700-3-80ghz-8-core-40MB-Am5_1774378431.jpg"
+  },
+  {
+    "id": "b550",
+    "categoria": "placa-mae",
+    "nome": "MSI B550M PRO-VDH WIFI",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/B550M-PRO-VDH-WIFI/Specification",
+    "descricao": "Base micro-ATX para processadores AM4 e memória DDR4. Confira a revisão de BIOS na lista de CPU do fabricante.",
+    "destaque": "Base micro-ATX para processadores AM4 e memória DDR4. Confira a revisão de BIOS na lista de CPU do fabricante.",
+    "specs": {
+      "Socket": "AM4",
+      "Memória": "4 slots DDR4",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM4",
+      "ddr": "DDR4",
+      "slotsRam": 4,
+      "limiteRam": 128,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": 799.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://pcfinder.com.br/produto/placa-mae-msi-b550m-pro-vdh-wifi",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "PCFinder",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b550.webp",
+    "alt": "Foto de MSI B550M PRO-VDH WIFI",
+    "creditoFoto": "https://img-canonical.pcfinder.com.br/produtos/31f66d3b-cd08-4677-86c8-c35cbdafa737/01.webp"
+  },
+  {
+    "id": "b650",
+    "categoria": "placa-mae",
+    "nome": "MSI PRO B650M-A WIFI",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/PRO-B650M-A-WIFI/Specification",
+    "descricao": "Placa micro-ATX com quatro slots DDR5 e dois conectores M.2 PCIe.",
+    "destaque": "Placa micro-ATX com quatro slots DDR5 e dois conectores M.2 PCIe.",
+    "specs": {
+      "Socket": "AM5",
+      "Memória": "4 slots DDR5",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM5",
+      "ddr": "DDR5",
+      "slotsRam": 4,
+      "limiteRam": 128,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ]
+    },
+    "preco": 1189.15,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.guerradigital.com.br/produtos/msi-pro-b650m-a-wifi-chipset-b650-amd-am5-matx-ddr5-911-7d77-001/",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Guerra Digital",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b650.webp",
+    "alt": "Foto de MSI PRO B650M-A WIFI",
+    "creditoFoto": "https://acdn-us.mitiendanube.com/stores/002/025/067/products/pro-b650m-a-wifi4-84b16d85f8bb979b1c17109926516688-480-0.webp"
+  },
+  {
+    "id": "rx6600",
+    "categoria": "gpu",
+    "nome": "Sapphire PULSE Radeon RX 6600 8 GB",
+    "marca": "Sapphire",
+    "fonte": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-6600-8g-gddr6",
+    "descricao": "Placa de vídeo de duas ventoinhas com memória dedicada para jogos em Full HD.",
+    "destaque": "Placa de vídeo de duas ventoinhas com memória dedicada para jogos em Full HD.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "193 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "500 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 193,
+      "tdp": 140,
+      "recomenda": 500,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 1
+    },
+    "preco": 1962.14,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/19810/placa-de-video-sapphire-pulse-radeon-rx-6600-8gb-gddr6-fsr-ray-tracing-11310-01-20g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rx6600.webp",
+    "alt": "Foto de Sapphire PULSE Radeon RX 6600 8 GB",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/placa-de-video-sapphire-pulse-radeon-rx-6600-8gb-gddr6-fsr-ray-tracing-11310-01-20g_133364.jpg"
+  },
+  {
+    "id": "rtx4060",
+    "categoria": "gpu",
+    "nome": "ASUS Dual GeForce RTX 4060 OC 8 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx4060-o8g/techspec/",
+    "descricao": "Placa de vídeo com 8 GB e suporte a codificação AV1.",
+    "destaque": "Placa de vídeo com 8 GB e suporte a codificação AV1.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "227,2 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 227.2,
+      "tdp": 115,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": 1881.47,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/25228/placa-de-video-asus-dual-nvidia-geforce-rtx-4060-oc-8gb-gddr6-dlss-ray-tracing-90yv0jc0-m0na00",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx4060.webp",
+    "alt": "Foto de ASUS Dual GeForce RTX 4060 OC 8 GB",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/placa-de-video-asus-dual-nvidia-geforce-rtx-4060-oc-8gb-gddr6-dlss-ray-tracing-90yv0jc0-m0na00_172861.jpg"
+  },
+  {
+    "id": "rtx4070s",
+    "categoria": "gpu",
+    "nome": "ASUS Dual GeForce RTX 4070 SUPER OC 12 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx4070s-o12g/techspec/",
+    "descricao": "Placa de vídeo de 12 GB para gráficos e criação. Vem com adaptador de alimentação para dois conectores PCIe.",
+    "destaque": "Placa de vídeo de 12 GB para gráficos e criação. Vem com adaptador de alimentação para dois conectores PCIe.",
+    "specs": {
+      "VRAM": "12 GB GDDR6X",
+      "Comprimento": "267 mm",
+      "Alimentação": "16 pinos, adaptador 2 × 8 pinos",
+      "Fonte recomendada": "750 W"
+    },
+    "compat": {
+      "vram": 12,
+      "mm": 267,
+      "tdp": 220,
+      "recomenda": 750,
+      "pcie8": 2,
+      "cabosPcie": 2,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 3,
+      "pcie16": true
+    },
+    "preco": 4699.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/516997/placa-de-video-rtx-4070-super-oc-dual-o12g-asus-nvidia-geforce-12gb-gddr6x-dlss-ray-tracing-dual-rtx4070s-o12g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx4070s.webp",
+    "alt": "Foto de ASUS Dual GeForce RTX 4070 SUPER OC 12 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/516997/placa-de-video-rtx4070s-asus-dual-o12g-90yv0k82-m0na00_1705349139_g.jpg"
+  },
+  {
+    "id": "ddr4",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF432C16BBK2_16.pdf",
+    "descricao": "Kit com dois módulos de 8 GB. Cada kit ocupa dois slots.",
+    "destaque": "Kit com dois módulos de 8 GB. Cada kit ocupa dois slots.",
+    "specs": {
+      "Tipo": "DDR4",
+      "Capacidade": "16 GB (2 × 8 GB)",
+      "Taxa": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4",
+      "gb": 16,
+      "slots": 2
+    },
+    "preco": 1282.5,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://barracadobyte.com.br/memoria-ram/kingston-fury-beast-ddr4-3200-16gb-2x8gb",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/ddr4.webp",
+    "alt": "Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16",
+    "creditoFoto": "https://barracadobyte.com.br/img/1ab35141-c429-4152-97d5-3c84e4b75e45-l.jpg?v=fa0644b705bb"
+  },
+  {
+    "id": "ddr5",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 32 GB DDR5-5600 KF556C36BBEK2-32",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF556C36BBEK2-32.pdf",
+    "descricao": "Dois módulos de 16 GB. A frequência efetiva depende do perfil e da placa-mãe.",
+    "destaque": "Dois módulos de 16 GB. A frequência efetiva depende do perfil e da placa-mãe.",
+    "specs": {
+      "Tipo": "DDR5",
+      "Capacidade": "32 GB (2 × 16 GB)",
+      "Taxa": "5600 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5",
+      "gb": 32,
+      "slots": 2
+    },
+    "preco": 4707.63,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.vtrimports.com/memoria-ram-kingston-fury-beast-ddr5-32gb-2x16gb-5600-mt-s-preto-kf556c36bbek2-32",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "VTR Imports",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/ddr5.webp",
+    "alt": "Foto de Kingston FURY Beast 32 GB DDR5-5600 KF556C36BBEK2-32",
+    "creditoFoto": "https://www.kingstonstore.com.br/cdn/shop/products/FuryDIMMK21_10cb09ab-76cf-4ee0-964c-f70566122f0b.jpg?v=1663684829&width=1920"
+  },
+  {
+    "id": "evo870",
+    "categoria": "ssd-sata",
+    "nome": "Samsung 870 EVO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/870evo/",
+    "descricao": "SSD de 2,5 polegadas para ampliar o armazenamento por SATA.",
+    "destaque": "SSD de 2,5 polegadas para ampliar o armazenamento por SATA.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 1978.65,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/351998/ssd-samsung-870-evo-1tb-sata-mz-77e1t0b-am",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/evo870.webp",
+    "alt": "Foto de Samsung 870 EVO 1 TB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/351998/xlarge/SSD-Samsung-870-Evo-1TB-SATA-mz-77e1t0b-am_1792437813.jpg"
+  },
+  {
+    "id": "mx500",
+    "categoria": "ssd-sata",
+    "nome": "Crucial MX500 1 TB CT1000MX500SSD1",
+    "marca": "Crucial",
+    "fonte": "https://www.crucial.com/ssd/mx500/ct1000mx500ssd1",
+    "descricao": "SSD de 2,5 polegadas para sistemas que já usam cabo SATA.",
+    "destaque": "SSD de 2,5 polegadas para sistemas que já usam cabo SATA.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 499.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/mx500.webp",
+    "alt": "Foto de Crucial MX500 1 TB CT1000MX500SSD1",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/94892/94892_1519150470_index_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/94892/ssd-crucial-mx500-sata-1tb-2-5-leitura-560mb-s-e-gravacao-510mb-s-branco-ct1000mx500ssd1",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "pro980",
+    "categoria": "ssd-nvme",
+    "nome": "Samsung 980 PRO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/980pro/",
+    "descricao": "SSD M.2 2280 que usa PCIe 4.0. Também opera em um slot PCIe 3.0, com velocidade reduzida.",
+    "destaque": "SSD M.2 2280 que usa PCIe 4.0. Também opera em um slot PCIe 3.0, com velocidade reduzida.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 1000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": 650.25,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/pro980.webp",
+    "alt": "Foto de Samsung 980 PRO 1 TB",
+    "creditoFoto": "https://commons.wikimedia.org/wiki/File:Samsung_980_PRO_PCIe_4.0_NVMe_SSD_1TB-top_PNr%C2%B00915.jpg",
+    "fontePreco": "https://www.guerradigital.com.br/produtos/ssd-samsung-980-pro-1tb-nvme-m-2-2280-leitura-ate-6900mb-s-e-gravacao-ate-5000mb-s-mz-v8p1t0/",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Guerra Digital",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "nv2",
+    "categoria": "ssd-nvme",
+    "nome": "Kingston NV2 1 TB SNV2S/1000G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/SNV2S_en.pdf",
+    "descricao": "SSD M.2 2280 sem cabos, indicado para sistema e programas.",
+    "destaque": "SSD M.2 2280 sem cabos, indicado para sistema e programas.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 1000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": 640.0,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://barracadobyte.com.br/ssd/kingston-nv2-snv2s-1000g-1tb-snv2s-1000g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/nv2.webp",
+    "alt": "Foto de Kingston NV2 1 TB SNV2S/1000G",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/n/snv2s1000g.jpg"
+  },
+  {
+    "id": "hdd2",
+    "categoria": "hd",
+    "nome": "Seagate BarraCuda 2 TB ST2000DM008",
+    "marca": "Seagate",
+    "fonte": "https://www.seagate.com/support/internal-hard-drives/desktop-hard-drives/barracuda-3-5/",
+    "descricao": "HD mecânico de 3,5 polegadas para arquivos e espaço adicional.",
+    "destaque": "HD mecânico de 3,5 polegadas para arquivos e espaço adicional.",
+    "specs": {
+      "Capacidade": "2 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "3,5 pol.",
+      "Rotação": "7200 RPM"
+    },
+    "compat": {
+      "gb": 2000,
+      "sata": 1,
+      "baia35": 1
+    },
+    "preco": 1289,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/217616/hd-seagate-2tb-barracuda-3-5-sata-iii-para-desktop-st2000dm008",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/hdd2.webp",
+    "alt": "Foto de Seagate BarraCuda 2 TB ST2000DM008",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/217616/xlarge/HD-Seagate-2TB-Barracuda-3-5-SATA-III-Para-Desktop-ST2000DM008_1782463116.jpg"
+  },
+  {
+    "id": "cx550",
+    "categoria": "fonte",
+    "nome": "Corsair CX550 (2023) CP-9020277",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020277-na/cx-series-cx550-550-watt-80-plus-bronze-atx-power-supply-cp-9020277-na",
+    "descricao": "Fonte ATX de 550 W. Os dois conectores PCIe estão no mesmo cabo.",
+    "destaque": "Fonte ATX de 550 W. Os dois conectores PCIe estão no mesmo cabo.",
+    "specs": {
+      "Potência": "550 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Bronze"
+    },
+    "compat": {
+      "potencia": 550,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 3
+    },
+    "preco": 532,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/543513/fonte-corsair-cx550-550w-80-plus-bronze-preto-cp-9020277",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cx550.webp",
+    "alt": "Foto de Corsair CX550 (2023) CP-9020277",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/543513/xlarge/Fonte-Corsair-Cx550-550W-80-Plus-Bronze-Preto-Cp-9020277_1794335628.png"
+  },
+  {
+    "id": "rm750x",
+    "categoria": "fonte",
+    "nome": "Corsair RM750x (2021) CP-9020199",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020199-na/rmx-series-rm750x-750-watt-80-plus-gold-fully-modular-atx-psu-cp-9020199-na",
+    "descricao": "Fonte modular de 750 W com cabos PCIe separados para placas mais exigentes.",
+    "destaque": "Fonte modular de 750 W com cabos PCIe separados para placas mais exigentes.",
+    "specs": {
+      "Potência": "750 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Gold"
+    },
+    "compat": {
+      "potencia": 750,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 4,
+      "cabosPcie": 2,
+      "sata": 10
+    },
+    "preco": 729.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/156945/fonte-corsair-rm750x-750w-80-plus-gold-modular-sem-cabo-preto-cp-9020199-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rm750x.webp",
+    "alt": "Foto de Corsair RM750x (2021) CP-9020199",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/156945/fonte-corsair-rm750x-750w-80-plus-gold-modular-preto-cp-9020199-ww_1628281649_g.jpg"
+  },
+  {
+    "id": "case4000d",
+    "categoria": "gabinete",
+    "nome": "Corsair 4000D Airflow CC-9011200",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/pc-cases/cc-9011200-ww/4000d-airflow-tempered-glass-mid-tower-atx-case-black-cc-9011200-ww",
+    "descricao": "Gabinete com frente ventilada. As folgas podem diminuir com radiador na frente.",
+    "destaque": "Gabinete com frente ventilada. As folgas podem diminuir com radiador na frente.",
+    "specs": {
+      "Formato": "ATX, Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 360 mm",
+      "Air cooler": "Até 170 mm",
+      "Radiador": "Até 360 mm na frente, 280 mm no topo"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 360,
+      "altura": 170,
+      "baias25": 2,
+      "baias35": 2,
+      "fans": {
+        "frente": [
+          3,
+          2
+        ],
+        "topo": [
+          2,
+          2
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "topo": [
+          120,
+          140,
+          240,
+          280
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 2
+    },
+    "preco": 666.9,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/case4000d.webp",
+    "alt": "Foto de Corsair 4000D Airflow CC-9011200",
+    "creditoFoto": "https://cdn-hardstore.s3-sa-east-1.amazonaws.com/23948/1280x960/1.webp",
+    "fontePreco": "https://hardstore.com.br/shop/products/gabinete-corsair-4000d-airflow-lateral-em-vidro-temperado-2-fans-mid-tower-preto-cc-9011200-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Hardstore",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "q300lv2",
+    "categoria": "gabinete",
+    "nome": "Cooler Master Q300L V2",
+    "marca": "Cooler Master",
+    "fonte": "https://legacy.coolermaster.com/en-global/products/q300l-v2/",
+    "descricao": "Gabinete compacto que aceita placas micro-ATX e Mini-ITX.",
+    "destaque": "Gabinete compacto que aceita placas micro-ATX e Mini-ITX.",
+    "specs": {
+      "Formato": "Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 360 mm",
+      "Air cooler": "Até 159 mm",
+      "Radiador": "Até 240 mm na frente"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 360,
+      "altura": 159,
+      "baias25": 2,
+      "baias35": 1,
+      "fans": {
+        "frente": [
+          2,
+          2
+        ],
+        "topo": [
+          2,
+          0
+        ],
+        "traseira": [
+          1,
+          0
+        ],
+        "fundo": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          240
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 1
+    },
+    "preco": 535.31,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/568312/gabinete-cooler-master-masterbox-q300l-v2-lateral-vidro-temperado-q300lv2-kgnn-s00",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/q300lv2.webp",
+    "alt": "Foto de Cooler Master Q300L V2",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/568312/xlarge/Gabinete-Cooler-Master-Masterbox-Q300l-V2-Lateral-Vidro-Temperado-Q300lv2-kgnn-s00_1793238518.png"
+  },
+  {
+    "id": "p12",
+    "categoria": "ventoinhas",
+    "nome": "ARCTIC P12 PWM PST",
+    "marca": "ARCTIC",
+    "fonte": "https://www.arctic.de/en/P12-PWM-PST/ACFAN00120A",
+    "descricao": "Ventoinha PWM de 120 mm com conector PST para encadear unidades compatíveis.",
+    "destaque": "Ventoinha PWM de 120 mm com conector PST para encadear unidades compatíveis.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Ligação": "PST"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 2,
+      "encadeia": true
+    },
+    "preco": 135.04,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/464964/cooler-fan-arctic-p12-pwm-pst-120mm-preto-acfan00120a",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/p12.webp",
+    "alt": "Foto de ARCTIC P12 PWM PST",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/464964/Cooler-Fan-Arctic-P12-Pwm-Pst-120mm-Preto-ACFAN00120A_1701276493_g.jpg"
+  },
+  {
+    "id": "nfa14",
+    "categoria": "ventoinhas",
+    "nome": "Noctua NF-A14 PWM",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nf-a14-pwm/specification",
+    "descricao": "Ventoinha de 140 mm para gabinetes que aceitam esse tamanho.",
+    "destaque": "Ventoinha de 140 mm para gabinetes que aceitam esse tamanho.",
+    "specs": {
+      "Diâmetro": "140 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1500 RPM"
+    },
+    "compat": {
+      "mm": 140,
+      "tdp": 2
+    },
+    "preco": 194.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.pichau.com.br/ventoinha-noctua-140mm-marrom-nf-a14-pwm",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Pichau",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/nfa14.webp",
+    "alt": "Foto de Noctua NF-A14 PWM",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/n/f/nf-a14-pwm.jpg"
+  },
+  {
+    "id": "aio240",
+    "categoria": "water-cooler",
+    "nome": "ARCTIC Liquid Freezer III 240",
+    "marca": "ARCTIC",
+    "fonte": "https://www.arctic.de/en/Liquid-Freezer-III-240/ACFRE00134A",
+    "descricao": "Sistema fechado com radiador de 240 mm e dois ventiladores de 120 mm. A espessura exige checagem de espaço.",
+    "destaque": "Sistema fechado com radiador de 240 mm e dois ventiladores de 120 mm. A espessura exige checagem de espaço.",
+    "specs": {
+      "Sockets": "AM4, AM5, LGA1700",
+      "Radiador": "240 mm",
+      "Espessura do radiador": "38 mm"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700"
+      ],
+      "radiador": 240,
+      "espessura": 63,
+      "tdp": 8
+    },
+    "preco": 636.72,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/30367/water-cooler-arctic-liquid-freezer-iii-240-240mm-intel-amd-black-acfre00134a",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/aio240.webp",
+    "alt": "Foto de ARCTIC Liquid Freezer III 240",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/water-cooler-arctic-liquid-freezer-iii-240-240mm-intel-amd-black-acfre00134a_206684.jpg"
+  },
+  {
+    "id": "u12s",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-U12S",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-u12s/specification",
+    "descricao": "Air cooler de torre com altura de 158 mm. Confira se a caixa inclui o suporte para seu socket.",
+    "destaque": "Air cooler de torre com altura de 158 mm. Confira se a caixa inclui o suporte para seu socket.",
+    "specs": {
+      "Altura": "158 mm",
+      "Ventoinha": "120 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 158,
+      "tdp": 2
+    },
+    "preco": 469.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://setupbarato.com.br/modelo/coolers/noctua-u12s--cmuvmco0a0hvrmv1v8bkvdym3",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "SetupBarato",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/u12s.webp",
+    "alt": "Foto de Noctua NH-U12S",
+    "creditoFoto": "https://waz.vteximg.com.br/arquivos/ids/168965/105758-1-cooler_cpu_noctua_nh_u12s-5.jpg?v=636438361852870000"
+  },
+  {
+    "id": "d15",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-D15",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-d15/specification",
+    "descricao": "Torre dupla que exige folga para as ventoinhas, especialmente com pentes altos.",
+    "destaque": "Torre dupla que exige folga para as ventoinhas, especialmente com pentes altos.",
+    "specs": {
+      "Altura": "165 mm",
+      "Ventoinhas": "2 × 140 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 165,
+      "tdp": 3
+    },
+    "preco": 819.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/d15.webp",
+    "alt": "Foto de Noctua NH-D15",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/cooler-para-processador-noctua-nh-d15-140mm-intel-amd-nh-d15_114907.jpg",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/16753/cooler-para-processador-noctua-nh-d15-140mm-intel-amd-nh-d15",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "dell",
+    "categoria": "monitor",
+    "nome": "Dell P2422H",
+    "marca": "Dell",
+    "fonte": "https://www.dell.com/support/home/en-us/product-support/product/dell-p2422h-monitor/docs",
+    "descricao": "Monitor IPS de 23,8 polegadas indicado para estudos e escritório.",
+    "destaque": "Monitor IPS de 23,8 polegadas indicado para estudos e escritório.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa de atualização": "60 Hz",
+      "Entradas": "HDMI, DisplayPort, VGA"
+    },
+    "compat": {
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": 1613.1,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.newblu.com.br/produtos/monitor-dell-23-8-full-hd-60hz-p2422h/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "NewBlu",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/dell.webp",
+    "alt": "Foto de Dell P2422H",
+    "creditoFoto": "https://dcdn-us.mitiendanube.com/stores/007/000/741/products/monitor-dell-23-8-391156862afdfd884a17684026152077-480-0.webp"
+  },
+  {
+    "id": "aoc",
+    "categoria": "monitor",
+    "nome": "AOC 24G4/P",
+    "marca": "AOC",
+    "fonte": "https://www.kabum.com.br/produto/704039/monitor-gamer-aoc-24-180hz-0-5ms-ips-ajuste-de-altura-24g4-p",
+    "descricao": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
+    "destaque": "Monitor Full HD para jogos. Use DisplayPort para alcançar a frequência máxima anunciada.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa máxima": "180 Hz",
+      "Entradas": "DisplayPort, HDMI"
+    },
+    "compat": {
+      "video": [
+        "DisplayPort",
+        "HDMI"
+      ]
+    },
+    "preco": 1528.03,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/704039/monitor-gamer-aoc-24-180hz-0-5ms-ips-ajuste-de-altura-24g4-p",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/aoc.webp",
+    "alt": "Foto de AOC 24G4/P",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/704039/xlarge/Monitor-Gamer-Aoc-24-180hz-0-5ms-Ips-Ajuste-De-Altura-24g4-p_1786816415.jpg"
+  },
+  {
+    "id": "k120",
+    "categoria": "teclado",
+    "nome": "Logitech K120",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/products/keyboards/k120-usb-standard-computer.920-002478.html",
+    "descricao": "Teclado com fio e teclado numérico para uso diário.",
+    "destaque": "Teclado com fio e teclado numérico para uso diário.",
+    "specs": {
+      "Conexão": "USB-A",
+      "Tipo": "Com fio",
+      "Teclado numérico": "Sim"
+    },
+    "compat": {},
+    "preco": 79.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/k120.webp",
+    "alt": "Foto de Logitech K120",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/20866/teclado-logitech-k120-abnt2-920-004423_1614628451_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/20866/teclado-com-fio-usb-logitech-k120-resistente-a-respingos-e-layout-abnt2-920-004423",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "g502",
+    "categoria": "mouse",
+    "nome": "Logitech G G502 HERO",
+    "marca": "Logitech G",
+    "fonte": "https://www.logitechg.com/en-us/products/gaming-mice/g502-hero-gaming-mouse.html",
+    "descricao": "Mouse com fio e botões programáveis para jogos.",
+    "destaque": "Mouse com fio e botões programáveis para jogos.",
+    "specs": {
+      "Conexão": "USB-A",
+      "Sensor": "HERO 25K",
+      "Botões": "11 programáveis"
+    },
+    "compat": {},
+    "preco": 368.85,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/g502.webp",
+    "alt": "Foto de Logitech G G502 HERO",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/98244/mouse-gamer-logitech-g502-hero-16k-rgb-lightsync-11-botoes-16000-dpi-910-005550_1626297206_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/98244/mouse-gamer-logitech-g502-hero-com-rgb-lightsync-ajustes-de-peso-11-botoes-programaveis-sensor-hero-25k-910-005550",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "qck",
+    "categoria": "mousepad",
+    "nome": "SteelSeries QcK Medium",
+    "marca": "SteelSeries",
+    "fonte": "https://steelseries.com/gaming-mousepads/qck-series",
+    "descricao": "Mousepad de tecido com base de borracha.",
+    "destaque": "Mousepad de tecido com base de borracha.",
+    "specs": {
+      "Material": "Tecido",
+      "Dimensões": "320 × 270 mm",
+      "Espessura": "2 mm"
+    },
+    "compat": {},
+    "preco": 93.9,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/115341/mousepad-gamer-steelseries-qck-medio-320x270mm-63004",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/qck.webp",
+    "alt": "Foto de SteelSeries QcK Medium",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/115341/mousepad-gamer-steelseries-qck-pequeno-250x210mm-63004_1595870745_g.jpg"
+  },
+  {
+    "id": "cloud2",
+    "categoria": "headset",
+    "nome": "HyperX Cloud II 4P5M0AA",
+    "marca": "HyperX",
+    "fonte": "https://hyperx.com/products/hyperx-cloud-ii",
+    "descricao": "Headset com microfone removível e adaptador USB na edição com fio.",
+    "destaque": "Headset com microfone removível e adaptador USB na edição com fio.",
+    "specs": {
+      "Conexão": "3,5 mm e adaptador USB",
+      "Tipo": "Com fio",
+      "Microfone": "Removível"
+    },
+    "compat": {},
+    "preco": 529.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.escorregaopreco.com.br/ofertas/pichau/1334724",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Pichau via Escorrega o Preço",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cloud2.webp",
+    "creditoFoto": "https://cdn.shopify.com/s/files/1/0561/8345/5901/files/hyperx_cloud_ii_red_1_main.jpg?v=1763563198",
+    "alt": "Headset HyperX Cloud II preto e vermelho"
+  },
+  {
+    "id": "z150",
+    "categoria": "caixas-som",
+    "nome": "Logitech Z150",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/z150-compact-stereo-speakers",
+    "descricao": "Par de caixas compactas para a mesa.",
+    "destaque": "Par de caixas compactas para a mesa.",
+    "specs": {
+      "Potência": "3 W RMS",
+      "Canais": "2.0",
+      "Entrada": "3,5 mm"
+    },
+    "compat": {},
+    "preco": 501.14,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.magazineluiza.com.br/alto-falantes-multimidia-logitech-z150-stereo-sound-black/p/gc4debh1ge/ea/easm/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Magazine Luiza",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/z150.webp",
+    "alt": "Foto de Logitech Z150",
+    "creditoFoto": "https://a-static.mlcdn.com.br/450pxx450px/alto-falantes-multimidia-logitech-z150-stereo-sound-black/nocnocestadosunidos/buybox-cpb00ez9xley/7154cc10e2698db9522e93f3af154da7.jpeg"
+  },
+  {
+    "id": "c920",
+    "categoria": "webcam",
+    "nome": "Logitech C920 HD Pro",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/products/webcams/c920-pro-hd-webcam.960-000764.html",
+    "descricao": "Webcam USB para aulas, chamadas e transmissões.",
+    "destaque": "Webcam USB para aulas, chamadas e transmissões.",
+    "specs": {
+      "Resolução": "1920 × 1080",
+      "Taxa": "30 fps em Full HD",
+      "Conexão": "USB-A"
+    },
+    "compat": {},
+    "preco": 614.3,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.magazineluiza.com.br/webcam-logitech-hd-pro-c920-1080p-para-desktop-e-laptop/p/cgf9f0fkd8/in/webc/",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Magazine Luiza",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/c920.webp",
+    "alt": "Foto de Logitech C920 HD Pro",
+    "creditoFoto": "https://a-static.mlcdn.com.br/450pxx450px/webcam-logitech-hd-pro-c920-1080p-para-desktop-e-laptop/nocnocestadosunidos/buybox-cpb006jh8t3s/6247f11e31c6fb1178f5f4eafd7df250.jpeg"
+  },
+  {
+    "id": "qvo870",
+    "categoria": "ssd-sata",
+    "nome": "Samsung 870 QVO 1 TB",
+    "marca": "Samsung",
+    "fonte": "https://semiconductor.samsung.com/consumer-storage/internal-ssd/870qvo/",
+    "descricao": "SSD SATA de 2,5 polegadas com memória QLC para armazenamento adicional.",
+    "destaque": "SSD SATA de 2,5 polegadas com memória QLC para armazenamento adicional.",
+    "specs": {
+      "Capacidade": "1 TB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 1000,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 1119.6,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://barracadobyte.com.br/ssd/samsung-870-qvo-mz-77q1t0b-1tb",
+    "imagem": "assets/img/apresentacao/qvo870.webp",
+    "alt": "Foto de Samsung 870 QVO 1 TB",
+    "creditoFoto": "https://barracadobyte.com.br/img/57b6c602-53fd-4e69-b892-1129c9a166db-l.jpg?v=84561309d3ef",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "nv2-2tb",
+    "categoria": "ssd-nvme",
+    "nome": "Kingston NV2 2 TB SNV2S/2000G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/SNV2S_en.pdf",
+    "descricao": "Versão de 2 TB para armazenar mais jogos e projetos.",
+    "destaque": "Versão de 2 TB para armazenar mais jogos e projetos.",
+    "specs": {
+      "Capacidade": "2 TB",
+      "Interface": "PCIe 4.0 ×4",
+      "Formato": "M.2 2280"
+    },
+    "compat": {
+      "gb": 2000,
+      "nvme": 1,
+      "pcie": 4
+    },
+    "preco": 2303.7,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/nv2-2tb.webp",
+    "alt": "Foto de Kingston NV2 2 TB SNV2S/2000G",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/s/n/snv2s2000g1.jpg",
+    "fontePreco": "https://barracadobyte.com.br/ssd/kingston-nv2-snv2s-2000g-2tb-snv2s-2000g",
+    "tipoPreco": "Comparador",
+    "lojaPreco": "Barraca do Byte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "d15black",
+    "categoria": "air-cooler",
+    "nome": "Noctua NH-D15 chromax.black",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nh-d15-chromax-black/specification",
+    "descricao": "Versão preta do cooler de torre dupla. Confira espaço para os módulos de RAM.",
+    "destaque": "Versão preta do cooler de torre dupla. Confira espaço para os módulos de RAM.",
+    "specs": {
+      "Altura": "165 mm",
+      "Ventoinhas": "2 × 140 mm",
+      "Sockets AMD": "AM4, AM5"
+    },
+    "compat": {
+      "sockets": [
+        "AM4",
+        "AM5"
+      ],
+      "altura": 165,
+      "tdp": 3
+    },
+    "preco": 1281.8,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/d15black.webp",
+    "alt": "Foto de Noctua NH-D15 chromax.black",
+    "creditoFoto": "https://img.terabyteshop.com.br/produto/p/cooler-para-processador-noctua-nh-d15-140mm-black-intel-amd-nh-d15-chromaxblack_114914.jpg",
+    "fontePreco": "https://www.terabyteshop.com.br/produto/16754/cooler-para-processador-noctua-nh-d15-140mm-black-intel-amd-nh-d15-chromaxblack",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "Terabyte",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "c270",
+    "categoria": "webcam",
+    "nome": "Logitech C270 HD",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/c270-hd-webcam",
+    "descricao": "Webcam de 720p com microfone para chamadas.",
+    "destaque": "Webcam de 720p com microfone para chamadas.",
+    "specs": {
+      "Resolução": "1280 × 720",
+      "Taxa": "30 fps",
+      "Conexão": "USB-A"
+    },
+    "compat": {},
+    "preco": 152.1,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/c270.webp",
+    "alt": "Foto de Logitech C270 HD",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/677167/xlarge/Webcam-Logitech-C270-HD-720p-Microfone-Integrado-USB-2-0-com-3MP-Cinza-Preta_1783965211.png",
+    "fontePreco": "https://www.kabum.com.br/produto/677167/webcam-logitech-c270-hd-720p-microfone-integrado-usb-2-0-com-3mp-cinza-preta",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "m185",
+    "categoria": "mouse",
+    "nome": "Logitech M185",
+    "marca": "Logitech",
+    "fonte": "https://www.logitech.com/en-us/shop/p/m185-wireless-mouse",
+    "descricao": "Mouse compacto com receptor USB para trabalho.",
+    "destaque": "Mouse compacto com receptor USB para trabalho.",
+    "specs": {
+      "Conexão": "Receptor USB-A",
+      "Alimentação": "1 pilha AA",
+      "Botões": "3"
+    },
+    "compat": {},
+    "preco": 71.66,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/m185.webp",
+    "alt": "Foto de Logitech M185",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/254705/xlarge/Mouse-Sem-Fio-Logitech-M185-USB-3-Bot-es-Cinza-E-Preto-910-002225_1794836221.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/254705/mouse-sem-fio-logitech-m185-usb-3-botoes-cinza-e-preto-910-002225",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "a400",
+    "categoria": "ssd-sata",
+    "nome": "Kingston A400 480 GB SA400S37/480G",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/en/ssd/a400-solid-state-drive",
+    "descricao": "SSD SATA compacto para sistemas e documentos.",
+    "destaque": "SSD SATA compacto para sistemas e documentos.",
+    "specs": {
+      "Capacidade": "480 GB",
+      "Interface": "SATA 6 Gb/s",
+      "Formato": "2,5 pol."
+    },
+    "compat": {
+      "gb": 480,
+      "sata": 1,
+      "baia25": 1
+    },
+    "preco": 538.34,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/a400.webp",
+    "alt": "Foto de Kingston A400 480 GB SA400S37/480G",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/174032/xlarge/SSD-Kingston-480GB-A400-SATA-Leitura-500MB-s-e-Grava-o-450MB-s-SA400S37-480G_1792150454.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/174032/ssd-kingston-480gb-a400-sata-leitura-500mb-s-e-gravacao-450mb-s-sa400s37-480g",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "r5700x",
+    "categoria": "cpu",
+    "nome": "AMD Ryzen 7 5700X",
+    "marca": "AMD",
+    "fonte": "https://www.amd.com/en/products/processors/desktops/ryzen/5000-series/amd-ryzen-7-5700x.html",
+    "descricao": "Processador AM4 de oito núcleos. Requer placa de vídeo dedicada.",
+    "destaque": "Processador AM4 de oito núcleos. Requer placa de vídeo dedicada.",
+    "specs": {
+      "Socket": "AM4",
+      "Núcleos": "8",
+      "Threads": "16",
+      "TDP": "65 W"
+    },
+    "compat": {
+      "socket": "AM4",
+      "nucleos": 8,
+      "tdp": 65,
+      "video": false,
+      "pcie": 4
+    },
+    "preco": 1830.61,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/r5700x.webp",
+    "alt": "Foto de AMD Ryzen 7 5700X",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/320797/processador-amd-ryzen-7-5700x-cache-36mb-3-8ghz-4-6ghz-max-turbo-am4-100-100000926wof_1647636511_original.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/320797/processador-amd-ryzen-7-5700x-3-4ghz-4-6ghz-max-turbo-cache-36mb-8-nucleos-16-threads-am4-sem-video-integrado-100-100000926wof",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23"
+  },
+  {
+    "id": "cx650",
+    "categoria": "fonte",
+    "nome": "Corsair CX650 (2023) 650 W",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/psu/cp-9020278-na/cx-series-cx650-650-watt-80-plus-bronze-atx-power-supply-cp-9020278-na",
+    "descricao": "Fonte ATX de 650 W. Os dois conectores PCIe ficam no mesmo cabo.",
+    "destaque": "Fonte ATX de 650 W. Os dois conectores PCIe ficam no mesmo cabo.",
+    "specs": {
+      "Potência": "650 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Bronze",
+      "Cabeamento": "Fixo"
+    },
+    "compat": {
+      "potencia": 650,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 3
+    },
+    "preco": 349.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-com-cabo-preto-cp-9020278-br",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/cx650.webp",
+    "alt": "Foto de Corsair CX650 (2023) 650 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/516056/fonte-corsair-cx-series-cx650-650w-80-plus-bronze-sem-cabo-preto-cp-9020278-br_1714483460_g.jpg"
+  },
+  {
+    "id": "a650bn",
+    "categoria": "fonte",
+    "nome": "MSI MAG A650BN 650 W",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Power-Supply/MAG-A650BN/Specification",
+    "descricao": "Fonte ATX de 650 W com cinco conectores de energia SATA.",
+    "destaque": "Fonte ATX de 650 W com cinco conectores de energia SATA.",
+    "specs": {
+      "Potência": "650 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Bronze",
+      "Cabeamento": "Fixo"
+    },
+    "compat": {
+      "potencia": 650,
+      "formato": "ATX",
+      "eps": 1,
+      "pcie8": 2,
+      "cabosPcie": 1,
+      "sata": 5
+    },
+    "preco": 349.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/369658/fonte-msi-mag-a650bn-650w-80-plus-bronze-pfc-ativo-com-cabo-preto-306-7zp2b22-ce0",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a650bn.webp",
+    "alt": "Foto de MSI MAG A650BN 650 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/369658/fonte-msi-mag-a650bn-atx-650w-80-plus-bronze-pfc-ativo-entrada-bivolt-preto-306-7zp2b22-ce0_1665770996_g.jpg"
+  },
+  {
+    "id": "a750gl",
+    "categoria": "fonte",
+    "nome": "MSI MAG A750GL PCIE5 750 W",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Power-Supply/MAG-A750GL-PCIE5/Specification",
+    "descricao": "Fonte modular de 750 W com cabo direto de 16 pinos para placas compatíveis.",
+    "destaque": "Fonte modular de 750 W com cabo direto de 16 pinos para placas compatíveis.",
+    "specs": {
+      "Potência": "750 W",
+      "Formato": "ATX",
+      "Certificação": "80 PLUS Gold",
+      "Cabeamento": "Modular"
+    },
+    "compat": {
+      "potencia": 750,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 3,
+      "cabosPcie": 2,
+      "sata": 8,
+      "pcie16": true
+    },
+    "preco": 741.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/462815/fonte-msi-mag-a750gl-750w-80-plus-gold-modular-pfc-ativo-com-cabo-preto",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a750gl.webp",
+    "alt": "Foto de MSI MAG A750GL PCIE5 750 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/462815/fonte-msi-mag-a750gl-pcie5-atx-3-0-750w-80-plus-gold-modular-pfc-ativo-bivolt-preto_1699625425_g.jpg"
+  },
+  {
+    "id": "rm850e",
+    "categoria": "fonte",
+    "nome": "Corsair RM850e (2025) 850 W",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/ww/en/p/psu/cp-9020296-ww/rme-series-rm850e-fully-modular-low-noise-atx-power-supply-ww-cp-9020296-ww",
+    "descricao": "Fonte ATX 3.1 modular de 850 W com cabo 12V-2x6 de 16 pinos.",
+    "destaque": "Fonte ATX 3.1 modular de 850 W com cabo 12V-2x6 de 16 pinos.",
+    "specs": {
+      "Potência": "850 W",
+      "Formato": "ATX",
+      "Certificação": "Cybenetics Gold",
+      "Cabeamento": "Modular"
+    },
+    "compat": {
+      "potencia": 850,
+      "formato": "ATX",
+      "eps": 2,
+      "pcie8": 3,
+      "cabosPcie": 2,
+      "sata": 6,
+      "pcie16": true
+    },
+    "preco": 699.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rm850e.webp",
+    "alt": "Foto de Corsair RM850e (2025) 850 W",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/691267/fonte-corsair-rm850e-rme-series-2025-850w-atx-3-1-pcie-5-1-cybenetics-gold-certified-full-modular-preto-cp-9020296-br_1738085690_g.jpg"
+  },
+  {
+    "id": "rtx3050",
+    "categoria": "gpu",
+    "nome": "MSI GeForce RTX 3050 VENTUS 2X 6G OC",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Graphics-Card/GeForce-RTX-3050-VENTUS-2X-6G-OC/Specification",
+    "descricao": "Placa de vídeo de 6 GB alimentada pelo slot PCIe da placa-mãe.",
+    "destaque": "Placa de vídeo de 6 GB alimentada pelo slot PCIe da placa-mãe.",
+    "specs": {
+      "VRAM": "6 GB GDDR6",
+      "Comprimento": "189 mm",
+      "Alimentação": "Pelo slot PCIe",
+      "Fonte recomendada": "300 W"
+    },
+    "compat": {
+      "vram": 6,
+      "mm": 189,
+      "tdp": 70,
+      "recomenda": 300,
+      "pcie8": 0,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 0
+    },
+    "preco": 1999.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx3050.webp",
+    "alt": "Foto de MSI GeForce RTX 3050 VENTUS 2X 6G OC",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/997881/placa-de-video-msi-geforce-rtx-3050-ventus-oc-2x-6gb-gddr6-96-bit-912-v812-060_1770130439_g.jpg"
+  },
+  {
+    "id": "rx7600",
+    "categoria": "gpu",
+    "nome": "Sapphire PULSE Radeon RX 7600 8 GB",
+    "marca": "Sapphire",
+    "fonte": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-7600-8g-gddr6",
+    "descricao": "Placa de vídeo de duas ventoinhas para jogos em Full HD.",
+    "destaque": "Placa de vídeo de duas ventoinhas para jogos em Full HD.",
+    "specs": {
+      "VRAM": "8 GB GDDR6",
+      "Comprimento": "240 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 240,
+      "tdp": 185,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": 1849.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/461103/placa-de-video-gaming-pulse-amd-radeon-rx-7600-8gb-gddr6-11324-01-20g",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rx7600.webp",
+    "alt": "Foto de Sapphire PULSE Radeon RX 7600 8 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/461103/placa-de-video-rx-7600-pulse-sapphire-gaming-oc-8gb-gddr6-hdmi-triple-dp-11324-01-20g_1686741052_g.jpg"
+  },
+  {
+    "id": "rtx5060",
+    "categoria": "gpu",
+    "nome": "MSI GeForce RTX 5060 VENTUS 2X OC 8 GB",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Graphics-Card/GeForce-RTX-5060-8G-VENTUS-2X-OC/Specification",
+    "descricao": "Placa de vídeo compacta de 8 GB GDDR7 para jogos e criação.",
+    "destaque": "Placa de vídeo compacta de 8 GB GDDR7 para jogos e criação.",
+    "specs": {
+      "VRAM": "8 GB GDDR7",
+      "Comprimento": "197 mm",
+      "Alimentação": "1 × PCIe 8 pinos",
+      "Fonte recomendada": "550 W"
+    },
+    "compat": {
+      "vram": 8,
+      "mm": 197,
+      "tdp": 145,
+      "recomenda": 550,
+      "pcie8": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 2
+    },
+    "preco": 3999.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx5060.webp",
+    "alt": "Foto de MSI GeForce RTX 5060 VENTUS 2X OC 8 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/877565/placa-de-video-msi-rtx-5060-8g-ventus-2x-oc-geforce-nvidia-8gb-gddr7-128-bits-2535-mhz-dlss-4-ray-tracing-g5060-8v2c_1749557787_g.jpg"
+  },
+  {
+    "id": "rtx5070",
+    "categoria": "gpu",
+    "nome": "ASUS Prime GeForce RTX 5070 OC 12 GB",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/graphics-cards/prime/prime-rtx5070-o12g/techspec/",
+    "descricao": "Placa de vídeo de 12 GB com alimentação de 16 pinos. Inclui adaptador para dois conectores PCIe.",
+    "destaque": "Placa de vídeo de 12 GB com alimentação de 16 pinos. Inclui adaptador para dois conectores PCIe.",
+    "specs": {
+      "VRAM": "12 GB GDDR7",
+      "Comprimento": "304 mm",
+      "Alimentação": "16 pinos, adaptador 2 × 8 pinos",
+      "Fonte recomendada": "750 W"
+    },
+    "compat": {
+      "vram": 12,
+      "mm": 304,
+      "tdp": 250,
+      "recomenda": 750,
+      "pcie8": 2,
+      "video": [
+        "HDMI",
+        "DisplayPort"
+      ],
+      "classe": 3,
+      "cabosPcie": 2,
+      "pcie16": true
+    },
+    "preco": 7069.41,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/882087/placa-de-video-asus-geforce-rtx-5070-prime-oc-12gb-gddr7-192bits-prime-rtx5070-012g",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/rtx5070.webp",
+    "alt": "Foto de ASUS Prime GeForce RTX 5070 OC 12 GB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/882087/xlarge/Placa-De-V-deo-Asus-Prime-Nvidia-Geforce-RTX-5070-Oc-Edition-12gb-Gddr7-Dlss-Ray-Tracing-90yv0m10-m0na00_1791770615.jpg"
+  },
+  {
+    "id": "a520mk",
+    "categoria": "placa-mae",
+    "nome": "ASUS PRIME A520M-K",
+    "marca": "ASUS",
+    "fonte": "https://www.asus.com/motherboards-components/motherboards/prime/prime-a520m-k/techspec/",
+    "descricao": "Placa compacta AM4 com dois slots de memória DDR4 e um slot M.2 PCIe 3.0.",
+    "destaque": "Placa compacta AM4 com dois slots de memória DDR4 e um slot M.2 PCIe 3.0.",
+    "specs": {
+      "Socket": "AM4",
+      "Memória": "2 slots DDR4",
+      "Armazenamento": "1 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM4",
+      "ddr": "DDR4",
+      "slotsRam": 2,
+      "limiteRam": 64,
+      "formato": "Micro-ATX",
+      "nvme": 1,
+      "sata": 4,
+      "fans": 1,
+      "eps": 1,
+      "pcieNvme": 3,
+      "video": [
+        "HDMI",
+        "VGA"
+      ]
+    },
+    "preco": 499.91,
+    "estoque": 99,
+    "nivel": "entrada",
+    "fontePreco": "https://www.kabum.com.br/produto/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4-preto-90mb1500-m0eay0",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/a520mk.webp",
+    "alt": "Foto de ASUS PRIME A520M-K",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/114940/placa-mae-asus-prime-a520m-k-amd-am4-matx-ddr4_1597951180_g.jpg"
+  },
+  {
+    "id": "b650mp",
+    "categoria": "placa-mae",
+    "nome": "MSI PRO B650M-P",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/Motherboard/PRO-B650M-P/Specification",
+    "descricao": "Placa micro-ATX AM5 com quatro slots de RAM e dois slots M.2 PCIe 4.0.",
+    "destaque": "Placa micro-ATX AM5 com quatro slots de RAM e dois slots M.2 PCIe 4.0.",
+    "specs": {
+      "Socket": "AM5",
+      "Memória": "4 slots DDR5",
+      "Armazenamento": "2 × M.2 NVMe, 4 × SATA",
+      "Formato": "Micro-ATX"
+    },
+    "compat": {
+      "socket": "AM5",
+      "ddr": "DDR5",
+      "slotsRam": 4,
+      "limiteRam": 256,
+      "formato": "Micro-ATX",
+      "nvme": 2,
+      "sata": 4,
+      "fans": 3,
+      "eps": 1,
+      "video": [
+        "HDMI",
+        "DisplayPort",
+        "VGA"
+      ]
+    },
+    "preco": 896.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/b650mp.webp",
+    "alt": "Foto de MSI PRO B650M-P",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/524346/placa-mae-msi-pro-b650m-p-amd-am5-m-atx-ddr5-pro-b650m-p_1720007631_g.jpg"
+  },
+  {
+    "id": "beast16",
+    "categoria": "ram",
+    "nome": "Kingston FURY Beast 16 GB DDR4-3200 KF432C16BB/16",
+    "marca": "Kingston",
+    "fonte": "https://www.kingston.com/datasheets/KF432C16BB_16.pdf",
+    "descricao": "Um módulo DDR4 de 16 GB, que ocupa um slot.",
+    "destaque": "Um módulo DDR4 de 16 GB, que ocupa um slot.",
+    "specs": {
+      "Tipo": "DDR4",
+      "Capacidade": "16 GB (1 × 16 GB)",
+      "Taxa": "3200 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR4",
+      "gb": 16,
+      "slots": 1
+    },
+    "preco": 645.12,
+    "estoque": 99,
+    "nivel": "entrada",
+    "fontePreco": "https://www.kabum.com.br/produto/509632/memoria-ram-kingston-fury-beast-16gb-3200mhz-ddr4-preto-kf432c16bb-16",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/beast16.webp",
+    "alt": "Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BB/16",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/sync_mirakl/509632/xlarge/Mem-ria-Ram-Kingston-Fury-Beast-16GB-3200MHZ-DDR4-Preto-kf432c16bb-16_1771986262.jpg"
+  },
+  {
+    "id": "vengeance32",
+    "categoria": "ram",
+    "nome": "Corsair Vengeance 32 GB DDR5-6000 CMK32GX5M2E6000C36",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2e6000c36/vengeance-32gb-2x16gb-ddr5-dram-6000mt-s-cl36-memory-kit-black-cmk32gx5m2e6000c36",
+    "descricao": "Kit com dois módulos DDR5 de 16 GB. Confira o perfil de memória da placa-mãe.",
+    "destaque": "Kit com dois módulos DDR5 de 16 GB. Confira o perfil de memória da placa-mãe.",
+    "specs": {
+      "Tipo": "DDR5",
+      "Capacidade": "32 GB (2 × 16 GB)",
+      "Taxa": "6000 MT/s"
+    },
+    "compat": {
+      "ddr": "DDR5",
+      "gb": 32,
+      "slots": 2
+    },
+    "preco": 5199.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/506124/memoria-ram-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-cl36-preto-cmk32gx5m2e6000c36",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/vengeance32.webp",
+    "alt": "Foto de Corsair Vengeance 32 GB DDR5-6000 CMK32GX5M2E6000C36",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/506124/memoria-corsair-vengeance-32gb-2x16gb-6000mhz-ddr5-c36-preto-cmk32gx5m2e6000c36_1703857836_g.jpg"
+  },
+  {
+    "id": "af120",
+    "categoria": "ventoinhas",
+    "nome": "Corsair AF120 ELITE PWM",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/us/en/p/case-fans/co-9050140-ww/af120-elite-high-performance-120mm-pwm-fluid-dynamic-bearing-fan-co-9050140-ww",
+    "descricao": "Ventoinha PWM de 120 mm com rolamento fluido.",
+    "destaque": "Ventoinha PWM de 120 mm com rolamento fluido.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1850 RPM"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 4
+    },
+    "preco": 109.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/356875/ventoinha-corsair-af120-elite-120mm-preto-co-9050140-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/af120.webp",
+    "alt": "Foto de Corsair AF120 ELITE PWM",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/356875/cooler-fan-corsair-af120-elite-120mm-intel-e-amd-preto-co-9050140-ww_1665516772_g.jpg"
+  },
+  {
+    "id": "sickleflow",
+    "categoria": "ventoinhas",
+    "nome": "Cooler Master SickleFlow 120 ARGB",
+    "marca": "Cooler Master",
+    "fonte": "https://www.coolermaster.com/en-global/products/sickleflow-120-argb.html",
+    "descricao": "Ventoinha PWM de 120 mm com conector separado ARGB de 5 V para a iluminação.",
+    "destaque": "Ventoinha PWM de 120 mm com conector separado ARGB de 5 V para a iluminação.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1800 RPM",
+      "Iluminação": "ARGB 5 V, 3 pinos"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 2,
+      "iluminacao": "ARGB"
+    },
+    "preco": 89.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/128996/ventoinha-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/sickleflow.webp",
+    "alt": "Foto de Cooler Master SickleFlow 120 ARGB",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/128996/cooler-fan-cooler-master-sickleflow-120mm-argb-mfx-b2dn-18npa-r1_1601488035_g.jpg"
+  },
+  {
+    "id": "p12redux",
+    "categoria": "ventoinhas",
+    "nome": "Noctua NF-P12 redux-1700 PWM",
+    "marca": "Noctua",
+    "fonte": "https://noctua.at/en/nf-p12-redux-1700-pwm/specification",
+    "descricao": "Ventoinha PWM de 120 mm para gabinete ou radiador.",
+    "destaque": "Ventoinha PWM de 120 mm para gabinete ou radiador.",
+    "specs": {
+      "Diâmetro": "120 mm",
+      "Conector": "PWM 4 pinos",
+      "Rotação máxima": "1700 RPM"
+    },
+    "compat": {
+      "mm": 120,
+      "tdp": 2
+    },
+    "preco": 126.21,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/p12redux.webp",
+    "alt": "Foto de Noctua NF-P12 redux-1700 PWM",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/171726/cooler-fan-noctua-120mm-cinza-nf-p12-redux-1700pwm_1630675640_g.jpg"
+  },
+  {
+    "id": "td500v2",
+    "categoria": "gabinete",
+    "nome": "Cooler Master TD500 Mesh V2",
+    "marca": "Cooler Master",
+    "fonte": "https://www.coolermaster.com/en-us/products/masterbox-td500-mesh-v2.html",
+    "descricao": "Gabinete ATX com frente ventilada, três ventoinhas ARGB e espaço para placas longas.",
+    "destaque": "Gabinete ATX com frente ventilada, três ventoinhas ARGB e espaço para placas longas.",
+    "specs": {
+      "Formato": "ATX, Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 410 mm",
+      "Air cooler": "Até 165 mm",
+      "Radiador": "Até 360 mm na frente e no topo"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 410,
+      "altura": 165,
+      "baias25": 3,
+      "baias35": 2,
+      "fans": {
+        "frente": [
+          3,
+          2
+        ],
+        "topo": [
+          3,
+          2
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "frente": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "topo": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 3,
+      "iluminacao": "ARGB"
+    },
+    "preco": 554.89,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "fontePreco": "https://www.kabum.com.br/produto/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-23",
+    "imagem": "assets/img/apresentacao/td500v2.webp",
+    "alt": "Foto de Cooler Master TD500 Mesh V2",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/429400/gabinete-gamer-cooler-master-masterbox-td500-mesh-v2-mid-tower-itx-m-atx-e-atx-lateral-em-vidro-temperado-3x-cooler-fan-argb-preto-td500v2-kgnn-s00_1681765070_g.jpg"
+  },
+  {
+    "id": "panom100r",
+    "categoria": "gabinete",
+    "nome": "MSI MAG PANO M100R PZ White (306-7G24W21-809)",
+    "marca": "MSI",
+    "fonte": "https://www.msi.com/PC-Case/MAG-PANO-M100R-PZ/Specification",
+    "descricao": "Gabinete aquário branco com vidro panorâmico, quatro ventoinhas ARGB e placa de controle ARGB/PWM. Montagem de GPU na horizontal. Uma das duas baias pode receber SSD de 2,5 ou HD de 3,5 polegadas.",
+    "destaque": "Gabinete aquário branco com vidro panorâmico, quatro ventoinhas ARGB e placa de controle ARGB/PWM. Montagem de GPU na horizontal. Uma das duas baias pode receber SSD de 2,5 ou HD de 3,5 polegadas.",
+    "specs": {
+      "Formato": "Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 390 mm",
+      "Air cooler": "Até 175 mm",
+      "Dimensões": "488 × 235 × 453 mm (P × L × A)",
+      "Radiador": "120/240/360 mm no topo, 120/140 mm atrás",
+      "Ventoinhas": "Topo 3×120 ou 2×140 mm, lateral 3×120 mm, traseira 120 ou 140 mm, fundo 1×120 mm e cobertura da fonte 2×120 mm",
+      "Inclui": "3 ventoinhas ARGB laterais de lâmina reversa, 1 traseira ARGB e controle ARGB/PWM",
+      "Baias": "1 fixa de 2,5″ e 1 compartilhada de 2,5″/3,5″",
+      "Fonte": "ATX até 200 mm (vendida à parte)"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 390,
+      "altura": 175,
+      "baias25": 2,
+      "baias35": 1,
+      "limiteBaias": 2,
+      "fans": {
+        "topo": [
+          3,
+          2
+        ],
+        "lateral": [
+          3,
+          0
+        ],
+        "traseira": [
+          1,
+          1
+        ],
+        "fundo": [
+          1,
+          0
+        ],
+        "cobertura-fonte": [
+          2,
+          0
+        ]
+      },
+      "radiadores": {
+        "topo": [
+          120,
+          240,
+          360
+        ],
+        "traseira": [
+          120,
+          140
+        ]
+      },
+      "incluidos": 4,
+      "iluminacao": "ARGB"
+    },
+    "preco": 949.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/panom100r.webp",
+    "alt": "Foto de MSI MAG PANO M100R PZ White (306-7G24W21-809)",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/531830/gabinete-gamer-msi-mag-pano-m100r-pz-white-mini-tower-m-atx-branco-306-7g24w21-809_1723642560_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/531830/gabinete-gamer-msi-mag-pano-m100r-pz-white-mini-tower-lateral-em-vidro-4x-fans-argb-m-atx-branco-306-7g24w21-809",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-24"
+  },
+  {
+    "id": "h6flow",
+    "categoria": "gabinete",
+    "nome": "NZXT H6 Flow Black (CC-H61FB-01)",
+    "marca": "NZXT",
+    "fonte": "https://support.nzxt.com/hc/en-us/articles/40183529624347-H6-Flow-2023-Specs",
+    "descricao": "Gabinete aquário preto com duas câmaras e três ventoinhas F120Q sem RGB. A iluminação e o suporte vertical da GPU são opcionais. No topo, a NZXT orienta conferir a espessura do radiador e das ventoinhas.",
+    "destaque": "Gabinete aquário preto com duas câmaras e três ventoinhas F120Q sem RGB. A iluminação e o suporte vertical da GPU são opcionais. No topo, a NZXT orienta conferir a espessura do radiador e das ventoinhas.",
+    "specs": {
+      "Formato": "ATX, Micro-ATX, Mini-ITX",
+      "Placa de vídeo": "Até 365 mm",
+      "Air cooler": "Até 163 mm",
+      "Dimensões": "415 × 287 × 435 mm (P × L × A)",
+      "Radiador": "Até 360 mm no topo e 120 mm atrás",
+      "Ventoinhas": "Frente direita 3×120 mm, topo 3×120 ou 2×140 mm, fundo 2×140 mm e traseira 1×120 mm",
+      "Inclui": "3 ventoinhas de 120 mm sem RGB na frente direita",
+      "Baias": "2×2,5″ e 1×3,5″",
+      "Fonte": "ATX até 200 mm (vendida à parte)"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 365,
+      "altura": 163,
+      "baias25": 2,
+      "baias35": 1,
+      "fans": {
+        "frente-direita": [
+          3,
+          0
+        ],
+        "topo": [
+          3,
+          2
+        ],
+        "fundo": [
+          0,
+          2
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "topo": [
+          120,
+          140,
+          240,
+          280,
+          360
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 3
+    },
+    "preco": 855.9,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/h6flow.webp",
+    "alt": "Foto de NZXT H6 Flow Black (CC-H61FB-01)",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/521955/gabinete-gamer-nzxt-h6-flow-flow-edition-atx-mid-tower-lateral-em-vidro-temperado-preto-cc-h61fb-01_1710188753_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/521955/gabinete-gamer-nzxt-h6-flow-flow-edition-atx-mid-tower-lateral-em-vidro-temperado-preto-cc-h61fb-01",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-24"
+  },
+  {
+    "id": "case3500x",
+    "categoria": "gabinete",
+    "nome": "Corsair 3500X ARGB White (CC-9011279-WW)",
+    "marca": "Corsair",
+    "fonte": "https://www.corsair.com/br/pt/p/pc-cases/cc-9011279-ww/3500x-argb-mid-tower-pc-case-white-cc-9011279-ww",
+    "descricao": "Gabinete aquário branco com três ventoinhas RS120 ARGB na lateral. Riser para GPU vertical, kit RapidRoute e fonte são vendidos à parte. A Corsair indica 425 mm para GPU e uma ficha de loja indica 410 mm. O simulador usa o limite menor até a folga ser confirmada para a montagem.",
+    "destaque": "Gabinete aquário branco com três ventoinhas RS120 ARGB na lateral. Riser para GPU vertical, kit RapidRoute e fonte são vendidos à parte. A Corsair indica 425 mm para GPU e uma ficha de loja indica 410 mm. O simulador usa o limite menor até a folga ser confirmada para a montagem.",
+    "specs": {
+      "Formato": "ATX, Micro-ATX, Mini-ITX e E-ATX até 305 × 277 mm",
+      "Placa de vídeo": "425 mm na Corsair, 410 mm no simulador",
+      "Air cooler": "Até 170 mm",
+      "Dimensões": "460 × 240 × 506 mm (P × L × A)",
+      "Radiador": "240/280/360 mm no topo ou lateral, 120 mm atrás",
+      "Ventoinhas": "Topo e lateral 3×120 ou 2×140 mm, fundo 3×120 ou 1×140 mm e traseira 1×120 mm",
+      "Inclui": "3 ventoinhas RS120 ARGB de 120 mm na lateral",
+      "Baias": "2×2,5″ e 2×3,5″",
+      "Fonte": "ATX até 180 mm (vendida à parte)"
+    },
+    "compat": {
+      "formatosAceitos": [
+        "ATX",
+        "Micro-ATX",
+        "Mini-ITX",
+        "E-ATX"
+      ],
+      "fontes": [
+        "ATX"
+      ],
+      "gpu": 410,
+      "altura": 170,
+      "baias25": 2,
+      "baias35": 2,
+      "fans": {
+        "topo": [
+          3,
+          2
+        ],
+        "lateral": [
+          3,
+          2
+        ],
+        "fundo": [
+          3,
+          1
+        ],
+        "traseira": [
+          1,
+          0
+        ]
+      },
+      "radiadores": {
+        "topo": [
+          240,
+          280,
+          360
+        ],
+        "lateral": [
+          240,
+          280,
+          360
+        ],
+        "traseira": [
+          120
+        ]
+      },
+      "incluidos": 3,
+      "iluminacao": "ARGB"
+    },
+    "preco": 618.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/case3500x.webp",
+    "alt": "Foto de Corsair 3500X ARGB White (CC-9011279-WW)",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/593774/gabinete-gamer-corsair-3500x-argb-tempered-glass-mid-tower-branco-cc-9011279-ww_1727448687_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/593774/gabinete-gamer-corsair-3500x-argb-tempered-glass-mid-tower-branco-cc-9011279-ww",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-24"
+  },
+  {
+    "id": "blacksharkv2x",
+    "categoria": "headset",
+    "nome": "Razer BlackShark V2 X preto (RZ04-03240100)",
+    "marca": "Razer",
+    "fonte": "https://www.razer.com/gaming-headsets/Razer-BlackShark-V2-X",
+    "descricao": "Headset analógico com microfone cardioide fixo e flexível. Em PC com saídas separadas para fone e microfone, use um divisor em Y para headset.",
+    "destaque": "Headset analógico com microfone cardioide fixo e flexível. Em PC com saídas separadas para fone e microfone, use um divisor em Y para headset.",
+    "specs": {
+      "Conexão": "P2 de 3,5 mm",
+      "Tipo": "Com fio",
+      "Microfone": "Cardioide fixo, haste flexível",
+      "Para PC": "Entrada combinada de 3,5 mm ou divisor em Y"
+    },
+    "compat": {
+      "audioPorta": "P2 combinado ou divisor em Y para fone e microfone"
+    },
+    "preco": 299.99,
+    "estoque": 99,
+    "nivel": "entrada",
+    "imagem": "assets/img/apresentacao/blacksharkv2x.webp",
+    "alt": "Foto de Razer BlackShark V2 X preto (RZ04-03240100)",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/128544/headset-gamer-razer-blackshark-v2-x-multi-platform-drivers-50mm-rz04-03240100-r3u1_1600956255_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/128544/headset-gamer-razer-blackshark-v2-x-drivers-50mm-microfone-cardioide-surround-7-1-3-5-mm-preto-rz04-03240100",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-24"
+  },
+  {
+    "id": "g432",
+    "categoria": "headset",
+    "nome": "Logitech G432 preto e azul (981-000769)",
+    "marca": "Logitech",
+    "fonte": "https://www.logitechg.com/pt-br/shop/p/g432-7-1-surround-sound-gaming-headset",
+    "descricao": "Headset com fio com DAC USB-A incluído e ligação analógica de 3,5 mm. Ao levantar a haste, o microfone entra no mudo. O DTS Headphone:X depende do G HUB em PC compatível.",
+    "destaque": "Headset com fio com DAC USB-A incluído e ligação analógica de 3,5 mm. Ao levantar a haste, o microfone entra no mudo. O DTS Headphone:X depende do G HUB em PC compatível.",
+    "specs": {
+      "Conexão": "USB-A com DAC ou P2 de 3,5 mm",
+      "Tipo": "Com fio",
+      "Microfone": "Cardioide de 6 mm, mudo ao levantar a haste",
+      "Para PC": "DAC USB-A incluído"
+    },
+    "compat": {
+      "audioPorta": "USB-A com o DAC incluído ou P2 de 3,5 mm"
+    },
+    "preco": 419.99,
+    "estoque": 99,
+    "nivel": "intermediario",
+    "imagem": "assets/img/apresentacao/g432.webp",
+    "alt": "Foto de Logitech G432 preto e azul (981-000769)",
+    "creditoFoto": "https://images.kabum.com.br/produtos/fotos/114290/headset-gamer-logitech-g432-7-1-som-surround-drivers-50mm-981-000769_1613591421_g.jpg",
+    "fontePreco": "https://www.kabum.com.br/produto/114290/headset-gamer-logitech-g432-7-1-dolby-surround-para-pc-playstation-xbox-e-nintendo-switch-preto-azul-981-000769",
+    "tipoPreco": "Anúncio",
+    "lojaPreco": "KaBuM!",
+    "consultaPreco": "2026-11-24"
+  },
+  {
+    "id": "cloud3wireless",
+    "categoria": "headset",
+    "nome": "HyperX Cloud III Wireless preto (77Z45AA)",
+    "marca": "HyperX",
+    "fonte": "https://row.hyperx.com/products/hyperx-cloud-iii-wireless-gaming-headset?variant=41769942384845",
+    "descricao": "Headset sem fio de 2,4 GHz com receptor USB-C e adaptador USB-A. O microfone unidirecional de 10 mm é removível. A autonomia de até 120 horas é uma estimativa do fabricante e varia com o uso.",
+    "destaque": "Headset sem fio de 2,4 GHz com receptor USB-C e adaptador USB-A. O microfone unidirecional de 10 mm é removível. A autonomia de até 120 horas é uma estimativa do fabricante e varia com o uso.",
+    "specs": {
+      "Conexão": "2,4 GHz via dongle USB-C, adaptador USB-A incluído",
+      "Tipo": "Sem fio",
+      "Microfone": "Removível, unidirecional de 10 mm",
+      "Autonomia": "Até 120 h, segundo a HyperX",
+      "Para PC": "Requer o receptor USB"
+    },
+    "compat": {
+      "audioPorta": "USB-C ou USB-A com o receptor e adaptador incluídos"
+    },
+    "preco": 869.99,
+    "estoque": 99,
+    "nivel": "avancado",
+    "imagem": "assets/img/apresentacao/cloud3wireless.webp",
+    "alt": "Foto de HyperX Cloud III Wireless preto (77Z45AA)",
+    "creditoFoto": "https://media.pichau.com.br/media/catalog/product/cache/22c0d71a45cddf08af7927cb2bce3571/7/7/77z45aa.jpg",
+    "fontePreco": "https://www.pichau.com.br/headset-gamer-hyperx-cloud-iii-wireless-drivers-53mm-preto-77z45aa",
+    "tipoPreco": "Histórico",
+    "lojaPreco": "Pichau",
+    "consultaPreco": "2026-11-24"
+  }
+]

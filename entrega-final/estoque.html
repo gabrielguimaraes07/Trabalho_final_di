@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore o catálogo de componentes reais da GGTECH, filtre por preço e veja as especificações das peças.">
+    <title>Catálogo de peças — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <script src="js/tema.js?v=1.0-final"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/base.css?v=1.0-final">
+    <link rel="stylesheet" href="css/layout.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/apoio.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-7">
+    <script type="module" src="js/main.js?v=interfaces-8"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
+        <div class="nav-painel" id="nav-painel">
+          <ul class="nav-menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./estoque.html" aria-current="page">Catálogo</a></li>
+            <li><a href="./montador.html">Montagem guiada</a></li>
+            <li><a href="./simulador.html">Montagem manual</a></li>
+            <li><a href="./setups.html">Setups prontos</a></li>
+            <li><a href="./glossario.html">Glossário</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+              </svg>
+              Acessibilidade
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions nav-carrinho">
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="estoque-pagina container" id="conteudo" data-pagina-estoque tabindex="-1">
+      <header class="estoque-cabecalho">
+        <h1>Catálogo de peças</h1>
+        <p>Encontre as peças do seu PC por categoria, preço ou nome. Valores de referência consultados em 23 e 24/11/2026, sem frete.</p>
+      </header>
+
+      <form class="estoque-filtros" aria-label="Filtrar catálogo">
+        <div class="estoque-campo estoque-busca">
+          <label for="busca-produtos">Buscar peças</label>
+          <input id="busca-produtos" data-busca-rapida type="search" role="combobox" aria-autocomplete="list" aria-expanded="false"
+            aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Kingston">
+          <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
+        </div>
+        <div class="estoque-campo">
+          <label for="categoria-produto">Categoria</label>
+          <select id="categoria-produto"><option value="todas">Todas as peças</option></select>
+        </div>
+        <div class="estoque-campo" id="estoque-tipo" hidden>
+          <label for="tipo-produto">Tipo de peça</label>
+          <select id="tipo-produto"></select>
+        </div>
+        <details class="estoque-filtros-extra">
+          <summary>Filtros de preço, marca e compatibilidade</summary>
+          <div class="estoque-filtros-grade">
+            <div class="estoque-campo">
+              <label for="preco-minimo">Preço mínimo em reais</label>
+              <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="preco-aviso">
+            </div>
+            <div class="estoque-campo">
+              <label for="preco-maximo">Preço máximo em reais</label>
+              <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite" aria-describedby="preco-aviso">
+            </div>
+            <p id="preco-aviso" class="estoque-erro" role="status" hidden></p>
+            <div class="estoque-campo">
+              <label for="marca-produto">Marca</label>
+              <select id="marca-produto"><option value="">Todas</option></select>
+            </div>
+            <div class="estoque-campo">
+              <label for="ordem-produtos">Ordenar por</label>
+              <select id="ordem-produtos">
+                <option value="nome">Nome de A a Z</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+              </select>
+            </div>
+            <label class="estoque-disponibilidade">
+              <input id="somente-compativeis" type="checkbox" aria-describedby="estoque-compatibilidade-dica">
+              Sem conflito com a escolha atual
+            </label>
+            <p id="estoque-compatibilidade-dica">Confere as peças da montagem manual neste navegador. O carrinho serve para simular uma compra.</p>
+          </div>
+        </details>
+        <button type="button" class="botao-texto estoque-reset">Limpar filtros</button>
+      </form>
+
+      <section class="estoque-barra-comparacao" data-barra-fixa aria-label="Seleção para comparação" hidden>
+        <div>
+          <p class="estoque-comparacao-contagem" role="status"></p>
+          <button class="botao-contorno" type="button" data-ver-comparacao aria-controls="estoque-comparacao">Ver comparação</button>
+        </div>
+        <details>
+          <summary>Remover modelos</summary>
+          <ul class="estoque-comparacao-selecao"></ul>
+        </details>
+      </section>
+      <section class="estoque-comparacao" id="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
+        <h2 id="comparacao-titulo" tabindex="-1">Comparação de produtos</h2>
+        <p>Compare até três modelos do mesmo tipo, como processadores com processadores.</p>
+        <div class="estoque-comparados"></div>
+        <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>
+      </section>
+      <section id="estoque-resultados" aria-label="Produtos do catálogo">
+        <p class="estoque-status" role="status">Carregando peças…</p>
+        <ul class="estoque-grade"></ul>
+      </section>
+      <noscript><p>Ative o JavaScript para carregar o catálogo e usar os filtros.</p></noscript>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="rodape-apresentacao">
+          <a class="brand" href="./index.html">GGTECH</a>
+          <p>Explore as peças, compare modelos e monte seu primeiro PC no simulador.</p>
+        </div>
+        <div class="rodape-grupos">
+          <nav class="rodape-links" aria-label="Montar meu PC">
+            <h2>Montar meu PC</h2>
+            <a href="./estoque.html">Catálogo</a>
+            <a href="./montador.html">Montagem guiada</a>
+            <a href="./simulador.html">Montagem manual</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Aprender">
+            <h2>Aprender</h2>
+            <a href="./guia.html">Guia de peças</a>
+            <a href="./glossario.html">Glossário</a>
+            <a href="./setups.html">Setups prontos</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Sobre o projeto">
+            <h2>Sobre o projeto</h2>
+            <a href="./contato.html#perguntas">Perguntas frequentes</a>
+            <a href="./contato.html">Contato</a>
+          </nav>
+        </div>
+        <p class="rodape-creditos">Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

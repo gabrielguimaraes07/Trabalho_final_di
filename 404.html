@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Página não encontrada — GGTECH</title>
+  </head>
+  <body>
+    <main>
+      <h1>Página não encontrada</h1>
+      <p><a href="/Trabalho_final_di/">Voltar para o GGTECH</a></p>
+    </main>
+    <script>
+      const antiga = location.pathname.match(/^\/Trabalho_final_di\/(contato|estoque|glossario|guia|login|montador|setups|simulador)\.html$/);
+      if (antiga) location.replace('/Trabalho_final_di/entrega-final/' + antiga[1] + '.html' + location.search + location.hash);
+    </script>
+  </body>
+</html>

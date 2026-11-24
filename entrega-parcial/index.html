@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, uma loja fictícia para quem está começando.">
+    <title>GGTECH — Monte seu primeiro PC sem medo</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <script>
+      try {
+        const tema = localStorage.getItem('ggtech-tema');
+        if (tema === 'light' || tema === 'dark') document.documentElement.dataset.theme = tema;
+      } catch {
+        // O tema escuro é o padrão quando o armazenamento está indisponível.
+      }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/componentes.css">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.179.1/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.179.1/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <ul class="nav-menu">
+          <li><a href="./index.html" aria-current="page">Início</a></li>
+          <li><a role="link" aria-disabled="true">Estoque</a></li>
+          <li><a role="link" aria-disabled="true">Monte seu PC</a></li>
+          <li><a role="link" aria-disabled="true">Glossário</a></li>
+          <li><a role="link" aria-disabled="true">Contato</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <!-- Ícones Lucide 0.468.0 — licença em assets/icones/lucide-licenca.txt. -->
+          <button type="button" aria-label="Carrinho, 0 itens" disabled>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span aria-hidden="true">0</span>
+          </button>
+          <button type="button" disabled>Entrar</button>
+          <details class="opcoes-acessibilidade" id="opcoes-acessibilidade" hidden>
+            <summary class="opcoes-acionador" aria-label="Tema e acessibilidade">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+              </svg>
+              <span>Tema</span>
+            </summary>
+            <div class="opcoes-painel">
+              <fieldset>
+                <legend>Tema do site</legend>
+                <label><input type="radio" name="tema" value="dark" checked> Escuro</label>
+                <label><input type="radio" name="tema" value="light"> Claro</label>
+              </fieldset>
+            </div>
+          </details>
+        </div>
+      </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+      <section class="hero container" aria-labelledby="titulo-inicio">
+        <div class="hero-copy">
+          <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
+          <p>Entenda o que cada peça faz e escolha o que você precisa para jogar, estudar, trabalhar ou criar conteúdo.</p>
+          <a class="botao-primario" href="#pecas">Começar a montar</a>
+        </div>
+
+        <div class="visualizador">
+          <div class="cena-pc" id="cena-pc">
+            <img class="pc-estatico" src="assets/img/pc-estatico.webp" width="900" height="900" alt="Gabinete de PC com lateral de vidro e quatro peças destacadas.">
+            <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro, placa de vídeo, processador, memória e fonte." hidden></canvas>
+            <button class="hotspot" type="button" data-categoria="cpu" style="--x: 35.58%; --y: 34.27%" aria-label="Abrir estoque de processadores" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="ram" style="--x: 58.10%; --y: 30.87%" aria-label="Abrir estoque de memórias RAM" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="gpu" style="--x: 40.66%; --y: 60.88%" aria-label="Abrir estoque de placas de vídeo" aria-haspopup="dialog"></button>
+            <button class="hotspot" type="button" data-categoria="fonte" style="--x: 30.64%; --y: 77.38%" aria-label="Abrir estoque de fontes" aria-haspopup="dialog"></button>
+            <span class="rotulo-peca" id="rotulo-peca" aria-hidden="true" hidden></span>
+          </div>
+          <div class="visualizador-controles">
+            <p id="instrucao-pc">Escolha uma peça para ver o estoque.</p>
+            <button class="botao-texto" id="pausar-giro" type="button" hidden>Pausar giro</button>
+          </div>
+          <div class="pecas-alternativas" id="pecas" role="group" aria-label="Categorias de peças do PC" tabindex="-1">
+            <button class="botao-contorno" type="button" data-categoria="gpu" aria-haspopup="dialog">Placa de vídeo</button>
+            <button class="botao-contorno" type="button" data-categoria="cpu" aria-haspopup="dialog">Processador</button>
+            <button class="botao-contorno" type="button" data-categoria="ram" aria-haspopup="dialog">Memória RAM</button>
+            <button class="botao-contorno" type="button" data-categoria="fonte" aria-haspopup="dialog">Fonte</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="secao-inicio container" aria-labelledby="titulo-pecas">
+        <h2 id="titulo-pecas">O que cada peça faz?</h2>
+        <ul class="grade-pecas">
+          <li class="cartao-peca">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <rect width="16" height="16" x="4" y="4" rx="2"></rect>
+              <rect width="6" height="6" x="9" y="9" rx="1"></rect>
+              <path d="M15 2v2m0 16v2M2 15h2M2 9h2m16 6h2m-2-6h2M9 2v2m0 16v2"></path>
+            </svg>
+            <h3>Processador</h3>
+            <p>É o cérebro do PC. Segue as instruções dos programas e coordena o trabalho das outras peças.</p>
+          </li>
+          <li class="cartao-peca">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3M8 11V9M16 11V9M12 11V9M2 15h20"></path>
+              <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z"></path>
+            </svg>
+            <h3>Memória RAM</h3>
+            <p>É a mesa de trabalho. Mantém à mão os arquivos e dados que você está usando naquele momento.</p>
+          </li>
+          <li class="cartao-peca">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 12H2M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11zM6 16h.01M10 16h.01"></path>
+            </svg>
+            <h3>SSD</h3>
+            <p>É o armário. Guarda jogos, programas e arquivos mesmo depois que você desliga o computador.</p>
+          </li>
+          <li class="cartao-peca">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+              <path d="M8 21h8m-4-4v4"></path>
+            </svg>
+            <h3>Placa de vídeo</h3>
+            <p>É a artista do PC. Desenha as imagens que aparecem no monitor, como os cenários de um jogo.</p>
+          </li>
+          <li class="cartao-peca">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+            </svg>
+            <h3>Fonte</h3>
+            <p>É como o coração. Distribui a energia da tomada para todas as peças do computador.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="secao-inicio container" aria-labelledby="titulo-setups">
+        <h2 id="titulo-setups">Setups montados pela comunidade</h2>
+        <div class="carrossel" id="carrossel-setups" role="group" aria-roledescription="carrossel" aria-label="Exemplos de setups">
+          <div class="carrossel-controles" hidden>
+            <button type="button" class="botao-texto carrossel-pausa">Pausar carrossel</button>
+            <div class="carrossel-navegacao">
+              <button type="button" class="botao-contorno carrossel-seta" data-passo="-1" aria-label="Setup anterior">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+              </button>
+              <div class="carrossel-indicadores" role="group" aria-label="Escolher um setup">
+                <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para jogar" aria-current="true"></button>
+                <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para estudar"></button>
+                <button type="button" class="carrossel-indicador" aria-label="Mostrar setup para criar conteúdo"></button>
+              </div>
+              <button type="button" class="botao-contorno carrossel-seta" data-passo="1" aria-label="Próximo setup">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg>
+              </button>
+            </div>
+          </div>
+          <div class="carrossel-imagens">
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="1 de 3">
+              <img src="assets/img/setups/jogos.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Monitor com paisagem azul, gabinete iluminado e teclado sobre uma mesa escura.">
+              <figcaption><h3>Setup para jogar</h3><p>Monitor central e espaço livre para movimentar o mouse.</p></figcaption>
+            </figure>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="2 de 3" hidden>
+              <img src="assets/img/setups/estudo.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Mesa clara junto à janela, com monitor, gabinete compacto, caderno e luminária.">
+              <figcaption><h3>Setup para estudar</h3><p>Uma luminária e uma área para o caderno ajudam na hora de ler e fazer anotações.</p></figcaption>
+            </figure>
+            <figure class="carrossel-slide" aria-roledescription="slide" aria-label="3 de 3" hidden>
+              <img src="assets/img/setups/criacao.webp" width="1440" height="960" loading="lazy" decoding="async" alt="Monitor com editor de vídeo aberto, microfone e fones de ouvido sobre uma mesa de madeira escura.">
+              <figcaption><h3>Setup para criar conteúdo</h3><p>Uma tela ampla ajuda na edição. Microfone e fones ficam à mão para gravar e revisar o áudio.</p></figcaption>
+            </figure>
+          </div>
+          <p class="somente-leitores carrossel-status" role="status"></p>
+          <p class="carrossel-credito">Imagens ilustrativas geradas com OpenAI ImageGen.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Projeto acadêmico — CEUB 2026 — Gabriel Guimarães</p>
+        <p>A loja e os produtos são fictícios.</p>
+      </div>
+    </footer>
+
+    <dialog class="gaveta" id="gaveta-estoque" aria-labelledby="gaveta-titulo" aria-describedby="gaveta-descricao">
+      <div class="gaveta-conteudo">
+        <header class="gaveta-cabecalho">
+          <h2 id="gaveta-titulo">Estoque</h2>
+          <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar estoque" autofocus>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <path d="m18 6-12 12M6 6l12 12"></path>
+            </svg>
+          </button>
+        </header>
+        <p id="gaveta-descricao"></p>
+        <div class="gaveta-filtro">
+          <label for="gaveta-busca">Filtrar por nome ou marca</label>
+          <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Voltra">
+        </div>
+        <p class="gaveta-status" id="gaveta-status" role="status"></p>
+        <ul class="gaveta-lista" id="gaveta-lista"></ul>
+      </div>
+    </dialog>
+  </body>
+</html>

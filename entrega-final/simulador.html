@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Escolha peças reais e confira compatibilidade, consumo e orçamento.">
+    <title>Montagem manual — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <script src="js/tema.js?v=1.0-final"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/base.css?v=1.0-final">
+    <link rel="stylesheet" href="css/layout.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-7">
+    <link rel="stylesheet" href="css/simulador.css?v=interfaces-8">
+    <script type="module" src="js/main.js?v=interfaces-8"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
+        <div class="nav-painel" id="nav-painel">
+          <ul class="nav-menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./estoque.html">Catálogo</a></li>
+            <li><a href="./montador.html">Montagem guiada</a></li>
+            <li><a href="./simulador.html" aria-current="page">Montagem manual</a></li>
+            <li><a href="./setups.html">Setups prontos</a></li>
+            <li><a href="./glossario.html">Glossário</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+              </svg>
+              Acessibilidade
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions nav-carrinho">
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container sim-pagina" id="conteudo" data-simulador tabindex="-1">
+      <header class="sim-cabecalho">
+        <h1>Montagem manual</h1>
+        <p>Escolha as peças essenciais, confira a compatibilidade e leve sua montagem ao carrinho para simular a compra.</p>
+        <div class="sim-atalhos">
+          <a href="./setups.html">Começar com um setup pronto</a>
+          <a href="./montador.html">Ir para a montagem guiada</a>
+        </div>
+      </header>
+      <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
+      <div class="sim-total-movel" id="sim-barra" data-barra-fixa hidden>
+        <span>Total <strong id="sim-total-movel"></strong></span>
+        <a href="#sim-resumo-titulo">Ver montagem</a>
+      </div>
+      <div class="sim-grade" id="sim-conteudo" hidden>
+        <div class="sim-principal">
+          <section class="sim-painel sim-escolha" aria-labelledby="escolha-titulo">
+            <h2 id="escolha-titulo">Escolha suas peças</h2>
+            <div id="sim-categorias">
+              <div class="sim-categorias" id="sim-internas" role="group" aria-label="Peças do computador"></div>
+              <details id="sim-opcionais">
+                <summary>Periféricos opcionais</summary>
+                <div class="sim-categorias" id="sim-externas" role="group" aria-label="Periféricos opcionais"></div>
+              </details>
+            </div>
+            <div class="sim-filtros">
+              <div>
+                <h3 id="sim-categoria-titulo" tabindex="-1">Processador</h3>
+                <p id="sim-categoria-dica"></p>
+                <p id="sim-contagem"></p>
+              </div>
+              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Sem conflito com esta montagem</label>
+            </div>
+            <details id="sim-glossario" class="sim-glossario" hidden>
+              <summary>O que significam estes termos?</summary>
+              <dl></dl>
+            </details>
+            <p class="sim-conflito" id="sim-conflito-atual" hidden></p>
+            <div class="sim-cartoes" id="sim-cartoes" aria-labelledby="sim-categoria-titulo"></div>
+            <div class="sim-acoes-categoria">
+              <button class="botao-contorno" id="sim-proxima" type="button">Próxima categoria</button>
+              <a href="#sim-resumo-titulo">Revisar montagem</a>
+            </div>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-visual-titulo">
+            <h2 id="sim-visual-titulo">Vista da montagem</h2>
+            <p>Esquema das peças selecionadas. A posição e o tamanho são ilustrativos.</p>
+            <div id="sim-visual" class="sim-gabinete"></div>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-alertas-titulo">
+            <h2 id="sim-alertas-titulo">Compatibilidade</h2>
+            <p id="sim-estado" class="sim-estado"></p>
+            <ul id="sim-alertas" class="sim-alertas"></ul>
+          </section>
+          <section class="sim-painel" aria-labelledby="sim-desempenho-titulo">
+            <h2 id="sim-desempenho-titulo">Para que serve esta configuração</h2>
+            <p id="sim-desempenho-ajuda"></p>
+            <ul id="sim-desempenho"></ul>
+            <details>
+              <summary>Como a estimativa funciona</summary>
+              <p>Estudos e jogos leves usam a referência de 4 núcleos e 8 GB de RAM. Programação, multitarefas, imagens e jogos competitivos consideram 6 núcleos e 16 GB. Edição de vídeos parte de 8 núcleos, 32 GB e uma GPU na faixa da RTX 4060. Jogos exigentes partem de 6 núcleos, 32 GB e uma GPU na faixa da RTX 4070 SUPER. Jogos competitivos consideram GPU dedicada a partir da RX 6600. Estes critérios são heurísticos e dependem do software, da resolução e da compatibilidade da montagem.</p>
+            </details>
+          </section>
+        </div>
+        <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
+          <h2 id="sim-resumo-titulo" tabindex="-1">Sua montagem</h2>
+          <p id="sim-progresso"></p>
+          <p id="sim-video-integrado" hidden>O vídeo integrado deste processador já atende à saída de vídeo.</p>
+          <progress id="sim-etapas" value="0" max="8" aria-label="Etapas essenciais preenchidas"></progress>
+          <details class="sim-extra sim-checklist">
+            <summary>Conferir peças essenciais</summary>
+            <ul id="sim-essenciais"></ul>
+          </details>
+          <p class="sim-total-destaque"><span>Total de referência, sem frete</span><strong id="sim-total"></strong></p>
+          <div class="sim-envio">
+            <button class="botao-primario" id="sim-levar-carrinho" type="button" aria-describedby="sim-envio-dica" disabled>Levar montagem ao carrinho</button>
+            <p id="sim-envio-dica"></p>
+          </div>
+          <dl class="sim-totais">
+            <div><dt>Componentes internos</dt><dd id="sim-internos"></dd></div>
+            <div><dt>Periféricos opcionais</dt><dd id="sim-perifericos"></dd></div>
+            <div><dt>Consumo</dt><dd id="sim-watts"></dd></div>
+          </dl>
+          <ul id="sim-lista" class="sim-lista"></ul>
+          <details class="sim-extra">
+            <summary>Salvar, abrir ou comparar</summary>
+            <div class="sim-gestao">
+              <p>Montagens salvas ficam neste navegador. Use o link de compartilhamento para abrir em outro lugar.</p>
+              <label for="sim-nome">Nome da montagem</label>
+              <input id="sim-nome" type="text" maxlength="60" placeholder="Ex. PC para estudar">
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-salvar" type="button">Salvar</button>
+                <button class="botao-contorno" id="sim-limpar" type="button">Limpar</button>
+              </div>
+              <label for="sim-salvas">Montagens salvas</label>
+              <select id="sim-salvas"></select>
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
+                <button class="botao-texto" id="sim-excluir-salva" type="button">Excluir montagem salva</button>
+              </div>
+              <label for="sim-comparar">Comparar a atual com</label>
+              <select id="sim-comparar"></select>
+              <button class="botao-contorno" id="sim-acao-comparar" type="button">Comparar montagens</button>
+              <div id="sim-comparacao" class="sim-comparacao" aria-live="polite"></div>
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-imprimir" type="button">Exportar PDF</button>
+                <button class="botao-contorno" id="sim-compartilhar" type="button">Compartilhar link</button>
+              </div>
+              <input id="sim-link" type="url" aria-label="Link para compartilhar a montagem" readonly hidden>
+              <p id="sim-gestao-status" role="status"></p>
+            </div>
+          </details>
+        </aside>
+      </div>
+      <noscript><p>Ative o JavaScript para usar a montagem interativa.</p></noscript>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="rodape-apresentacao">
+          <a class="brand" href="./index.html">GGTECH</a>
+          <p>Explore as peças, compare modelos e monte seu primeiro PC no simulador.</p>
+        </div>
+        <div class="rodape-grupos">
+          <nav class="rodape-links" aria-label="Montar meu PC">
+            <h2>Montar meu PC</h2>
+            <a href="./estoque.html">Catálogo</a>
+            <a href="./montador.html">Montagem guiada</a>
+            <a href="./simulador.html">Montagem manual</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Aprender">
+            <h2>Aprender</h2>
+            <a href="./guia.html">Guia de peças</a>
+            <a href="./glossario.html">Glossário</a>
+            <a href="./setups.html">Setups prontos</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Sobre o projeto">
+            <h2>Sobre o projeto</h2>
+            <a href="./contato.html#perguntas">Perguntas frequentes</a>
+            <a href="./contato.html">Contato</a>
+          </nav>
+        </div>
+        <p class="rodape-creditos">Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026</p>
+      </div>
+    </footer>
+
+  </body>
+</html>

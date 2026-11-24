@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Entenda o que cada componente faz e compare especificações reais.">
+    <title>Guia de componentes — GGTECH</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icones/favicon.svg">
+    <script src="js/tema.js?v=1.0-final"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap">
+    <link rel="stylesheet" href="css/tokens.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/base.css?v=1.0-final">
+    <link rel="stylesheet" href="css/layout.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-7">
+    <link rel="stylesheet" href="css/simulador.css?v=interfaces-8">
+    <script type="module" src="js/main.js?v=interfaces-8"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <nav class="site-nav container" aria-label="Navegação principal">
+        <a class="brand" href="./index.html">GGTECH</a>
+
+        <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
+        <div class="nav-painel" id="nav-painel">
+          <ul class="nav-menu">
+            <li><a href="./index.html">Início</a></li>
+            <li><a href="./estoque.html">Catálogo</a></li>
+            <li><a href="./montador.html">Montagem guiada</a></li>
+            <li><a href="./simulador.html">Montagem manual</a></li>
+            <li><a href="./setups.html">Setups prontos</a></li>
+            <li><a href="./glossario.html">Glossário</a></li>
+            <li><a href="./contato.html">Contato</a></li>
+          </ul>
+          <div class="nav-actions">
+            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="16" cy="4" r="1"></circle>
+                <path d="m18 19 1-7-6 1"></path>
+                <path d="m5 8 3-3 5.5 3-2.36 3.5"></path>
+                <path d="M4.24 14.5a5 5 0 0 0 6.88 6"></path>
+                <path d="M13.76 17.5a5 5 0 0 0-6.88-6"></path>
+              </svg>
+              Acessibilidade
+            </button>
+          </div>
+        </div>
+        <div class="nav-actions nav-carrinho">
+          <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="8" cy="21" r="1"></circle>
+              <circle cx="19" cy="21" r="1"></circle>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+            </svg>
+            <span class="carrinho-contador" aria-hidden="true">0</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container sim-pagina" id="conteudo" data-guia tabindex="-1">
+      <header class="sim-cabecalho">
+        <h1>Conheça os componentes do seu PC</h1>
+        <p>Abra uma categoria para descobrir o que a peça faz e comparar fotos, preços de referência e especificações.</p>
+      </header>
+      <p id="guia-status" role="status">Carregando o guia…</p>
+      <div id="guia-lista" class="guia-lista"></div>
+      <noscript><p>Ative o JavaScript para consultar as categorias e fichas.</p></noscript>
+    </main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="rodape-apresentacao">
+          <a class="brand" href="./index.html">GGTECH</a>
+          <p>Explore as peças, compare modelos e monte seu primeiro PC no simulador.</p>
+        </div>
+        <div class="rodape-grupos">
+          <nav class="rodape-links" aria-label="Montar meu PC">
+            <h2>Montar meu PC</h2>
+            <a href="./estoque.html">Catálogo</a>
+            <a href="./montador.html">Montagem guiada</a>
+            <a href="./simulador.html">Montagem manual</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Aprender">
+            <h2>Aprender</h2>
+            <a href="./guia.html">Guia de peças</a>
+            <a href="./glossario.html">Glossário</a>
+            <a href="./setups.html">Setups prontos</a>
+          </nav>
+          <nav class="rodape-links" aria-label="Sobre o projeto">
+            <h2>Sobre o projeto</h2>
+            <a href="./contato.html#perguntas">Perguntas frequentes</a>
+            <a href="./contato.html">Contato</a>
+          </nav>
+        </div>
+        <p class="rodape-creditos">Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026</p>
+      </div>
+    </footer>
+
+  </body>
+</html>
