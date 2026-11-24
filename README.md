@@ -27,8 +27,8 @@ Em seguida, abra [localhost:8765](http://localhost:8765/). As páginas usam HTML
 
 ## Por trás do projeto
 
-- [Decisões de interface e capturas](docs/design-site.md) · [Personas e esboços](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
-- [Testes técnicos](docs/auditoria.md) · [Paleta e contraste](docs/paleta.md) · [Roteiro com participantes](docs/usabilidade.md)
+- [Decisões de interface e capturas](docs/design-site.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
+- [Testes técnicos](docs/auditoria.md) · [Paleta e contraste](docs/paleta.md)
 - [Arquivos do projeto](docs/codigo.md) · [Referências e cotações](docs/referencias.md) · [Como a IA ajudou](docs/registro-ia.md)
 
 Compra e login são simulações. Os preços foram consultados em 23/11/2026 e servem de referência, sem frete. O rótulo **Preço histórico** indica que a oferta já estava indisponível na consulta.

@@ -6,7 +6,7 @@ Esta revisão foi feita em 18/11/2026, com o commit `c44953d` como referência. 
 
 - A página inicial tinha cabeçalho, menu, rodapé e link para pular ao conteúdo. Cinco cartões explicavam as peças e o carrossel tinha navegação e pausa.
 - O gabinete abria quatro categorias. Cada uma mostrava cinco produtos fictícios e busca por modelo ou marca. Era possível navegar com Tab, abrir com Enter e fechar com Esc. O foco voltava à peça selecionada.
-- Os temas claro e escuro persistiam ao recarregar. A paleta ficava no CSS, com cálculo de contraste reproduzível. O repositório já incluía as personas, os esboços e as instruções para testar o site. [Paleta](paleta.md) · [Personas e esboços](design-thinking.md)
+- Os temas claro e escuro persistiam ao recarregar. A paleta ficava no CSS, com cálculo de contraste reproduzível. As instruções para abrir o site já estavam no repositório. [Paleta](paleta.md)
 
 No Chromium, a página abriu com zoom de 200% sem rolagem horizontal. Com a biblioteca 3D bloqueada, a imagem de reserva manteve o acesso às quatro categorias. Naquela versão, o Lighthouse marcou 100/100 em acessibilidade para computador e celular. O axe apontou zero violações automáticas no início e no estoque, nos dois temas.
 
@@ -18,10 +18,6 @@ No Chromium, a página abriu com zoom de 200% sem rolagem horizontal. Com a bibl
 
 ## Contraste dos pares usados
 
-| Uso na interface | Escuro | Claro |
-|---|---:|---:|
-| Texto principal no fundo da página | 19,29:1 | 15,46:1 |
-| Texto branco no botão azul | 4,70:1 | 4,70:1 |
-| Link azul no fundo da página | 6,96:1 | 5,11:1 |
+Na entrega parcial, o texto principal mediu 19,29:1 no tema escuro e 15,46:1 no claro. Os links no fundo da página marcaram 6,96:1 no escuro e 5,11:1 no claro. O branco sobre o botão azul ficou em 4,70:1 nos dois temas.
 
-O mínimo é 4,5:1 para texto comum e 3:1 para texto grande. O cálculo completo inclui combinações que a página usa para outras finalidades ou que aparecem separadas. Uma superfície translúcida também muda conforme o que está atrás dela. [Cálculo completo](wcag-contraste.md) · [WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum)
+A WCAG usa 4,5:1 como mínimo para texto comum e 3:1 para texto grande. Para consultar as combinações atuais, veja o relatório de contraste. [Cálculo atual](wcag-contraste.md) · [WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum)

@@ -28,9 +28,7 @@ function lerCarrinho() {
   let dados;
   try {
     dados = JSON.parse(valorSalvo);
-  } catch {
-    // Um valor inválido pode ser substituído na próxima alteração.
-  }
+  } catch {}
   const itens = Array.isArray(dados?.itens) ? dados.itens.filter(item =>
     typeof item?.id === 'string' && Number.isSafeInteger(item.quantidade) && item.quantidade > 0).map(item => ({
       id: item.id, quantidade: item.quantidade, preco: Number.isFinite(item.preco) && item.preco >= 0 ? item.preco : undefined,

@@ -134,7 +134,6 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
       const distancia = Math.max(2.6, peca.userData.tamanho * 1.42 + 1);
       const direcao = camera.position.clone().sub(controles.target).normalize();
 
-      // Compensa a área que a gaveta ocupa à direita do modelo.
       if (dialogo.offsetWidth < innerWidth * .8) {
         const limites = canvas.getBoundingClientRect();
         const centro = THREE.MathUtils.clamp((innerWidth - dialogo.offsetWidth - limites.left) / (2 * limites.width), .2, .5);

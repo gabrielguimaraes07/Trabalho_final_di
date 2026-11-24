@@ -1,5 +1,11 @@
 # Testes do GGTECH
 
+## Ajuste de contraste
+
+A legenda de preço da gaveta podia chegar a 3,84:1 no tema escuro com um fundo claro atrás do vidro. O menu, a gaveta e o painel de acessibilidade ganharam fundos mais opacos. Também foram ajustadas as cores do texto secundário, dos links e dos avisos. No cálculo com os fundos mais desfavoráveis, a legenda ficou em 5,26:1 no escuro e 5,71:1 no claro. [Cálculos](wcag-contraste.md)
+
+O axe verificou a regra de contraste em 48 estados no Chromium, nos dois temas e em janelas de 1.440 e 390 px. A ferramenta não indicou violações automáticas. Os elementos sobrepostos pediram verificação manual. Os contrastes do menu fixo, da gaveta, do carrinho, do painel e do campo de mensagem foram conferidos com os estilos aplicados nos dois temas. O total da montagem passou a usar grafite sobre branco na impressão e ficou em 16,83:1 no PDF.
+
 ## Revisão de 24/11/2026
 
 Esta revisão usou a versão com nove páginas, 56 produtos, 19 categorias e 16 setups. A maior parte dos cenários foi automatizada. O Chromium também foi usado para conferir os fluxos na versão publicada.
@@ -27,10 +33,8 @@ O axe-core 4.10.3 encontrou **zero violações automáticas em 15 estados**. As 
 ### O que foi conferido à mão
 
 - **Foco.** Os controles do carrinho e da acessibilidade apontavam para seus diálogos, e o foco voltava ao botão ao fechar com Esc. O teste com Tab e Shift+Tab encontrou focos encobertos pelo menu fixo. Foi feito um ajuste de rolagem para deixá-los visíveis.
-- **Contraste.** O texto do campo de mensagem marcou 19,29:1 no escuro e 15,46:1 no claro. Para as gavetas e o carrinho, o pior fundo simulado deu pelo menos 12,76:1 para o texto principal e 4,60:1 para links. O cálculo compôs o vidro sobre branco no tema escuro e sobre preto no claro, incluindo a camada de fundo de 72% das gavetas. Após reduzir a transparência do menu, os links ficaram acima de 5:1. [Método e tabela](wcag-contraste.md)
+- **Contraste.** O texto do campo de mensagem marcou 19,29:1 no escuro e 15,46:1 no claro. Para as gavetas e o carrinho, o pior fundo simulado deu pelo menos 12,76:1 para o texto principal e 4,60:1 para links. O cálculo compôs o vidro sobre branco no tema escuro e sobre preto no claro, incluindo a camada de fundo de 72% das gavetas. Após reduzir a transparência do menu, os links ficaram acima de 5:1. [Relatório de contraste](wcag-contraste.md)
 - **Zoom e largura.** As seis páginas abriram a 360 e 1.920 px sem rolagem horizontal. Também foram conferidos o zoom de 200%, o texto ampliado e a abertura do painel pelo teclado.
 - **Com e sem WebGL.** O 3D e a gaveta abriram no Chromium e no WebKit 26.5 em Linux. Sem WebGL, a alternativa estática manteve nove pontos clicáveis. Com movimento reduzido, os títulos apareceram sem a animação.
 
-## Avaliações pendentes
-
-A aferição em aparelhos Apple e as sessões com 3 a 5 participantes continuam pendentes. A pontuação SUS depende das respostas coletadas nas sessões. [Roteiro](usabilidade.md)
+A verificação em aparelhos Apple continua pendente.

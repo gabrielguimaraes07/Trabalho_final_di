@@ -125,9 +125,7 @@ export function iniciarAcessibilidade(acionador) {
 
     try {
       localStorage.setItem('ggtech-acessibilidade', JSON.stringify(preferencias));
-    } catch {
-      // Os ajustes continuam valendo para a página atual.
-    }
+    } catch {}
   }
 
   function atualizarAvisoMovimento() {

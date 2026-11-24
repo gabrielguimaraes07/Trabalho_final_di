@@ -65,7 +65,6 @@ export function iniciarCarrossel(carrossel) {
 
   carrossel.addEventListener('focusin', evento => {
     if (carrossel.contains(evento.relatedTarget)) return;
-    // Um clique no botão de pausa usa o estado que a pessoa viu antes do clique.
     if (evento.target === rotacao && !rotacao.matches(':focus-visible')) return;
     pausado = true;
     programarRotacao();

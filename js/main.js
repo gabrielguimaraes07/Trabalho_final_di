@@ -75,9 +75,7 @@ if (secaoExplodida) {
     observador.disconnect();
     import('./vista-explodida.js?v=1.0-final')
       .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
-      .catch(() => {
-        // A ilustração e a lista de peças continuam disponíveis.
-      });
+      .catch(() => {});
   }, { rootMargin: '320px 0px' });
   observador.observe(secaoExplodida);
 }
@@ -127,9 +125,7 @@ if (visualizador) {
       contagem.set(categoria, produtos.filter(produto => mesmoGrupo(produto, categoria)).length);
     }
     if (categoriaDestacada) destacar(categoriaDestacada);
-  }).catch(() => {
-    // A gaveta tenta carregar o estoque novamente quando uma peça é escolhida.
-  });
+  }).catch(() => {});
 
   function usarImagem() {
     atualizarCena = undefined;

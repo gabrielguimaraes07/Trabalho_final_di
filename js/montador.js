@@ -14,17 +14,13 @@ function ultimaConfiguracao(campo) {
         && respostas.orcamento <= Number(campo.max) && (respostas.orcamento - Number(campo.min)) % Number(campo.step) === 0) {
       return respostas;
     }
-  } catch {
-    // A página continua disponível quando o navegador não permite recuperar a escolha.
-  }
+  } catch {}
 }
 
 function guardarRespostas(respostas) {
   try {
     localStorage.setItem(chaveMontador, JSON.stringify(respostas));
-  } catch {
-    // O resultado continua disponível até a página ser fechada.
-  }
+  } catch {}
 }
 
 function linhaProduto(produto) {
@@ -261,9 +257,7 @@ export async function iniciarMontador(pagina) {
         mostrarResultado(build.nome, build.descricao, build, undefined, null, false);
         return;
       }
-    } catch {
-      // O quiz ainda pode sugerir uma configuração usando o catálogo.
-    }
+    } catch {}
     status.textContent = 'Essa configuração pronta está indisponível. Use o montador para encontrar outra.';
     status.hidden = false;
   }

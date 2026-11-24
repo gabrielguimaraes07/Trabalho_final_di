@@ -57,7 +57,7 @@ Para seguir uma ação do catálogo até a montagem, comece por `estoque.html`. 
 
 ## Ferramentas
 
-- [scripts/contraste.js](../scripts/contraste.js) — Gera a tabela WCAG com os pares de cores do projeto.
+- [scripts/contraste.js](../scripts/contraste.js) — Calcula e registra o contraste das cores usadas na interface.
 
 ## Dados
 

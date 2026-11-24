@@ -1,4 +1,3 @@
-// Carregado no cabeçalho para aplicar as preferências antes da primeira pintura.
 (() => {
   const raiz = document.documentElement;
   const temaDoSistema = matchMedia('(prefers-color-scheme: light)');
@@ -8,9 +7,7 @@
   try {
     temaAnterior = localStorage.getItem('ggtech-tema');
     preferencias = JSON.parse(localStorage.getItem('ggtech-acessibilidade')) ?? {};
-  } catch {
-    // O site usa as preferências padrão enquanto o armazenamento estiver indisponível.
-  }
+  } catch {}
 
   const tema = preferencias.tema ?? temaAnterior;
   raiz.dataset.tema = ['dark', 'light', 'auto'].includes(tema) ? tema : 'dark';

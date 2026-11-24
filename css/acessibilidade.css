@@ -88,7 +88,7 @@
 
 @supports (backdrop-filter: blur(20px)) {
   .acessibilidade-dialogo {
-    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    background-color: var(--glass);
     backdrop-filter: var(--glass-blur);
   }
 }

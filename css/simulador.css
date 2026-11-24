@@ -116,6 +116,17 @@
 }
 
 @media print {
+  body:has([data-simulador]) {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --text-2: #606067;
+    --accent: #005bb5;
+    --success: #176e32;
+    --danger: #b52825;
+  }
+
   .site-header, .site-footer, .skip-link, .sim-cabecalho a, .sim-status, .sim-gestao,
   .sim-campos-linha, .sim-escolha { display: none !important; }
   .sim-grade, .sim-principal { display: block; }

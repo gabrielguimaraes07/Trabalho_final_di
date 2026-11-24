@@ -3,10 +3,7 @@ const { join } = require('node:path');
 
 const raiz = join(__dirname, '..');
 const css = readFileSync(join(raiz, 'css', 'tokens.css'), 'utf8');
-const numero = new Intl.NumberFormat('pt-BR', {
-  minimumFractionDigits: 2,
-  maximumFractionDigits: 2,
-});
+const numero = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 function lerCores(seletor) {
   const bloco = css.match(seletor)?.[1];
@@ -23,85 +20,83 @@ function lerCores(seletor) {
       const pares = hex.length === 3
         ? [...hex].map(digito => digito.repeat(2))
         : hex.match(/.{2}/g);
-      cores[token] = { valor, canais: pares.map(par => parseInt(par, 16)), opacidade: 1 };
+      cores[token] = { canais: pares.map(par => parseInt(par, 16)), opacidade: 1 };
     } else if (rgba) {
       const [vermelho, verde, azul, opacidade] = rgba.slice(1).map(Number);
-      cores[token] = { valor, canais: [vermelho, verde, azul], opacidade };
+      cores[token] = { canais: [vermelho, verde, azul], opacidade };
     }
   }
   return cores;
 }
 
-function luminancia({ canais, opacidade }, fundo) {
-  // Compõe o vidro sobre o fundo antes de converter os canais sRGB.
-  const [vermelho, verde, azul] = canais.map((canal, indice) => {
-    const srgb = (canal * opacidade + fundo.canais[indice] * (1 - opacidade)) / 255;
+function compor({ canais, opacidade }, fundo) {
+  return canais.map((canal, indice) => canal * opacidade + fundo[indice] * (1 - opacidade));
+}
+
+function luminancia(canais) {
+  const [vermelho, verde, azul] = canais.map(canal => {
+    const srgb = canal / 255;
     return srgb <= 0.04045 ? srgb / 12.92 : ((srgb + 0.055) / 1.055) ** 2.4;
   });
 
   return 0.2126 * vermelho + 0.7152 * verde + 0.0722 * azul;
 }
 
-function tabela(cores) {
-  const fundo = cores['--bg'];
-  const entradas = Object.entries(cores);
-  const linhas = [
-    '| Primeira cor | Segunda cor | Contraste | Critérios atingidos |',
-    '|---|---|---:|---|',
+function contraste(primeira, segunda) {
+  const a = luminancia(primeira);
+  const b = luminancia(segunda);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
+function resumo(cores, corAtrasDoVidro) {
+  const fundos = [
+    cores['--bg'].canais,
+    cores['--surface'].canais,
+    compor(cores['--glass'], corAtrasDoVidro),
+  ];
+  const verificacoes = [
+    ['Texto principal', '--text', fundos, 4.5],
+    ['Texto secundário', '--text-2', fundos, 4.5],
+    ['Links', '--accent', fundos, 4.5],
+    ['Mensagens de confirmação', '--success', fundos, 4.5],
+    ['Mensagens de erro', '--danger', fundos, 4.5],
+    ['Texto branco no botão principal', '--btn-text', [cores['--btn-primary'].canais], 4.5],
+    ['Contorno de foco', '--accent', fundos, 3],
+    ['Botão principal em relação ao fundo', '--btn-primary', fundos, 3],
   ];
 
-  for (const [indice, [primeiroToken, primeiraCor]] of entradas.entries()) {
-    for (const [segundoToken, segundaCor] of entradas.slice(indice + 1)) {
-      const primeiraLuminancia = luminancia(primeiraCor, fundo);
-      const segundaLuminancia = luminancia(segundaCor, fundo);
-      const razao = (Math.max(primeiraLuminancia, segundaLuminancia) + 0.05)
-        / (Math.min(primeiraLuminancia, segundaLuminancia) + 0.05);
-
-      let criterios = 'Abaixo dos limites avaliados';
-      if (razao >= 4.5) {
-        criterios = 'Texto comum, texto grande e elementos visuais';
-      } else if (razao >= 3) {
-        criterios = 'Texto grande e elementos visuais';
-      }
-
-      linhas.push(
-        '| `' + primeiroToken + '` (' + primeiraCor.valor + ')'
-        + ' | `' + segundoToken + '` (' + segundaCor.valor + ')'
-        + ' | ' + numero.format(razao) + ':1 | ' + criterios + ' |',
-      );
+  return verificacoes.map(([uso, token, fundosDoUso, minimo]) => {
+    const razao = Math.min(...fundosDoUso.map(fundo => contraste(cores[token].canais, fundo)));
+    if (razao < minimo) {
+      console.error(uso + ' abaixo de ' + numero.format(minimo) + ':1.');
+      process.exitCode = 1;
     }
-  }
-
-  return linhas.join('\n');
+    return '- **' + uso + '.** ' + numero.format(razao) + ':1.';
+  }).join('\n');
 }
 
 const escuro = lerCores(/:root\s*\{([^}]+)\}/);
 const claro = { ...escuro, ...lerCores(/:root\[data-theme="light"\]\s*\{([^}]+)\}/) };
 const documento = [
-  '# Contraste da paleta Titânio',
+  '# Contraste do GGTECH',
   '',
-  'Gerado por `node scripts/contraste.js` a partir de `css/tokens.css`.',
+  'A WCAG 2.2 pede **4,5:1** para texto comum e **3:1** para texto grande e para os elementos visuais necessários para identificar controles ou estados.',
   '',
-  'A WCAG 2.2 nível AA exige pelo menos **4,5:1** para texto comum e **3:1** para texto grande. O limite de **3:1** também se aplica a ícones informativos e partes visuais necessárias para identificar componentes da interface.',
-  '',
-  'Cada par de cores aparece uma vez por tema. A razão é a mesma nos dois sentidos. A classificação usa o resultado antes do arredondamento.',
-  '',
-  'As linhas com `--glass` calculam a cor translúcida sobre o fundo `--bg` do mesmo tema. Com o vidro sobre imagens, a cor e o contraste variam de acordo com o que está atrás dele.',
-  '',
-  'Nos botões principais, a paleta usa `--btn-text` sobre `--btn-primary`. A cor `--accent` é usada em links, foco e destaques.',
+  'O cálculo usa o menor contraste entre os fundos da página, dos cartões e das superfícies translúcidas. Para simular a condição mais difícil do vidro, o tema escuro é testado sobre branco e o claro, sobre preto. O texto do botão principal é medido sobre seu próprio fundo azul.',
   '',
   '## Tema escuro',
   '',
-  tabela(escuro),
+  resumo(escuro, [255, 255, 255]),
   '',
   '## Tema claro',
   '',
-  tabela(claro),
+  resumo(claro, [0, 0, 0]),
   '',
-  '[WCAG 2.2, contraste mínimo de texto](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [WCAG 2.2, contraste de elementos não textuais](https://www.w3.org/TR/WCAG22/#non-text-contrast)',
+  'Para repetir o cálculo, execute `node scripts/contraste.js`. Os valores vêm da paleta em `css/tokens.css`.',
+  '',
+  '[Contraste de texto na WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [Contraste de componentes](https://www.w3.org/TR/WCAG22/#non-text-contrast)',
   '',
 ].join('\n');
 
-const destino = join(raiz, 'docs', 'wcag-contraste.md');
-writeFileSync(destino, documento);
-console.log('Tabela gerada em docs/wcag-contraste.md.');
+writeFileSync(join(raiz, 'docs', 'wcag-contraste.md'), documento);
+console.log('Relatório atualizado em docs/wcag-contraste.md.');

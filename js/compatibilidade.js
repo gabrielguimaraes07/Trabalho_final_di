@@ -6,7 +6,6 @@ export const rotulosCompatibilidade = {
 
 export function estimarConsumo(itens) {
   if (!itens.some(({ produto }) => ['cpu', 'gpu'].includes(produto.categoria))) return null;
-  // Reserva para placa-mãe, memória e picos do processador. É uma estimativa, em watts.
   return Math.ceil(45 + itens.reduce((soma, { produto, quantidade }) => {
     const { tdp = 0, sata, nvme } = produto.compat;
     const watts = produto.categoria === 'cpu' ? tdp * 1.35 : tdp || (['ssd-sata', 'hd'].includes(produto.categoria) && sata ? 10 : nvme && produto.categoria === 'ssd-nvme' ? 6 : 0);

@@ -4,13 +4,13 @@
   --bg: #000000;
   --surface: #1d1d1f;
   --text: #f5f5f7;
-  --text-2: #86868b;
+  --text-2: #98989e;
   --accent: #2997ff;
   --btn-primary: #0071e3;
   --btn-text: #ffffff;
   --success: #30d158;
-  --danger: #ff453a;
-  --glass: rgba(29, 29, 31, .6);
+  --danger: #ff5d52;
+  --glass: rgba(29, 29, 31, .96);
   --glass-blur: blur(20px);
 
   --font-family: "Inter", system-ui, sans-serif;
@@ -40,9 +40,9 @@
   --bg: #f5f5f7;
   --surface: #ffffff;
   --text: #1d1d1f;
-  --text-2: #6e6e73;
-  --accent: #0066cc;
-  --success: #1a7f37;
-  --danger: #c9302c;
-  --glass: rgba(255, 255, 255, .7);
+  --text-2: #606067;
+  --accent: #005bb5;
+  --success: #176e32;
+  --danger: #b52825;
+  --glass: rgba(255, 255, 255, .96);
 }
