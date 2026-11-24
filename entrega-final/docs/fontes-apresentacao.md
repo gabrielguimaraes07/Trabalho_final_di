@@ -1,8 +1,12 @@
 # Fontes da edição para apresentação
 
-Consulta em **23/11/2026**. Os valores são referências em reais, sem frete. Históricos vêm de anúncios indisponíveis ou de registros de ofertas encerradas. Comparadores mostram o valor registrado no modelo consultado.
+Os preços estão em reais, sem frete. A data da consulta aparece em cada seção. **Histórico** indica um anúncio indisponível ou uma oferta encerrada. Quando o preço veio de um comparador, o nome dele aparece ao lado do valor.
+
+[Preços por categoria](#preços-das-peças) · [Gabinetes aquário e headsets](#gabinetes-aquário-e-headsets) · [Fotos dos ambientes](#ambientes-reais) · [Fotos dos setups](#setups-por-ocasião) · [Fichas e licenças](fontes-catalogo.md)
 
 ## Preços das peças
+
+Consulta em **23/11/2026**. Cada item leva ao preço consultado e à origem da foto.
 
 ### Processadores
 
@@ -86,7 +90,7 @@ Consulta em **23/11/2026**. Os valores são referências em reais, sem frete. Hi
 
 ## Gabinetes aquário e headsets
 
-Consulta em **24/11/2026**. Os valores exibidos à vista são referências, sem frete. Os preços do Corsair 3500X e do HyperX Cloud III Wireless ficam como históricos porque os anúncios indicavam indisponibilidade.
+Consulta em **24/11/2026**. São valores à vista. O Corsair 3500X e o HyperX Cloud III Wireless aparecem com preço histórico porque os anúncios estavam indisponíveis.
 
 - **MSI MAG PANO M100R PZ White (306-7G24W21-809)** — R$ 949,99. [Ficha técnica](https://www.msi.com/PC-Case/MAG-PANO-M100R-PZ/Specification) · [Anúncio no KaBuM!](https://www.kabum.com.br/produto/531830/gabinete-gamer-msi-mag-pano-m100r-pz-white-mini-tower-lateral-em-vidro-4x-fans-argb-m-atx-branco-306-7g24w21-809) · [Foto](https://images.kabum.com.br/produtos/fotos/531830/gabinete-gamer-msi-mag-pano-m100r-pz-white-mini-tower-m-atx-branco-306-7g24w21-809_1723642560_g.jpg)
 - **NZXT H6 Flow Black (CC-H61FB-01)** — R$ 855,90. [Ficha técnica](https://support.nzxt.com/hc/en-us/articles/40183529624347-H6-Flow-2023-Specs) · [Anúncio no KaBuM!](https://www.kabum.com.br/produto/521955/gabinete-gamer-nzxt-h6-flow-flow-edition-atx-mid-tower-lateral-em-vidro-temperado-preto-cc-h61fb-01) · [Foto](https://images.kabum.com.br/produtos/fotos/521955/gabinete-gamer-nzxt-h6-flow-flow-edition-atx-mid-tower-lateral-em-vidro-temperado-preto-cc-h61fb-01_1710188753_g.jpg)
@@ -106,7 +110,7 @@ A ficha da Corsair indica até 425 mm para a placa de vídeo. Uma ficha de loja 
 
 ## Setups por ocasião
 
-As fotos das mesas e das pessoas ilustram o tipo de uso de cada configuração. As listas de componentes na página identificam o hardware recomendado. [Licença Pexels](https://www.pexels.com/license/)
+As fotos são exemplos de mesas e ambientes. Para conferir as peças de cada sugestão, abra a lista de componentes na página de setups. [Licença Pexels](https://www.pexels.com/license/)
 
 ### Jogos
 
