@@ -289,3 +289,6 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.montador-campo-orcamento { max-inline-size: 20rem; }
+#montador-orcamento-erro { color: var(--danger); }

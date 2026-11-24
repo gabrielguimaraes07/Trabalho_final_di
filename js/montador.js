@@ -1,12 +1,13 @@
-import { adicionarConfiguracaoAoCarrinho } from './carrinho.js?v=montagem-3';
-import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=montagem-3';
-import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js?v=montagem-3';
+import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4';
+import { carregarBuildsProntos, linkDaConfiguracao, prioridades, sugerirConfiguracao, usos } from './configuracoes.js?v=interfaces-4';
+import { categorias, mostrarPreco, mostrarSubtotal, precoEmReais } from './estoque.js?v=interfaces-4';
 
 const chaveMontador = 'ggtech-montador';
 
 function ultimaConfiguracao(campo) {
   try {
     const respostas = JSON.parse(localStorage.getItem(chaveMontador));
+    if (respostas?.prioridade === 'silencio') respostas.prioridade = 'economia';
     if (respostas && Object.hasOwn(usos, respostas.uso) && prioridades.includes(respostas.prioridade)
         && Number.isFinite(respostas.orcamento) && respostas.orcamento >= Number(campo.min)
         && respostas.orcamento <= Number(campo.max) && (respostas.orcamento - Number(campo.min)) % Number(campo.step) === 0) {
@@ -48,6 +49,8 @@ export async function iniciarMontador(pagina) {
   const voltar = form.querySelector('.montador-voltar');
   const continuar = form.querySelector('.montador-continuar');
   const orcamento = form.elements.orcamento;
+  const digitado = form.querySelector('#montador-orcamento-numero');
+  const avisoOrcamento = form.querySelector('#montador-orcamento-erro');
   const valor = form.querySelector('output');
   const status = pagina.querySelector('.montador-status');
   const retomar = pagina.querySelector('.montador-retomar');
@@ -63,7 +66,20 @@ export async function iniciarMontador(pagina) {
   let etapa = 0;
   let catalogo;
   let atual;
+  let revisarOrcamento;
   let salvas = ultimaConfiguracao(orcamento);
+  for (const atributo of ['min', 'max', 'step']) digitado[atributo] = orcamento[atributo];
+  const [minimo, maximo] = form.querySelectorAll('.montador-faixa span');
+  minimo.textContent = precoEmReais.format(Number(orcamento.min));
+  maximo.textContent = precoEmReais.format(Number(orcamento.max));
+
+  function validarOrcamento() {
+    const valido = digitado.validity.valid;
+    digitado.setAttribute('aria-invalid', String(!valido));
+    avisoOrcamento.hidden = valido;
+    avisoOrcamento.textContent = valido ? '' : 'Digite um valor inteiro entre ' + minimo.textContent + ' e ' + maximo.textContent + '.';
+    return valido;
+  }
 
   function atualizarOrcamento() {
     valor.textContent = precoEmReais.format(orcamento.valueAsNumber);
@@ -92,7 +108,8 @@ export async function iniciarMontador(pagina) {
     retomar.hidden = true;
     resultado.hidden = false;
     titulo.textContent = nome;
-    explicacao.textContent = atual ? 'Confira as peças e as ressalvas no simulador. ' + texto : texto;
+    explicacao.textContent = texto;
+    revisarOrcamento = !atual && menorPreco !== null;
     preco.hidden = !atual && menorPreco === null;
     if (atual) {
       preco.textContent = mostrarSubtotal(atual.cotacao)
@@ -106,18 +123,18 @@ export async function iniciarMontador(pagina) {
     personalizar.hidden = !atual;
     if (atual) personalizar.href = linkDaConfiguracao(atual.produtos);
     adicionar.hidden = !atual;
-    editar.textContent = !atual && menorPreco !== null ? 'Rever orçamento' : 'Editar respostas';
+    editar.textContent = revisarOrcamento ? 'Rever orçamento' : 'Editar respostas';
     feedback.textContent = '';
     if (moverFoco) titulo.focus();
   }
 
   function recomendar(respostas) {
-    const { uso, prioridade, orcamento } = respostas;
-    const { configuracao, minimo } = sugerirConfiguracao(catalogo, respostas);
+    const { uso, orcamento } = respostas;
+    const { configuracao, minimo, motivo } = sugerirConfiguracao(catalogo, respostas);
     if (configuracao) {
       salvas = respostas;
       guardarRespostas(respostas);
-      mostrarResultado(usos[uso].titulo, usos[uso].explicacao + (configuracao.cotacao.faltam ? ' Complete as cotações para conferir o orçamento.' : ''),
+      mostrarResultado(usos[uso].titulo, configuracao.titulo + '. ' + motivo,
         configuracao, orcamento);
     } else if (minimo !== null) {
       mostrarResultado('O orçamento precisa de um ajuste',
@@ -125,7 +142,7 @@ export async function iniciarMontador(pagina) {
         null, orcamento, minimo);
     } else {
       mostrarResultado('Configuração completa indisponível',
-        'O estoque atual não tem todas as peças necessárias para uma combinação compatível.', null, orcamento);
+        'O catálogo ainda não tem uma configuração completa e compatível para esse uso.', null, orcamento);
     }
   }
 
@@ -133,13 +150,29 @@ export async function iniciarMontador(pagina) {
     form.elements.uso.value = respostas.uso;
     form.elements.prioridade.value = respostas.prioridade;
     orcamento.value = respostas.orcamento;
+    digitado.value = orcamento.value;
+    validarOrcamento();
   }
 
-  orcamento.addEventListener('input', atualizarOrcamento);
+  orcamento.addEventListener('input', () => {
+    digitado.value = orcamento.value;
+    validarOrcamento();
+    atualizarOrcamento();
+  });
+  digitado.addEventListener('input', () => {
+    if (!validarOrcamento()) return;
+    orcamento.value = digitado.value;
+    atualizarOrcamento();
+  });
+  digitado.addEventListener('invalid', validarOrcamento);
   voltar.addEventListener('click', () => mostrarEtapa(etapa - 1));
   form.addEventListener('submit', evento => {
     evento.preventDefault();
     if (etapa < etapas.length - 1) {
+      if (etapa === 1 && !validarOrcamento()) {
+        digitado.reportValidity();
+        return;
+      }
       mostrarEtapa(etapa + 1);
     } else {
       recomendar({
@@ -159,17 +192,18 @@ export async function iniciarMontador(pagina) {
       endereco.searchParams.delete('build');
       history.replaceState(null, '', endereco);
     }
-    mostrarEtapa(!atual && !preco.hidden ? 1 : 0);
+    mostrarEtapa(revisarOrcamento ? 1 : 0);
+    if (revisarOrcamento) digitado.focus();
   });
   adicionar.addEventListener('click', () => {
     if (!atual) return;
-    const envio = adicionarConfiguracaoAoCarrinho(atual.produtos, atual.limite);
-    const orcamentoSalvo = atual.limite === undefined ? ''
-      : ' O carrinho usa o orçamento de ' + precoEmReais.format(atual.limite) + '.';
-    feedback.textContent = envio.ok
-      ? atual.produtos.length + ' peças adicionadas.' + orcamentoSalvo
-      : 'O carrinho já tem todas as unidades disponíveis de ' + envio.produto.nome
-        + '. Ajuste a quantidade no carrinho e tente de novo.';
+    const itens = atual.produtos.map(produto => ({ produto, quantidade: 1 }));
+    if (!levarMontagemAoCarrinho(itens, atual.limite)) {
+      feedback.textContent = 'O carrinho continua com os itens anteriores.';
+      return;
+    }
+    feedback.textContent = 'Configuração pronta para conferir no carrinho.';
+    window.dispatchEvent(new CustomEvent('ggtech:abrir-carrinho', { detail: adicionar }));
   });
 
   try {
@@ -185,7 +219,7 @@ export async function iniciarMontador(pagina) {
       const builds = await carregarBuildsProntos();
       const build = builds.find(item => item.id === buildId);
       if (build) {
-        definirRespostas({ uso: build.uso, prioridade: 'desempenho', orcamento: Math.max(Number(orcamento.min), Math.ceil(build.cotacao.valor / 100) * 100) });
+        definirRespostas({ uso: build.uso, prioridade: 'desempenho', orcamento: Math.max(Number(orcamento.min), Math.ceil(build.cotacao.valor)) });
         mostrarResultado(build.nome, build.descricao, build, undefined, null, false);
         return;
       }

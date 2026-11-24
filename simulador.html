@@ -70,7 +70,7 @@
         <p>Escolha as peças essenciais, confira a compatibilidade e leve sua montagem ao carrinho para simular a compra.</p>
         <div class="sim-atalhos">
           <a href="./setups.html">Começar com um setup pronto</a>
-          <a href="./montador.html">Usar o montador guiado</a>
+          <a href="./montador.html">Ir para a montagem guiada</a>
         </div>
       </header>
       <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
@@ -149,6 +149,7 @@
           <details class="sim-extra">
             <summary>Salvar, abrir ou comparar</summary>
             <div class="sim-gestao">
+              <p>Montagens salvas ficam neste navegador. Use o link de compartilhamento para abrir em outro lugar.</p>
               <label for="sim-nome">Nome da montagem</label>
               <input id="sim-nome" type="text" maxlength="60" placeholder="Ex. PC para estudar">
               <div class="sim-acoes">
@@ -157,7 +158,10 @@
               </div>
               <label for="sim-salvas">Montagens salvas</label>
               <select id="sim-salvas"></select>
-              <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
+              <div class="sim-acoes">
+                <button class="botao-contorno" id="sim-carregar" type="button">Abrir para editar</button>
+                <button class="botao-texto" id="sim-excluir-salva" type="button">Excluir montagem salva</button>
+              </div>
               <label for="sim-comparar">Comparar a atual com</label>
               <select id="sim-comparar"></select>
               <button class="botao-contorno" id="sim-acao-comparar" type="button">Comparar montagens</button>
@@ -167,6 +171,7 @@
                 <button class="botao-contorno" id="sim-compartilhar" type="button">Compartilhar link</button>
               </div>
               <input id="sim-link" type="url" aria-label="Link para compartilhar a montagem" readonly hidden>
+              <p id="sim-gestao-status" role="status"></p>
             </div>
           </details>
         </aside>

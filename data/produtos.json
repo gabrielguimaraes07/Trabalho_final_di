@@ -1762,7 +1762,8 @@
     },
     "compat": {
       "mm": 120,
-      "tdp": 2
+      "tdp": 2,
+      "iluminacao": "ARGB"
     },
     "preco": 89.99,
     "estoque": 99,
@@ -1863,7 +1864,8 @@
           120
         ]
       },
-      "incluidos": 3
+      "incluidos": 3,
+      "iluminacao": "ARGB"
     },
     "preco": 554.89,
     "estoque": 99,

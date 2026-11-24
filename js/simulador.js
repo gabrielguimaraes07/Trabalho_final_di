@@ -1,9 +1,9 @@
 import { avisoDeVideo, carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, resumoEspecificacoes, rotuloCotacao, somarItens } from './estoque.js?v=interfaces-4';
 import { carregarGlossario } from './glossario.js?v=1.0-final';
-import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
-import { levarMontagemAoCarrinho } from './carrinho.js?v=montagem-3';
-import { conflitosDaPeca, gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
-  normalizarMontagem, salvarComNome, separarItens } from './montagem.js?v=interfaces-4';
+import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=interfaces-4';
+import { levarMontagemAoCarrinho } from './carrinho.js?v=interfaces-4';
+import { conflitosDaPeca, excluirSalva, gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
+  limiteMontagensSalvas, mesmaMontagem, normalizarMontagem, salvarComNome, separarItens } from './montagem.js?v=interfaces-4';
 
 function elemento(tag, texto, atributos = {}) {
   const no = document.createElement(tag);
@@ -112,6 +112,7 @@ export async function iniciarSimulador(raiz) {
   }
   const url = new URL(location.href);
   let linhas = lerMontagem(catalogo);
+  let avisoInicial;
   if (url.searchParams.has('pecas')) {
     const registros = (url.searchParams.get('pecas') ?? '').slice(0, 3000).split(',').map(trecho => {
       const [id, quantidade, preco] = trecho.split(':');
@@ -119,18 +120,28 @@ export async function iniciarSimulador(raiz) {
     });
     const importadas = normalizarMontagem(registros, catalogo);
     if (importadas.length) {
-      linhas = importadas;
-      if (gravarMontagem(linhas)) {
-        url.searchParams.delete('pecas');
-        history.replaceState(null, '', url);
+      if (!linhas.length || mesmaMontagem(linhas, importadas) || confirm('Abrir as peças deste link no lugar da montagem atual?')) {
+        linhas = importadas;
+        avisoInicial = gravarMontagem(linhas) ? 'Montagem do link aberta.' : 'Montagem aberta. O navegador bloqueou o salvamento.';
+      } else {
+        avisoInicial = 'A montagem atual foi mantida.';
       }
-    }
+    } else avisoInicial = 'O link não trouxe peças conhecidas do catálogo.';
+    url.searchParams.delete('pecas');
+    history.replaceState(null, '', url);
   }
   const adicionar = url.searchParams.get('adicionar');
   const sugestao = catalogo.find(produto => produto.id === adicionar);
   if (sugestao) {
-    linhas = incluirPeca(linhas, sugestao, catalogo);
-    gravarMontagem(linhas);
+    const novas = incluirPeca(linhas, sugestao, catalogo);
+    const anterior = linhas.find(linha => !novas.some(peca => peca.id === linha.id));
+    const nomeAnterior = catalogo.find(produto => produto.id === anterior?.id)?.nome;
+    if (!nomeAnterior || confirm('Trocar ' + nomeAnterior + ' por ' + sugestao.nome + ' na montagem?')) {
+      linhas = novas;
+      avisoInicial = gravarMontagem(linhas) ? sugestao.nome + ' na montagem.' : 'Peça escolhida. O navegador bloqueou o salvamento.';
+    } else {
+      avisoInicial = 'A peça anterior foi mantida.';
+    }
     url.searchParams.delete('adicionar');
     history.replaceState(null, '', url);
   }
@@ -229,10 +240,11 @@ export async function iniciarSimulador(raiz) {
   }
 
   function atualizarCombinacoes() {
+    const registros = lerSalvas(catalogo);
     for (const select of [salvas, comparar]) {
       const anterior = select.value;
       select.replaceChildren(elemento('option', 'Escolha uma montagem', { value: '' }),
-        ...lerSalvas(catalogo).map(item => elemento('option', item.nome, { value: item.nome })));
+        ...registros.map(item => elemento('option', item.nome, { value: item.nome })));
       if ([...select.options].some(opcao => opcao.value === anterior)) select.value = anterior;
     }
   }
@@ -323,6 +335,8 @@ export async function iniciarSimulador(raiz) {
   lista.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-remover]');
     if (!botao) return;
+    const produto = catalogo.find(item => item.id === botao.dataset.remover);
+    if (!confirm('Remover ' + produto.nome + ' da montagem?')) return;
     aplicar(linhas.filter(item => item.id !== botao.dataset.remover), 'Peça removida.');
     (lista.querySelector('button') ?? grupos.querySelector('[aria-pressed="true"]')).focus();
   });
@@ -341,29 +355,46 @@ export async function iniciarSimulador(raiz) {
     entrada?.focus({ preventScroll: true });
   });
 
+  const retorno = localizar('#sim-gestao-status');
   localizar('#sim-salvar').addEventListener('click', () => {
     const valor = nome.value.trim();
     if (!valor || !linhas.length) {
-      status.textContent = 'Escolha pelo menos uma peça e dê um nome à montagem.';
+      retorno.textContent = 'Escolha pelo menos uma peça e dê um nome à montagem.';
       nome.focus();
       return;
     }
-    status.textContent = salvarComNome(valor, linhas, catalogo) ? 'Montagem guardada no navegador.' : 'O navegador bloqueou o salvamento.';
+    const registros = lerSalvas(catalogo);
+    const existente = registros.find(item => item.nome === valor);
+    if (existente && !mesmaMontagem(linhas, existente.linhas) && !confirm('Sobrescrever a montagem “' + valor + '”?')) return;
+    if (!existente && registros.length >= limiteMontagensSalvas) {
+      retorno.textContent = 'Limite de ' + limiteMontagensSalvas + ' montagens. Exclua uma salva para guardar outra.';
+      return;
+    }
+    retorno.textContent = salvarComNome(valor, linhas, catalogo) ? 'Montagem guardada no navegador.' : 'O navegador bloqueou o salvamento.';
     atualizarCombinacoes();
     salvas.value = valor;
   });
   localizar('#sim-carregar').addEventListener('click', () => {
     const registro = lerSalvas(catalogo).find(item => item.nome === salvas.value);
-    if (!registro) { status.textContent = 'Escolha uma montagem salva.'; return; }
+    if (!registro) { retorno.textContent = 'Escolha uma montagem salva.'; return; }
+    if (linhas.length && !mesmaMontagem(linhas, registro.linhas) && !confirm('Abrir esta montagem salva no lugar da montagem atual?')) return;
     nome.value = registro.nome;
     aplicar(registro.linhas, 'Montagem aberta para edição.');
+    retorno.textContent = 'Montagem aberta para edição.';
+  });
+  localizar('#sim-excluir-salva').addEventListener('click', () => {
+    const valor = salvas.value;
+    if (!valor) { retorno.textContent = 'Escolha uma montagem salva para excluir.'; return; }
+    if (!confirm('Excluir a montagem salva “' + valor + '”?')) return;
+    retorno.textContent = excluirSalva(valor, catalogo) ? 'Montagem salva excluída.' : 'O navegador bloqueou a alteração.';
+    atualizarCombinacoes();
   });
   localizar('#sim-limpar').addEventListener('click', () => {
     if (linhas.length && confirm('Limpar a montagem em edição?')) aplicar([], 'Montagem limpa.');
   });
   localizar('#sim-imprimir').addEventListener('click', () => window.print());
   localizar('#sim-compartilhar').addEventListener('click', async () => {
-    if (!linhas.length) { status.textContent = 'Adicione uma peça para compartilhar.'; return; }
+    if (!linhas.length) { retorno.textContent = 'Adicione uma peça para compartilhar.'; return; }
     const endereco = new URL(location.pathname, location.href);
     endereco.searchParams.set('pecas', linhas.map(({ id, quantidade, preco }) =>
       [id, quantidade, preco].filter(valor => valor !== undefined).join(':')).join(','));
@@ -372,15 +403,15 @@ export async function iniciarSimulador(raiz) {
     link.select();
     try {
       await navigator.clipboard.writeText(endereco.href);
-      status.textContent = 'Link de montagem copiado.';
+      retorno.textContent = 'Link de montagem copiado.';
     } catch {
-      status.textContent = 'Copie o link no campo de compartilhamento.';
+      retorno.textContent = 'Copie o link no campo de compartilhamento.';
       link.focus();
     }
   });
   localizar('#sim-acao-comparar').addEventListener('click', () => {
     const registro = lerSalvas(catalogo).find(item => item.nome === comparar.value);
-    if (!registro) { status.textContent = 'Escolha uma montagem salva para comparar.'; return; }
+    if (!registro) { retorno.textContent = 'Escolha uma montagem salva para comparar.'; return; }
     const colunas = [['Montagem atual', linhas], [registro.nome, registro.linhas]].map(([titulo, registros]) => {
       const itens = itensDaMontagem(registros, catalogo);
       const secao = elemento('section', undefined);
@@ -398,6 +429,5 @@ export async function iniciarSimulador(raiz) {
   atualizarGlossario();
   localizar('#sim-conteudo').hidden = false;
   localizar('#sim-barra').hidden = false;
-  status.textContent = sugestao ? sugestao.nome + ' na montagem.'
-    : linhas.length ? 'Sua montagem está carregada.' : 'Selecione o processador para começar.';
+  status.textContent = avisoInicial ?? (linhas.length ? 'Sua montagem está carregada.' : 'Selecione o processador para começar.');
 }

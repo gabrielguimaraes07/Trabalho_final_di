@@ -1,7 +1,8 @@
-import { categoriasMultiplas, perifericos, verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
+import { categoriasMultiplas, perifericos, verificarCompatibilidade } from './compatibilidade.js?v=interfaces-4';
 
 const chave = 'ggtech-montagem';
 const chaveSalvas = 'ggtech-montagens-salvas';
+export const limiteMontagensSalvas = 12;
 export const eventoMontagem = 'ggtech:montagem';
 
 function ler(chave, reserva) {
@@ -68,6 +69,11 @@ export function incluirPeca(linhas, produto, catalogo) {
   return normalizarMontagem([...mantidos, { id: produto.id, quantidade: 1 }], catalogo);
 }
 
+export function mesmaMontagem(a, b) {
+  return a.length === b.length && a.every(peca => b.some(outra =>
+    peca.id === outra.id && peca.quantidade === outra.quantidade && peca.preco === outra.preco));
+}
+
 export function conflitosDaPeca(linhas, produto, catalogo) {
   const erros = itens => verificarCompatibilidade(itensDaMontagem(itens, catalogo))
     .filter(regra => regra.estado === 'erro');
@@ -96,13 +102,18 @@ export function lerSalvas(catalogo) {
   const registros = ler(chaveSalvas, []);
   if (!Array.isArray(registros)) return [];
   return registros.filter(item => item && typeof item.nome === 'string')
-    .slice(0, 12).map(item => ({ nome: item.nome.slice(0, 60), linhas: normalizarMontagem(item.linhas, catalogo) }));
+    .slice(0, limiteMontagensSalvas).map(item => ({ nome: item.nome.slice(0, 60), linhas: normalizarMontagem(item.linhas, catalogo) }));
 }
 
 export function salvarComNome(nome, linhas, catalogo) {
   const registros = lerSalvas(catalogo);
   const atualizadas = registros.filter(item => item.nome !== nome);
-  return gravar(chaveSalvas, [{ nome, linhas }, ...atualizadas].slice(0, 12));
+  if (atualizadas.length >= limiteMontagensSalvas) return false;
+  return gravar(chaveSalvas, [{ nome, linhas }, ...atualizadas]);
+}
+
+export function excluirSalva(nome, catalogo) {
+  return gravar(chaveSalvas, lerSalvas(catalogo).filter(item => item.nome !== nome));
 }
 
 export function separarItens(itens) {

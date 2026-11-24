@@ -40,7 +40,7 @@ export function iniciarNavegacao(cabecalho) {
   estreito.addEventListener('change', () => {
     const foco = document.activeElement;
     fechar(estreito.matches && painel.contains(foco));
-    if (!estreito.matches && foco === botao) painel.querySelector('[aria-current="page"], a').focus();
+    if (!estreito.matches && foco === botao) (painel.querySelector('[aria-current="page"]') ?? painel.querySelector('a')).focus();
   });
 
   document.addEventListener('focusin', ({ target }) => {

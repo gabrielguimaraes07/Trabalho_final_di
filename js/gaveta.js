@@ -27,7 +27,7 @@ function resumoProduto(produto) {
   situacao.setAttribute('aria-label', rotuloCotacao(produto) + ' de ' + produto.nome);
   const montar = document.createElement('a');
   montar.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
-  montar.textContent = 'Usar na montagem';
+  montar.textContent = 'Usar na montagem manual';
   montar.setAttribute('aria-label', 'Usar ' + produto.nome + ' na montagem');
   conteudo.append(nome, preco, situacao, montar);
   item.append(imagem, conteudo);

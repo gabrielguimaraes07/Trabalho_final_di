@@ -1,5 +1,5 @@
-import { verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
-import { carregarEstoque, somarItens } from './estoque.js?v=montagem-3';
+import { verificarCompatibilidade } from './compatibilidade.js?v=interfaces-4';
+import { carregarEstoque, somarItens } from './estoque.js?v=interfaces-4';
 
 export const usos = {
   jogar: { titulo: 'Seu PC para jogar', explicacao: 'A sugestão considera a placa de vídeo e a memória.' },
@@ -7,8 +7,7 @@ export const usos = {
   trabalhar: { titulo: 'Seu PC para trabalhar', explicacao: 'A sugestão considera memória e multitarefas.' },
   criar: { titulo: 'Seu PC para criar conteúdo', explicacao: 'A sugestão considera núcleos, memória e placa de vídeo.' },
 };
-export const prioridades = ['silencio', 'desempenho', 'rgb'];
-const niveis = ['entrada', 'intermediario', 'avancado', 'premium'];
+export const prioridades = ['economia', 'desempenho', 'rgb'];
 let buildsProntos;
 
 export function carregarBuildsProntos() {
@@ -35,15 +34,37 @@ export function carregarBuildsProntos() {
   return buildsProntos;
 }
 
+function capacidade(build, uso) {
+  const cpu = build.produtos.find(produto => produto.categoria === 'cpu')?.compat.nucleos ?? 0;
+  const placaDeVideo = build.produtos.find(produto => produto.categoria === 'gpu');
+  const gpu = placaDeVideo?.compat.classe ?? 0;
+  const ram = build.produtos.filter(produto => produto.categoria === 'ram').reduce((soma, produto) => soma + produto.compat.gb, 0);
+  const criterios = { jogar: [gpu, ram, cpu], criar: [cpu, gpu, ram], estudar: [ram, cpu], trabalhar: [ram, cpu] };
+  const video = (uso === 'jogar' || uso === 'criar') && placaDeVideo ? ', além da ' + placaDeVideo.nome : '';
+  return { ordem: criterios[uso], detalhe: cpu + ' núcleos e ' + ram + ' GB de memória' + video };
+}
+
 export function sugerirConfiguracao(builds, { uso, prioridade, orcamento }) {
-  const candidatas = builds.filter(build => build.uso === uso).sort((a, b) =>
-    niveis.indexOf(a.nivel) - niveis.indexOf(b.nivel) || a.cotacao.valor - b.cotacao.valor);
+  const candidatas = builds.filter(build => build.uso === uso).sort((a, b) => a.cotacao.valor - b.cotacao.valor);
   const minimo = Math.min(...candidatas.filter(build => build.preco !== null).map(build => build.preco));
-  const dentro = candidatas.filter(build => build.cotacao.valor <= orcamento);
-  const perfil = prioridade === 'desempenho' ? dentro.at(-1) : prioridade === 'rgb'
-    ? dentro.findLast(build => build.uso === 'jogar') ?? dentro[0] : dentro[0];
-  const alternativa = candidatas.find(build => build.cotacao.faltam);
-  return { configuracao: perfil ?? alternativa ?? null, minimo: Number.isFinite(minimo) ? minimo : null };
+  const dentro = candidatas.filter(build => build.preco !== null && build.preco <= orcamento);
+  let perfil = dentro[0];
+  let motivo = 'É a configuração completa de menor custo para esse uso.';
+  if (dentro.length && prioridade === 'desempenho') {
+    const classificadas = dentro.map(build => ({ build, ...capacidade(build, uso) }));
+    classificadas.sort((a, b) => a.ordem.map((valor, i) => b.ordem[i] - valor).find(diferenca => diferenca) ?? 0);
+    perfil = classificadas[0].build;
+    motivo = 'Entre as opções no orçamento, esta ficou à frente pelos critérios do seu uso, com ' + classificadas[0].detalhe + '.';
+  } else if (dentro.length && prioridade === 'rgb') {
+    const ilumina = build => build.produtos.find(produto => produto.compat.iluminacao === 'ARGB' || produto.compat.iluminacao === 'RGB');
+    const rgb = dentro.find(ilumina);
+    if (rgb) perfil = rgb;
+    motivo = rgb ? ilumina(rgb).nome + ' traz iluminação ' + ilumina(rgb).compat.iluminacao + ' informada na ficha.'
+      : 'Nenhuma opção desse uso com RGB coube no orçamento. Esta é a alternativa de menor custo.';
+  }
+  const alternativa = candidatas.find(build => build.cotacao.faltam && build.cotacao.valor <= orcamento);
+  return { configuracao: perfil ?? alternativa ?? null, minimo: Number.isFinite(minimo) ? minimo : null,
+    motivo: perfil ? motivo : 'Há peças com preço pendente. Confira o valor completo antes de decidir.' };
 }
 
 export function linkDaConfiguracao(produtos) {

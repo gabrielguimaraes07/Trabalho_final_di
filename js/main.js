@@ -1,11 +1,11 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
-import { iniciarGaveta } from './gaveta.js?v=montagem-3';
+import { iniciarGaveta } from './gaveta.js?v=interfaces-4';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
-import { iniciarCarrinho } from './carrinho.js?v=montagem-3';
+import { iniciarCarrinho } from './carrinho.js?v=interfaces-4';
 import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-4';
-import { iniciarMontador } from './montador.js?v=montagem-3';
-import { iniciarBuildsProntos } from './builds-prontos.js?v=montagem-3';
+import { iniciarMontador } from './montador.js?v=interfaces-4';
+import { iniciarBuildsProntos } from './builds-prontos.js?v=interfaces-4';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
@@ -136,7 +136,7 @@ if (visualizador) {
     canvas.hidden = true;
     imagem.hidden = false;
     pausa.hidden = true;
-    instrucao.textContent = 'Escolha uma peça para ver o estoque.';
+    instrucao.textContent = 'Escolha uma peça para ver o catálogo.';
     for (const botao of botoes.values()) {
       botao.style.removeProperty('left');
       botao.style.removeProperty('top');

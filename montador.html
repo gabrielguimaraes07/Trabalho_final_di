@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
-    <link rel="stylesheet" href="css/loja.css?v=montagem-3">
-    <link rel="stylesheet" href="css/montador.css?v=montagem-3">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-4">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
     <script type="module" src="js/main.js?v=interfaces-4"></script>
   </head>
@@ -66,7 +66,7 @@
     <main class="montador-pagina container" id="conteudo" data-montador tabindex="-1">
       <header class="montador-cabecalho">
         <h1>Montagem guiada</h1>
-        <a href="./simulador.html">Escolher peças manualmente</a>
+        <a href="./simulador.html">Ir para a montagem manual</a>
         <p>Responda três perguntas para encontrar uma configuração que caiba no seu orçamento.</p>
       </header>
       <p class="montador-status" role="status">Carregando peças…</p>
@@ -90,18 +90,24 @@
 
         <fieldset tabindex="-1" data-etapa="1" hidden disabled>
           <legend>Quanto você quer gastar?</legend>
-          <label for="montador-orcamento">Orçamento para as peças</label>
-          <output class="montador-valor" for="montador-orcamento"></output>
-          <input id="montador-orcamento" name="orcamento" type="range" min="1500" max="25000" step="100" value="4000">
-          <div class="montador-faixa"><span>R$ 1.500</span><span>R$ 10.000</span></div>
+          <p id="montador-orcamento-dica">O total inclui o computador e os periféricos listados na sugestão, como monitor e teclado. Os valores são sem frete.</p>
+          <div class="estoque-campo montador-campo-orcamento">
+            <label for="montador-orcamento-numero">Orçamento em reais inteiros</label>
+            <input id="montador-orcamento-numero" type="number" inputmode="numeric" value="4000" required aria-describedby="montador-orcamento-dica montador-orcamento-erro">
+            <p id="montador-orcamento-erro" class="estoque-erro" role="status" hidden></p>
+          </div>
+          <label for="montador-orcamento">Ajustar orçamento na régua</label>
+          <output class="montador-valor" for="montador-orcamento montador-orcamento-numero"></output>
+          <input id="montador-orcamento" name="orcamento" type="range" min="1500" max="25000" step="1" value="4000" aria-describedby="montador-orcamento-dica">
+          <div class="montador-faixa"><span></span><span></span></div>
         </fieldset>
 
         <fieldset tabindex="-1" data-etapa="2" hidden disabled>
           <legend>O que é mais importante para você?</legend>
           <div class="montador-opcoes">
-            <label><input type="radio" name="prioridade" value="silencio" required><span><strong>Silêncio</strong><span>Peças de menor consumo e refrigeração voltada para menos ruído.</span></span></label>
+            <label><input type="radio" name="prioridade" value="economia" required><span><strong>Economia</strong><span>A configuração completa de menor custo para o seu uso.</span></span></label>
             <label><input type="radio" name="prioridade" value="desempenho" required><span><strong>Desempenho</strong><span>Mais capacidade para a sua atividade principal.</span></span></label>
-            <label><input type="radio" name="prioridade" value="rgb" required><span><strong>Visual com RGB</strong><span>Lateral de vidro e iluminação quando couber no orçamento.</span></span></label>
+            <label><input type="radio" name="prioridade" value="rgb" required><span><strong>Visual com RGB</strong><span>Peças com iluminação indicada na ficha do fabricante.</span></span></label>
           </div>
         </fieldset>
 
@@ -115,11 +121,11 @@
         <h2 id="montador-resultado-titulo" tabindex="-1"></h2>
         <p class="montador-explicacao"></p>
         <p class="montador-preco"></p>
-        <a class="botao-contorno" data-personalizar href="./simulador.html" hidden>Personalizar no simulador</a>
+        <a class="botao-contorno" data-personalizar href="./simulador.html" hidden>Personalizar na montagem manual</a>
         <ul class="montador-pecas"></ul>
         <div class="montador-acoes">
           <button type="button" class="botao-contorno montador-editar">Editar respostas</button>
-          <button type="button" class="botao-primario estoque-adicionar montador-adicionar">Adicionar tudo ao carrinho</button>
+          <button type="button" class="botao-primario estoque-adicionar montador-adicionar">Levar configuração ao carrinho</button>
         </div>
         <p class="montador-feedback" role="status"></p>
       </section>

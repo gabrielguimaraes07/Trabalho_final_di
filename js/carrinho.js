@@ -1,5 +1,6 @@
-import { verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
+import { verificarCompatibilidade } from './compatibilidade.js?v=interfaces-4';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
+import { mesmaMontagem } from './montagem.js?v=interfaces-4';
 import { carregarEstoque, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=interfaces-4';
 
 const chave = 'ggtech-carrinho-real';
@@ -81,14 +82,13 @@ export function adicionarConfiguracaoAoCarrinho(produtos, orcamento) {
   return { ok: true };
 }
 
-export function levarMontagemAoCarrinho(itens) {
+export function levarMontagemAoCarrinho(itens, orcamento) {
   if (!itens.length) return false;
   const carrinho = lerCarrinho();
   const selecao = itens.map(({ produto, quantidade, preco }) => ({ id: produto.id, quantidade, preco }));
-  const iguais = selecao.length === carrinho.itens.length && selecao.every(novo => carrinho.itens.some(atual =>
-    atual.id === novo.id && atual.quantidade === novo.quantidade && atual.preco === novo.preco));
-  if (!iguais && carrinho.itens.length && !confirm('Usar as peças desta montagem no lugar dos itens do carrinho?')) return false;
-  salvarCarrinho({ ...carrinho, itens: selecao });
+  if (carrinho.itens.length && !mesmaMontagem(selecao, carrinho.itens) &&
+      !confirm('Usar as peças desta montagem no lugar dos itens do carrinho?')) return false;
+  salvarCarrinho({ orcamento: orcamento ?? carrinho.orcamento, itens: selecao });
   return true;
 }
 

@@ -71,7 +71,7 @@ export function verificarCompatibilidade(itens) {
     conferir('Espaço para a placa de vídeo', gabinete && gpu, gpu?.mm <= gabinete?.gpu,
       'Comprimento dentro da folga nominal do gabinete.', 'Escolha uma GPU de até ' + (gabinete?.gpu ?? '') + ' mm ou um gabinete maior.'),
     conferir('Fonte e conectores', psu && cpu && placa, psu?.potencia >= recomendacao
-      && psu.eps >= placa.eps && alimentacaoGpu && psu.sata >= sata
+      && psu.eps >= (placa?.eps ?? 0) && alimentacaoGpu && psu.sata >= sata
       && (!gabinete || gabinete.fontes.includes(psu.formato)),
       'Potência e conectores atendem aos requisitos informados.',
       'Confira formato, EPS, SATA e cabos PCIe. A referência de potência é de ' + recomendacao + ' W.'),
