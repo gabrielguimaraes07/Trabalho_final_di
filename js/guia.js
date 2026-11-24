@@ -60,19 +60,14 @@ export async function iniciarGuia(raiz) {
           linha.append(foto);
         }
         const preco = texto('strong', mostrarPreco(produto.preco));
-        const cotacao = texto('a', rotuloCotacao(produto));
-        cotacao.href = produto.fontePreco;
-        cotacao.setAttribute('aria-label', rotuloCotacao(produto) + ' de ' + produto.nome);
-        const ficha = texto('a', 'Ficha do fabricante');
-        ficha.href = produto.fonte;
-        ficha.setAttribute('aria-label', 'Ficha do fabricante de ' + produto.nome);
+        const cotacao = texto('span', rotuloCotacao(produto));
         const valores = document.createElement('div');
         valores.className = 'guia-preco';
         valores.append(preco, cotacao);
         const dados = document.createElement('div');
         dados.className = 'guia-produto-dados';
         dados.append(texto('h3', produto.nome), valores, texto('p', produto.descricao),
-          texto('p', resumoEspecificacoes(produto)), ficha);
+          texto('p', resumoEspecificacoes(produto)));
         linha.append(dados);
         exemplos.append(linha);
       }

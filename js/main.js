@@ -1,9 +1,9 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
-import { iniciarGaveta } from './gaveta.js?v=interfaces-4a';
+import { iniciarGaveta } from './gaveta.js?v=interfaces-6';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-4a';
-import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-5';
+import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-6';
 import { iniciarMontador } from './montador.js?v=interfaces-5';
 import { iniciarBuildsProntos } from './builds-prontos.js?v=interfaces-5';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
@@ -157,10 +157,10 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js?v=interfaces-5').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+if (simulador) import('./simulador.js?v=interfaces-6').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
-if (guia) import('./guia.js?v=interfaces-5').then(({ iniciarGuia }) => iniciarGuia(guia));
+if (guia) import('./guia.js?v=interfaces-6').then(({ iniciarGuia }) => iniciarGuia(guia));
 
 const videoNotebook = document.querySelector('[data-video-notebook]');
 if (videoNotebook) {

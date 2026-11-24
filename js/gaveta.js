@@ -20,11 +20,9 @@ function resumoProduto(produto) {
   const preco = document.createElement('p');
   preco.textContent = mostrarPreco(produto.preco);
   preco.className = 'produto-resumo-preco';
-  const situacao = document.createElement('a');
+  const situacao = document.createElement('p');
   situacao.className = 'estoque-situacao';
   situacao.textContent = rotuloCotacao(produto);
-  situacao.href = produto.fontePreco;
-  situacao.setAttribute('aria-label', rotuloCotacao(produto) + ' de ' + produto.nome);
   const montar = document.createElement('a');
   montar.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
   montar.textContent = 'Usar na montagem manual';

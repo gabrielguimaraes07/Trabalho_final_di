@@ -47,12 +47,7 @@ function criarCartao(produto, termos, selecionado, conflitos) {
   imagem.loading = 'lazy';
   imagem.decoding = 'async';
   if (produto.imagem) foto.append(imagem);
-  else {
-    const ficha = document.createElement('a');
-    ficha.href = produto.fonte;
-    ficha.textContent = 'Ver foto no fabricante';
-    foto.append(ficha);
-  }
+  else foto.textContent = 'Foto indisponível';
 
   const descricao = document.createElement('div');
   descricao.className = 'estoque-produto-descricao';
@@ -81,12 +76,7 @@ function criarCartao(produto, termos, selecionado, conflitos) {
   preco.textContent = mostrarPreco(produto.preco);
   const disponivel = document.createElement('p');
   disponivel.className = 'estoque-situacao';
-  if (produto.fontePreco) {
-    const fonte = document.createElement('a');
-    fonte.href = produto.fontePreco;
-    fonte.textContent = rotuloCotacao(produto) + ' · ' + produto.lojaPreco;
-    disponivel.append(fonte);
-  }
+  disponivel.textContent = rotuloCotacao(produto);
   const adicionar = document.createElement('button');
   adicionar.type = 'button';
   adicionar.className = 'botao-contorno';
@@ -101,10 +91,7 @@ function criarCartao(produto, termos, selecionado, conflitos) {
   resumo.textContent = 'Detalhes da peça';
   const explicacao = document.createElement('p');
   explicacao.textContent = produto.descricao;
-  const fonte = document.createElement('a');
-  fonte.href = produto.fonte;
-  fonte.textContent = 'Ficha técnica do fabricante';
-  detalhes.append(resumo, explicacao, fonte);
+  detalhes.append(resumo, explicacao);
   const simular = document.createElement('a');
   simular.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
   simular.textContent = 'Usar na montagem manual';

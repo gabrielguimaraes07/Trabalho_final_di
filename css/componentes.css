@@ -334,8 +334,7 @@ body:has(.gaveta[open]) {
 }
 
 .cartao-peca p,
-.carrossel-slide figcaption p,
-.carrossel-credito {
+.carrossel-slide figcaption p {
   color: var(--text-2);
 }
 
@@ -418,10 +417,6 @@ body:has(.gaveta[open]) {
   gap: var(--space-1);
   padding: var(--space-3);
   overflow-wrap: anywhere;
-}
-
-.carrossel-credito {
-  font-size: var(--font-14);
 }
 
 @media (max-width: 37.5rem) {

@@ -180,12 +180,10 @@ export async function iniciarSimulador(raiz) {
       bloco.append(imagem);
     }
     const dados = elemento('div', undefined, { class: 'sim-card-dados' });
-    const rotuloPreco = rotuloCotacao(produto);
     dados.append(elemento('h4', produto.nome),
       elemento('p', resumoEspecificacoes(produto, 3)),
       elemento('strong', mostrarPreco(produto.preco)),
-      elemento('a', rotuloPreco, { href: produto.fontePreco, class: 'sim-card-fonte',
-        'aria-label': rotuloPreco + ' de ' + produto.nome }));
+      elemento('p', rotuloCotacao(produto)));
     const video = avisoDeVideo(produto);
     if (video) dados.append(elemento('p', video));
     if (conflitos.length) dados.append(elemento('p', conflitos[0].mensagem, { class: 'sim-conflito' }));

@@ -221,7 +221,6 @@
 .sim-card-dados { flex: 1; display: grid; gap: .45rem; align-content: start; padding: .8rem; }
 .sim-card h4 { margin: 0; line-height: 1.3; }
 .sim-card p { font-size: var(--font-14); }
-.sim-card-fonte { font-size: var(--font-14); align-self: start; }
 .sim-card .sim-conflito { color: var(--danger); }
 .sim-card .sim-selecionada { color: var(--success); }
 .sim-card button { justify-self: start; margin-block-start: .2rem; }
