@@ -51,3 +51,26 @@ Consulta em **23/11/2026**. Os valores são referências em reais, sem frete. Hi
 - [Monitor, teclado e uma planta em uma mesa de estudo.](https://www.pexels.com/photo/17136608/)
 - [Mesa com dois monitores, teclado e iluminação azul.](https://www.pexels.com/photo/777001/)
 - [ThinkPad T480 — Elizabeth K. Joseph](https://commons.wikimedia.org/wiki/File:ThinkPad_T480.jpg). O vídeo da tela foi produzido para o GGTECH.
+
+## Setups por ocasião
+
+As fotos das mesas e das pessoas ilustram o tipo de uso de cada configuração. As listas de componentes na página identificam o hardware recomendado. [Licença Pexels](https://www.pexels.com/license/)
+
+| Configuração | Fotografia |
+|---|---|
+| Gamer de entrada | [Pessoa de fone jogando em uma mesa compacta com um monitor.](https://www.pexels.com/photo/12832570/) |
+| Gamer intermediário | [Pessoa com headset e teclado iluminado jogando em um monitor.](https://www.pexels.com/photo/8791330/) |
+| Gamer avançado | [Jogador com headset usa dois monitores em uma estação gamer.](https://www.pexels.com/photo/7915281/) |
+| Gamer premium | [Jogador em uma mesa com dois monitores e gabinete iluminado.](https://www.pexels.com/photo/31862217/) |
+| PC de entrada para estudos | [Pessoa faz anotações ao lado de um computador em uma mesa simples.](https://www.pexels.com/photo/4238496/) |
+| PC intermediário para estudos | [Pessoa à frente de um computador de mesa em um ambiente claro com plantas.](https://www.pexels.com/photo/4185968/) |
+| PC avançado para estudos | [Pessoa trabalha diante de monitores em uma mesa ampla, com luz natural.](https://www.pexels.com/photo/1181635/) |
+| Programação de entrada | [Pessoa digita diante de uma tela com código em uma mesa compacta.](https://www.pexels.com/photo/4709289/) |
+| Programação intermediária | [Programadora trabalha com duas telas em um escritório.](https://www.pexels.com/photo/3861958/) |
+| Programação avançada | [Desenvolvedor trabalha diante de vários monitores com janelas de código.](https://www.pexels.com/photo/36706460/) |
+| Edição de vídeo de entrada | [Pessoa edita vídeo diante de monitores em uma estação compacta.](https://www.pexels.com/photo/10942478/) |
+| Edição de vídeo intermediária | [Editor trabalha em um projeto com notebook e dois monitores.](https://www.pexels.com/photo/29475620/) |
+| Edição de vídeo avançada | [Duas pessoas analisam as cores de um vídeo em monitores de estúdio.](https://www.pexels.com/photo/8102691/) |
+| Produtividade de entrada | [Pessoa usa teclado e mouse em uma mesa simples com um monitor.](https://www.pexels.com/photo/19238352/) |
+| Produtividade intermediária | [Pessoa organiza documentos em uma mesa com monitor e notebook.](https://www.pexels.com/photo/9301399/) |
+| Produtividade avançada | [Pessoa trabalha em uma mesa com monitor amplo e luminária articulada.](https://www.pexels.com/photo/10050661/) |

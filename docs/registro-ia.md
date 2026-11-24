@@ -87,3 +87,8 @@
 - **IA usada** — OpenAI Codex para pesquisa, revisão do fluxo e documentação.
 - **Pesquisa** — consultou anúncios e comparadores para os 40 modelos. Separou ofertas observadas, valores de comparadores e preços históricos. As origens das fotos e números ficaram registradas. [Fontes da apresentação](fontes-apresentacao.md)
 - **Mudanças** — colocou fotos na lista do 3D, no catálogo e nos cartões do simulador, trocou as fotos dos ambientes e incluiu as bibliotecas 3D no pacote local.
+
+## Apresentação — Setups por uso e preços no guia
+
+- Gabriel definiu o que queria comparar em cada tipo de uso e pediu que as fotos mostrassem pessoas usando os setups. Também pediu que cada peça do guia mostrasse o preço ao lado da foto.
+- O Codex ajudou a pesquisar fotografias, organizar os níveis, ajustar os cartões, integrar os preços e conferir a importação dos setups pelo simulador. [Fotos e cotações](fontes-apresentacao.md)

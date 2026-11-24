@@ -185,29 +185,80 @@
 }
 
 .builds-grade {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12.5rem), 1fr));
   gap: var(--space-2);
 }
 
 .builds-cartao {
-  display: grid;
-  align-content: start;
-  grid-template-rows: auto 1fr auto auto;
-  gap: var(--space-1);
+  display: flex;
+  flex-direction: column;
   min-inline-size: 0;
-  padding: var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--text-2) 35%, var(--surface));
   border-radius: var(--radius-card);
   background: var(--surface);
   overflow-wrap: anywhere;
 }
 
+.builds-foto {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-card) var(--radius-card) 0 0;
+}
+
+.builds-cartao-conteudo {
+  display: grid;
+  flex: 1;
+  grid-template-rows: auto 1fr;
+  gap: .65rem;
+  padding: clamp(1rem, 1.5vw, 1.4rem);
+}
+
 .builds-cartao h3 {
   margin: 0;
   font-size: var(--font-20);
+  line-height: 1.25;
 }
 
 .builds-cartao strong {
   font-size: var(--font-20);
+}
+
+.builds-nota, .builds-descricao { color: var(--text-2); }
+
+.builds-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.builds-navegacao a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  padding: .35rem .8rem;
+  border: 1px solid color-mix(in srgb, var(--text-2) 35%, var(--surface));
+  border-radius: 7px;
+  background: var(--surface);
+}
+
+.builds-secoes { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+.builds-ocasiao { display: grid; gap: var(--space-2); scroll-margin-block-start: 9rem; }
+.builds-ocasiao h2 { font-size: clamp(1.5rem, 1.35rem + .85vw, 2.25rem); line-height: 1.15; }
+.builds-completos { grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr)); }
+.builds-completos details { font-size: var(--font-14); }
+.builds-completos summary { padding-block: .65rem; min-block-size: 44px; cursor: pointer; }
+.builds-pecas { display: grid; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+.builds-pecas li { display: grid; gap: .1rem; padding-block: .45rem; border-block-start: 1px solid color-mix(in srgb, var(--text-2) 35%, var(--surface)); }
+.builds-pecas li span:last-child { color: var(--text-2); }
+
+@media (min-width: 58rem) {
+  .builds-completos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 70rem) {
+  #jogos .builds-completos { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 
 .builds-link {

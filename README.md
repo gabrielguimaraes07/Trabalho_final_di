@@ -11,7 +11,8 @@ Esta edição é o pacote local para a apresentação da disciplina.
 - Explore o gabinete 3D e abra as categorias clicando nas peças. Os botões abaixo do modelo fazem a mesma coisa pelo teclado.
 - Busque por nome e marca no catálogo. Dá para filtrar por preço, conferir as fichas e comparar até três produtos.
 - Abra o **Simulador**, selecione uma categoria e clique em **Escolher peça** no cartão com foto e preço. Use **Próxima categoria** para avançar ou **Revisar montagem** para conferir a lista e o total. O botão **Exportar PDF** abre a impressão para salvar o resumo.
-- Abra **Setups recomendados** para experimentar oito pontos de partida. No **Guia de componentes**, cada categoria tem explicações e exemplos reais.
+- Compare **16 setups** de jogos, estudos, programação, edição de vídeo e produtividade. Cada uso tem opções de entrada, intermediária e avançada. Jogos também tem uma opção premium.
+- No **Guia de componentes**, abra uma categoria para ver o que cada peça faz, a foto do modelo, o preço de referência e a ficha técnica.
 - No botão **Acessibilidade**, experimente trocar o tema, ampliar a fonte, aumentar o contraste ou reduzir movimento.
 
 ## Para abrir no VS Code

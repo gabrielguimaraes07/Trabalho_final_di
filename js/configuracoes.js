@@ -8,12 +8,13 @@ export const usos = {
   criar: { titulo: 'Seu PC para criar conteúdo', explicacao: 'A sugestão considera núcleos, memória e placa de vídeo.' },
 };
 export const prioridades = ['silencio', 'desempenho', 'rgb'];
+const niveis = ['entrada', 'intermediario', 'avancado', 'premium'];
 let buildsProntos;
 
 export function carregarBuildsProntos() {
   buildsProntos ??= Promise.all([
     carregarEstoque(),
-    fetch(new URL('../data/builds.json?v=1.0-final', import.meta.url)).then(resposta => {
+    fetch(new URL('../data/builds.json?v=setups-2', import.meta.url)).then(resposta => {
       if (!resposta.ok) throw new Error('Configurações indisponíveis');
       return resposta.json();
     }),
@@ -35,7 +36,8 @@ export function carregarBuildsProntos() {
 }
 
 export function sugerirConfiguracao(builds, { uso, prioridade, orcamento }) {
-  const candidatas = builds.filter(build => build.uso === uso);
+  const candidatas = builds.filter(build => build.uso === uso).sort((a, b) =>
+    niveis.indexOf(a.nivel) - niveis.indexOf(b.nivel) || a.cotacao.valor - b.cotacao.valor);
   const minimo = Math.min(...candidatas.filter(build => build.preco !== null).map(build => build.preco));
   const dentro = candidatas.filter(build => build.cotacao.valor <= orcamento);
   const perfil = prioridade === 'desempenho' ? dentro.at(-1) : prioridade === 'rgb'

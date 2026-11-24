@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="css/layout.css?v=1.0-final">
     <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
     <link rel="stylesheet" href="css/loja.css?v=1.0-final">
-    <link rel="stylesheet" href="css/montador.css?v=1.0-final">
+    <link rel="stylesheet" href="css/montador.css?v=setups-2">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <link rel="stylesheet" href="css/simulador.css?v=1.0-final">
-    <script type="module" src="js/main.js?v=1.0-final"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=setups-2">
+    <script type="module" src="js/main.js?v=setups-2"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -62,10 +62,12 @@
     <main class="container sim-pagina" id="conteudo" data-builds-prontos tabindex="-1">
       <header class="sim-cabecalho">
         <h1>Setups recomendados</h1>
-        <p>Escolha um ponto de partida para jogos, estudos ou trabalho e adapte as peças no simulador. <a href="./docs/fontes-apresentacao.md">Fontes e créditos</a>.</p>
+        <p>Compare configurações de entrada a avançadas para jogar, estudar ou trabalhar. Abra a lista de peças ou personalize um setup no simulador.</p>
+        <p class="builds-nota">As fotos mostram ambientes de referência. Os totais usam os preços do catálogo, sem frete. <a href="./docs/fontes-apresentacao.md">Fontes e créditos</a>.</p>
       </header>
       <p class="builds-status" role="status">Carregando configurações…</p>
-      <ul class="builds-grade builds-completos"></ul>
+      <nav class="builds-navegacao" aria-label="Ocasiões dos setups" hidden></nav>
+      <div class="builds-secoes"></div>
       <section class="sim-painel setup-notebook" aria-labelledby="notebook-titulo">
         <h2 id="notebook-titulo">Ambiente de programação</h2>
         <figure class="notebook-foto">

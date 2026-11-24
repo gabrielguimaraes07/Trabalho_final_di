@@ -36,7 +36,7 @@
 | [js/pagina-estoque.js](../js/pagina-estoque.js) | Exibe abas, filtros, sugestões e cartões de produto. |
 | [js/carrinho.js](../js/carrinho.js) | Salva itens e orçamento e atualiza o painel do carrinho. |
 | [js/compatibilidade.js](../js/compatibilidade.js) | Compara encaixe, memória, formato e potência. |
-| [js/builds-prontos.js](../js/builds-prontos.js) | Mostra as configurações prontas da página inicial. |
+| [js/builds-prontos.js](../js/builds-prontos.js) | Agrupa as configurações por tipo de uso e mostra exemplos na página inicial. |
 | [js/configuracoes.js](../js/configuracoes.js) | Valida os conjuntos prontos e busca combinações para o quiz. |
 | [js/simulador.js](../js/simulador.js) | Interações do simulador, vista, alertas e compartilhamento. |
 | [js/montagem.js](../js/montagem.js) | Seleção de peças, validação dos dados e gravação local. |
@@ -50,5 +50,5 @@
 ## Dados
 
 - [produtos.json](../data/produtos.json) registra produtos, disponibilidade, preços e compatibilidade.
-- [builds.json](../data/builds.json) reúne oito conjuntos de peças.
+- [builds.json](../data/builds.json) reúne 16 conjuntos de peças, organizados por uso e nível.
 - [glossario.json](../data/glossario.json) reúne os termos e suas definições.

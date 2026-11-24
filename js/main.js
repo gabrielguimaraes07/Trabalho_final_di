@@ -4,8 +4,8 @@ import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
 import { iniciarCarrinho } from './carrinho.js?v=1.0-final';
 import { iniciarPaginaEstoque } from './pagina-estoque.js?v=1.0-final';
-import { iniciarMontador } from './montador.js?v=1.0-final';
-import { iniciarBuildsProntos } from './builds-prontos.js?v=1.0-final';
+import { iniciarMontador } from './montador.js?v=setups-2';
+import { iniciarBuildsProntos } from './builds-prontos.js?v=setups-2';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
@@ -168,7 +168,7 @@ const simulador = document.querySelector('[data-simulador]');
 if (simulador) import('./simulador.js?v=1.0-final').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
-if (guia) import('./guia.js?v=1.0-final').then(({ iniciarGuia }) => iniciarGuia(guia));
+if (guia) import('./guia.js?v=setups-2').then(({ iniciarGuia }) => iniciarGuia(guia));
 
 const videoNotebook = document.querySelector('[data-video-notebook]');
 if (videoNotebook) {

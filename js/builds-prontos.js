@@ -1,58 +1,94 @@
-import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=1.0-final';
-import { mostrarSubtotal } from './estoque.js?v=1.0-final';
+import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=setups-2';
+import { mostrarPreco, mostrarSubtotal } from './estoque.js?v=1.0-final';
+
+const ocasioes = {
+  jogos: 'Jogos',
+  estudos: 'Estudos',
+  programacao: 'Programação',
+  edicao: 'Edição de vídeo',
+  produtividade: 'Produtividade',
+};
+
+function elemento(tag, texto, classe) {
+  const no = document.createElement(tag);
+  if (texto) no.textContent = texto;
+  if (classe) no.className = classe;
+  return no;
+}
 
 function criarCartao(build, completo) {
-  const item = document.createElement('li');
-  item.className = 'builds-cartao';
-  const titulo = document.createElement(completo ? 'h2' : 'h3');
-  titulo.textContent = build.titulo;
-  const descricao = document.createElement('p');
-  descricao.textContent = build.descricao;
-  const preco = document.createElement('strong');
-  preco.textContent = mostrarSubtotal(build.cotacao);
-  const link = document.createElement('a');
-  link.className = 'builds-link';
+  const item = elemento('li', '', 'builds-cartao');
+  const conteudo = elemento('div', '', 'builds-cartao-conteudo');
+  const titulo = elemento('h3', build.titulo);
+  const preco = elemento('strong', mostrarSubtotal(build.cotacao));
+  const link = elemento('a', 'Personalizar montagem', 'builds-link');
   link.href = linkDaConfiguracao(build.produtos);
-  link.textContent = 'Personalizar montagem';
-  link.setAttribute('aria-label', 'Personalizar montagem ' + build.titulo);
-  if (completo && build.imagem) {
-    const imagem = document.createElement('img');
-    imagem.src = build.imagem;
-    imagem.alt = 'Referência de ambiente para o setup ' + build.titulo;
-    imagem.loading = 'lazy';
-    imagem.width = 480;
-    imagem.height = 270;
-    item.append(imagem);
+  link.setAttribute('aria-label', 'Personalizar montagem: ' + build.titulo);
+  if (build.imagem) {
+    const foto = elemento('img', '', 'builds-foto');
+    foto.src = build.imagem;
+    foto.alt = build.alt;
+    foto.loading = 'lazy';
+    foto.decoding = 'async';
+    foto.width = 960;
+    foto.height = 540;
+    item.append(foto);
   }
-  item.append(titulo, descricao, preco);
+  conteudo.append(titulo, elemento('p', build.descricao, 'builds-descricao'), preco);
   if (completo) {
-    const detalhes = document.createElement('details');
-    const resumo = document.createElement('summary');
-    resumo.textContent = 'Ver lista de peças';
-    detalhes.append(resumo);
-    const lista = document.createElement('ul');
+    const detalhes = elemento('details');
+    detalhes.append(elemento('summary', 'Ver lista de peças'));
+    const lista = elemento('ul', '', 'builds-pecas');
     for (const produto of build.produtos) {
-      const linha = document.createElement('li');
-      linha.textContent = produto.nome + ' · ' + Object.values(produto.specs).slice(0, 2).join(' · ');
+      const linha = elemento('li');
+      linha.append(elemento('span', produto.nome), elemento('span', mostrarPreco(produto.preco)));
       lista.append(linha);
     }
     detalhes.append(lista);
-    item.append(detalhes);
+    conteudo.append(detalhes);
   }
-  item.append(link);
+  conteudo.append(link);
+  item.append(conteudo);
   return item;
+}
+
+function mostrarPorOcasiao(grupos, navegacao, secoes) {
+  for (const [id, titulo, builds] of grupos) {
+    const secao = elemento('section', '', 'builds-ocasiao');
+    secao.id = id;
+    const cabecalho = elemento('h2', titulo);
+    cabecalho.id = id + '-titulo';
+    secao.setAttribute('aria-labelledby', cabecalho.id);
+    const grade = elemento('ul', '', 'builds-grade builds-completos');
+    grade.append(...builds.map(build => criarCartao(build, true)));
+    secao.append(cabecalho, grade);
+    secoes.append(secao);
+    const atalho = elemento('a', titulo);
+    atalho.href = '#' + id;
+    navegacao.append(atalho);
+  }
+  navegacao.hidden = false;
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }
 
 export async function iniciarBuildsProntos(secao) {
   const status = secao.querySelector('.builds-status');
-  const grade = secao.querySelector('.builds-grade');
-  const completo = grade.classList.contains('builds-completos');
+  const navegacao = secao.querySelector('.builds-navegacao');
   try {
     const builds = await carregarBuildsProntos();
-    const visiveis = completo ? builds : [builds[0], builds[4], builds[6]].filter(Boolean);
-    grade.replaceChildren(...visiveis.map(build => criarCartao(build, completo)));
-    status.hidden = visiveis.length > 0;
-    if (!visiveis.length) status.textContent = 'Nenhuma configuração disponível.';
+    const grupos = Object.entries(ocasioes).map(([id, titulo]) =>
+      [id, titulo, builds.filter(build => build.ocasiao === id)]).filter(([, , itens]) => itens.length);
+    if (!grupos.length) {
+      status.textContent = 'Nenhuma configuração disponível.';
+      return;
+    }
+    if (navegacao) {
+      mostrarPorOcasiao(grupos, navegacao, secao.querySelector('.builds-secoes'));
+    } else {
+      const grade = secao.querySelector('.builds-grade');
+      grade.replaceChildren(...grupos.map(([, , itens]) => criarCartao(itens[0], false)));
+    }
+    status.hidden = true;
   } catch {
     status.textContent = 'Não foi possível carregar as configurações. Recarregue a página para tentar novamente.';
   }

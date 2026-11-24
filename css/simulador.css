@@ -101,8 +101,14 @@
 .guia-lista summary { cursor: pointer; padding-block: var(--space-1); min-block-size: 44px; font-size: var(--font-20); font-weight: 600; }
 .guia-lista details p { margin-block: var(--space-1); }
 .guia-exemplos { display: grid; gap: var(--space-1); list-style: none; padding: 0; }
-.guia-exemplos li { background: var(--bg); border-radius: var(--radius-card); padding: var(--space-1); }
-.guia-exemplos img { display: block; object-fit: contain; inline-size: min(12rem, 100%); block-size: auto; }
+.guia-exemplos li { display: grid; gap: var(--space-2); background: var(--bg); border-radius: var(--radius-card); padding: var(--space-2); }
+.guia-exemplos img { display: block; object-fit: contain; inline-size: min(15rem, 100%); block-size: auto; border-radius: 8px; }
+.guia-produto-dados { min-inline-size: 0; }
+.guia-preco { display: flex; flex-wrap: wrap; align-items: baseline; gap: .35rem 1rem; margin-block: .35rem; }
+.guia-preco strong { font-size: var(--font-20); }
+@media (min-width: 38rem) {
+  .guia-exemplos li { grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr); align-items: start; }
+}
 
 @media (min-width: 64rem) {
   .sim-grade { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
@@ -119,19 +125,6 @@
   .sim-resumo { position: static; max-block-size: none; overflow: visible; }
   .sim-linha, .sim-peca { break-inside: avoid; }
 }
-
-.builds-completos img {
-  inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 6px;
-}
-.builds-completos details {
-  font-size: var(--font-14);
-  overflow-wrap: anywhere;
-}
-.builds-completos summary { padding-block: .55rem; cursor: pointer; }
 
 .setup-notebook { max-inline-size: 52rem; }
 .setup-notebook > p { margin-block-start: var(--space-1); }

@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, ordemCatalogo } from './estoque.js?v=1.0-final';
+import { carregarEstoque, categorias, mostrarPreco, ordemCatalogo, rotuloCotacao } from './estoque.js?v=1.0-final';
 
 const dicas = {
   cpu: 'Compare núcleos e a geração. Confira o socket, a versão da BIOS e se o modelo tem vídeo integrado.',
@@ -48,11 +48,26 @@ export async function iniciarGuia(raiz) {
           foto.src = produto.imagem;
           foto.alt = produto.alt;
           foto.loading = 'lazy';
+          foto.decoding = 'async';
+          foto.width = 720;
+          foto.height = 540;
           linha.append(foto);
         }
-        const link = texto('a', 'Ficha e foto no fabricante');
-        link.href = produto.fonte;
-        linha.append(texto('h3', produto.nome), texto('p', produto.descricao), texto('p', Object.values(produto.specs).join(' · ')), link);
+        const preco = texto('strong', mostrarPreco(produto.preco));
+        const cotacao = texto('a', rotuloCotacao(produto));
+        cotacao.href = produto.fontePreco;
+        cotacao.setAttribute('aria-label', rotuloCotacao(produto) + ' de ' + produto.nome);
+        const ficha = texto('a', 'Ficha do fabricante');
+        ficha.href = produto.fonte;
+        ficha.setAttribute('aria-label', 'Ficha do fabricante de ' + produto.nome);
+        const valores = document.createElement('div');
+        valores.className = 'guia-preco';
+        valores.append(preco, cotacao);
+        const dados = document.createElement('div');
+        dados.className = 'guia-produto-dados';
+        dados.append(texto('h3', produto.nome), valores, texto('p', produto.descricao),
+          texto('p', Object.values(produto.specs).join(' · ')), ficha);
+        linha.append(dados);
         exemplos.append(linha);
       }
       const catalogoLink = texto('a', 'Explorar esta categoria no catálogo');

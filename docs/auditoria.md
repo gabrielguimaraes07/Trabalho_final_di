@@ -64,3 +64,5 @@ No Chrome da versão publicada, foram verificados o painel de acessibilidade, o 
 ## Edição local para apresentação
 
 O teste automatizado de interface conferiu o carregamento dos 40 registros, as 40 relações entre imagem e modelo, a busca, a seleção por cartão, o filtro de compatibilidade, a troca de placa-mãe, o cálculo do total, a quantidade de memória, a reabertura de montagens e a gaveta do 3D. Foram conferidos os arquivos de mídia e as oito configurações recomendadas. A prévia visual desta edição ficou indisponível no ambiente de verificação.
+
+Na revisão dos setups, foram conferidos os 16 totais, as imagens, as regras de compatibilidade e a importação pelo simulador. O teste do guia verificou a foto e o preço com a origem da cotação para cada um dos 40 modelos. A prévia visual desta revisão ficou indisponível.

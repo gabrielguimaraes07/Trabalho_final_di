@@ -9,10 +9,10 @@ A GGTECH é uma loja acadêmica fictícia que ajuda quem está montando o primei
 | Por dentro do seu PC | Acompanha a separação das peças ao rolar e consulta uma lista com a função de cada uma. |
 | O que cada peça faz | Usa analogias como a mesa de trabalho para RAM e o armário para SSD. |
 | Carrossel | Explora setups ilustrativos para jogar, estudar e criar conteúdo com setas, indicadores e botão de pausa. |
-| Configurações prontas | Abre as listas de peças e os preços de três computadores completos. |
+| Configurações prontas | Compara 16 montagens em cinco tipos de uso, vê as peças e abre uma configuração no simulador. |
 | Estoque | Busca 40 modelos reais em 19 categorias e combina filtros de preço, marca, nome e compatibilidade. |
 | Simulador | Escolhe cada peça, ajusta quantidades, consulta o consumo estimado e compara duas montagens. |
-| Guia | Abre as 19 categorias para ler exemplos e as fichas dos fabricantes. |
+| Guia | Abre as 19 categorias e consulta fotos, preços e fichas dos 40 modelos. |
 | Montador guiado | Responde três perguntas, vê um conjunto compatível e pode adicionar todas as peças de uma vez. |
 | Carrinho | Ajusta quantidades, compara o total com o orçamento e confere encaixe, memória, formato e potência. |
 | Glossário | Procura 29 termos e abre explicações rápidas no próprio estoque, por ponteiro ou teclado. |
@@ -25,6 +25,8 @@ A visualização chama a atenção para o gabinete. As analogias e o glossário 
 ## Edição para apresentação
 
 O catálogo, a gaveta do PC 3D e o simulador mostram a foto e o preço junto ao nome da peça. No simulador, selecionar uma categoria abre cartões com foto, especificações e a ação de escolher ou trocar. O total e os componentes selecionados aparecem no resumo, com a vista ilustrativa logo abaixo dos cartões. [Fontes das fotos e preços](fontes-apresentacao.md)
+
+A página de setups agrupa jogos, estudos, programação, edição de vídeo e produtividade. Cada configuração usa uma foto de referência própria. A lista de peças mostra os valores individuais e o botão de personalização passa a montagem inteira ao simulador.
 
 ## Capturas da versão publicada
 
