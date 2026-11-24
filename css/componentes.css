@@ -309,9 +309,20 @@ body:has(.gaveta[open]) {
   background: var(--surface);
 }
 
-.cartao-peca svg {
-  margin-block-end: var(--space-1);
-  color: var(--accent);
+.cartao-peca img {
+  display: block;
+  inline-size: 100%;
+  block-size: clamp(5.4rem, 9vw, 7rem);
+  border-radius: .5rem;
+  background: #fff;
+  object-fit: contain;
+}
+
+.cartao-peca h3 a { display: inline-flex; align-items: center; min-block-size: 44px; }
+
+@media (max-width: 31rem) {
+  .cartao-peca { grid-template-columns: minmax(3.5rem, 23%) minmax(0, 1fr); column-gap: var(--space-2); padding: var(--space-2); }
+  .cartao-peca img { grid-row: span 2; block-size: auto; aspect-ratio: 1; }
 }
 
 .cartao-peca h3,

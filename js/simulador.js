@@ -39,14 +39,14 @@ function desempenho(itens) {
   const ram = itens.reduce((soma, { produto, quantidade }) =>
     soma + (produto.categoria === 'ram' ? produto.compat.gb * quantidade : 0), 0);
   const video = cpu?.video || gpu;
+  if (!cpu || !ram || !video) return [];
   return [
     ['Estudos e navegação', 4, 8, 0], ['Programação', 6, 16, 0], ['Multitarefas', 6, 16, 0],
     ['Edição de imagens', 6, 16, 0], ['Edição de vídeos', 8, 32, 2],
     ['Jogos leves', 4, 8, 0], ['Jogos competitivos', 6, 16, 1], ['Jogos exigentes', 6, 32, 3],
   ].map(([nome, nucleos, gb, classe]) => {
-    const precisa = !cpu || !ram || !video ? 'Selecione CPU, RAM e uma saída de vídeo'
-      : cpu.nucleos >= nucleos && ram >= gb && (gpu?.classe ?? 0) >= classe ? 'Indicado pelos critérios' : 'Com limitações';
-    return elemento('li', nome + ' · ' + precisa);
+    const indicado = cpu.nucleos >= nucleos && ram >= gb && (gpu?.classe ?? 0) >= classe;
+    return elemento('li', nome + ' · ' + (indicado ? 'Indicado pelos critérios' : 'Com limitações'));
   });
 }
 
@@ -82,6 +82,7 @@ const etapas = [
   ['Armazenamento', 'ssd-nvme', 'ssd-sata', 'hd'], ['Saída de vídeo', 'gpu'],
   ['Fonte', 'fonte'], ['Gabinete', 'gabinete'], ['Refrigeração', 'air-cooler', 'water-cooler'],
 ];
+const rotulosEtapas = { escolhida: 'Escolhida', automatica: 'Atendida automaticamente', pendente: 'Pendente' };
 
 const termosPorCategoria = {
   cpu: ['socket', 'nucleos', 'tdp'], 'placa-mae': ['socket', 'microatx'], ram: ['ddr4', 'ddr5', 'mt-s'],
@@ -93,10 +94,11 @@ const termosPorCategoria = {
 function estadoDasEtapas(itens) {
   const escolhidas = new Set(itens.map(({ produto }) => produto.categoria));
   const videoIntegrado = itens.some(({ produto }) => produto.categoria === 'cpu' && produto.compat.video);
-  return etapas.map(([nome, categoria, ...alternativas]) => ({
-    nome, categoria,
-    pronta: escolhidas.has(categoria) || alternativas.some(id => escolhidas.has(id)) || (categoria === 'gpu' && videoIntegrado),
-  }));
+  return etapas.map(([nome, categoria, ...alternativas]) => {
+    const escolhida = [categoria, ...alternativas].find(id => escolhidas.has(id));
+    const estado = escolhida ? 'escolhida' : categoria === 'gpu' && videoIntegrado ? 'automatica' : 'pendente';
+    return { nome, categoria: escolhida ?? categoria, estado };
+  });
 }
 
 export async function iniciarSimulador(raiz) {
@@ -256,20 +258,22 @@ export async function iniciarSimulador(raiz) {
     const incompatibilidades = regras.filter(regra => regra.estado === 'erro');
     const erros = incompatibilidades.length;
     const etapasAtuais = estadoDasEtapas(itens);
-    const completas = etapasAtuais.filter(etapa => etapa.pronta).length;
-    proximaEtapa = etapasAtuais.find(etapa => !etapa.pronta);
+    const completas = etapasAtuais.filter(etapa => etapa.estado !== 'pendente').length;
+    proximaEtapa = etapasAtuais.find(etapa => etapa.estado === 'pendente');
     const conflito = localizar('#sim-conflito-atual');
     conflito.hidden = !erros;
     conflito.textContent = incompatibilidades[0]?.mensagem ?? '';
     essenciais.replaceChildren(...etapasAtuais.map(etapa => {
-      const linha = elemento('li', undefined);
-      const botao = elemento('button', (etapa.pronta ? '✓ ' : 'Escolher ') + etapa.nome,
+      const linha = elemento('li', undefined, { 'data-estado': etapa.estado });
+      const botao = elemento('button', undefined,
         { type: 'button', class: 'botao-texto', 'data-etapa-categoria': etapa.categoria });
+      botao.append(elemento('span', etapa.nome), elemento('span', rotulosEtapas[etapa.estado], { class: 'sim-etapa-estado' }));
       linha.append(botao);
       return linha;
     }));
     localizar('#sim-etapas').value = completas;
     localizar('#sim-progresso').textContent = completas + ' de ' + etapasAtuais.length + ' etapas essenciais preenchidas';
+    localizar('#sim-video-integrado').hidden = !etapasAtuais.some(etapa => etapa.estado === 'automatica');
     levar.disabled = !!proximaEtapa || !!erros;
     localizar('#sim-envio-dica').textContent = erros ? 'Corrija as incompatibilidades para continuar.'
       : proximaEtapa ? 'Complete as etapas essenciais para enviar ao carrinho.' : 'Confira as peças e simule a compra no carrinho.';
@@ -287,7 +291,14 @@ export async function iniciarSimulador(raiz) {
     localizar('#sim-visual').replaceChildren(...(internos.length ? internos.map(pecaVisual)
       : [elemento('p', 'As peças internas aparecem aqui conforme você escolhe.')]));
     lista.replaceChildren(...(itens.length ? itens.map(montarLinha) : [elemento('li', 'Sua montagem está vazia.')]));
-    localizar('#sim-desempenho').replaceChildren(...(erros ? [elemento('li', 'Resolva as incompatibilidades antes de avaliar o uso.')] : desempenho(itens)));
+    const avaliacao = erros ? [] : desempenho(itens);
+    const listaDesempenho = localizar('#sim-desempenho');
+    const dicaDesempenho = localizar('#sim-desempenho-ajuda');
+    listaDesempenho.hidden = !avaliacao.length;
+    listaDesempenho.replaceChildren(...avaliacao);
+    dicaDesempenho.hidden = !!avaliacao.length;
+    dicaDesempenho.textContent = erros ? 'Resolva as incompatibilidades antes de avaliar o uso.'
+      : 'Escolha um processador, memória RAM e uma saída de vídeo para ver a avaliação por atividade.';
     link.hidden = true;
     saidaComparacao.replaceChildren();
     atualizarOpcoes();

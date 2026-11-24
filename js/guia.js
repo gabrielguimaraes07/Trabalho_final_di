@@ -31,13 +31,19 @@ function texto(tag, conteudo) {
 export async function iniciarGuia(raiz) {
   const lista = raiz.querySelector('#guia-lista');
   const status = raiz.querySelector('#guia-status');
+  function abrirCategoriaDoLink() {
+    const alvo = document.getElementById(location.hash.slice(1));
+    if (!alvo || !lista.contains(alvo)) return;
+    alvo.open = true;
+    alvo.querySelector('summary').focus({ preventScroll: true });
+    alvo.scrollIntoView({ block: 'start' });
+  }
   try {
     const catalogo = await carregarEstoque();
     lista.replaceChildren(...ordemCatalogo.map(id => {
       const familia = categorias[id];
       const bloco = document.createElement('details');
       bloco.id = id;
-      bloco.open = location.hash === '#' + id;
       bloco.append(texto('summary', familia.nome), texto('p', familia.descricao), texto('p', dicas[id]));
       const exemplos = document.createElement('ul');
       exemplos.className = 'guia-exemplos';
@@ -76,6 +82,8 @@ export async function iniciarGuia(raiz) {
       return bloco;
     }));
     status.hidden = true;
+    abrirCategoriaDoLink();
+    window.addEventListener('hashchange', abrirCategoriaDoLink);
   } catch {
     status.textContent = 'O guia não carregou. Recarregue a página para tentar novamente.';
   }

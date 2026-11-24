@@ -188,7 +188,11 @@
 #sim-categorias { margin-block-end: var(--space-2); }
 #sim-etapas { inline-size: 100%; block-size: .7rem; accent-color: var(--btn-primary); }
 #sim-essenciais { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); gap: .1rem .65rem; padding: 0; }
-#sim-essenciais button { text-align: start; }
+#sim-essenciais button { display: grid; justify-items: start; gap: .1rem; text-align: start; padding: .4rem .25rem; }
+.sim-etapa-estado { color: var(--text-2); font-size: var(--font-14); }
+#sim-essenciais [data-estado="escolhida"] .sim-etapa-estado { color: var(--success); }
+#sim-essenciais [data-estado="automatica"] .sim-etapa-estado { font-weight: 700; }
+#sim-video-integrado { margin-block: .35rem; color: var(--text-2); font-size: var(--font-14); }
 .sim-envio { display: grid; gap: .35rem; align-content: start; }
 .sim-envio button:disabled { background: var(--bg); color: var(--text-2); border-color: var(--text-2); cursor: default; text-decoration: none; }
 .sim-envio p, .sim-filtros #sim-categoria-dica { color: var(--text-2); font-size: var(--font-14); }

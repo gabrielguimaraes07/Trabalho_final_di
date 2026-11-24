@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/montador.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-5">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <link rel="stylesheet" href="css/simulador.css?v=interfaces-4">
-    <script type="module" src="js/main.js?v=interfaces-4a"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=interfaces-5">
+    <script type="module" src="js/main.js?v=interfaces-5"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -74,7 +74,7 @@
         </div>
       </header>
       <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
-      <div class="sim-total-movel" id="sim-barra" hidden>
+      <div class="sim-total-movel" id="sim-barra" data-barra-fixa hidden>
         <span>Total <strong id="sim-total-movel"></strong></span>
         <a href="#sim-resumo-titulo">Ver montagem</a>
       </div>
@@ -120,6 +120,7 @@
           </section>
           <section class="sim-painel" aria-labelledby="sim-desempenho-titulo">
             <h2 id="sim-desempenho-titulo">Para que serve esta configuração</h2>
+            <p id="sim-desempenho-ajuda"></p>
             <ul id="sim-desempenho"></ul>
             <details>
               <summary>Como a estimativa funciona</summary>
@@ -130,6 +131,7 @@
         <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
           <h2 id="sim-resumo-titulo" tabindex="-1">Sua montagem</h2>
           <p id="sim-progresso"></p>
+          <p id="sim-video-integrado" hidden>O vídeo integrado deste processador já atende à saída de vídeo.</p>
           <progress id="sim-etapas" value="0" max="8" aria-label="Etapas essenciais preenchidas"></progress>
           <details class="sim-extra sim-checklist">
             <summary>Conferir peças essenciais</summary>

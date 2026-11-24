@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/montador.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/montador.css?v=interfaces-5">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
     <script type="importmap">
       {
@@ -26,7 +26,7 @@
         }
       }
     </script>
-    <script type="module" src="js/main.js?v=interfaces-4a"></script>
+    <script type="module" src="js/main.js?v=interfaces-5"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -152,42 +152,28 @@
         <p><a href="./guia.html">Abrir o guia completo das 19 categorias</a></p>
         <ul class="grade-pecas">
           <li class="cartao-peca">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-              <rect width="16" height="16" x="4" y="4" rx="2"></rect>
-              <rect width="6" height="6" x="9" y="9" rx="1"></rect>
-              <path d="M15 2v2m0 16v2M2 15h2M2 9h2m16 6h2m-2-6h2M9 2v2m0 16v2"></path>
-            </svg>
-            <h3>Processador</h3>
+            <img src="assets/img/apresentacao/r5600g.webp" alt="Foto de AMD Ryzen 5 5600G" width="720" height="540" loading="lazy" decoding="async">
+            <h3><a href="./guia.html#cpu" aria-label="Ver Processador no guia">Processador</a></h3>
             <p>É o cérebro do PC. Segue as instruções dos programas e coordena o trabalho das outras peças.</p>
           </li>
           <li class="cartao-peca">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M6 19v-3M10 19v-3M14 19v-3M18 19v-3M8 11V9M16 11V9M12 11V9M2 15h20"></path>
-              <path d="M2 7a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v1.1a2 2 0 0 0 0 3.837V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-5.1a2 2 0 0 0 0-3.837Z"></path>
-            </svg>
-            <h3>Memória RAM</h3>
+            <img src="assets/img/apresentacao/ddr4.webp" alt="Foto de Kingston FURY Beast 16 GB DDR4-3200 KF432C16BBK2/16" width="720" height="540" loading="lazy" decoding="async">
+            <h3><a href="./guia.html#ram" aria-label="Ver Memória RAM no guia">Memória RAM</a></h3>
             <p>É a mesa de trabalho. Mantém à mão os arquivos e dados que você está usando naquele momento.</p>
           </li>
           <li class="cartao-peca">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M22 12H2M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11zM6 16h.01M10 16h.01"></path>
-            </svg>
-            <h3>SSD</h3>
+            <img src="assets/img/apresentacao/nv2.webp" alt="Foto de Kingston NV2 1 TB SNV2S/1000G" width="720" height="540" loading="lazy" decoding="async">
+            <h3><a href="./guia.html#ssd-nvme" aria-label="Ver SSD no guia">SSD</a></h3>
             <p>É o armário. Guarda jogos, programas e arquivos mesmo depois que você desliga o computador.</p>
           </li>
           <li class="cartao-peca">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect width="20" height="14" x="2" y="3" rx="2"></rect>
-              <path d="M8 21h8m-4-4v4"></path>
-            </svg>
-            <h3>Placa de vídeo</h3>
+            <img src="assets/img/apresentacao/rtx4060.webp" alt="Foto de ASUS Dual GeForce RTX 4060 OC 8 GB" width="720" height="540" loading="lazy" decoding="async">
+            <h3><a href="./guia.html#gpu" aria-label="Ver Placa de vídeo no guia">Placa de vídeo</a></h3>
             <p>É a artista do PC. Desenha as imagens que aparecem no monitor, como os cenários de um jogo.</p>
           </li>
           <li class="cartao-peca">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-            </svg>
-            <h3>Fonte</h3>
+            <img src="assets/img/apresentacao/rm750x.webp" alt="Foto de Corsair RM750x (2021) CP-9020199" width="720" height="540" loading="lazy" decoding="async">
+            <h3><a href="./guia.html#fonte" aria-label="Ver Fonte no guia">Fonte</a></h3>
             <p>É como o coração. Distribui a energia da tomada para todas as peças do computador.</p>
           </li>
         </ul>
