@@ -6,7 +6,7 @@ No Chromium, abri as nove páginas da final em 1.440 e 390 px nos dois temas. Co
 
 No catálogo, as seis fotos novas abriram nas categorias correspondentes. Os testes de interface selecionaram os seis modelos na montagem manual, compararam os três gabinetes e os três headsets, e conferiram seus totais no carrinho. O teste do MSI confirmou o aviso ao ultrapassar o limite de baias compartilhadas. Os cenários também cobriram orçamento abaixo do menor setup disponível, vídeo integrado, importação de setups, troca de peças e cancelamento de sobrescrita.
 
-Na pasta da parcial, conferi a abertura da página, as quatro categorias e a gaveta. As capturas do README registram a nova organização da final. [Telas atuais](design-site.md#capturas-da-versão-publicada)
+Também conferi as nove páginas com o texto a 200% em 390 px e ajustei a quebra de palavras na página inicial. A imagem de reserva do gabinete abriu sem WebGL e o carrossel respeitou a redução de movimento. Na pasta da parcial, conferi a abertura da página, as quatro categorias e a gaveta. As capturas do README registram a nova organização da final. [Telas atuais](design-site.md#capturas-da-versão-publicada)
 
 ## Ajuste de contraste
 
