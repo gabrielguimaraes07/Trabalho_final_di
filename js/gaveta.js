@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=montagem-3';
+import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=interfaces-4';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
 
 function resumoProduto(produto) {

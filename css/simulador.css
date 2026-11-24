@@ -231,3 +231,8 @@
 @media print {
   .sim-atalhos, .sim-total-movel, .sim-envio, .sim-resumo > details { display: none !important; }
 }
+
+.sim-glossario { margin-block-end: 1rem; padding-inline: .75rem; background: var(--bg); border-radius: 8px; }
+.sim-glossario dl { margin: 0; padding-block-end: .75rem; }
+.sim-glossario dt { font-weight: 700; }
+.sim-glossario dd { margin: 0 0 .4rem; color: var(--text-2); }

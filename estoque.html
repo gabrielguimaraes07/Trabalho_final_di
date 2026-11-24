@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=1.0-final">
-    <link rel="stylesheet" href="css/loja.css?v=montagem-3">
-    <link rel="stylesheet" href="css/apoio.css?v=1.0-final">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/apoio.css?v=interfaces-4">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
     <script type="module" src="js/main.js?v=interfaces-4"></script>
   </head>
@@ -69,46 +69,62 @@
         <p>Encontre as peças do seu PC por categoria, preço ou nome. Valores em reais consultados em 23/11/2026, sem frete. <a href="./docs/fontes-apresentacao.md">Fontes e créditos</a>.</p>
       </header>
 
-      <form class="estoque-filtros" aria-label="Filtrar estoque">
+      <form class="estoque-filtros" aria-label="Filtrar catálogo">
         <div class="estoque-campo estoque-busca">
           <label for="busca-produtos">Buscar peças</label>
-          <input id="busca-produtos" data-busca-rapida type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
+          <input id="busca-produtos" data-busca-rapida type="search" role="combobox" aria-autocomplete="list" aria-expanded="false"
             aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Kingston">
           <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
         </div>
         <div class="estoque-campo">
-          <label for="preco-maximo">Preço máximo em reais</label>
-          <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite">
+          <label for="categoria-produto">Categoria</label>
+          <select id="categoria-produto"><option value="todas">Todas as peças</option></select>
         </div>
-        <div class="estoque-campo">
-          <label for="preco-minimo">Preço mínimo em reais</label>
-          <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal">
+        <div class="estoque-campo" id="estoque-tipo" hidden>
+          <label for="tipo-produto">Tipo de peça</label>
+          <select id="tipo-produto"></select>
         </div>
-        <div class="estoque-campo">
-          <label for="marca-produto">Marca</label>
-          <select id="marca-produto"><option value="">Todas</option></select>
-        </div>
-        <div class="estoque-campo">
-          <label for="ordem-produtos">Ordenar por</label>
-          <select id="ordem-produtos">
-            <option value="nome">Nome de A a Z</option>
-            <option value="menor">Menor preço</option>
-            <option value="maior">Maior preço</option>
-          </select>
-        </div>
-        <label class="estoque-disponibilidade">
-          <input id="somente-compativeis" type="checkbox">
-          Sem novos conflitos com a montagem
-        </label>
+        <details class="estoque-filtros-extra">
+          <summary>Filtros de preço, marca e compatibilidade</summary>
+          <div class="estoque-filtros-grade">
+            <div class="estoque-campo">
+              <label for="preco-minimo">Preço mínimo em reais</label>
+              <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="preco-aviso">
+            </div>
+            <div class="estoque-campo">
+              <label for="preco-maximo">Preço máximo em reais</label>
+              <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite" aria-describedby="preco-aviso">
+            </div>
+            <p id="preco-aviso" class="estoque-erro" role="status" hidden></p>
+            <div class="estoque-campo">
+              <label for="marca-produto">Marca</label>
+              <select id="marca-produto"><option value="">Todas</option></select>
+            </div>
+            <div class="estoque-campo">
+              <label for="ordem-produtos">Ordenar por</label>
+              <select id="ordem-produtos">
+                <option value="nome">Nome de A a Z</option>
+                <option value="menor">Menor preço</option>
+                <option value="maior">Maior preço</option>
+              </select>
+            </div>
+            <label class="estoque-disponibilidade">
+              <input id="somente-compativeis" type="checkbox" aria-describedby="estoque-compatibilidade-dica">
+              Sem conflito com a escolha atual
+            </label>
+            <p id="estoque-compatibilidade-dica">Confere as peças da montagem manual neste navegador. O carrinho serve para simular uma compra.</p>
+          </div>
+        </details>
+        <button type="button" class="botao-texto estoque-reset">Limpar filtros</button>
       </form>
 
       <section class="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
         <h2 id="comparacao-titulo">Comparação de produtos</h2>
+        <p>Compare até três modelos do mesmo tipo, como processadores com processadores.</p>
         <div class="estoque-comparados"></div>
         <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>
       </section>
-      <div class="estoque-abas" role="tablist" aria-label="Categorias de peças"></div>
-      <section id="estoque-resultados" role="tabpanel" aria-label="Produtos do estoque">
+      <section id="estoque-resultados" aria-label="Produtos do catálogo">
         <p class="estoque-status" role="status">Carregando peças…</p>
         <ul class="estoque-grade"></ul>
       </section>

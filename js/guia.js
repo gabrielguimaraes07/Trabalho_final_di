@@ -1,4 +1,4 @@
-import { carregarEstoque, categorias, mostrarPreco, ordemCatalogo, rotuloCotacao } from './estoque.js?v=montagem-3';
+import { carregarEstoque, categorias, mostrarPreco, ordemCatalogo, resumoEspecificacoes, rotuloCotacao } from './estoque.js?v=interfaces-4';
 
 const dicas = {
   cpu: 'Compare núcleos e a geração. Confira o socket, a versão da BIOS e se o modelo tem vídeo integrado.',
@@ -66,7 +66,7 @@ export async function iniciarGuia(raiz) {
         const dados = document.createElement('div');
         dados.className = 'guia-produto-dados';
         dados.append(texto('h3', produto.nome), valores, texto('p', produto.descricao),
-          texto('p', Object.values(produto.specs).join(' · ')), ficha);
+          texto('p', resumoEspecificacoes(produto)), ficha);
         linha.append(dados);
         exemplos.append(linha);
       }

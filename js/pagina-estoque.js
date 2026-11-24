@@ -1,15 +1,18 @@
-import { abaPorTecla } from './abas.js?v=1.0-final';
 import { adicionarAoCarrinho } from './carrinho.js?v=montagem-3';
 import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
-import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao } from './estoque.js?v=montagem-3';
+import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao, avisoDeVideo } from './estoque.js?v=interfaces-4';
 
-import { lerMontagem, pecaCompativel } from './montagem.js?v=montagem-3';
+import { conflitosDaPeca, lerMontagem } from './montagem.js?v=interfaces-4';
 
 const ordem = [...ordemCatalogo, ...Object.keys(grupos3d)];
 const todas = 'todas';
-const rotulos = { ram: 'Memória', armazenamento: 'Armazenamento', ventoinhas: 'Ventoinhas' };
+const categoriasPrincipais = [...new Set(ordemCatalogo.map(paiDaCategoria))];
 
-function criarCartao(produto, termos, selecionado) {
+function paiDaCategoria(id) {
+  return Object.keys(grupos3d).find(pai => grupos3d[pai].includes(id)) ?? id;
+}
+
+function criarCartao(produto, termos, selecionado, conflitos) {
   const item = document.createElement('li');
   item.className = 'estoque-produto';
 
@@ -18,8 +21,8 @@ function criarCartao(produto, termos, selecionado) {
   const imagem = document.createElement('img');
   if (produto.imagem) imagem.src = produto.imagem;
   imagem.alt = produto.alt ?? '';
-  imagem.width = 256;
-  imagem.height = 256;
+  imagem.width = 720;
+  imagem.height = 540;
   imagem.loading = 'lazy';
   imagem.decoding = 'async';
   if (produto.imagem) foto.append(imagem);
@@ -65,12 +68,12 @@ function criarCartao(produto, termos, selecionado) {
   }
   const adicionar = document.createElement('button');
   adicionar.type = 'button';
-  adicionar.className = 'botao-primario estoque-adicionar';
+  adicionar.className = 'botao-contorno';
   adicionar.dataset.adicionar = produto.id;
-  adicionar.textContent = 'Adicionar';
+  adicionar.textContent = 'Adicionar ao carrinho';
   adicionar.setAttribute('aria-label', 'Adicionar ' + produto.nome + ' ao carrinho');
   adicionar.disabled = produto.estoque === 0;
-  rodape.append(preco, disponivel, adicionar);
+  rodape.append(preco, disponivel);
   const detalhes = document.createElement('details');
   detalhes.className = 'estoque-detalhe';
   const resumo = document.createElement('summary');
@@ -83,7 +86,9 @@ function criarCartao(produto, termos, selecionado) {
   detalhes.append(resumo, explicacao, fonte);
   const simular = document.createElement('a');
   simular.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
-  simular.textContent = 'Usar na montagem';
+  simular.textContent = 'Usar na montagem manual';
+  simular.className = 'botao-primario';
+  simular.setAttribute('aria-label', 'Usar ' + produto.nome + ' na montagem manual');
   const rotuloComparar = document.createElement('label');
   const comparar = document.createElement('input');
   comparar.type = 'checkbox';
@@ -91,8 +96,17 @@ function criarCartao(produto, termos, selecionado) {
   comparar.checked = selecionado;
   comparar.setAttribute('aria-label', 'Comparar ' + produto.nome);
   rotuloComparar.append(comparar, ' Comparar');
-  detalhes.append(simular);
-  item.append(foto, descricao, especificacoes, detalhes, rodape, rotuloComparar);
+  const aviso = avisoDeVideo(produto);
+  if (aviso || conflitos.length) {
+    const alerta = document.createElement('p');
+    alerta.className = 'estoque-produto-aviso';
+    alerta.textContent = [aviso, conflitos[0]?.mensagem].filter(Boolean).join(' ');
+    item.append(foto, descricao, especificacoes, alerta);
+  } else {
+    item.append(foto, descricao, especificacoes);
+  }
+  rodape.append(simular, adicionar, rotuloComparar);
+  item.append(detalhes, rodape);
   return item;
 }
 
@@ -107,8 +121,11 @@ export async function iniciarPaginaEstoque(raiz) {
   const quadro = raiz.querySelector('.estoque-comparacao');
   const selecionados = new Set();
   const sugestoes = raiz.querySelector('#sugestoes-produtos');
-  const abas = raiz.querySelector('[role="tablist"]');
-  const painel = raiz.querySelector('[role="tabpanel"]');
+  const categoriaCampo = raiz.querySelector('#categoria-produto');
+  const grupoTipo = raiz.querySelector('#estoque-tipo');
+  const tipoCampo = raiz.querySelector('#tipo-produto');
+  const faixaErro = raiz.querySelector('#preco-aviso');
+  const painel = raiz.querySelector('#estoque-resultados');
   const status = painel.querySelector('[role="status"]');
   const grade = painel.querySelector('.estoque-grade');
   let listaSugestoes = [];
@@ -123,17 +140,17 @@ export async function iniciarPaginaEstoque(raiz) {
   }
 
   let categoria = categoriaDaURL();
-  const botoes = [todas, ...ordem].map(chave => {
-    const aba = document.createElement('button');
-    aba.type = 'button';
-    aba.id = 'aba-estoque-' + chave;
-    aba.dataset.categoria = chave;
-    aba.textContent = chave === todas ? 'Todas' : rotulos[chave] ?? categorias[chave].nome;
-    aba.setAttribute('role', 'tab');
-    aba.setAttribute('aria-controls', painel.id);
-    abas.append(aba);
-    return aba;
-  });
+  for (const id of categoriasPrincipais) categoriaCampo.add(new Option(categorias[id].nome, id));
+
+  function atualizarCategorias() {
+    const pai = paiDaCategoria(categoria);
+    categoriaCampo.value = pai;
+    const tipos = grupos3d[pai];
+    grupoTipo.hidden = !tipos;
+    tipoCampo.replaceChildren(...(tipos ? [new Option('Todos os tipos', pai), ...tipos.map(id =>
+      new Option(categorias[id].nome, id))] : []));
+    tipoCampo.value = categoria;
+  }
 
   function ocultarSugestoes() {
     listaSugestoes = [];
@@ -167,7 +184,7 @@ export async function iniciarPaginaEstoque(raiz) {
     atualizar();
   }
 
-  function filtrar(produto) {
+  function filtrar(produto, conflitos) {
     const termos = normalizarBusca(busca.value).split(/\s+/).filter(Boolean);
     const teto = preco.valueAsNumber;
     const piso = minimo.valueAsNumber;
@@ -176,50 +193,67 @@ export async function iniciarPaginaEstoque(raiz) {
       && (!marca.value || marca.value === produto.marca)
       && (!Number.isFinite(teto) || (temPreco && produto.preco <= teto))
       && (!Number.isFinite(piso) || (temPreco && produto.preco >= piso))
-      && (!compativeis.checked || pecaCompativel(lerMontagem(produtos), produto, produtos))
+      && (!compativeis.checked || !conflitos.length)
       && termos.every(termo => produto.busca.includes(termo));
   }
 
   function atualizarComparacao() {
     quadro.hidden = selecionados.size === 0;
-    const cartoes = [...selecionados].map(id => {
-      const produto = porId.get(id);
-      const bloco = document.createElement('article');
-      const titulo = document.createElement('h3');
-      titulo.textContent = produto.nome;
-      const dados = document.createElement('dl');
-      for (const [nome, valor] of Object.entries(produto.specs)) {
-        const termo = document.createElement('dt');
-        const info = document.createElement('dd');
-        termo.textContent = nome;
-        info.textContent = valor;
-        dados.append(termo, info);
-      }
-      bloco.append(titulo, dados);
-      return bloco;
-    });
-    quadro.querySelector('.estoque-comparados').replaceChildren(...cartoes);
+    const saida = quadro.querySelector('.estoque-comparados');
+    saida.replaceChildren();
+    if (!selecionados.size) return;
+    const itens = [...selecionados].map(id => porId.get(id));
+    const tabela = document.createElement('table');
+    tabela.setAttribute('aria-label', 'Preço e características dos modelos selecionados');
+    const cabecalho = tabela.createTHead().insertRow();
+    for (const nome of ['Característica', ...itens.map(p => p.nome)]) {
+      const celula = document.createElement('th');
+      celula.scope = 'col';
+      celula.textContent = nome;
+      cabecalho.append(celula);
+    }
+    const corpo = tabela.createTBody();
+    const chaves = [...new Set(itens.flatMap(p => Object.keys(p.specs)))];
+    for (const [nome, dados] of [['Preço de referência', itens.map(p => mostrarPreco(p.preco))],
+      ...chaves.map(chave => [chave, itens.map(p => p.specs[chave] ?? 'Não informado')])]) {
+      const linha = corpo.insertRow();
+      const campo = document.createElement('th');
+      campo.scope = 'row';
+      campo.textContent = nome;
+      linha.append(campo);
+      for (const valor of dados) linha.insertCell().textContent = valor;
+    }
+    saida.append(tabela);
   }
 
   function atualizar(exibirSugestoes = false) {
-    const abaAtual = botoes.find(aba => aba.dataset.categoria === categoria);
-    for (const aba of botoes) {
-      aba.setAttribute('aria-selected', String(aba === abaAtual));
-      aba.tabIndex = aba === abaAtual ? 0 : -1;
-    }
-    painel.setAttribute('aria-labelledby', abaAtual.id);
-    painel.removeAttribute('aria-label');
     ocultarSugestoes();
     if (!produtos) return;
-    const encontrados = produtos.filter(filtrar).sort((a, b) => {
+    const erro = minimo.valueAsNumber > preco.valueAsNumber;
+    preco.setCustomValidity(erro ? 'O máximo precisa ser igual ou maior que o mínimo.' : '');
+    preco.setAttribute('aria-invalid', String(erro));
+    faixaErro.hidden = !erro;
+    faixaErro.textContent = erro ? 'O máximo precisa ser igual ou maior que o mínimo.' : '';
+    if (erro) {
+      grade.replaceChildren();
+      status.textContent = 'Corrija a faixa de preço para ver as peças.';
+      return;
+    }
+    const montagem = lerMontagem(produtos);
+    const conflitos = new Map(produtos.map(produto => [produto.id,
+      montagem.length ? conflitosDaPeca(montagem, produto, produtos) : []]));
+    const encontrados = produtos.filter(produto => filtrar(produto, conflitos.get(produto.id))).sort((a, b) => {
       if (ordenacao.value === 'nome') return a.nome.localeCompare(b.nome, 'pt-BR');
       if (!Number.isFinite(a.preco)) return Number.isFinite(b.preco) ? 1 : 0;
       if (!Number.isFinite(b.preco)) return -1;
       return ordenacao.value === 'menor' ? a.preco - b.preco : b.preco - a.preco;
     });
-    grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos, selecionados.has(produto.id))));
+    grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos, selecionados.has(produto.id), conflitos.get(produto.id))));
+    const filtrosAtivos = [categoria !== todas && 'categoria', marca.value && 'marca',
+      (preco.value || minimo.value) && 'faixa de preço', compativeis.checked && 'compatibilidade'].filter(Boolean);
     status.textContent = encontrados.length === 0
-      ? "Nenhuma peça com esse nome. Tente ‘SSD’ ou ‘memória’, ou revise os filtros."
+      ? (busca.value.trim() ? 'Nenhuma peça para a busca “' + busca.value.trim() + '”. ' : 'Nenhuma peça encontrada. ')
+        + (filtrosAtivos.length ? 'Revise os filtros de ' + filtrosAtivos.join(', ') + ' ou limpe os filtros.' : 'Tente outro nome ou modelo.')
       : encontrados.length === 1 ? '1 peça encontrada.' : encontrados.length + ' peças encontradas.';
     if (exibirSugestoes && busca.value.trim() && encontrados.length) listarSugestoes(encontrados);
   }
@@ -231,23 +265,29 @@ export async function iniciarPaginaEstoque(raiz) {
     if (chave === todas) endereco.searchParams.delete('cat');
     else endereco.searchParams.set('cat', chave);
     if (metodo) history[metodo](null, '', endereco);
+    atualizarCategorias();
     atualizar();
   }
 
-  abas.addEventListener('click', evento => {
-    const aba = evento.target.closest('button');
-    if (aba) ativarCategoria(aba.dataset.categoria, 'pushState');
-  });
-  abas.addEventListener('keydown', evento => {
-    const proximo = abaPorTecla(evento, botoes);
-    if (!proximo) return;
-    ativarCategoria(proximo.dataset.categoria, 'replaceState');
-    proximo.focus();
-  });
+  categoriaCampo.addEventListener('change', () => ativarCategoria(categoriaCampo.value, 'pushState'));
+  tipoCampo.addEventListener('change', () => ativarCategoria(tipoCampo.value, 'pushState'));
   window.addEventListener('popstate', () => ativarCategoria(categoriaDaURL()));
 
   formulario.addEventListener('submit', evento => evento.preventDefault());
-  formulario.addEventListener('input', evento => atualizar(evento.target === busca));
+  formulario.addEventListener('input', evento => {
+    if (evento.target !== categoriaCampo && evento.target !== tipoCampo) atualizar(evento.target === busca);
+  });
+  raiz.querySelector('.estoque-reset').addEventListener('click', () => {
+    formulario.reset();
+    if (categoria === todas) {
+      atualizarCategorias();
+      atualizar();
+    } else ativarCategoria(todas, 'replaceState');
+    busca.focus();
+  });
+  window.addEventListener('storage', evento => {
+    if (evento.key === 'ggtech-montagem' || evento.key === null) atualizar();
+  });
   busca.addEventListener('keydown', evento => {
     if (sugestoes.hidden) return;
     if (evento.key === 'Escape') {
@@ -284,6 +324,11 @@ export async function iniciarPaginaEstoque(raiz) {
       status.textContent = 'Compare até três produtos por vez.';
       return;
     }
+    if (target.checked && selecionados.size && porId.get([...selecionados][0]).categoria !== porId.get(id).categoria) {
+      target.checked = false;
+      status.textContent = 'Escolha peças do mesmo tipo ou limpe a comparação para começar de novo.';
+      return;
+    }
     if (target.checked) selecionados.add(id);
     else selecionados.delete(id);
     atualizarComparacao();
@@ -304,6 +349,7 @@ export async function iniciarPaginaEstoque(raiz) {
       : 'O carrinho já tem todas as unidades disponíveis de ' + produto.nome + '.';
   });
 
+  atualizarCategorias();
   atualizar();
   try {
     const [catalogo, glossario] = await Promise.all([carregarEstoque(), carregarGlossario().catch(() => [])]);
@@ -319,6 +365,6 @@ export async function iniciarPaginaEstoque(raiz) {
     }
     atualizar();
   } catch {
-    status.textContent = 'Não foi possível carregar o estoque. Recarregue a página para tentar novamente.';
+    status.textContent = 'Não foi possível carregar o catálogo. Recarregue a página para tentar novamente.';
   }
 }

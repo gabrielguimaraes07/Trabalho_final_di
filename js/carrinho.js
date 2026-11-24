@@ -1,6 +1,6 @@
 import { verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
 import { configurarGaveta } from './dialogo.js?v=1.0-final';
-import { carregarEstoque, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=montagem-3';
+import { carregarEstoque, mostrarSubtotal, precoEmReais, somarItens } from './estoque.js?v=interfaces-4';
 
 const chave = 'ggtech-carrinho-real';
 const eventoCarrinho = 'ggtech:carrinho';

@@ -68,10 +68,10 @@ export function incluirPeca(linhas, produto, catalogo) {
   return normalizarMontagem([...mantidos, { id: produto.id, quantidade: 1 }], catalogo);
 }
 
-export function pecaCompativel(linhas, produto, catalogo) {
+export function conflitosDaPeca(linhas, produto, catalogo) {
   const erros = itens => verificarCompatibilidade(itensDaMontagem(itens, catalogo))
-    .filter(regra => regra.estado === 'erro').map(regra => regra.titulo);
-  const anteriores = erros(linhas);
+    .filter(regra => regra.estado === 'erro');
+  const anteriores = new Set(erros(linhas).map(regra => regra.titulo));
   const relacionadas = {
     cpu: ['Socket', 'Fonte e conectores', 'Cooler do processador', 'Conexão do monitor'],
     'placa-mae': ['Socket', 'Memória e slots', 'Formato da placa-mãe', 'Fonte e conectores', 'Portas de armazenamento', 'Conexão do monitor'],
@@ -88,8 +88,8 @@ export function pecaCompativel(linhas, produto, catalogo) {
     ventoinhas: ['Ventoinhas e montagem'],
     monitor: ['Conexão do monitor'],
   };
-  return !erros(incluirPeca(linhas, produto, catalogo)).some(titulo =>
-    relacionadas[produto.categoria]?.includes(titulo) || !anteriores.includes(titulo));
+  return erros(incluirPeca(linhas, produto, catalogo)).filter(({ titulo }) =>
+    relacionadas[produto.categoria]?.includes(titulo) || !anteriores.has(titulo));
 }
 
 export function lerSalvas(catalogo) {

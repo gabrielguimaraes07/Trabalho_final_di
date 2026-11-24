@@ -1,8 +1,9 @@
-import { carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, rotuloCotacao, somarItens } from './estoque.js?v=montagem-3';
+import { avisoDeVideo, carregarEstoque, categorias, mostrarPreco, mostrarSubtotal, resumoEspecificacoes, rotuloCotacao, somarItens } from './estoque.js?v=interfaces-4';
+import { carregarGlossario } from './glossario.js?v=1.0-final';
 import { categoriasMultiplas, estimarConsumo, perifericos, rotulosCompatibilidade, verificarCompatibilidade } from './compatibilidade.js?v=montagem-3';
 import { levarMontagemAoCarrinho } from './carrinho.js?v=montagem-3';
-import { gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
-  normalizarMontagem, pecaCompativel, salvarComNome, separarItens } from './montagem.js?v=montagem-3';
+import { conflitosDaPeca, gravarMontagem, incluirPeca, itensDaMontagem, lerMontagem, lerSalvas,
+  normalizarMontagem, salvarComNome, separarItens } from './montagem.js?v=interfaces-4';
 
 function elemento(tag, texto, atributos = {}) {
   const no = document.createElement(tag);
@@ -82,6 +83,13 @@ const etapas = [
   ['Fonte', 'fonte'], ['Gabinete', 'gabinete'], ['Refrigeração', 'air-cooler', 'water-cooler'],
 ];
 
+const termosPorCategoria = {
+  cpu: ['socket', 'nucleos', 'tdp'], 'placa-mae': ['socket', 'microatx'], ram: ['ddr4', 'ddr5', 'mt-s'],
+  gpu: ['gpu', 'vram'], 'ssd-sata': ['ssd'], 'ssd-nvme': ['m2-nvme'], fonte: ['potencia', 'cabos-modulares'],
+  gabinete: ['atx', 'microatx', 'mini-itx'], 'air-cooler': ['cooler', 'dissipacao'],
+  'water-cooler': ['cooler'], ventoinhas: ['ventoinha'], monitor: ['resolucao', 'full-hd'],
+};
+
 function estadoDasEtapas(itens) {
   const escolhidas = new Set(itens.map(({ produto }) => produto.categoria));
   const videoIntegrado = itens.some(({ produto }) => produto.categoria === 'cpu' && produto.compat.video);
@@ -95,8 +103,9 @@ export async function iniciarSimulador(raiz) {
   const localizar = seletor => raiz.querySelector(seletor);
   const status = localizar('#sim-status');
   let catalogo;
+  let glossario;
   try {
-    catalogo = await carregarEstoque();
+    [catalogo, glossario] = await Promise.all([carregarEstoque(), carregarGlossario().catch(() => [])]);
   } catch {
     status.textContent = 'O catálogo não carregou. Recarregue a página para tentar novamente.';
     return;
@@ -149,7 +158,7 @@ export async function iniciarSimulador(raiz) {
   }
   if (perifericos.has(categoria)) localizar('#sim-opcionais').open = true;
 
-  function cartao(produto, jaNaMontagem, compativel, categoriaOcupada) {
+  function cartao(produto, jaNaMontagem, conflitos, categoriaOcupada) {
     const bloco = elemento('article', undefined, { class: 'sim-card', 'data-selecionada': String(!!jaNaMontagem) });
     const imagem = foto(produto);
     if (imagem) {
@@ -160,11 +169,13 @@ export async function iniciarSimulador(raiz) {
     const dados = elemento('div', undefined, { class: 'sim-card-dados' });
     const rotuloPreco = rotuloCotacao(produto);
     dados.append(elemento('h4', produto.nome),
-      elemento('p', Object.values(produto.specs).slice(0, 3).join(' · ')),
+      elemento('p', resumoEspecificacoes(produto, 3)),
       elemento('strong', mostrarPreco(produto.preco)),
       elemento('a', rotuloPreco, { href: produto.fontePreco, class: 'sim-card-fonte',
         'aria-label': rotuloPreco + ' de ' + produto.nome }));
-    if (!compativel) dados.append(elemento('p', 'Conflito com a seleção atual', { class: 'sim-conflito' }));
+    const video = avisoDeVideo(produto);
+    if (video) dados.append(elemento('p', video));
+    if (conflitos.length) dados.append(elemento('p', conflitos[0].mensagem, { class: 'sim-conflito' }));
     if (jaNaMontagem) dados.append(elemento('p', jaNaMontagem.quantidade + ' na montagem', { class: 'sim-selecionada' }));
     const multipla = categoriasMultiplas.has(produto.categoria);
     const rotulo = jaNaMontagem ? (multipla ? 'Adicionar unidade' : 'Selecionada')
@@ -188,22 +199,32 @@ export async function iniciarSimulador(raiz) {
       botao.toggleAttribute('data-preenchida', preenchidas.has(botao.dataset.categoria));
     }
     const escolhas = catalogo.filter(produto => produto.categoria === categoria)
-      .map(produto => ({ produto, compativel: pecaCompativel(linhas, produto, catalogo),
+      .map(produto => ({ produto, conflitos: conflitosDaPeca(linhas, produto, catalogo),
         item: linhas.find(linha => linha.id === produto.id) }))
-      .filter(({ compativel, item }) => !compativeis.checked || compativel || item)
-      .sort((a, b) => Number(b.compativel) - Number(a.compativel) || a.produto.preco - b.produto.preco);
+      .filter(({ conflitos, item }) => !compativeis.checked || !conflitos.length || item)
+      .sort((a, b) => Number(!!a.conflitos.length) - Number(!!b.conflitos.length) || a.produto.preco - b.produto.preco);
     tituloCategoria.textContent = categorias[categoria].nome;
     localizar('#sim-categoria-dica').textContent = categorias[categoria].descricao;
     localizar('#sim-contagem').textContent = escolhas.length + (escolhas.length === 1 ? ' opção' : ' opções');
     const outroTipoDeCooler = { 'air-cooler': 'water-cooler', 'water-cooler': 'air-cooler' }[categoria];
     const categoriaOcupada = preenchidas.has(categoria) || preenchidas.has(outroTipoDeCooler);
-    cartoes.replaceChildren(...escolhas.map(({ produto, compativel, item }) => cartao(produto, item, compativel, categoriaOcupada)));
+    cartoes.replaceChildren(...escolhas.map(({ produto, conflitos, item }) => cartao(produto, item, conflitos, categoriaOcupada)));
     if (!escolhas.length) cartoes.append(elemento('p', 'Nenhuma peça compatível nesta categoria. Desmarque o filtro para ver as demais.'));
+  }
+
+  function atualizarGlossario() {
+    const bloco = localizar('#sim-glossario');
+    const termos = glossario.filter(({ id }) => termosPorCategoria[categoria]?.includes(id));
+    bloco.hidden = !termos.length;
+    bloco.open = false;
+    bloco.querySelector('dl').replaceChildren(...termos.flatMap(({ termo, descricao }) =>
+      [elemento('dt', termo), elemento('dd', descricao)]));
   }
 
   function mudarCategoria(nova) {
     categoria = nova;
     atualizarOpcoes();
+    atualizarGlossario();
     tituloCategoria.focus();
   }
 
@@ -374,6 +395,7 @@ export async function iniciarSimulador(raiz) {
 
   atualizarCombinacoes();
   atualizar();
+  atualizarGlossario();
   localizar('#sim-conteudo').hidden = false;
   localizar('#sim-barra').hidden = false;
   status.textContent = sugestao ? sugestao.nome + ' na montagem.'

@@ -103,6 +103,19 @@ export function mostrarPreco(valor) {
   return Number.isFinite(valor) ? precoEmReais.format(valor) : 'Preço indisponível';
 }
 
+export function resumoEspecificacoes(produto, limite) {
+  return Object.entries(produto.specs).slice(0, limite).map(([chave, valor]) => {
+    if (chave === 'Socket') return 'Socket ' + valor;
+    if (chave === 'Núcleos' || chave === 'Threads') return valor + ' ' + chave.toLocaleLowerCase('pt-BR');
+    return valor;
+  }).join(' · ');
+}
+
+export function avisoDeVideo(produto) {
+  if (produto.categoria !== 'cpu') return '';
+  return produto.compat.video ? 'Tem vídeo integrado.' : 'Precisa de uma placa de vídeo dedicada.';
+}
+
 export function rotuloCotacao(produto) {
   return produto.tipoPreco === 'Histórico'
     ? 'Preço histórico' : produto.tipoPreco === 'Comparador'

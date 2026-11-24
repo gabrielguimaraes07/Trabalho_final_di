@@ -23,13 +23,22 @@
 
 .estoque-filtros {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.7fr) repeat(2, minmax(0, 1fr));
   align-items: end;
   gap: var(--space-2);
   padding: var(--space-2);
   border-radius: var(--radius-card);
   background: var(--surface);
 }
+
+
+.estoque-filtros-extra { grid-column: 1 / -1; }
+.estoque-filtros-extra summary { min-block-size: 44px; padding-block: .65rem; cursor: pointer; }
+.estoque-filtros-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); padding-block: var(--space-1); }
+.estoque-filtros-grade > p { grid-column: 1 / -1; color: var(--text-2); }
+.estoque-filtros-grade .estoque-erro, .estoque-produto-aviso { color: var(--danger); }
+.estoque-reset { grid-column: 1 / -1; justify-self: start; }
+@media (max-width: 32rem) { .estoque-filtros-grade { grid-template-columns: 1fr; } }
 
 .estoque-campo {
   display: grid;
@@ -106,33 +115,6 @@
   text-decoration: underline;
 }
 
-.estoque-abas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-}
-
-.estoque-abas button {
-  min-block-size: 44px;
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--text-2);
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--accent);
-  cursor: pointer;
-}
-
-.estoque-abas button:is(:hover, [aria-selected="true"]) {
-  border-color: var(--accent);
-  background: var(--surface);
-  text-decoration: underline;
-  text-underline-offset: .2em;
-}
-
-.estoque-abas button[aria-selected="true"] {
-  font-weight: 700;
-}
-
 .estoque-status {
   margin-block-end: var(--space-2);
 }
@@ -148,7 +130,7 @@
 
 .estoque-produto {
   display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
   gap: var(--space-2);
   min-inline-size: 0;
   padding: var(--space-2);
@@ -161,14 +143,15 @@
   display: grid;
   place-items: center;
   min-inline-size: 0;
-  aspect-ratio: 5 / 3;
+  aspect-ratio: 4 / 3;
   border-radius: var(--radius-card);
-  background: radial-gradient(ellipse at center, color-mix(in srgb, var(--surface) 88%, var(--accent)), var(--bg) 76%);
+  background: #fff;
 }
 
 .estoque-produto img {
   display: block;
-  inline-size: min(68%, 12rem);
+  inline-size: 100%;
+  border-radius: inherit;
   block-size: auto;
 }
 
@@ -384,26 +367,22 @@
 }
 
 .estoque-comparacao {
+  display: grid;
+  gap: var(--space-2);
   background: var(--surface);
-  border: 1px solid var(--text-2);
   border-radius: var(--radius-card);
   padding: var(--space-2);
 }
-
-.estoque-comparados {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
-  gap: var(--space-2);
-  overflow-wrap: anywhere;
-}
-
-.estoque-comparados dl { font-size: var(--font-14); }
-.estoque-comparados dt { font-weight: 600; }
-.estoque-comparados dd { margin: 0 0 .4rem; }
+.estoque-comparacao h2 { margin: 0; font-size: var(--font-20); }
+.estoque-comparacao button { justify-self: start; }
+.estoque-comparados table { width: 100%; table-layout: fixed; border-collapse: collapse; overflow-wrap: anywhere; font-size: var(--font-14); }
+.estoque-comparados :is(th, td) { padding: .55rem .35rem; text-align: start; vertical-align: top; }
+.estoque-comparados tbody tr:nth-child(odd) { background: var(--bg); }
+.estoque-comparados tbody tr:first-child { font-weight: 700; }
 .estoque-detalhe { font-size: var(--font-14); }
 .estoque-detalhe summary { cursor: pointer; min-block-size: 44px; display: list-item; padding-block: .6rem; }
 .estoque-detalhe a { display: block; padding-block: .4rem; }
-.estoque-produto > label { display: flex; gap: .4rem; align-items: center; min-block-size: 44px; cursor: pointer; }
+.estoque-produto-rodape label { display: flex; gap: .4rem; align-items: center; min-block-size: 44px; cursor: pointer; }
 .estoque-produto-foto img { object-fit: contain; }
 .estoque-produto-foto > a { text-align: center; padding: var(--space-1); }
 .carrinho-compatibilidade li[data-estado="erro"] { border-inline-start-color: var(--danger); }
