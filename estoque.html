@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="css/tokens.css?v=1.0-final">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-4">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-4">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-5">
+    <link rel="stylesheet" href="css/loja.css?v=interfaces-5">
     <link rel="stylesheet" href="css/apoio.css?v=interfaces-4">
     <link rel="stylesheet" href="css/acessibilidade.css?v=1.0-final">
-    <script type="module" src="js/main.js?v=interfaces-4a"></script>
+    <script type="module" src="js/main.js?v=interfaces-5"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -118,8 +118,18 @@
         <button type="button" class="botao-texto estoque-reset">Limpar filtros</button>
       </form>
 
-      <section class="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
-        <h2 id="comparacao-titulo">Comparação de produtos</h2>
+      <section class="estoque-barra-comparacao" data-barra-fixa aria-label="Seleção para comparação" hidden>
+        <div>
+          <p class="estoque-comparacao-contagem" role="status"></p>
+          <button class="botao-contorno" type="button" data-ver-comparacao aria-controls="estoque-comparacao">Ver comparação</button>
+        </div>
+        <details>
+          <summary>Remover modelos</summary>
+          <ul class="estoque-comparacao-selecao"></ul>
+        </details>
+      </section>
+      <section class="estoque-comparacao" id="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
+        <h2 id="comparacao-titulo" tabindex="-1">Comparação de produtos</h2>
         <p>Compare até três modelos do mesmo tipo, como processadores com processadores.</p>
         <div class="estoque-comparados"></div>
         <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>

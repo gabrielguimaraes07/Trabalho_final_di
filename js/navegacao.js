@@ -2,7 +2,7 @@ export function iniciarNavegacao(cabecalho) {
   const botao = cabecalho.querySelector('.nav-toggle');
   const painel = cabecalho.querySelector('.nav-painel');
   const estreito = matchMedia('(max-width: 64rem)');
-  const barra = document.querySelector('#sim-barra');
+  const barra = document.querySelector('[data-barra-fixa]');
   const raiz = document.documentElement;
   let aberto = false;
 

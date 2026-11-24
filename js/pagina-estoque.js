@@ -12,6 +12,27 @@ function paiDaCategoria(id) {
   return Object.keys(grupos3d).find(pai => grupos3d[pai].includes(id)) ?? id;
 }
 
+function dadosDaComparacao({ categoria, specs, compat }) {
+  if (categoria === 'cpu') {
+    const video = typeof compat.video === 'boolean'
+      ? (compat.video ? 'Sim · placa dedicada opcional' : 'Não · requer placa dedicada') : 'Não informado';
+    return { 'Vídeo integrado': video, ...specs };
+  }
+  if (categoria === 'ram') {
+    return { 'Capacidade total': Number.isFinite(compat.gb) ? compat.gb + ' GB' : specs.Capacidade,
+      'Módulos': compat.slots, 'Geração': compat.ddr ?? specs.Tipo, 'Taxa': specs.Taxa };
+  }
+  if (categoria === 'placa-mae') {
+    return { ...specs, 'Saídas de vídeo': compat.video?.join(', '),
+      'Limite de memória': Number.isFinite(compat.limiteRam) ? compat.limiteRam + ' GB' : undefined };
+  }
+  if (categoria === 'fonte') {
+    return { ...specs, 'EPS (CPU)': compat.eps, 'PCIe de 8 pinos': compat.pcie8,
+      'PCIe de 16 pinos': compat.pcie16 ? 'Sim' : undefined, 'Alimentação SATA': compat.sata };
+  }
+  return specs;
+}
+
 function criarCartao(produto, termos, selecionado, conflitos) {
   const item = document.createElement('li');
   item.className = 'estoque-produto';
@@ -119,6 +140,11 @@ export async function iniciarPaginaEstoque(raiz) {
   const ordenacao = raiz.querySelector('#ordem-produtos');
   const compativeis = raiz.querySelector('#somente-compativeis');
   const quadro = raiz.querySelector('.estoque-comparacao');
+  const tituloComparacao = quadro.querySelector('h2');
+  const barra = raiz.querySelector('.estoque-barra-comparacao');
+  const removerModelos = barra.querySelector('details');
+  const listaComparacao = barra.querySelector('ul');
+  const contagemComparacao = barra.querySelector('.estoque-comparacao-contagem');
   const selecionados = new Set();
   const sugestoes = raiz.querySelector('#sugestoes-produtos');
   const categoriaCampo = raiz.querySelector('#categoria-produto');
@@ -198,11 +224,28 @@ export async function iniciarPaginaEstoque(raiz) {
   }
 
   function atualizarComparacao() {
-    quadro.hidden = selecionados.size === 0;
+    quadro.hidden = barra.hidden = selecionados.size === 0;
     const saida = quadro.querySelector('.estoque-comparados');
     saida.replaceChildren();
-    if (!selecionados.size) return;
     const itens = [...selecionados].map(id => porId.get(id));
+    contagemComparacao.textContent = itens.length === 1 ? '1 modelo selecionado' : itens.length + ' modelos selecionados';
+    listaComparacao.replaceChildren(...itens.map(produto => {
+      const item = document.createElement('li');
+      const nome = document.createElement('span');
+      nome.textContent = produto.nome;
+      const remover = document.createElement('button');
+      remover.type = 'button';
+      remover.className = 'botao-texto';
+      remover.dataset.removerComparacao = produto.id;
+      remover.textContent = 'Remover';
+      remover.setAttribute('aria-label', 'Remover ' + produto.nome + ' da comparação');
+      item.append(nome, remover);
+      return item;
+    }));
+    if (!itens.length) {
+      removerModelos.open = false;
+      return;
+    }
     const tabela = document.createElement('table');
     tabela.setAttribute('aria-label', 'Preço e características dos modelos selecionados');
     const cabecalho = tabela.createTHead().insertRow();
@@ -213,13 +256,21 @@ export async function iniciarPaginaEstoque(raiz) {
       cabecalho.append(celula);
     }
     const corpo = tabela.createTBody();
-    const chaves = [...new Set(itens.flatMap(p => Object.keys(p.specs)))];
+    const especificacoes = itens.map(dadosDaComparacao);
+    const chaves = [...new Set(especificacoes.flatMap(p => Object.keys(p)))]
+      .filter(chave => especificacoes.some(p => p[chave] !== undefined));
     for (const [nome, dados] of [['Preço de referência', itens.map(p => mostrarPreco(p.preco))],
-      ...chaves.map(chave => [chave, itens.map(p => p.specs[chave] ?? 'Não informado')])]) {
+      ...chaves.map(chave => [chave, especificacoes.map(p => p[chave] ?? 'Não informado')])]) {
       const linha = corpo.insertRow();
       const campo = document.createElement('th');
       campo.scope = 'row';
       campo.textContent = nome;
+      if (new Set(dados).size > 1) {
+        const nota = document.createElement('span');
+        nota.className = 'estoque-comparacao-diferenca';
+        nota.textContent = 'Diferença';
+        campo.append(nota);
+      }
       linha.append(campo);
       for (const valor of dados) linha.insertCell().textContent = valor;
     }
@@ -332,7 +383,29 @@ export async function iniciarPaginaEstoque(raiz) {
     if (target.checked) selecionados.add(id);
     else selecionados.delete(id);
     atualizarComparacao();
-    status.textContent = selecionados.size + ' selecionado(s) para comparação.';
+  });
+  barra.querySelector('[data-ver-comparacao]').addEventListener('click', () => {
+    removerModelos.open = false;
+    tituloComparacao.focus();
+    tituloComparacao.scrollIntoView({ block: 'start' });
+  });
+  removerModelos.addEventListener('keydown', evento => {
+    if (evento.key !== 'Escape' || !removerModelos.open) return;
+    evento.preventDefault();
+    removerModelos.open = false;
+    removerModelos.querySelector('summary').focus();
+  });
+  listaComparacao.addEventListener('click', ({ target }) => {
+    const remover = target.closest('[data-remover-comparacao]');
+    if (!remover) return;
+    const id = remover.dataset.removerComparacao;
+    const ordem = [...listaComparacao.querySelectorAll('button')].indexOf(remover);
+    selecionados.delete(id);
+    const checkbox = grade.querySelector(`input[data-comparar="${id}"]`);
+    if (checkbox) checkbox.checked = false;
+    atualizarComparacao();
+    const botoes = listaComparacao.querySelectorAll('button');
+    (botoes[Math.min(ordem, botoes.length - 1)] ?? checkbox ?? busca).focus({ preventScroll: true });
   });
   quadro.querySelector('[data-limpar-comparacao]').addEventListener('click', () => {
     selecionados.clear();
