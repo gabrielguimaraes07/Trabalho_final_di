@@ -1,4 +1,4 @@
-import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=interfaces-4';
+import { carregarBuildsProntos, linkDaConfiguracao } from './configuracoes.js?v=interfaces-5';
 import { mostrarPreco, mostrarSubtotal } from './estoque.js?v=interfaces-4';
 
 const ocasioes = {

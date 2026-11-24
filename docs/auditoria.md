@@ -83,3 +83,10 @@ A edição reúne 9 páginas, 56 produtos, 19 tipos de peça e 16 setups. Os pre
 O contraste foi calculado para as cores usadas e os fluxos foram conferidos com testes automatizados de interface. As notas Lighthouse e axe acima pertencem à base indicada no início. As sessões com participantes e a pontuação SUS ainda dependem da aplicação do roteiro. [Roteiro de usabilidade](usabilidade.md)
 
 No Chromium, na versão publicada, foram conferidos o tema claro e o escuro, a gaveta com seis fontes e o catálogo com sete placas de vídeo. Com 393 px de largura útil via zoom, o menu abriu por teclado, fechou com Escape e devolveu o foco. A barra de total levou ao resumo abaixo do cabeçalho. Também foi conferida a sincronização do orçamento digitado. Esse teste de largura foi feito no Chromium de computador.
+
+## Acabamento do catálogo e da montagem
+
+- No teste automatizado do montador guiado, **Estudar** com R$ 4.000 exibiu o menor total do catálogo, R$ 6.904,76, na etapa de orçamento. A sugestão de Economia com R$ 8.500 exibiu miniaturas, subtotais e saldo de R$ 1.595,24.
+- A barra de comparação manteve a seleção por tipo, levou o foco ao quadro e permitiu remover modelos individualmente. As linhas de processador, memória, placa-mãe, SSD e fonte foram conferidas, incluindo o vídeo integrado do Ryzen 5 5600G.
+- O Ryzen 5 5600G sozinho marcou duas etapas, com a saída de vídeo atendida automaticamente. A orientação sobre desempenho apareceu uma vez e deu lugar à avaliação quando a memória foi selecionada.
+- As cinco fotos da página inicial foram conferidas. Os links abriram a categoria correspondente no guia e levaram o foco ao título da seção.

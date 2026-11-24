@@ -3,15 +3,15 @@ import { iniciarGaveta } from './gaveta.js?v=interfaces-4a';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=1.0-final';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-4a';
-import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-4a';
-import { iniciarMontador } from './montador.js?v=interfaces-4a';
-import { iniciarBuildsProntos } from './builds-prontos.js?v=interfaces-4';
+import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-5';
+import { iniciarMontador } from './montador.js?v=interfaces-5';
+import { iniciarBuildsProntos } from './builds-prontos.js?v=interfaces-5';
 import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
 import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=1.0-final';
 
-import { iniciarNavegacao } from './navegacao.js?v=interfaces-4';
+import { iniciarNavegacao } from './navegacao.js?v=interfaces-5';
 
 const cabecalho = document.querySelector('.site-header');
 if (cabecalho) iniciarNavegacao(cabecalho);
@@ -157,10 +157,10 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js?v=interfaces-4a').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+if (simulador) import('./simulador.js?v=interfaces-5').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
-if (guia) import('./guia.js?v=interfaces-4').then(({ iniciarGuia }) => iniciarGuia(guia));
+if (guia) import('./guia.js?v=interfaces-5').then(({ iniciarGuia }) => iniciarGuia(guia));
 
 const videoNotebook = document.querySelector('[data-video-notebook]');
 if (videoNotebook) {

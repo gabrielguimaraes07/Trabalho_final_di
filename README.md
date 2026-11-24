@@ -2,28 +2,36 @@
 
 **Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-A ideia do GGTECH é ajudar quem está montando o primeiro PC. Dá para explorar as peças no gabinete, entender as especificações e conferir se os componentes escolhidos funcionam juntos. [Abrir o GGTECH](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
+A ideia do GGTECH é ajudar quem está montando o primeiro PC. Dá para explorar um gabinete, entender a função de cada peça e conferir se os componentes escolhidos funcionam juntos. [Abrir o GGTECH no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/)
 
-## O que dá para testar
+## O que dá para fazer
 
-- **Montagem guiada.** Responda três perguntas e receba uma sugestão para o seu uso. O orçamento inclui o computador e os periféricos que aparecem na lista.
-- **Montagem manual.** Escolha peça por peça, veja o que falta e confira os avisos. Salve a configuração no navegador ou compartilhe o link. Depois de reunir as peças essenciais, leve a montagem ao carrinho e simule a compra.
-- **Setups prontos.** Abra um dos 16 PCs para jogos, estudos, programação, edição de vídeo ou produtividade. Cada configuração pode ser ajustada na montagem manual.
-- **Catálogo.** Pesquise entre 56 modelos em 19 tipos de peça e compare até três produtos do mesmo tipo. O filtro de compatibilidade usa a montagem manual. O carrinho é uma lista separada para a compra simulada.
-- **Gabinete, guia e glossário.** Selecione as peças no gabinete 3D ou pelos botões abaixo da imagem. O guia traz fotos, preços e fichas, e o glossário explica as siglas mais comuns.
-- **Acessibilidade.** Os dois temas e as preferências de leitura e movimento ficam guardados no navegador.
+- **Explorar o gabinete.** Clique nas peças do modelo 3D ou use os botões com os nomes das categorias. O guia e o glossário explicam as especificações em linguagem simples.
+- **Pesquisar e comparar.** O catálogo tem 56 produtos em 19 tipos de peça. A barra de comparação guarda até três modelos do mesmo tipo enquanto você pesquisa.
+- **Montar com ajuda.** Diga para que vai usar o PC, quanto quer gastar e o que prioriza. O montador avisa cedo quando o orçamento fica abaixo dos setups disponíveis e separa as peças e os periféricos no resultado.
+- **Escolher peça por peça.** Comece do zero ou abra um dos 16 setups prontos. A montagem manual mostra o progresso, avisa sobre incompatibilidades e permite salvar ou compartilhar a configuração.
+- **Revisar no carrinho.** Confira os itens e o total antes de confirmar uma compra simulada. O painel de acessibilidade permite ajustar tema, leitura e movimento.
 
-## Como rodar localmente
+## Tecnologias e pastas
+
+O site usa HTML, CSS e JavaScript. O Three.js renderiza o gabinete e o GSAP cuida das animações. Produtos, setups e glossário são carregados de arquivos JSON. Preferências, carrinho e montagens salvas ficam no armazenamento local do navegador.
+
+- A raiz tem as páginas HTML, como `index.html`, `estoque.html` e `montador.html`.
+- `css/` reúne os estilos. `js/` contém as regras e interações das páginas.
+- `data/` guarda os dados do catálogo, dos setups e do glossário.
+- `assets/` reúne fotos, vídeo, ícones e bibliotecas. `docs/` tem os créditos, a documentação da disciplina e os testes.
+
+## Como rodar no seu computador
 
 1. Clone ou baixe o repositório e abra a pasta no VS Code.
 2. Abra `index.html` com **Open with Live Server**.
 
-Também dá para abrir um terminal na pasta, executar `python -m http.server 8765` e acessar [http://localhost:8765](http://localhost:8765/). O servidor permite ler os dados JSON. Fotos, vídeo, Three.js e GSAP acompanham o projeto. Sem WebGL, o gabinete funciona com uma imagem e os botões das categorias.
+Se preferir, execute `python -m http.server 8765` no terminal a partir da pasta do projeto e abra [http://localhost:8765](http://localhost:8765/). O servidor local permite que as páginas carreguem os arquivos JSON. Sem WebGL, o gabinete aparece como uma imagem com os mesmos botões de categoria.
 
-## Preços e documentação
+## Limites e créditos
 
-Os preços em reais são referências da consulta de 23/11/2026, sem frete. O rótulo **Preço histórico** indica uma oferta encerrada ou um anúncio indisponível naquele dia. A compatibilidade usa dados das fichas e sinaliza pontos que valem uma conferida no manual. [Fontes das cotações e fotos](docs/fontes-apresentacao.md)
+Compra e login são simulações. O site funciona sem servidor de contas ou pagamentos. Os preços, consultados em 23/11/2026, são referências em reais e sem frete. **Preço histórico** identifica um anúncio indisponível ou uma oferta encerrada na consulta. Os avisos de compatibilidade usam as fichas do catálogo. Confira no manual do fabricante detalhes como folgas, cabos e BIOS. [Cotações e créditos das fotos](docs/fontes-apresentacao.md)
 
-- [IHC, UX e interface](docs/ihc-ux-ui.md) · [Design Thinking](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
-- [Paleta e cálculo de contraste](docs/wcag-contraste.md) · [Auditoria técnica](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
+- [IHC, experiência e interface](docs/ihc-ux-ui.md) · [Design Thinking](docs/design-thinking.md) · [Heurísticas de Nielsen](docs/heuristicas-nielsen.md)
+- [Contraste](docs/wcag-contraste.md) · [Auditoria](docs/auditoria.md) · [Roteiro de usabilidade](docs/usabilidade.md)
 - [Mapa do código](docs/codigo.md) · [Registro de uso de IA](docs/registro-ia.md)
