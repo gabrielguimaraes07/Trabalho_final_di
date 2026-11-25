@@ -56,7 +56,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   }
 
   function agendar() {
-    if (ativo && visivel && !document.hidden && quadroPendente === undefined) {
+    if (ativo && (visivel || pecaFocada) && !document.hidden && quadroPendente === undefined) {
       quadroPendente = requestAnimationFrame(quadro);
     }
   }
@@ -68,7 +68,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
 
   function quadro(tempo) {
     quadroPendente = undefined;
-    if (!ativo || !visivel || document.hidden) {
+    if (!ativo || (!visivel && !pecaFocada) || document.hidden) {
       tempoAnterior = undefined;
       return;
     }
@@ -80,8 +80,10 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     const emAproximacao = !!voo || !!pecaFocada;
     const cameraMoveu = !!voo;
     if (voo) {
-      const progresso = THREE.MathUtils.clamp((tempo - voo.inicio) / voo.duracao, 0, 1);
-      const passo = THREE.MathUtils.smoothstep(progresso, 0, 1);
+      voo.decorrido += Math.min(64, tempo - (voo.quadroAnterior ?? tempo));
+      voo.quadroAnterior = tempo;
+      const progresso = Math.min(1, voo.decorrido / voo.duracao);
+      const passo = THREE.MathUtils.smootherstep(progresso, 0, 1);
       camera.position.lerpVectors(voo.posicaoInicial, voo.destino, passo);
       controles.target.lerpVectors(voo.alvoInicial, voo.alvo, passo);
       if (progresso === 1) {
@@ -156,8 +158,8 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       controles.enabled = !categoria;
     } else {
       voo = {
-        inicio: performance.now(),
-        duracao: categoria ? 880 : 620,
+        decorrido: 0,
+        duracao: categoria ? 1180 : 820,
         posicaoInicial: camera.position.clone(),
         alvoInicial: controles.target.clone(),
         destino,

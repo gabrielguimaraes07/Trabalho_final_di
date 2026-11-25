@@ -1,5 +1,5 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
-import { iniciarGaveta } from './gaveta.js?v=interfaces-15';
+import { iniciarGaveta } from './gaveta.js?v=interfaces-16';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
@@ -82,6 +82,8 @@ if (secaoExplodida) {
 
 if (visualizador) {
   const hero = visualizador.closest('.hero');
+  const introducao = hero.querySelector('.hero-copy');
+  const areaCena = visualizador.querySelector('.cena-pc-area');
   const cena = visualizador.querySelector('.cena-pc');
   const canvas = cena.querySelector('canvas');
   const imagem = cena.querySelector('img');
@@ -90,22 +92,51 @@ if (visualizador) {
   const instrucao = visualizador.querySelector('#instrucao-pc');
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
   const acionadores = visualizador.querySelectorAll('button[data-categoria]');
-  const painel = hero.querySelector('#gaveta-estoque');
-  const linkCatalogo = visualizador.querySelector('#gaveta-link-estoque');
+  const painel = document.querySelector('#gaveta-estoque');
   let categoriaDestacada;
   let contagem;
   let cena3D;
 
   function atualizarInstrucao() {
-    instrucao.textContent = !painel.hidden
-      ? 'Escolha outra peça ou feche as opções pra voltar.'
+    instrucao.textContent = painel.open
+      ? 'Feche o catálogo pra voltar ao gabinete.'
       : cena3D ? 'Arraste o PC e escolha uma peça.' : 'Escolha uma peça pra ver as opções.';
   }
 
+  function enquadrarCena() {
+    if (!painel.open) return;
+    const origem = areaCena.getBoundingClientRect();
+    if (!origem.width) return;
+
+    const margem = 16;
+    const larguraTela = document.documentElement.clientWidth;
+    const gavetaEmbaixo = painel.offsetWidth >= larguraTela - 1;
+    const direita = larguraTela - (gavetaEmbaixo ? 0 : painel.offsetWidth) - margem;
+    const fundo = innerHeight - (gavetaEmbaixo ? painel.offsetHeight : 0) - margem;
+    const topo = Math.max(0, cabecalho?.getBoundingClientRect().bottom ?? 0) + margem;
+    const espacoIntroducao = direita - Math.min(400, origem.width) - margem - introducao.getBoundingClientRect().left;
+    const cabeAoLado = !gavetaEmbaixo && espacoIntroducao >= 280;
+    if (cabeAoLado) introducao.style.setProperty('max-inline-size', espacoIntroducao + 'px');
+    else introducao.style.removeProperty('max-inline-size');
+    const limitesIntroducao = introducao.getBoundingClientRect();
+    const esquerda = cabeAoLado ? limitesIntroducao.right + margem : margem;
+    const tamanho = Math.max(1, Math.min(origem.width, direita - esquerda, fundo - topo));
+    const x = Math.max(esquerda, Math.min(origem.left, direita - tamanho));
+    const y = Math.max(topo, Math.min(origem.top + (origem.height - tamanho) / 2, fundo - tamanho));
+    const cobreIntroducao = x < limitesIntroducao.right && x + tamanho > limitesIntroducao.left
+      && y < limitesIntroducao.bottom && y + tamanho > limitesIntroducao.top;
+    introducao.toggleAttribute('data-coberta', cobreIntroducao);
+    cena.style.setProperty('--cena-x', x - origem.left + 'px');
+    cena.style.setProperty('--cena-y', y - origem.top + 'px');
+    cena.style.setProperty('--cena-escala', tamanho / origem.width);
+  }
+
+  window.addEventListener('resize', enquadrarCena);
+  const observarArea = new ResizeObserver(enquadrarCena);
+  observarArea.observe(areaCena);
+
   const abrir = iniciarGaveta(painel, categoria => {
-    hero.toggleAttribute('data-inspecao', !!categoria);
     cena.toggleAttribute('data-aproximado', !!categoria);
-    linkCatalogo.hidden = !categoria;
     for (const botao of acionadores) {
       botao.setAttribute('aria-expanded', String(botao.dataset.categoria === categoria));
     }
@@ -117,11 +148,12 @@ if (visualizador) {
       const ponto = botoes.get(categoria);
       imagem.style.setProperty('--zoom-x', ponto.style.getPropertyValue('--x'));
       imagem.style.setProperty('--zoom-y', ponto.style.getPropertyValue('--y'));
-      linkCatalogo.href = './estoque.html?cat=' + encodeURIComponent(categoria);
-      const area = cena.getBoundingClientRect();
-      const topo = cabecalho?.getBoundingClientRect().bottom ?? 0;
-      if (area.top < topo || area.top + Math.min(200, area.height) > innerHeight) {
-        linkCatalogo.scrollIntoView({ block: 'start', behavior: 'instant' });
+      enquadrarCena();
+    } else {
+      introducao.removeAttribute('data-coberta');
+      introducao.style.removeProperty('max-inline-size');
+      for (const propriedade of ['--cena-x', '--cena-y', '--cena-escala']) {
+        cena.style.removeProperty(propriedade);
       }
     }
 
@@ -144,7 +176,7 @@ if (visualizador) {
 
   visualizador.addEventListener('click', evento => {
     const botao = evento.target.closest('button[data-categoria]');
-    if (botao) abrir(botao.dataset.categoria, botao, evento.detail === 0);
+    if (botao) abrir(botao.dataset.categoria, botao);
   });
 
   for (const [categoria, botao] of botoes) {
@@ -175,12 +207,12 @@ if (visualizador) {
     }
   }
 
-  import('./cena3d.js?v=interfaces-15').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-16').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;
     imagem.hidden = true;
-    if (!painel.hidden) cena3D.aproximar(painel.dataset.categoria);
+    if (painel.open) cena3D.aproximar(painel.dataset.categoria);
     atualizarInstrucao();
   }).catch(usarImagem);
 }

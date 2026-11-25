@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-15">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-16">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
@@ -25,7 +25,7 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=interfaces-15"></script>
+    <script type="module" src="js/principal.js?v=interfaces-16"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -74,52 +74,38 @@
         </div>
 
         <div class="visualizador">
-          <a class="visualizador-catalogo" id="gaveta-link-estoque" href="./estoque.html" hidden>Catálogo de peças</a>
-          <div class="cena-pc" id="cena-pc">
-            <img class="pc-estatico" src="recursos/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis.">
-            <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro e nove peças selecionáveis. Use os botões sobre o modelo ou a lista abaixo." hidden></canvas>
-            <button class="hotspot" type="button" data-categoria="gabinete" style="--x: 63.24%; --y: 10.90%" aria-label="Ver no catálogo de gabinetes" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="placa-mae" style="--x: 50.19%; --y: 19.40%" aria-label="Ver no catálogo de placas-mãe" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="cooler" style="--x: 38.09%; --y: 30.96%" aria-label="Ver no catálogo de coolers" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="ram" style="--x: 58.10%; --y: 30.87%" aria-label="Ver no catálogo de memórias RAM" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="cpu" style="--x: 34.80%; --y: 44.33%" aria-label="Ver no catálogo de processadores" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="armazenamento" style="--x: 61.12%; --y: 50.36%" aria-label="Ver no catálogo de SSDs" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="ventoinhas" style="--x: 83.74%; --y: 47.61%" aria-label="Ver no catálogo de ventoinhas" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="gpu" style="--x: 40.66%; --y: 60.88%" aria-label="Ver no catálogo de placas de vídeo" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <button class="hotspot" type="button" data-categoria="fonte" style="--x: 30.64%; --y: 77.38%" aria-label="Ver no catálogo de fontes" aria-controls="gaveta-estoque" aria-expanded="false"></button>
-            <span class="rotulo-peca" id="rotulo-peca" aria-hidden="true" hidden></span>
+          <div class="cena-pc-area">
+            <div class="cena-pc" id="cena-pc">
+              <img class="pc-estatico" src="recursos/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis.">
+              <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro e nove peças selecionáveis. Use os botões sobre o modelo ou a lista abaixo." hidden></canvas>
+              <button class="hotspot" type="button" data-categoria="gabinete" style="--x: 63.24%; --y: 10.90%" aria-label="Ver no catálogo de gabinetes" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="placa-mae" style="--x: 50.19%; --y: 19.40%" aria-label="Ver no catálogo de placas-mãe" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="cooler" style="--x: 38.09%; --y: 30.96%" aria-label="Ver no catálogo de coolers" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="ram" style="--x: 58.10%; --y: 30.87%" aria-label="Ver no catálogo de memórias RAM" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="cpu" style="--x: 34.80%; --y: 44.33%" aria-label="Ver no catálogo de processadores" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="armazenamento" style="--x: 61.12%; --y: 50.36%" aria-label="Ver no catálogo de SSDs" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="ventoinhas" style="--x: 83.74%; --y: 47.61%" aria-label="Ver no catálogo de ventoinhas" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="gpu" style="--x: 40.66%; --y: 60.88%" aria-label="Ver no catálogo de placas de vídeo" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <button class="hotspot" type="button" data-categoria="fonte" style="--x: 30.64%; --y: 77.38%" aria-label="Ver no catálogo de fontes" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
+              <span class="rotulo-peca" id="rotulo-peca" aria-hidden="true" hidden></span>
+            </div>
           </div>
           <div class="visualizador-controles">
             <p id="instrucao-pc">Escolha uma peça no gabinete pra ver os modelos do catálogo.</p>
             <button class="botao-texto" id="pausar-giro" type="button" hidden>Pausar giro</button>
           </div>
           <div class="pecas-alternativas" id="pecas" role="group" aria-label="Categorias de peças do PC" tabindex="-1">
-            <button class="botao-contorno" type="button" data-categoria="gpu" aria-controls="gaveta-estoque" aria-expanded="false">Placa de vídeo</button>
-            <button class="botao-contorno" type="button" data-categoria="cpu" aria-controls="gaveta-estoque" aria-expanded="false">Processador</button>
-            <button class="botao-contorno" type="button" data-categoria="ram" aria-controls="gaveta-estoque" aria-expanded="false">Memória RAM</button>
-            <button class="botao-contorno" type="button" data-categoria="placa-mae" aria-controls="gaveta-estoque" aria-expanded="false">Placa-mãe</button>
-            <button class="botao-contorno" type="button" data-categoria="armazenamento" aria-controls="gaveta-estoque" aria-expanded="false">SSD</button>
-            <button class="botao-contorno" type="button" data-categoria="fonte" aria-controls="gaveta-estoque" aria-expanded="false">Fonte</button>
-            <button class="botao-contorno" type="button" data-categoria="cooler" aria-controls="gaveta-estoque" aria-expanded="false">Cooler</button>
-            <button class="botao-contorno" type="button" data-categoria="ventoinhas" aria-controls="gaveta-estoque" aria-expanded="false">Ventoinhas</button>
-            <button class="botao-contorno" type="button" data-categoria="gabinete" aria-controls="gaveta-estoque" aria-expanded="false">Gabinete</button>
+            <button class="botao-contorno" type="button" data-categoria="gpu" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Placa de vídeo</button>
+            <button class="botao-contorno" type="button" data-categoria="cpu" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Processador</button>
+            <button class="botao-contorno" type="button" data-categoria="ram" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Memória RAM</button>
+            <button class="botao-contorno" type="button" data-categoria="placa-mae" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Placa-mãe</button>
+            <button class="botao-contorno" type="button" data-categoria="armazenamento" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">SSD</button>
+            <button class="botao-contorno" type="button" data-categoria="fonte" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Fonte</button>
+            <button class="botao-contorno" type="button" data-categoria="cooler" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Cooler</button>
+            <button class="botao-contorno" type="button" data-categoria="ventoinhas" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Ventoinhas</button>
+            <button class="botao-contorno" type="button" data-categoria="gabinete" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Gabinete</button>
           </div>
         </div>
-        <section class="painel-peca" id="gaveta-estoque" aria-labelledby="gaveta-titulo" hidden>
-          <header class="gaveta-cabecalho">
-            <h2 id="gaveta-titulo">Opções da peça</h2>
-            <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar opções da peça">
-              <span class="icone-simbolo" aria-hidden="true">×</span>
-            </button>
-          </header>
-          <p id="gaveta-descricao"></p>
-          <div class="gaveta-filtro">
-            <label for="gaveta-busca">Filtrar por nome ou marca</label>
-            <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">
-          </div>
-          <p class="gaveta-status" id="gaveta-status" role="status"></p>
-          <ul class="gaveta-lista" id="gaveta-lista"></ul>
-        </section>
       </section>
 
       <section class="secao-inicio container" id="por-dentro" aria-labelledby="titulo-por-dentro">
@@ -270,5 +256,24 @@
         <p class="rodape-creditos">Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026</p>
       </div>
     </footer>
+
+    <dialog class="gaveta gaveta-catalogo" id="gaveta-estoque" aria-labelledby="gaveta-titulo" aria-describedby="gaveta-descricao">
+      <div class="gaveta-conteudo">
+        <header class="gaveta-cabecalho">
+          <h2 id="gaveta-titulo">Catálogo</h2>
+          <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar catálogo" autofocus>
+            <span class="icone-simbolo" aria-hidden="true">×</span>
+          </button>
+        </header>
+        <p id="gaveta-descricao"></p>
+        <div class="gaveta-filtro">
+          <label for="gaveta-busca">Filtrar por nome ou marca</label>
+          <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">
+        </div>
+        <p class="gaveta-status" id="gaveta-status" role="status"></p>
+        <ul class="gaveta-lista" id="gaveta-lista"></ul>
+        <a class="gaveta-link-estoque" id="gaveta-link-estoque" href="./estoque.html">Ver todas no catálogo</a>
+      </div>
+    </dialog>
   </body>
 </html>

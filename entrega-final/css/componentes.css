@@ -210,37 +210,24 @@ body:has(.gaveta[open]) {
   padding: 0;
 }
 
-.hero[data-inspecao] {
-  grid-template-columns: minmax(0, 1fr);
-  align-items: start;
-  padding-block: var(--space-3);
+.cena-pc-area {
+  inline-size: min(100%, 34rem);
+  aspect-ratio: 1;
 }
 
-.hero[data-inspecao] .hero-copy {
-  display: none;
+.cena-pc-area > .cena-pc {
+  inline-size: 100%;
+  transform-origin: top left;
+  transform: translate(var(--cena-x, 0px), var(--cena-y, 0px)) scale(var(--cena-escala, 1));
 }
 
-.visualizador-catalogo {
-  display: flex;
-  align-items: center;
-  justify-self: start;
-  min-block-size: 44px;
+.cena-pc[data-aproximado] {
+  z-index: 2;
+  background-color: var(--bg);
 }
 
-.painel-peca {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  min-inline-size: 0;
-  padding: var(--space-3);
-  border: 1px solid var(--text-2);
-  border-radius: var(--radius-card);
-  background: var(--surface);
-  text-align: start;
-}
-
-.painel-peca .produto-resumo {
-  background: var(--bg);
+.hero-copy[data-coberta] {
+  opacity: 0;
 }
 
 .cena-pc[data-aproximado]:has(> .pc-estatico:not([hidden])) {
@@ -257,53 +244,53 @@ body:has(.gaveta[open]) {
   inset-block-start: 50%;
 }
 
-@media (min-width: 52rem) {
-  .hero[data-inspecao] {
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-  }
+.gaveta-catalogo {
+  inline-size: min(29rem, 47vw);
 }
 
-@media (width < 52rem) {
-  .hero[data-inspecao] .pecas-alternativas {
+.gaveta-catalogo::backdrop {
+  background: color-mix(in srgb, var(--bg) 30%, transparent);
+}
+
+body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pecas-alternativas) {
+  opacity: 0;
+}
+
+@media (max-width: 48rem) {
+  .gaveta-catalogo {
+    inset: auto 0 0;
     inline-size: 100%;
-    min-inline-size: 0;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding: .25rem .25rem .5rem;
+    block-size: 52dvh;
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--text-2);
   }
 
-  .hero[data-inspecao] .pecas-alternativas > button {
-    flex: 0 0 auto;
-  }
-}
-
-@media (min-width: 52rem) and (min-height: 34rem) {
-  .painel-peca {
-    max-block-size: calc(100dvh - var(--cabecalho-altura, 4.5rem) - 2 * var(--space-3));
-  }
-
-  .painel-peca .gaveta-lista {
-    min-block-size: 0;
-    overflow: auto;
-    overscroll-behavior: contain;
-    padding: .2rem;
+  .gaveta-catalogo[open] {
+    animation-name: abrir-catalogo-inferior;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-reduzir-movimento="true"]) .painel-peca:not([hidden]) {
-    animation: mostrar-opcoes-peca .25s ease-out;
+  :root:not([data-reduzir-movimento="true"]) .hero-copy {
+    transition: opacity .25s ease;
+  }
+
+  :root:not([data-reduzir-movimento="true"]) .cena-pc-area > .cena-pc {
+    transition: transform 1.05s cubic-bezier(.28, .06, .23, 1), background-color .4s ease;
+  }
+
+  :root:not([data-reduzir-movimento="true"]) .gaveta-catalogo[open] {
+    animation-duration: .42s;
   }
 
   :root:not([data-reduzir-movimento="true"]) .cena-pc[data-aproximado] > .pc-estatico {
-    animation: aproximar-imagem .65s ease-out;
+    animation: aproximar-imagem 1.15s ease-in-out;
   }
 }
 
-@keyframes mostrar-opcoes-peca {
-  from { opacity: 0; transform: translateX(.75rem); }
-  to { opacity: 1; transform: none; }
+@keyframes abrir-catalogo-inferior {
+  from { transform: translateY(100%); }
+  to { transform: none; }
 }
 
 @keyframes aproximar-imagem {
