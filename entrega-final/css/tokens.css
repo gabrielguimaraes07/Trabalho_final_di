@@ -9,28 +9,28 @@
 :root {
   color-scheme: dark;
 
-  --bg: #121a2c;
-  --bg-gradiente-inicio: #2c4167;
-  --bg-gradiente-meio: #1e2b47;
-  --surface: #1b2942;
-  --surface-inset: #10192b;
-  --line: #404f6a;
-  --field-line: #8294ae;
-  --accent-soft: #263959;
-  --accent-soft-hover: #30476b;
+  --bg: #0c1428;
+  --bg-gradiente-inicio: #1d3262;
+  --bg-gradiente-meio: #121f3e;
+  --surface: #172542;
+  --surface-inset: #0a1326;
+  --line: #384b75;
+  --field-line: #879ac0;
+  --accent-soft: #21395f;
+  --accent-soft-hover: #304c76;
   --text: #f1f1eb;
-  --text-2: #bdc7d9;
-  --accent: #a5bcee;
-  --brand-blue: #c4d0eb;
+  --text-2: #bdcbe4;
+  --accent: #a2c3ff;
+  --brand-blue: #c7d8fa;
   --metal: #d5a17c;
-  --palco-luz: #304871;
-  --palco-grade: rgba(165, 188, 238, .09);
-  --btn-primary: #a9bfe9;
-  --btn-hover: #bfd0f0;
-  --btn-text: #14223a;
+  --palco-luz: #253d6e;
+  --palco-grade: rgba(162, 195, 255, .10);
+  --btn-primary: #a4c4ff;
+  --btn-hover: #c1d5fc;
+  --btn-text: #101f3d;
   --success: #72d6a5;
   --danger: #ffad9e;
-  --glass: rgba(20, 31, 52, .97);
+  --glass: rgba(13, 23, 44, .97);
   --glass-blur: blur(20px);
 
   --font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;

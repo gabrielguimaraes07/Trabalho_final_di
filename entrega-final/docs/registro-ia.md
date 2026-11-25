@@ -30,7 +30,7 @@ Na aba de acessibilidade, pedi ajuda para montar a troca entre modo claro e escu
 
 Usei o laboratório visual para escolher os ajustes que queria aproveitar. Na página inicial, o Codex me ajudou a organizar o título e os dois caminhos de montagem ao lado do gabinete. Também ajudou a ligar a página ao menu fixo à esquerda, com destaque para a seção aberta e um botão de menu para o celular. No catálogo, pedi ajuda para reorganizar os filtros. Também usei o Codex para resumir o glossário, suavizar a câmera do gabinete e testar os controles por teclado.
 
-Depois de ver a prévia, escolhi a fonte DM Sans. O primeiro azul-petróleo ficou esverdeado na tela, então pedi ao Codex que puxasse a paleta para o azul ardósia, com detalhes em latão, e conferisse o contraste nos dois temas. [Página inicial](capturas/apresentacao-inicio.jpg)
+Depois de ver a prévia, escolhi a fonte DM Sans. O primeiro azul-petróleo ficou esverdeado na tela, então pedi ao Codex que puxasse a paleta para o azul ardósia, com detalhes em latão, e conferisse o contraste nos dois temas. O Codex também montou prévias na abertura e no catálogo para eu comparar outros tons. Depois da comparação, escolhi o azul meia-noite. O fundo escuro deixa a iluminação do gabinete e os botões claros mais visíveis. [Página inicial](capturas/apresentacao-inicio.jpg)
 
 ## Setups e organização do GitHub
 

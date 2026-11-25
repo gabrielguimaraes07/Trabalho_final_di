@@ -14,6 +14,6 @@ O menu lateral marca a página atual. Para dar mais espaço ao conteúdo, você 
 
 ## O visual e as opções de leitura
 
-Usei o azul ardósia na base para dar destaque às fotos. O azul de porcelana aparece nas ações e no foco, enquanto o latão ajuda a destacar o item atual do menu. A DM Sans mantém a mesma leitura nas várias páginas. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim, fica mais fácil entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
+Usei o azul meia-noite na base para dar destaque às fotos. O azul claro aparece nas ações e no foco, enquanto o latão ajuda a destacar o item atual do menu. A DM Sans mantém a mesma leitura nas várias páginas. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim, fica mais fácil entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
 
 O painel tem tema, tamanho de texto, espaçamento, alto contraste e opções para sublinhar links ou reduzir movimento. Você pode conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)

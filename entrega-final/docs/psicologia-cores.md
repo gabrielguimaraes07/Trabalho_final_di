@@ -2,15 +2,15 @@
 
 Quem abre o GGTECH pela primeira vez precisa encontrar por onde começar, entender o que está vendo e perceber quando uma escolha pede atenção. A cor ajuda nesses três momentos. A ideia é que a página passe uma impressão ligada a tecnologia e que a pessoa reconheça os mesmos sinais conforme vai do gabinete ao catálogo e à montagem.
 
-## Azul ardósia no fundo e nos cartões
+## Azul meia-noite no fundo e nos cartões
 
-Na tela inicial, o azul ardósia fica mais claro perto do título e volta a escurecer conforme a página desce. Atrás do gabinete, uma grade fina lembra uma bancada de montagem e ajuda a separar o modelo do fundo. No catálogo, os cartões em azul um pouco mais claro se separam da barra lateral e das áreas de filtro. As fotos continuam sobre superfícies claras, o que ajuda a ver os encaixes e o acabamento de cada produto.
+Na tela inicial, o azul meia-noite fica mais claro perto do título e volta a escurecer conforme a página desce. Atrás do gabinete, uma grade fina lembra uma bancada de montagem e ajuda a separar o modelo do fundo. No catálogo, os cartões em azul um pouco mais claro se separam da barra lateral e das áreas de filtro. As fotos continuam sobre superfícies claras, o que ajuda a ver os encaixes e o acabamento de cada produto.
 
 No tema claro, o fundo tem um tom suave de cinza azulado e os cartões ficam mais claros. Em ambos os temas, o nome e o preço chamam a atenção primeiro pelo tamanho, pelo peso e pela cor do texto. As informações complementares usam uma cor mais suave. Isso ajuda a identificar um produto de relance e depois ler as especificações com calma.
 
 ## O azul cria um caminho pela interface
 
-Na página inicial, o ícone preenchido e a seta em tom de latão destacam **Montar pelo orçamento**. A borda lateral do item atual usa o mesmo latão, como um pequeno detalhe que liga o menu ao resto do site. Ao navegar com Tab, o azul de porcelana aparece em volta do controle que está com o foco. O preenchimento, a seta, a borda e o contorno ajudam a reconhecer o que cada cor indica.
+Na página inicial, o ícone preenchido e a seta em tom de latão destacam **Montar pelo orçamento**. A borda lateral do item atual usa o mesmo latão, como um pequeno detalhe que liga o menu ao resto do site. Ao navegar com Tab, o azul claro aparece em volta do controle que está com o foco. O preenchimento, a seta, a borda e o contorno ajudam a reconhecer o que cada cor indica.
 
 O azul é a cor mais presente. Escolhi essa cor para dar ao projeto um tom técnico e organizado. Estudos sobre cores em marcas já associaram o azul à ideia de competência no contexto pesquisado. A associação varia conforme a pessoa e a situação. No site, o efeito mais imediato vem da repetição. Depois de usar uma área, fica mais fácil reconhecer o azul em outra.
 

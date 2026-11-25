@@ -9,7 +9,7 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Você pode olhar as pe�
 ## Abra as duas entregas
 
 - **Parcial.** Tem o gabinete 3D com quatro grupos de peças, 20 produtos de exemplo, troca de tema e carrossel. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Arquivos da parcial](entrega-parcial/)
-- **Final.** Tem 62 produtos reais em 19 categorias, 16 setups prontos, montagem guiada e manual, comparação de peças, guia, glossário, carrinho e painel de acessibilidade. [Abrir a final](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=gabinete-1) · [Arquivos da final](entrega-final/)
+- **Final.** Tem 62 produtos reais em 19 categorias, 16 setups prontos, montagem guiada e manual, comparação de peças, guia, glossário, carrinho e painel de acessibilidade. [Abrir a final](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=meia-noite-1) · [Arquivos da final](entrega-final/)
 
 ![Página inicial com menu lateral, fundo em degradê e gabinete interativo](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
@@ -21,7 +21,7 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Você pode olhar as pe�
 
 Comecei pelo `index.html`, com cabeçalho, menu, conteúdo e rodapé. Na parte de cima, deixei dois caminhos para montar o PC e coloquei o gabinete 3D ao lado. Mais abaixo ficaram os cartões das peças, o carrossel e os setups prontos. O link **Pular para o conteúdo** leva quem usa o teclado direto à parte principal.
 
-Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Usei a fonte DM Sans, que vem no próprio projeto, e um degradê azul ardósia no tema escuro, com azul de porcelana nos controles e detalhes em latão. O G claro no quadrado azul ardósia identifica a marca no cabeçalho e na aba do navegador. A estrutura das páginas fica em `layout.css`, e a navegação lateral em `navegacao.css`. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
+Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Usei a fonte DM Sans, que vem no próprio projeto, e um degradê azul meia-noite no tema escuro, com azul claro nos controles e detalhes em latão. O G claro no quadrado azul meia-noite identifica a marca no cabeçalho e na aba do navegador. A estrutura das páginas fica em `layout.css`, e a navegação lateral em `navegacao.css`. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
 
 ### 2. O gabinete em 3D
 

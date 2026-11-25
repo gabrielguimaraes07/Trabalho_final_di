@@ -32,7 +32,7 @@ A entrega parcial foi aberta em uma subpasta, como no GitHub Pages. O gabinete g
 
 ## Contraste
 
-Na paleta azul ardósia, o texto secundário mediu pelo menos **5,99:1** no escuro e **5,78:1** no claro nos fundos verificados. O item atual do menu deu **6,09:1** no escuro e **6,03:1** no claro. Também conferi o texto de apoio da montagem guiada quando o mouse passa sobre o cartão. [Cálculo atual](wcag-contraste.md)
+Na paleta azul meia-noite, o texto secundário mediu pelo menos **7,61:1** no escuro e **5,78:1** no claro nos fundos verificados. O item atual do menu deu **6,49:1** no escuro e **6,03:1** no claro. Também conferi o texto de apoio da montagem guiada quando o mouse passa sobre o cartão. [Cálculo atual](wcag-contraste.md)
 
 Em uma revisão anterior, a transparência da gaveta foi um dos pontos que precisaram de ajuste. No tema escuro, uma legenda chegou a **3,84:1** com um fundo claro atrás da gaveta. A mudança de opacidade e de cor levou o cálculo para **5,26:1** no escuro e **5,71:1** no claro, mesmo nos fundos mais desfavoráveis usados no teste.
 

@@ -6,18 +6,18 @@ O cálculo compara os fundos da página, dos cartões e das áreas translúcidas
 
 ## Tema escuro
 
-- **Texto principal.** 9,00:1.
-- **Texto secundário.** 5,99:1.
-- **Links.** 5,36:1.
-- **Item selecionado do menu.** 6,09:1.
-- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,12:1.
-- **Texto de apoio no cartão da montagem guiada.** 5,51:1.
-- **Mensagens de confirmação.** 5,77:1.
-- **Mensagens de erro.** 5,69:1.
-- **Texto no botão principal.** 8,57:1.
-- **Contorno de foco.** 5,36:1.
-- **Borda dos campos.** 4,71:1.
-- **Botão principal em relação ao fundo.** 5,50:1.
+- **Texto principal.** 10,99:1.
+- **Texto secundário.** 7,61:1.
+- **Links.** 7,00:1.
+- **Item selecionado do menu.** 6,49:1.
+- **Contorno lateral do item selecionado e seta da montagem guiada.** 3,81:1.
+- **Texto de apoio no cartão da montagem guiada.** 5,30:1.
+- **Mensagens de confirmação.** 7,05:1.
+- **Mensagens de erro.** 6,96:1.
+- **Texto no botão principal.** 9,27:1.
+- **Contorno de foco.** 7,00:1.
+- **Borda dos campos.** 5,37:1.
+- **Botão principal em relação ao fundo.** 7,07:1.
 
 ## Tema claro
 

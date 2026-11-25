@@ -9,7 +9,7 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 ## Open either version
 
 - **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
-- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=gabinete-1) · [Final files](entrega-final/)
+- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=meia-noite-1) · [Final files](entrega-final/)
 
 ![GGTECH home page with the sidebar, soft gradient, and interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
@@ -21,7 +21,7 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 
 I started with `index.html` and set up the header, navigation, main content, and footer. At the top, I put the two ways to start a build next to the 3D case. The part cards, carousel, and ready-made builds sit farther down the page. The **Pular para o conteúdo** (Skip to content) link takes keyboard users straight to the main content.
 
-I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. The project bundles DM Sans and uses a slate-blue gradient in dark mode, with porcelain-blue controls and brass accents. The light G on a slate-blue square identifies the project in the header and browser tab. `layout.css` handles page structure, and `navegacao.css` styles the sidebar. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
+I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. The project bundles DM Sans and uses a midnight blue gradient in dark mode, with light blue controls and brass accents. The light G on a midnight blue square identifies the project in the header and browser tab. `layout.css` handles page structure, and `navegacao.css` styles the sidebar. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
 
 ### 2. The 3D PC case
 
