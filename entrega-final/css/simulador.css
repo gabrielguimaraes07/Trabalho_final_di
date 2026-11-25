@@ -1,8 +1,8 @@
 .sim-pagina {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-2);
   align-content: start;
-  padding-block: var(--space-6);
+  padding-block: clamp(1rem, 3vw, 2.5rem) var(--space-6);
 }
 
 .sim-cabecalho {
@@ -13,6 +13,7 @@
 .sim-cabecalho p,
 .sim-painel > p,
 .sim-status { color: var(--text-2); }
+.sim-status:empty { position: absolute; }
 
 .sim-grade,
 .sim-principal,
@@ -105,7 +106,7 @@
 }
 
 @media (min-width: 64rem) {
-  .sim-grade { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); align-items: start; }
+  .sim-grade { grid-template-columns: minmax(0, 1.85fr) minmax(0, 1fr); align-items: start; }
   .sim-resumo { position: sticky; inset-block-start: calc(var(--cabecalho-altura, 4.5rem) + 1rem); max-block-size: calc(100dvh - var(--cabecalho-altura, 4.5rem) - 2rem); overflow: auto; }
 }
 
@@ -154,9 +155,19 @@
   transform: skewY(-.85deg);
 }
 
-.sim-atalhos { display: flex; flex-wrap: wrap; gap: .4rem var(--space-2); }
-.sim-escolha { padding: clamp(1rem, 2.4vw, 1.6rem); }
-.sim-total-movel {
+.sim-atalhos summary,
+.sim-categorias-painel summary,
+.sim-diagnostico > summary {
+  min-block-size: 44px;
+  align-content: center;
+  cursor: pointer;
+}
+
+.sim-atalhos summary { color: var(--accent); font-size: var(--font-14); }
+.sim-atalhos-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.sim-escolha { padding: clamp(.75rem, 2vw, 1.4rem); }
+
+.sim-fluxo {
   position: sticky;
   z-index: 2;
   inset-block-start: var(--cabecalho-altura, 4.5rem);
@@ -164,17 +175,74 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 0 .65rem;
-  padding: .25rem .75rem;
+  gap: .35rem .6rem;
+  padding: .45rem .65rem;
+  border: 1px solid var(--line);
   border-radius: var(--radius-card);
   background: var(--surface);
   box-shadow: 0 2px 6px #0003;
 }
-.sim-total-movel strong { color: var(--text); }
-.sim-total-movel a { display: inline-flex; align-items: center; min-block-size: 44px; }
-@media (min-width: 64rem) {
-  .sim-total-movel { display: none; }
+
+.sim-fluxo-total {
+  color: var(--text-2);
+  font-size: var(--font-14);
 }
+
+.sim-fluxo-total strong {
+  display: inline-block;
+  color: var(--text);
+  font-size: var(--font-16);
+}
+
+@media (min-width: 64rem) {
+  .sim-fluxo { inset-block-start: calc(var(--cabecalho-altura, 4.5rem) + .5rem); }
+  .sim-fluxo-total p:first-child { display: none; }
+}
+
+.sim-fluxo-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem;
+}
+
+.sim-fluxo-acoes :is(a, button) {
+  padding-inline: .65rem;
+  border-radius: var(--radius-card);
+  font-size: var(--font-14);
+}
+
+#sim-proxima {
+  display: grid;
+  gap: .12rem;
+  justify-items: start;
+  line-height: 1.15;
+}
+
+#sim-proxima > span { font-size: .75em; }
+
+.sim-categoria-cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: .5rem;
+  padding-block-end: .4rem;
+  border-block-end: 1px solid var(--line);
+}
+
+.sim-etapa-atual {
+  color: var(--accent);
+  font-size: var(--font-14);
+  font-weight: 700;
+}
+
+.sim-categoria-cabecalho h2 { margin: .18rem 0 .35rem; }
+#sim-contagem { margin-block-end: .35rem; color: var(--text-2); font-size: var(--font-14); }
+.sim-categorias-painel[open] { flex-basis: 100%; }
+.sim-categorias-painel summary { font-size: var(--font-14); font-weight: 700; }
+.sim-categorias-painel #sim-opcionais summary { color: var(--text-2); }
+
 .sim-categorias { display: flex; flex-wrap: wrap; gap: .42rem; padding-block: .5rem 1rem; }
 .sim-categorias button {
   border: 1px solid var(--text-2);
@@ -189,8 +257,6 @@
 }
 .sim-categorias button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 700; }
 .sim-categorias button[data-preenchida]::after { content: ' ✓'; }
-.sim-escolha details summary { min-block-size: 44px; padding-block: .55rem; cursor: pointer; }
-#sim-categorias { margin-block-end: var(--space-2); }
 #sim-etapas { inline-size: 100%; block-size: .7rem; accent-color: var(--btn-primary); }
 #sim-essenciais { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(8rem, 100%), 1fr)); gap: .1rem .65rem; padding: 0; }
 #sim-essenciais button { display: grid; justify-items: start; gap: .1rem; text-align: start; padding: .4rem .25rem; }
@@ -200,12 +266,12 @@
 #sim-video-integrado { margin-block: .35rem; color: var(--text-2); font-size: var(--font-14); }
 .sim-envio { display: grid; gap: .35rem; align-content: start; }
 .sim-envio button:disabled { background: var(--bg); color: var(--text-2); border-color: var(--text-2); cursor: default; text-decoration: none; }
-.sim-envio p, .sim-filtros #sim-categoria-dica { color: var(--text-2); font-size: var(--font-14); }
-#sim-conflito-atual { border-inline-start: 3px solid var(--danger); padding: .5rem .75rem; margin-block-end: .8rem; }
-.sim-filtros { display: flex; align-items: end; flex-wrap: wrap; justify-content: space-between; gap: .35rem 1rem; margin-block-end: 1rem; }
-.sim-filtros h3 { margin: 0; font-size: var(--font-20); }
-.sim-filtros p { color: var(--text-2); font-size: var(--font-14); }
-.sim-cartoes { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr)); }
+.sim-envio p { color: var(--text-2); font-size: var(--font-14); }
+#sim-conflito-atual { border-inline-start: 3px solid var(--danger); padding: .5rem .75rem; margin-block-end: .6rem; }
+.sim-filtros { display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between; gap: 0 .65rem; margin-block: .25rem .45rem; }
+.sim-filtros label { font-size: var(--font-14); }
+.sim-check input { accent-color: var(--btn-primary); }
+.sim-cartoes { display: grid; gap: .65rem; grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr)); }
 .sim-card {
   display: flex;
   flex-direction: column;
@@ -217,32 +283,56 @@
 .sim-card[data-selecionada="true"] { border-color: var(--accent); }
 .sim-card img {
   inline-size: 100%;
-  block-size: auto;
-  aspect-ratio: 4 / 3;
+  block-size: clamp(6.75rem, 10vw, 9.75rem);
   object-fit: contain;
   background: #f5f5f7;
-  padding: .7rem;
+  padding: .5rem;
 }
-.sim-card-dados { flex: 1; display: flex; flex-direction: column; gap: .45rem; padding: .8rem; }
-.sim-card h4 { margin: 0; line-height: 1.3; }
+.sim-card-dados { min-inline-size: 0; flex: 1; display: flex; flex-direction: column; gap: .3rem; padding: .7rem; }
+.sim-card h3 { margin: 0; font-size: var(--font-16); line-height: 1.3; }
 .sim-card strong { font-size: var(--font-20); }
-.sim-card p { font-size: var(--font-14); }
+.sim-card p { color: var(--text-2); font-size: var(--font-14); }
 .sim-card .sim-conflito { color: var(--danger); }
 .sim-card .sim-selecionada { color: var(--success); }
-.sim-card button { align-self: start; }
+.sim-card button { align-self: start; padding-inline: .65rem; border-radius: 7px; }
 .sim-card [data-escolher] { margin-block-start: auto; }
 .sim-card button[aria-disabled="true"] { cursor: default; color: var(--text-2); border-color: var(--text-2); text-decoration: none; }
-.sim-acoes-categoria { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem; margin-block-start: 1rem; }
+
+@media (max-width: 44rem) {
+  .sim-cartoes { grid-template-columns: 1fr; }
+  .sim-card:has(> img) {
+    display: grid;
+    grid-template-columns: minmax(4.5rem, 25%) minmax(0, 1fr);
+    align-items: start;
+    padding-inline-start: .65rem;
+  }
+  .sim-card img {
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 1;
+    margin-block-start: .65rem;
+    border-radius: 7px;
+  }
+}
+
+.sim-diagnostico { padding-block: .2rem; }
+.sim-diagnostico[open] { padding-block-end: var(--space-2); }
+.sim-diagnostico > summary { font-weight: 700; }
+.sim-diagnostico .sim-estado { color: var(--text-2); font-size: var(--font-14); font-weight: 500; margin-inline-start: .5rem; }
 .sim-total-destaque { display: grid; gap: .15rem; padding: .65rem 0; }
 .sim-total-destaque strong { font-size: clamp(1.35rem, 1.25rem + .5vw, 2rem); color: var(--text); line-height: 1.15; }
 .sim-extra summary, .sim-cotacao summary { min-block-size: 44px; cursor: pointer; padding-block: .6rem; }
 .sim-extra .sim-gestao { padding-block-start: .7rem; }
 .sim-cotacao { flex: 1 1 7rem; min-inline-size: 0; font-size: var(--font-14); }
 @media print {
-  .sim-atalhos, .sim-total-movel, .sim-envio, .sim-resumo > details { display: none !important; }
+  .sim-atalhos, .sim-fluxo, .sim-envio, .sim-resumo > details { display: none !important; }
 }
 
-.sim-glossario { margin-block-end: 1rem; padding-inline: .75rem; background: var(--bg); border-radius: 8px; }
+.sim-glossario { margin-block-start: .7rem; padding-inline: .75rem; background: var(--bg); border-radius: 8px; }
+.sim-glossario summary { min-block-size: 44px; align-content: center; cursor: pointer; font-size: var(--font-14); }
+.sim-glossario p { color: var(--text-2); font-size: var(--font-14); margin-block-end: .75rem; }
 .sim-glossario dl { margin: 0; padding-block-end: .75rem; }
 .sim-glossario dt { font-weight: 700; }
 .sim-glossario dd { margin: 0 0 .4rem; color: var(--text-2); }
+
+:root[data-contraste="true"] :is(.sim-fluxo, .sim-card) { border-color: var(--text); }

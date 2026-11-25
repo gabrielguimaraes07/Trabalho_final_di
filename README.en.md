@@ -59,7 +59,7 @@ I set up the guided builder around three questions. Choose what the PC is for fi
 
 Open **Montagem manual** (Manual builder) to start from scratch. If you have a suggestion from the guided builder, choose **Personalizar na montagem manual** (Customize in the manual builder). On a ready-made build, open **Ver lista de peças** (View parts list) and then choose **Personalizar montagem** (Customize build). The ready-made builds use the same products as the catalog, so you can start with one and swap only the parts you need.
 
-In the manual builder, choose a category, pick a part, and check the summary before moving on. Open **Periféricos opcionais** (Optional accessories) to find items like monitors, keyboards, and mice. The build preview shows photos of the parts you picked. The summary updates quantities, subtotals, and estimated power use.
+The manual builder opens at the first unfinished step. After you pick a part, the bar updates the progress and offers **Próxima peça** (Next part). Open **Trocar categoria** (Change category) to switch steps or find optional monitors, keyboards, and mice. The build preview shows photos of the parts you picked. The summary updates quantities, subtotals, and estimated power use.
 
 Open **Salvar, abrir ou comparar** (Save, open or compare) in the summary to name and save the list, reopen an older build, or compare it with the current one. **Compartilhar link** (Share link) lets you open the parts list in another browser, and **Exportar PDF** (Export PDF) opens the print dialog.
 
@@ -67,7 +67,7 @@ Open **Salvar, abrir ou comparar** (Save, open or compare) in the summary to nam
 
 `compatibilidade.js` checks the catalog data for CPU and motherboard socket, supported memory and slots, and room for the graphics card, among other things. It also checks power and connections. In the MSI MAG PANO M100R PZ case, for example, SATA SSDs and hard drives share a mounting space. The builder warns you if you pick too many.
 
-On a phone, **Ver montagem** (View build) takes you straight to the summary. Check the essential parts and any warnings, then move the build to the cart. There you can review the items, change quantities, and check the total. **Simular compra** (Simulate purchase) opens one last review before you confirm.
+On a phone, the total stays above the part list as you scroll. **Resumo** (Summary) takes you straight to the selected parts. Check the essential parts and any warnings, then move the build to the cart. There you can review the items, change quantities, and check the total. **Simular compra** (Simulate purchase) opens one last review before you confirm.
 
 ### 9. Testing
 

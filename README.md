@@ -59,7 +59,7 @@ Organizei a montagem guiada em três perguntas. Primeiro vem o uso do PC, depois
 
 Abra **Montagem manual** para começar escolhendo peça por peça. Se já tiver uma sugestão da montagem guiada, use **Personalizar na montagem manual**. Em **Setups prontos**, você pode abrir **Ver lista de peças** e depois escolher **Personalizar montagem**. Os setups usam os mesmos produtos do catálogo, então você pode partir de uma configuração e trocar só o que precisar.
 
-Na montagem manual, escolha uma categoria, selecione a peça e confira o resumo antes de passar à próxima. **Periféricos opcionais** reúne itens como monitor, teclado e mouse. A **Vista da montagem** mostra as fotos das peças escolhidas, e o painel **Sua montagem** atualiza as quantidades, os subtotais e o consumo estimado.
+A montagem manual abre na primeira etapa pendente. Quando você escolhe uma peça, a barra atualiza o progresso e oferece a **Próxima peça**. Para escolher outra categoria ou incluir monitor, teclado e mouse, abra **Trocar categoria**. A **Vista da montagem** mostra as fotos das peças escolhidas, e o painel **Sua montagem** atualiza as quantidades, os subtotais e o consumo estimado.
 
 No resumo, abra **Salvar, abrir ou comparar** para guardar a lista com um nome, voltar a uma montagem antiga ou comparar as duas. **Compartilhar link** leva a lista de peças para outro navegador, e **Exportar PDF** abre a tela de impressão.
 
@@ -67,7 +67,7 @@ No resumo, abra **Salvar, abrir ou comparar** para guardar a lista com um nome, 
 
 O `compatibilidade.js` faz as checagens com os dados do catálogo. Ele cruza, por exemplo, o encaixe do processador com o da placa-mãe, o tipo de memória com os slots disponíveis e as dimensões da placa de vídeo com o espaço do gabinete. Também confere energia e conexões. No MSI MAG PANO M100R PZ, SSDs SATA e HDs dividem um suporte. O simulador avisa quando a quantidade passa desse limite.
 
-No celular, **Ver montagem** leva direto ao resumo. Depois de conferir as peças essenciais e os avisos, você pode levar a configuração ao carrinho. Ali você revisa os itens, muda as quantidades e confere o valor. **Simular compra** abre a última revisão antes de confirmar.
+No celular, a barra acompanha o total durante a rolagem. **Resumo** leva direto à lista de peças. Depois de conferir as peças essenciais e os avisos, você pode levar a configuração ao carrinho. Ali você revisa os itens, muda as quantidades e confere o valor. **Simular compra** abre a última revisão antes de confirmar.
 
 ### 9. Os testes
 

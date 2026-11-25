@@ -84,6 +84,10 @@ const etapas = [
 ];
 const rotulosEtapas = { escolhida: 'Escolhida', automatica: 'Atendida automaticamente', pendente: 'Pendente' };
 
+function indiceDaEtapa(categoria) {
+  return etapas.findIndex(([, ...opcoes]) => opcoes.includes(categoria));
+}
+
 const termosPorCategoria = {
   cpu: ['socket', 'nucleos', 'tdp'], 'placa-mae': ['socket', 'microatx'], ram: ['ddr4', 'ddr5', 'mt-s'],
   gpu: ['gpu', 'vram'], 'ssd-sata': ['ssd'], 'ssd-nvme': ['m2-nvme'], fonte: ['potencia', 'cabos-modulares'],
@@ -161,7 +165,8 @@ export async function iniciarSimulador(raiz) {
   const saidaComparacao = localizar('#sim-comparacao');
   const nome = localizar('#sim-nome');
   const link = localizar('#sim-link');
-  let categoria = sugestao?.categoria ?? 'cpu';
+  const pendenciaInicial = estadoDasEtapas(itensDaMontagem(linhas, catalogo)).find(etapa => etapa.estado === 'pendente');
+  let categoria = sugestao?.categoria ?? pendenciaInicial?.categoria ?? 'cpu';
   let proximaEtapa;
 
   const ordemMontagem = [...etapas.flatMap(([, ...ids]) => ids), 'ventoinhas', ...perifericos];
@@ -180,31 +185,32 @@ export async function iniciarSimulador(raiz) {
       bloco.append(imagem);
     }
     const dados = elemento('div', undefined, { class: 'sim-card-dados' });
-    dados.append(elemento('h4', produto.nome),
+    dados.append(elemento('h3', produto.nome),
       elemento('strong', mostrarPreco(produto.preco)),
       elemento('p', rotuloCotacao(produto)),
       elemento('p', resumoEspecificacoes(produto, 3)));
     const video = avisoDeVideo(produto);
     if (video) dados.append(elemento('p', video));
     if (conflitos.length) dados.append(elemento('p', conflitos[0].mensagem, { class: 'sim-conflito' }));
-    if (jaNaMontagem) dados.append(elemento('p', jaNaMontagem.quantidade + ' na montagem', { class: 'sim-selecionada' }));
     const multipla = categoriasMultiplas.has(produto.categoria);
-    const rotulo = jaNaMontagem ? (multipla ? 'Adicionar unidade' : 'Selecionada')
+    if (jaNaMontagem && multipla) dados.append(elemento('p', jaNaMontagem.quantidade + ' na montagem', { class: 'sim-selecionada' }));
+    const rotulo = jaNaMontagem ? (multipla ? 'Adicionar unidade' : 'Na montagem')
       : !multipla && categoriaOcupada ? 'Trocar por esta' : 'Escolher peça';
     const botao = elemento('button', rotulo, {
       type: 'button', class: 'botao-contorno', 'data-escolher': produto.id, 'aria-label': rotulo + ' — ' + produto.nome,
     });
     botao.setAttribute('aria-disabled', String(!!jaNaMontagem && (!multipla || jaNaMontagem.quantidade >= 20)));
     dados.append(botao);
-    if (jaNaMontagem) dados.append(elemento('button', proximaEtapa ? 'Continuar montagem' : 'Revisar montagem', {
-      type: 'button', class: 'botao-texto', 'data-continuar': '',
-    }));
     bloco.append(dados);
     return bloco;
   }
 
   function atualizarOpcoes() {
     const preenchidas = new Set(itensDaMontagem(linhas, catalogo).map(({ produto }) => produto.categoria));
+    const indice = indiceDaEtapa(categoria);
+    localizar('#sim-etapa-atual').textContent = indice < 0 ? 'Peça opcional' : 'Etapa ' + (indice + 1) + ' de ' + etapas.length;
+    proxima.hidden = !proximaEtapa || indice === indiceDaEtapa(proximaEtapa.categoria);
+    localizar('#sim-proxima-nome').textContent = proximaEtapa?.nome ?? '';
     for (const botao of grupos.querySelectorAll('[data-categoria]')) {
       botao.setAttribute('aria-pressed', String(botao.dataset.categoria === categoria));
       botao.toggleAttribute('data-preenchida', preenchidas.has(botao.dataset.categoria));
@@ -226,14 +232,16 @@ export async function iniciarSimulador(raiz) {
   function atualizarGlossario() {
     const bloco = localizar('#sim-glossario');
     const termos = glossario.filter(({ id }) => termosPorCategoria[categoria]?.includes(id));
-    bloco.hidden = !termos.length;
     bloco.open = false;
-    bloco.querySelector('dl').replaceChildren(...termos.flatMap(({ termo, descricao }) =>
+    const definicoes = bloco.querySelector('dl');
+    definicoes.hidden = !termos.length;
+    definicoes.replaceChildren(...termos.flatMap(({ termo, descricao }) =>
       [elemento('dt', termo), elemento('dd', descricao)]));
   }
 
   function mudarCategoria(nova) {
     categoria = nova;
+    grupos.open = false;
     atualizarOpcoes();
     atualizarGlossario();
     tituloCategoria.focus();
@@ -271,11 +279,11 @@ export async function iniciarSimulador(raiz) {
     }));
     localizar('#sim-etapas').value = completas;
     localizar('#sim-progresso').textContent = completas + ' de ' + etapasAtuais.length + ' etapas essenciais preenchidas';
+    localizar('#sim-progresso-movel').textContent = completas + ' de ' + etapasAtuais.length + ' etapas';
     localizar('#sim-video-integrado').hidden = !etapasAtuais.some(etapa => etapa.estado === 'automatica');
     levar.disabled = !!proximaEtapa || !!erros;
     localizar('#sim-envio-dica').textContent = erros ? 'Corrija as incompatibilidades para continuar.'
       : proximaEtapa ? 'Complete as etapas essenciais para enviar ao carrinho.' : 'Confira as peças e simule a compra no carrinho.';
-    proxima.textContent = proximaEtapa ? 'Próxima pendência · ' + proximaEtapa.nome : 'Revisar montagem';
     localizar('#sim-internos').textContent = mostrarSubtotal(somarItens(internos));
     localizar('#sim-perifericos').textContent = mostrarSubtotal(somarItens(acessorios));
     const total = mostrarSubtotal(somarItens(itens));
@@ -314,11 +322,9 @@ export async function iniciarSimulador(raiz) {
     if (botao) mudarCategoria(botao.dataset.categoria);
   });
   compativeis.addEventListener('change', atualizarOpcoes);
-  function continuar() {
+  proxima.addEventListener('click', () => {
     if (proximaEtapa) mudarCategoria(proximaEtapa.categoria);
-    else localizar('#sim-resumo-titulo').focus();
-  }
-  proxima.addEventListener('click', continuar);
+  });
   essenciais.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-etapa-categoria]');
     if (botao) mudarCategoria(botao.dataset.etapaCategoria);
@@ -329,17 +335,13 @@ export async function iniciarSimulador(raiz) {
     }
   });
   cartoes.addEventListener('click', evento => {
-    if (evento.target.closest('[data-continuar]')) {
-      continuar();
-      return;
-    }
     const botao = evento.target.closest('[data-escolher]');
     if (!botao || botao.getAttribute('aria-disabled') === 'true') return;
     const escolhida = catalogo.find(produto => produto.id === botao.dataset.escolher);
     aplicar(incluirPeca(linhas, escolhida, catalogo), escolhida.nome + ' na montagem.');
     const equivalente = [...cartoes.querySelectorAll('[data-escolher]')].find(item => item.dataset.escolher === escolhida.id);
-    (equivalente?.closest('article').querySelector('[data-continuar]') ?? equivalente ?? tituloCategoria)
-      .focus({ preventScroll: true });
+    const destino = proxima.hidden ? equivalente ?? tituloCategoria : proxima;
+    destino.focus({ preventScroll: true });
   });
   lista.addEventListener('click', evento => {
     const botao = evento.target.closest('[data-remover]');
@@ -347,7 +349,7 @@ export async function iniciarSimulador(raiz) {
     const produto = catalogo.find(item => item.id === botao.dataset.remover);
     if (!confirm('Remover ' + produto.nome + ' da montagem?')) return;
     aplicar(linhas.filter(item => item.id !== botao.dataset.remover), 'Peça removida.');
-    (lista.querySelector('button') ?? grupos.querySelector('[aria-pressed="true"]')).focus();
+    (lista.querySelector('button') ?? tituloCategoria).focus();
   });
   lista.addEventListener('change', ({ target }) => {
     const campo = target.dataset.alterar;
@@ -401,6 +403,15 @@ export async function iniciarSimulador(raiz) {
   localizar('#sim-limpar').addEventListener('click', () => {
     if (linhas.length && confirm('Limpar a montagem em edição?')) aplicar([], 'Montagem limpa.');
   });
+  let recolhidos = [];
+  window.addEventListener('beforeprint', () => {
+    recolhidos = [...raiz.querySelectorAll('.sim-diagnostico:not([open])')];
+    for (const painel of recolhidos) painel.open = true;
+  });
+  window.addEventListener('afterprint', () => {
+    for (const painel of recolhidos) painel.open = false;
+    recolhidos = [];
+  });
   localizar('#sim-imprimir').addEventListener('click', () => window.print());
   localizar('#sim-compartilhar').addEventListener('click', async () => {
     if (!linhas.length) { retorno.textContent = 'Adicione uma peça para compartilhar.'; return; }
@@ -437,6 +448,5 @@ export async function iniciarSimulador(raiz) {
   atualizar();
   atualizarGlossario();
   localizar('#sim-conteudo').hidden = false;
-  localizar('#sim-barra').hidden = false;
-  status.textContent = avisoInicial ?? (linhas.length ? 'Sua montagem está carregada.' : 'Selecione o processador para começar.');
+  status.textContent = avisoInicial ?? '';
 }

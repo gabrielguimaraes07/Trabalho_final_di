@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="css/laboratorio.css?v=meia-noite-1">
     <link rel="stylesheet" href="css/navegacao.css?v=petroleo-1">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/simulador.css?v=interfaces-8">
-    <script type="module" src="js/principal.js?v=gabinete-1"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=montagem-1">
+    <script type="module" src="js/principal.js?v=montagem-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -58,59 +58,69 @@
     <main class="container sim-pagina" id="conteudo" data-simulador tabindex="-1">
       <header class="sim-cabecalho">
         <h1>Montagem manual</h1>
-        <p>Escolha as peças uma por vez e veja se combinam. Quando terminar, leve o PC ao carrinho para testar a compra.</p>
-        <div class="sim-atalhos">
-          <a class="botao-texto" href="./setups.html">Começar com um setup pronto</a>
-          <a class="botao-texto" href="./montador.html">Ir para a montagem guiada</a>
-        </div>
+        <p>Escolha as peças e acompanhe a compatibilidade e o total.</p>
+        <details class="sim-atalhos">
+          <summary>Quer partir de uma sugestão?</summary>
+          <div class="sim-atalhos-links">
+            <a class="botao-texto" href="./setups.html">Ver setups prontos</a>
+            <a class="botao-texto" href="./montador.html">Montagem guiada</a>
+          </div>
+        </details>
       </header>
       <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
-      <div class="sim-total-movel" id="sim-barra" data-barra-fixa hidden>
-        <span>Total <strong id="sim-total-movel"></strong></span>
-        <a class="botao-texto" href="#sim-resumo-titulo">Ver montagem</a>
-      </div>
       <div class="sim-grade" id="sim-conteudo" hidden>
         <div class="sim-principal">
-          <section class="sim-painel sim-escolha" aria-labelledby="escolha-titulo">
-            <h2 id="escolha-titulo">Escolha suas peças</h2>
-            <div id="sim-categorias">
-              <div class="sim-categorias" id="sim-internas" role="group" aria-label="Peças do computador"></div>
-              <details id="sim-opcionais">
-                <summary>Periféricos opcionais</summary>
-                <div class="sim-categorias" id="sim-externas" role="group" aria-label="Periféricos opcionais"></div>
-              </details>
+          <div class="sim-fluxo" id="sim-barra" data-barra-fixa>
+            <div class="sim-fluxo-total">
+              <p>Total <strong id="sim-total-movel"></strong></p>
+              <p id="sim-progresso-movel"></p>
             </div>
-            <div class="sim-filtros">
+            <div class="sim-fluxo-acoes">
+              <button class="botao-primario estoque-adicionar" id="sim-proxima" type="button" hidden>
+                <span>Próxima peça</span>
+                <strong id="sim-proxima-nome"></strong>
+              </button>
+              <a class="botao-texto" href="#sim-resumo-titulo" aria-label="Ver resumo da montagem">Resumo</a>
+            </div>
+          </div>
+          <section class="sim-painel sim-escolha" aria-labelledby="sim-categoria-titulo">
+            <header class="sim-categoria-cabecalho">
               <div>
-                <h3 id="sim-categoria-titulo" tabindex="-1">Processador</h3>
-                <p id="sim-categoria-dica"></p>
-                <p id="sim-contagem"></p>
+                <p class="sim-etapa-atual" id="sim-etapa-atual"></p>
+                <h2 id="sim-categoria-titulo" tabindex="-1">Processador</h2>
               </div>
-              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Sem conflito com esta montagem</label>
+              <p id="sim-contagem"></p>
+            </header>
+            <div class="sim-filtros">
+              <details id="sim-categorias" class="sim-categorias-painel">
+                <summary>Trocar categoria</summary>
+                <div class="sim-categorias" id="sim-internas" role="group" aria-label="Peças do computador"></div>
+                <details id="sim-opcionais">
+                  <summary>Periféricos opcionais</summary>
+                  <div class="sim-categorias" id="sim-externas" role="group" aria-label="Periféricos opcionais"></div>
+                </details>
+              </details>
+              <label class="sim-check"><input id="sim-compativeis" type="checkbox"> Só compatíveis</label>
             </div>
-            <details id="sim-glossario" class="sim-glossario" hidden>
-              <summary>O que significam estes termos?</summary>
-              <dl></dl>
-            </details>
             <p class="sim-conflito" id="sim-conflito-atual" hidden></p>
             <div class="sim-cartoes" id="sim-cartoes" aria-labelledby="sim-categoria-titulo"></div>
-            <div class="sim-acoes-categoria">
-              <button class="botao-contorno" id="sim-proxima" type="button">Próxima categoria</button>
-              <a class="botao-texto" href="#sim-resumo-titulo">Revisar montagem</a>
-            </div>
+            <details id="sim-glossario" class="sim-glossario">
+              <summary>Entenda esta categoria</summary>
+              <p id="sim-categoria-dica"></p>
+              <dl></dl>
+            </details>
           </section>
-          <section class="sim-painel" aria-labelledby="sim-visual-titulo">
-            <h2 id="sim-visual-titulo">Vista da montagem</h2>
+          <details class="sim-painel sim-diagnostico">
+            <summary>Vista da montagem</summary>
             <p>Aqui você vê as fotos das peças que você escolheu. O tamanho e a posição são só para dar uma ideia.</p>
             <div id="sim-visual" class="sim-gabinete"></div>
-          </section>
-          <section class="sim-painel" aria-labelledby="sim-alertas-titulo">
-            <h2 id="sim-alertas-titulo">Compatibilidade</h2>
-            <p id="sim-estado" class="sim-estado"></p>
+          </details>
+          <details class="sim-painel sim-diagnostico">
+            <summary>Compatibilidade <span id="sim-estado" class="sim-estado"></span></summary>
             <ul id="sim-alertas" class="sim-alertas"></ul>
-          </section>
-          <section class="sim-painel" aria-labelledby="sim-desempenho-titulo">
-            <h2 id="sim-desempenho-titulo">O que você pode fazer com este PC</h2>
+          </details>
+          <details class="sim-painel sim-diagnostico">
+            <summary>Desempenho estimado</summary>
             <p id="sim-desempenho-ajuda"></p>
             <ul id="sim-desempenho"></ul>
             <details>
@@ -119,10 +129,11 @@
               <p>Para jogos competitivos, além dos 6 núcleos e 16 GB, a referência inclui uma placa de vídeo na faixa da RX 6600. Para edição de vídeo, são 8 núcleos, 32 GB e uma placa na faixa da RTX 4060. Para jogos mais pesados, são 6 núcleos, 32 GB e uma placa na faixa da RTX 4070 SUPER.</p>
               <p>Esses números servem de ponto de partida. O desempenho real depende do programa ou do jogo, da resolução e de como as peças funcionam juntas.</p>
             </details>
-          </section>
+          </details>
         </div>
         <aside class="sim-painel sim-resumo" aria-labelledby="sim-resumo-titulo">
           <h2 id="sim-resumo-titulo" tabindex="-1">Sua montagem</h2>
+          <p class="sim-total-destaque"><span>Total de referência, sem frete</span><strong id="sim-total"></strong></p>
           <p id="sim-progresso"></p>
           <p id="sim-video-integrado" hidden>O vídeo integrado deste processador já atende à saída de vídeo.</p>
           <progress id="sim-etapas" value="0" max="8" aria-label="Etapas essenciais preenchidas"></progress>
@@ -130,7 +141,6 @@
             <summary>Conferir peças essenciais</summary>
             <ul id="sim-essenciais"></ul>
           </details>
-          <p class="sim-total-destaque"><span>Total de referência, sem frete</span><strong id="sim-total"></strong></p>
           <div class="sim-envio">
             <button class="botao-primario" id="sim-levar-carrinho" type="button" aria-describedby="sim-envio-dica" disabled>Levar montagem ao carrinho</button>
             <p id="sim-envio-dica"></p>
