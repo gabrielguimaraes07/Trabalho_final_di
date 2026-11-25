@@ -50,6 +50,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   let tempoPecas = 0;
   let pecaFocada;
   let vistaFoco;
+  let vistaGeral;
   let voo;
   let larguraAnterior;
   let alturaAnterior;
@@ -76,6 +77,15 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     camera.lookAt(alvo);
   }
 
+  function corrigirProjecao() {
+    const larguraVisivel = cena.getBoundingClientRect().width;
+    if (!larguraVisivel || !larguraAnterior) return;
+    const zoom = THREE.MathUtils.clamp(larguraAnterior / larguraVisivel, 1, 1.55);
+    if (zoom === camera.zoom) return;
+    camera.zoom = zoom;
+    camera.updateProjectionMatrix();
+  }
+
   function quadro(tempo) {
     quadroPendente = undefined;
     if (!ativo || (!visivel && !pecaFocada) || document.hidden) {
@@ -89,17 +99,14 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     controles.autoRotateSpeed = .56 * sentido;
     const emAproximacao = !!voo || !!pecaFocada;
     let cameraMoveu = false;
-    let progressoDoVoo;
-    const acompanhar = voo?.acompanhar;
+    let aoChegar;
     const intervalo = Math.min((tempo - (tempoAnterior ?? tempo - 1000 / 60)) / 1000, .05);
     tempoAnterior = tempo;
     if (voo) {
-      voo.decorrido += Math.min(64, tempo - (voo.quadroAnterior ?? tempo));
+      voo.decorrido += THREE.MathUtils.clamp(tempo - voo.quadroAnterior, 0, 100);
       voo.quadroAnterior = tempo;
       const progresso = Math.min(1, voo.decorrido / voo.duracao);
-      progressoDoVoo = progresso;
-      const passo = pecaFocada ? THREE.MathUtils.smoothstep(progresso, 0, 1)
-        : THREE.MathUtils.smootherstep(progresso, 0, 1);
+      const passo = THREE.MathUtils.smoothstep(progresso, 0, 1);
       const { origem, destino } = voo;
       orbita.set(
         origem.radius * Math.pow(destino.radius / origem.radius, passo),
@@ -110,8 +117,10 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       posicionarCamera(voo.alvoAtual);
       cameraMoveu = true;
       if (progresso === 1) {
+        aoChegar = voo.aoChegar;
         voo = undefined;
         controles.enabled = !pecaFocada;
+        if (!pecaFocada) vistaGeral = undefined;
       }
     } else if (vistaFoco) {
       const { alvo, destino } = vistaFoco;
@@ -136,6 +145,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     }
 
     if (moveu || cameraMoveu || precisaRenderizar || animarPecas) {
+      if (emAproximacao || camera.zoom !== 1) corrigirProjecao();
       for (const [categoria, botao] of botoes) {
         pecas.get(categoria).userData.contorno.visible = categoria === pecaFocada || botao.hasAttribute('data-destaque');
       }
@@ -144,7 +154,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       precisaRenderizar = false;
     }
 
-    acompanhar?.(progressoDoVoo);
+    aoChegar?.();
     if (voo || (pecaFocada && cameraMoveu) || animarPecas || moveu) agendar();
     else tempoAnterior = undefined;
   }
@@ -165,24 +175,25 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     marcar();
   }
 
-  function aproximar(categoria, acompanhar) {
+  function aproximar(categoria, duracao = 760, aoChegar) {
     voo = undefined;
     vistaFoco = undefined;
     pecaFocada = categoria;
     controles.enabled = false;
     controles.autoRotate = false;
     const origem = new THREE.Spherical().setFromVector3(deslocamento.copy(camera.position).sub(controles.target));
-    let alvo = alvoInicial;
-    let destino = orbitaInicial;
+    let alvo = vistaGeral?.alvo ?? alvoInicial;
+    let destino = vistaGeral?.orbita ?? orbitaInicial;
 
     if (categoria) {
+      vistaGeral ??= { alvo: controles.target.clone(), orbita: origem.clone() };
       const peca = pecas.get(categoria);
       alvo = peca.userData.contorno.getWorldPosition(new THREE.Vector3());
-      const distancia = Math.max(2, peca.userData.tamanho * 1.54 + .4);
+      const distancia = Math.min(vistaGeral.orbita.radius * .79, Math.max(2.55, peca.userData.tamanho * 1.54 + .4));
       const base = new THREE.Spherical(
         distancia,
-        THREE.MathUtils.lerp(origem.phi, 1.32, .25),
-        THREE.MathUtils.clamp(origem.theta + .09, -.72, .72),
+        THREE.MathUtils.lerp(origem.phi, 1.32, .18),
+        THREE.MathUtils.lerp(origem.theta, THREE.MathUtils.clamp(origem.theta + .07, -.74, .74), .65),
       );
       destino = base.clone();
       vistaFoco = { alvo, base, destino };
@@ -193,17 +204,19 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       orbita.copy(destino);
       posicionarCamera(alvo);
       controles.enabled = !categoria;
-      acompanhar?.(1);
+      if (!categoria) vistaGeral = undefined;
+      aoChegar?.();
     } else {
       voo = {
         decorrido: 0,
-        duracao: categoria ? 1180 : 820,
+        quadroAnterior: performance.now(),
+        duracao,
         origem,
         alvoInicial: controles.target.clone(),
         alvoAtual: new THREE.Vector3(),
         destino,
         alvo,
-        acompanhar,
+        aoChegar,
       };
     }
     pausa.hidden = movimentoReduzido() || !!categoria;
@@ -233,8 +246,9 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       orbita.copy(enquadramento.destino);
       posicionarCamera(enquadramento.alvo);
       controles.enabled = !pecaFocada;
+      if (!pecaFocada) vistaGeral = undefined;
       marcar();
-      enquadramento.acompanhar?.(1);
+      enquadramento.aoChegar?.();
     }
     pausa.hidden = reduzido || !!pecaFocada;
     pausa.textContent = pausado ? 'Retomar giro' : 'Pausar giro';
@@ -254,6 +268,9 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     attributes: true, attributeFilter: ['data-reduzir-movimento'],
   });
   controles.addEventListener('change', marcar);
+  cena.addEventListener('transitionend', ({ propertyName, target }) => {
+    if (target === cena && propertyName === 'transform') marcar();
+  }, { signal });
   window.addEventListener('resize', redimensionar, { signal });
   cena.addEventListener('pointerenter', evento => {
     ponteiroNaCena = evento.pointerType !== 'touch';
@@ -298,6 +315,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
 
   let inicio;
   canvas.addEventListener('pointermove', evento => {
+    if (pecaFocada) return;
     if (inicio?.id === evento.pointerId && Math.hypot(evento.clientX - inicio.x, evento.clientY - inicio.y) > 6) {
       inicio = undefined;
     }
@@ -311,16 +329,15 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   }, { signal });
 
   canvas.addEventListener('pointerdown', evento => {
-    inicio = evento.isPrimary && evento.button === 0
-      ? { x: evento.clientX, y: evento.clientY, id: evento.pointerId }
+    inicio = !pecaFocada && evento.isPrimary && evento.button === 0
+      ? { x: evento.clientX, y: evento.clientY, id: evento.pointerId, categoria: pecaSobPonteiro(evento) }
       : undefined;
   }, { signal });
   canvas.addEventListener('pointerup', evento => {
     if (inicio?.id !== evento.pointerId) return;
-    const distancia = Math.hypot(evento.clientX - inicio.x, evento.clientY - inicio.y);
+    const { x, y, categoria } = inicio;
     inicio = undefined;
-    if (distancia > 6) return;
-    const categoria = pecaSobPonteiro(evento);
+    if (Math.hypot(evento.clientX - x, evento.clientY - y) > 6) return;
     if (categoria) abrir(categoria, botoes.get(categoria));
   }, { signal });
   canvas.addEventListener('pointercancel', () => {

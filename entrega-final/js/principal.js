@@ -97,21 +97,30 @@ if (visualizador) {
   const angulo = painel.querySelector('#gaveta-angulo');
   const zoom = painel.querySelector('#gaveta-zoom');
   const movimentoDoSistema = matchMedia('(prefers-reduced-motion: reduce)');
-  const inicioEnquadramento = .23;
-  const momentoCatalogo = .62;
-  const duracaoImagem = 1180;
+  const duracaoAproximacao = 980;
+  cena.style.setProperty('--duracao-aproximacao', duracaoAproximacao + 'ms');
+  const regioesDaImagem = [
+    ['ventoinhas', .76, .19, .89, .85],
+    ['cooler', .30, .24, .51, .41],
+    ['cpu', .31, .41, .47, .47],
+    ['ram', .53, .23, .64, .46],
+    ['armazenamento', .48, .47, .68, .55],
+    ['gpu', .20, .52, .70, .69],
+    ['fonte', .20, .69, .51, .86],
+    ['placa-mae', .28, .18, .69, .53],
+    ['gabinete', .12, .10, .89, .95],
+  ];
   let categoriaDestacada;
+  let categoriaSelecionada;
   let contagem;
   let cena3D;
   let mostrarCatalogo;
-  let enquadrando = false;
-  let tempoEnquadramento;
   let tempoCatalogo;
 
   function atualizarInstrucao() {
     instrucao.textContent = painel.open
       ? 'Feche o catálogo pra voltar ao gabinete.'
-      : cena3D ? 'Arraste o PC e escolha uma peça.' : 'Escolha uma peça pra ver as opções.';
+      : cena3D ? 'Clique numa peça pra aproximar. Arraste pra girar.' : 'Clique numa peça pra aproximar.';
   }
 
   function atualizarVista() {
@@ -131,7 +140,7 @@ if (visualizador) {
   painel.querySelector('#gaveta-restaurar-vista').addEventListener('click', restaurarVista);
 
   function enquadrarCena() {
-    if (!painel.open && !enquadrando) return;
+    if (!painel.open && !mostrarCatalogo) return;
     const origem = areaCena.getBoundingClientRect();
     if (!origem.width) return;
 
@@ -141,13 +150,13 @@ if (visualizador) {
     const direita = larguraTela - (gavetaEmbaixo ? 0 : painel.offsetWidth) - margem;
     const fundo = innerHeight - (gavetaEmbaixo ? painel.offsetHeight : 0) - margem;
     const topo = Math.max(0, cabecalho?.getBoundingClientRect().bottom ?? 0) + margem;
-    const espacoIntroducao = direita - Math.min(400, origem.width) - margem - introducao.getBoundingClientRect().left;
-    const cabeAoLado = !gavetaEmbaixo && espacoIntroducao >= 280;
+    const tamanho = Math.max(1, Math.min(origem.width, direita - margem, fundo - topo));
+    const espacoIntroducao = direita - tamanho - margem - introducao.getBoundingClientRect().left;
+    const cabeAoLado = !gavetaEmbaixo && espacoIntroducao >= 240;
     if (cabeAoLado) introducao.style.setProperty('max-inline-size', espacoIntroducao + 'px');
     else introducao.style.removeProperty('max-inline-size');
     const limitesIntroducao = introducao.getBoundingClientRect();
     const esquerda = cabeAoLado ? limitesIntroducao.right + margem : margem;
-    const tamanho = Math.max(1, Math.min(origem.width, direita - esquerda, fundo - topo));
     const x = Math.max(esquerda, Math.min(origem.left, direita - tamanho));
     const y = Math.max(topo, Math.min(origem.top + (origem.height - tamanho) / 2, fundo - tamanho));
     const cobreIntroducao = x < limitesIntroducao.right && x + tamanho > limitesIntroducao.left
@@ -168,50 +177,40 @@ if (visualizador) {
     }
   }
 
-  function avancarAproximacao(progresso) {
+  function revelarCatalogo() {
     if (!mostrarCatalogo) return;
-    if (progresso >= inicioEnquadramento && !enquadrando) {
-      enquadrando = true;
-      enquadrarCena();
-    }
-    if (progresso >= momentoCatalogo) {
-      const mostrar = mostrarCatalogo;
-      mostrarCatalogo = undefined;
-      mostrar();
-      if (painel.open) atualizarExpansao(painel.dataset.categoria);
-      atualizarInstrucao();
-    }
-  }
-
-  function cancelarTemposDaImagem() {
-    clearTimeout(tempoEnquadramento);
-    clearTimeout(tempoCatalogo);
+    const mostrar = mostrarCatalogo;
+    mostrarCatalogo = undefined;
+    mostrar();
+    if (painel.open) atualizarExpansao(painel.dataset.categoria);
+    atualizarInstrucao();
   }
 
   function prepararCatalogoComImagem() {
-    cancelarTemposDaImagem();
+    clearTimeout(tempoCatalogo);
     if (movimentoDoSistema.matches || document.documentElement.dataset.reduzirMovimento === 'true') {
-      avancarAproximacao(1);
+      revelarCatalogo();
       return;
     }
-    tempoEnquadramento = setTimeout(() => avancarAproximacao(inicioEnquadramento), duracaoImagem * inicioEnquadramento);
-    tempoCatalogo = setTimeout(() => avancarAproximacao(momentoCatalogo), duracaoImagem * momentoCatalogo);
+    tempoCatalogo = setTimeout(revelarCatalogo, duracaoAproximacao);
   }
 
   const abrir = iniciarGaveta(painel, (categoria, revelar) => {
-    cancelarTemposDaImagem();
+    clearTimeout(tempoCatalogo);
     mostrarCatalogo = revelar;
-    enquadrando = false;
+    categoriaSelecionada = categoria;
     cena.toggleAttribute('data-aproximado', !!categoria);
     for (const [chave, botao] of botoes) {
       botao.toggleAttribute('data-selecionado', chave === categoria);
     }
+    destacar(categoria);
 
     if (categoria) {
       const ponto = botoes.get(categoria);
       imagem.style.setProperty('--zoom-x', ponto.style.getPropertyValue('--x'));
       imagem.style.setProperty('--zoom-y', ponto.style.getPropertyValue('--y'));
-      if (cena3D) cena3D.aproximar(categoria, avancarAproximacao);
+      enquadrarCena();
+      if (cena3D) cena3D.aproximar(categoria, duracaoAproximacao, revelarCatalogo);
       else prepararCatalogoComImagem();
     } else {
       atualizarExpansao();
@@ -229,6 +228,7 @@ if (visualizador) {
   });
 
   function destacar(categoria) {
+    categoria = categoriaSelecionada ?? categoria;
     if (categoriaDestacada) botoes.get(categoriaDestacada).removeAttribute('data-destaque');
     categoriaDestacada = categoria;
     rotulo.hidden = !categoria;
@@ -237,13 +237,33 @@ if (visualizador) {
 
     botoes.get(categoria).setAttribute('data-destaque', '');
     const total = contagem?.get(categoria);
-    const opcoes = total === undefined ? '' : ' — ver ' + total + (total === 1 ? ' opção' : ' opções');
+    const opcoes = categoriaSelecionada || total === undefined ? '' : ' — ver ' + total + (total === 1 ? ' opção' : ' opções');
     rotulo.textContent = categorias[categoria].nome + opcoes;
   }
 
   visualizador.addEventListener('click', evento => {
     const botao = evento.target.closest('button[data-categoria]');
     if (botao) abrir(botao.dataset.categoria, botao);
+  });
+
+  function pecaNaImagem(evento) {
+    if (categoriaSelecionada) return;
+    const limites = imagem.getBoundingClientRect();
+    const x = (evento.clientX - limites.left) / limites.width;
+    const y = (evento.clientY - limites.top) / limites.height;
+    return regioesDaImagem.find(([, esquerda, topo, direita, fundo]) =>
+      x >= esquerda && x <= direita && y >= topo && y <= fundo)?.[0];
+  }
+
+  imagem.addEventListener('pointermove', evento => {
+    const categoria = pecaNaImagem(evento);
+    imagem.toggleAttribute('data-peca', !!categoria);
+    destacar(categoria);
+  });
+  imagem.addEventListener('pointerleave', () => destacar());
+  imagem.addEventListener('click', evento => {
+    const categoria = pecaNaImagem(evento);
+    if (categoria) abrir(categoria, botoes.get(categoria));
   });
 
   for (const [categoria, botao] of botoes) {
@@ -277,14 +297,14 @@ if (visualizador) {
     if (mostrarCatalogo) prepararCatalogoComImagem();
   }
 
-  import('./cena3d.js?v=interfaces-18').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-19').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;
     imagem.hidden = true;
     if (painel.open || mostrarCatalogo) {
-      cancelarTemposDaImagem();
-      cena3D.aproximar(painel.dataset.categoria, mostrarCatalogo ? avancarAproximacao : undefined);
+      clearTimeout(tempoCatalogo);
+      cena3D.aproximar(painel.dataset.categoria, duracaoAproximacao, revelarCatalogo);
       ajustes.hidden = false;
     }
     atualizarInstrucao();
