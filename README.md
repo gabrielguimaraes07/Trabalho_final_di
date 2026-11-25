@@ -4,7 +4,7 @@
 
 **Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-Fiz o GGTECH para ajudar quem quer montar o primeiro PC. No site, dar para explorar um gabinete em 3D, entender para que serve cada peça, comparar preços e ver se as peças funcionam juntas.
+Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Dá para olhar as peças dentro de um gabinete em 3D, entender o que cada uma faz e experimentar uma configuração antes de pensar em comprar. Quem ainda não sabe por onde começar pode usar a montagem guiada. Quem já tem algumas peças em mente pode ir direto ao catálogo ou à montagem manual.
 
 ## Abra as duas entregas
 
@@ -19,71 +19,83 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. No site, dar para explo
 
 ### 1. A primeira página
 
-Comecei com cabeçalho, menu, conteúdo e rodapé em HTML. O link **Pular para o conteúdo** leva quem usa o teclado direto à parte principal. No CSS, as cores, os tamanhos de texto e os espaços ficaram no mesmo arquivo para que as outras telas pudessem usar o mesmo visual. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
+Comecei pelo `index.html`, com cabeçalho, menu, conteúdo e rodapé. Na parte de cima, deixei dois caminhos para montar o PC e coloquei o gabinete 3D ao lado. Mais abaixo ficaram os cartões das peças, o carrossel e os setups prontos. O link **Pular para o conteúdo** leva quem usa o teclado direto à parte principal.
+
+Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Em `layout.css` ficam as regras do menu e da estrutura das páginas. Em telas menores, o menu recolhe e os cartões passam a ocupar menos colunas. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
 
 ### 2. O gabinete em 3D
 
-O gabinete foi feito no Three.js. Dá para girá-lo e clicar nas peças para abrir uma lista daquela categoria. Os botões abaixo do modelo dão o mesmo acesso pelo teclado. Quando o 3D fica indisponível, aparece uma imagem no lugar. Na final, a vista explodida separa as peças para mostrar onde cada uma fica.
+O `modelo-pc.js` monta o gabinete e as peças com formas e materiais do Three.js. No `cena3d.js`, o clique identifica qual peça foi selecionada e leva a câmera até ela. A aproximação desacelera perto da peça. Quando termina, o catálogo abre à direita no computador e embaixo no celular. Ali aparecem as fotos, os preços e o atalho para usar a peça na montagem manual.
+
+Dá para arrastar o gabinete para girar ou escolher uma peça pelos botões abaixo do modelo. Se o navegador não carregar o 3D, ainda dá para clicar nas peças da imagem. Mais abaixo, em **Por dentro do seu PC**, a vista explodida acompanha a rolagem da página e mostra onde as peças ficam encaixadas.
 
 ### 3. Os primeiros exemplos
 
-Adicionei explicações simples sobre as peças. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. Com ajuda do Codex, organizei as imagens do carrossel e liguei as setas, os indicadores e o botão de pausa. Também ajustei os controles que ficavam atrás do menu ao usar Tab. [Revisão da parcial](entrega-final/docs/revisao-parcial.md)
+Adicionei explicações curtas nos cartões da página inicial. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. Quem quer ver modelos, fotos e preços pode seguir para **Conheça os componentes do seu PC**. O glossário ajuda a entender termos como *socket* e DDR sem precisar sair do site.
+
+Com ajuda do Codex, organizei as fotos de **Ambientes de referência** e liguei as setas, os indicadores e o botão de pausa. Cada foto tem uma legenda sobre o que dá para aproveitar daquele ambiente, como usar um segundo monitor na vertical ou deixar espaço para o caderno. Também ajustei os controles que ficavam atrás do menu ao usar Tab. [Revisão da parcial](entrega-final/docs/revisao-parcial.md)
 
 ### 4. O menu, o login e a leitura
 
-Na final, o menu passou a levar ao catálogo, às montagens, aos setups, ao glossário e ao contato. No celular, dá para abrir e fechar o menu com um botão. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
+Na final, o menu passou a levar ao catálogo, às montagens, aos setups, ao glossário e ao contato. O rodapé também dá acesso a **Contato**, onde ficam o formulário e as perguntas frequentes. No celular, dá para abrir e fechar a navegação pelo botão **Menu**. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
 
-O Codex também me ajudou no painel de acessibilidade. Dá para trocar entre modo claro e escuro, aumentar a fonte, mudar o espaçamento, reforçar o contraste e sublinhar os links. A prévia mostra as mudanças na hora, e as preferências ficam no navegador. A opção de reduzir movimento pausa o giro do gabinete e a troca automática do carrossel. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
+O Codex também me ajudou no painel de acessibilidade. Dá para trocar entre modo claro e escuro, aumentar a fonte, mudar o espaçamento, reforçar o contraste e sublinhar os links. A prévia mostra as mudanças na hora, e as preferências ficam no navegador. Com **Reduzir movimento** ativo, o giro automático e o carrossel automático param, e o enquadramento da peça muda direto ao clicar. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
 
 ### 5. Os produtos reais
 
-Troquei os produtos de exemplo por modelos reais. Cada peça tem foto, marca, modelo, preço de referência e especificações. O mesmo código de identificação liga a peça ao catálogo, ao guia, ao carrinho e à montagem salva. As fotos ficam nos arquivos do projeto. [Dados dos produtos](entrega-final/dados/produtos.json)
+Troquei os produtos de exemplo por modelos reais. Cada peça tem foto, marca, modelo, preço de referência e especificações. Em `produtos.json`, cadastrei também as informações que entram nas checagens, como o encaixe do processador, o tipo de memória, a potência da fonte e o tamanho da placa de vídeo.
+
+O mesmo código de identificação liga a peça ao catálogo, ao guia, ao carrinho e à montagem salva. Isso permite abrir um setup pronto com os mesmos itens que aparecem na busca. As fotos ficam nos arquivos do projeto, junto dos demais recursos da entrega final. [Dados dos produtos](entrega-final/dados/produtos.json)
 
 ### 6. A busca e a comparação
 
-No catálogo, dá para escolher uma categoria pelas abas e buscar pelo nome. Em **Armazenamento**, por exemplo, o filtro **Tipo de peça** separa SSD SATA, SSD NVMe e HD. Também dá para filtrar por marca, preço ou compatibilidade. **Detalhes da peça** abre a ficha completa. Na comparação, dá para ver até três modelos do mesmo tipo lado a lado e conferir, por exemplo, quais processadores têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+O catálogo usa os dados dos produtos para preencher as abas, as sugestões de busca e os cartões. A busca por nome funciona junto com os filtros de marca, preço e compatibilidade. Em **Armazenamento**, por exemplo, o filtro **Tipo de peça** separa SSD SATA, SSD NVMe e HD.
+
+Para conferir um modelo, abra **Detalhes da peça** no cartão. Para comparar, marque **Comparar** em até três modelos do mesmo tipo e escolha **Ver comparação**. Assim dá para olhar os preços e as fichas lado a lado, ou descobrir quais processadores têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Dois jeitos de montar o PC
 
-Na **montagem guiada**, a pessoa escolhe o uso do PC, o orçamento e o que importa mais entre economia, desempenho e iluminação RGB. Se o valor for baixo demais, o site mostra o mínimo para aquele uso. O resultado separa as peças do PC e os periféricos.
+Organizei a montagem guiada em três perguntas. Primeiro vem o uso do PC, depois o orçamento e, por último, a prioridade entre economia, desempenho e iluminação RGB. O montador procura peças que combinem com as respostas e avisa quando o orçamento fica abaixo do mínimo daquele perfil. O resultado explica a sugestão e separa o subtotal do computador do subtotal dos periféricos.
 
-Na **montagem manual**, dá para começar do zero ou mudar um setup pronto. A lista, o total e os avisos mudam conforme as peças escolhidas. Dá para salvar a montagem, compartilhar por link ou imprimir.
+Abra **Montagem manual** para começar escolhendo peça por peça. Se já tiver uma sugestão da montagem guiada, use **Personalizar na montagem manual**. Em **Setups prontos**, dá para abrir **Ver lista de peças** e depois escolher **Personalizar montagem**. Os setups usam os mesmos produtos do catálogo, então dá para partir de uma configuração e trocar só o que precisar.
+
+Na montagem manual, escolha uma categoria, selecione a peça e confira o resumo antes de passar à próxima. **Periféricos opcionais** reúne itens como monitor, teclado e mouse. A **Vista da montagem** mostra as fotos das peças escolhidas, e o painel **Sua montagem** atualiza as quantidades, os subtotais e o consumo estimado.
+
+No resumo, abra **Salvar, abrir ou comparar** para guardar a lista com um nome, voltar a uma montagem antiga ou comparar as duas. **Compartilhar link** leva a lista de peças para outro navegador, e **Exportar PDF** abre a tela de impressão.
 
 ### 8. A checagem das peças e o carrinho
 
-O site confere se as peças encaixam e se têm espaço, energia e conexões suficientes. No gabinete MSI MAG PANO M100R PZ, por exemplo, SSDs SATA e HDs dividem um suporte. O simulador avisa quando a quantidade escolhida passa do limite.
+O `compatibilidade.js` faz as checagens com os dados do catálogo. Ele cruza, por exemplo, o encaixe do processador com o da placa-mãe, o tipo de memória com os slots disponíveis e as dimensões da placa de vídeo com o espaço do gabinete. Também confere energia e conexões. No MSI MAG PANO M100R PZ, SSDs SATA e HDs dividem um suporte. O simulador avisa quando a quantidade passa desse limite.
 
-No carrinho, dá para conferir os itens, as quantidades e o total antes de confirmar a compra simulada. No celular, a barra com o total leva direto ao resumo da montagem.
+No celular, **Ver montagem** leva direto ao resumo. Depois de conferir as peças essenciais e os avisos, dá para levar a configuração ao carrinho. Ali você revisa os itens, muda as quantidades e confere o valor. **Simular compra** abre a última revisão antes de confirmar.
 
 ### 9. Os testes
 
-Os testes passaram pelo teclado, por telas grandes e pequenas, pelo texto ampliado a 200% e pelo contraste. Também foram conferidos a comparação, o carrinho e a opção de abrir e salvar montagens. [Testes do projeto](entrega-final/docs/auditoria.md) · [Contraste no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Como usei IA](entrega-final/docs/registro-ia.md)
-
-## Um exemplo para mostrar na apresentação
-
-1. Abra **Montagem guiada** e escolha **Estudar**.
-2. Digite R$ 4.000 para ver o aviso de orçamento. Depois, ajuste para R$ 8.500.
-3. Confira os subtotais e clique em **Personalizar na montagem manual** para trocar um gabinete ou headset.
-4. Veja o novo total e os avisos. Leve as peças ao carrinho e confira os itens antes de confirmar a simulação.
+Os testes passaram pelo teclado, por telas grandes e pequenas, pelo texto ampliado a 200% e pelo contraste. Também foram conferidos a comparação, o carrinho e a opção de abrir e salvar montagens. Os testes da versão mais recente incluíram o clique direto na peça, o zoom, a abertura do catálogo e a volta à visão geral do gabinete. O clique também foi testado na imagem que aparece quando o navegador fica sem WebGL. [Testes do projeto](entrega-final/docs/auditoria.md) · [Contraste no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Como usei IA](entrega-final/docs/registro-ia.md)
 
 ## Como rodar no seu computador
 
-No VS Code, abra o `index.html` da versão que quiser e escolha **Open with Live Server**. Se preferir usar Python, abra o terminal na pasta principal do projeto e rode este comando.
+1. No GitHub, use **Code** e **Download ZIP**. Extraia o arquivo e abra a pasta do projeto no VS Code.
+2. Escolha `entrega-final/index.html` ou `entrega-parcial/index.html`. Com a extensão Live Server instalada, clique com o botão direito no arquivo e escolha **Open with Live Server**.
+
+Se preferir usar Python, abra o terminal na pasta que contém `entrega-parcial/` e `entrega-final/` e rode o comando abaixo.
 
 ```sh
 python -m http.server 8765
 ```
 
-Depois, abra [a parcial](http://localhost:8765/entrega-parcial/) ou [a final](http://localhost:8765/entrega-final/). O servidor ajuda o navegador a carregar os dados e os arquivos JavaScript. A parcial carrega o Three.js pela internet. Na final, a biblioteca vem junto com o projeto.
+O servidor local ajuda o navegador a carregar o catálogo e os módulos JavaScript. A parcial carrega o Three.js pela internet. Na final, a biblioteca vem junto com o projeto. Com o servidor rodando, abra uma das versões no navegador. [Parcial no localhost](http://localhost:8765/entrega-parcial/) · [Final no localhost](http://localhost:8765/entrega-final/)
 
 ## Onde mexer no código
 
-- **HTML.** `index.html` é a página inicial, `estoque.html` é o catálogo e `simulador.html` é a montagem manual.
+- **HTML.** `index.html` é a página inicial, `estoque.html` é o catálogo, `montador.html` é a montagem guiada e `simulador.html` é a montagem manual. As telas ficam dentro da pasta de cada entrega.
 - **CSS.** A pasta `css/` guarda os estilos. `tokens.css` tem a paleta e `layout.css` define o menu e o rodapé.
-- **JavaScript.** Em `js/`, `principal.js` liga as funções de cada página e `compatibilidade.js` confere as combinações de peças.
+- **JavaScript.** Em `js/`, `principal.js` liga as funções de cada página. Para mexer no clique do 3D, procure `cena3d.js`. Para mexer nos filtros do catálogo, veja `pagina-estoque.js`. As checagens ficam em `compatibilidade.js`.
 - **Dados.** A pasta `dados/` guarda os produtos, os setups prontos e o glossário.
 - **Imagens e bibliotecas.** Tudo fica em `recursos/`. O Three.js desenha o gabinete, e o GSAP cuida de animações como a separação das peças. [Mapa do código](entrega-final/docs/codigo.md)
 
-## Limites da demonstração
+## O que vale saber antes de usar
 
-Os preços servem de referência, em reais e sem frete. Alguns vieram de ofertas que já acabaram. O simulador usa as medidas e conexões cadastradas. Na montagem física, ainda é preciso conferir coisas como a versão da BIOS, a folga para os cabos e a posição do radiador. O login, o contato e a compra são simulados. O carrinho, as preferências e as montagens salvas ficam no navegador. [Créditos das fotos e referências](entrega-final/docs/referencias.md)
+Os preços ajudam a ter uma ideia de quanto o PC sairia. Estão em reais, sem frete, e algumas ofertas já passaram. Se for montar o PC de verdade, vale olhar a ficha do fabricante e conferir detalhes como a versão da BIOS, o espaço para os cabos e onde o radiador vai ficar. As fotos na montagem dão uma ideia da posição das peças, e a lista de atividades mostra uma estimativa baseada nas especificações.
+
+O login, o formulário de contato e a compra são só para testar como o site funciona. O carrinho, os ajustes de acessibilidade e as montagens salvas ficam no navegador que você usou. [Créditos das fotos e referências](entrega-final/docs/referencias.md)

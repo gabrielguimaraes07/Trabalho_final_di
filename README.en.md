@@ -4,11 +4,11 @@
 
 **Gabriel Guimarães · Interface Development · UniCEUB, 2026**
 
-I made GGTECH to help people build their first PC. You can explore a 3D PC case, learn what each part does, compare prices, and check whether parts work together. The website and the linked project notes are in Portuguese.
+I made GGTECH to help people build their first PC. You can look inside a 3D case, learn what each part does, and try out a build before you think about buying it. The guided builder gives you a place to start. If you already have a few parts in mind, you can go straight to the catalog or the manual builder. The site and project notes are in Portuguese.
 
 ## Open either version
 
-- **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. This copy comes from commit `5615947`, which includes fixes for contrast, keyboard focus, and the tab icon. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
+- **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
 - **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Final files](entrega-final/)
 
 ![GGTECH home page with the two build options and the interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
@@ -19,71 +19,83 @@ I made GGTECH to help people build their first PC. You can explore a 3D PC case,
 
 ### 1. The first page
 
-I started with a header, menu, main content, and footer in HTML. The **Pular para o conteúdo** (Skip to content) link helps keyboard users reach the main content. I kept colors, text sizes, and spacing in one CSS file so the other pages could use the same style. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
+I started with `index.html` and set up the header, navigation, main content, and footer. At the top, I put the two ways to start a build next to the 3D case. The part cards, carousel, and ready-made builds sit farther down the page. The **Pular para o conteúdo** (Skip to content) link takes keyboard users straight to the main content.
+
+I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. `layout.css` handles the menu and page layout. On smaller screens, the menu collapses and the cards use fewer columns. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
 
 ### 2. The 3D PC case
 
-The case was built with Three.js. You can rotate it and click a part to see products in that category. The buttons below the model give keyboard users the same options. When 3D is unavailable, the site shows an image of the case. The final version also has an exploded view that pulls the parts apart to show where each one goes.
+`modelo-pc.js` builds the case and its parts from Three.js shapes and materials. `cena3d.js` figures out which part you clicked and moves the camera toward it, slowing down as it gets close. The catalog then opens on the right on a computer and below the model on a phone. It shows photos, prices, and a link to use a part in the manual builder.
+
+Drag to turn the case or use the buttons below it to choose a part with the keyboard. If the browser cannot load 3D, the parts in the image still respond to clicks. Farther down, **Por dentro do seu PC** (Inside your PC) pulls the parts apart as you scroll so you can see where they fit.
 
 ### 3. The first examples
 
-I added simple explanations of what the parts do. RAM, for example, works like a desk where you keep the things you are using. Codex helped me arrange the carousel images and set up the arrows, slide indicators, and pause button. I also fixed controls that were hidden behind the menu when using Tab. [Review of the first submission](entrega-final/docs/revisao-parcial.md)
+I added short explanations to the home page cards. RAM, for example, works like a desk where you keep the things you are using. The component guide goes further with models, photos, and prices. The glossary explains terms like *socket* and DDR without sending you away from the site.
+
+Codex helped me organize the setup photos and connect the carousel arrows, slide indicators, and pause button. Each photo comes with a practical detail, like turning a second monitor vertically or leaving room for a notebook. I also fixed controls that were hidden behind the menu when using Tab. [Review of the first submission](entrega-final/docs/revisao-parcial.md)
 
 ### 4. The menu, login, and reading options
 
-In the final version, the menu links to the catalog, builders, ready-made builds, glossary, and contact page. On a phone, you can open and close the menu with a button. Codex helped me set up the **Sign in** and **Create account** tabs and the feedback messages for the demo login.
+In the final version, the menu links to the catalog, builders, ready-made builds, glossary, and contact page. The footer also links to **Contato** (Contact), where you'll find the form and frequently asked questions. On a phone, use the **Menu** button to open and close navigation. Codex helped me set up the **Entrar** (Sign in) and **Criar conta** (Create account) tabs and the messages for the demo login.
 
-Codex also helped me build the accessibility panel. You can choose a light or dark theme, make the text bigger, change the spacing, increase contrast, and underline links. A preview shows the changes right away, and the browser saves your choices. The reduced-motion setting pauses the 3D case rotation and automatic carousel slides. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
+Codex also helped me build the accessibility panel. You can switch between light and dark themes, make the text bigger, change spacing, increase contrast, and underline links. The preview shows the changes right away, and the browser saves your choices. With **Reduzir movimento** (Reduce motion) on, the case and carousel stop moving automatically, and the camera goes straight to the selected part. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
 
 ### 5. Real products
 
-I replaced the sample products with real models. Each part has a photo, brand, model name, reference price, and specs. The catalog, guide, cart, and saved builds all use the same product ID. The photos are in the project files. [Product data](entrega-final/dados/produtos.json)
+I replaced the sample products with real models. Each part has a photo, brand, model name, reference price, and specs. `produtos.json` also stores the details the builder checks, like CPU socket, memory type, power supply wattage, and graphics card size.
+
+The catalog, guide, cart, and saved builds all use the same product ID. That way, a ready-made build can open with the same models you see in search. The product photos are included with the final version's other assets. [Product data](entrega-final/dados/produtos.json)
 
 ### 6. Search and comparisons
 
-In the catalog, you can choose a category from the tabs and search by name. Under **Armazenamento** (Storage), for example, the **Tipo de peça** (Part type) filter lets you choose between SATA SSDs, NVMe SSDs, and hard drives. You can also filter by brand, price, or compatibility. **Detalhes da peça** (Part details) opens the full specs. The comparison shows up to three models of the same type side by side, so you can see which processors have built-in graphics, for example. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+The catalog uses the product data to fill the category tabs, search suggestions, and product cards. Search by name works alongside the brand, price, and compatibility filters. In **Armazenamento** (Storage), for example, **Tipo de peça** (Part type) separates SATA SSDs, NVMe SSDs, and hard drives.
+
+Open **Detalhes da peça** (Part details) on a card to see its specs. To compare, mark **Comparar** (Compare) on up to three models of the same type and open **Ver comparação** (View comparison). You can see specs and prices side by side or check which CPUs have integrated graphics. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Two ways to build a PC
 
-In the **guided builder**, you choose what you will use the PC for, set a budget, and pick a priority from savings, performance, or RGB lighting. If the budget is too low, the site shows the lowest price for that use. The result groups PC parts and accessories separately.
+I set up the guided builder around three questions. Choose what the PC is for first, set your budget next, and then pick a priority from savings, performance, or RGB lighting. The builder looks for a set of parts that fits your answers and tells you if the budget is below the minimum for that use. The result explains the suggestion and shows separate subtotals for the PC and its accessories.
 
-In the **manual builder**, you can start from scratch or edit a ready-made build. The list, total price, and warnings update as you pick parts. You can save the build, share it with a link, or print it.
+Open **Montagem manual** (Manual builder) to start from scratch. If you have a suggestion from the guided builder, choose **Personalizar na montagem manual** (Customize in the manual builder). On a ready-made build, open **Ver lista de peças** (View parts list) and then choose **Personalizar montagem** (Customize build). The ready-made builds use the same products as the catalog, so you can start with one and swap only the parts you need.
+
+In the manual builder, choose a category, pick a part, and check the summary before moving on. Open **Periféricos opcionais** (Optional accessories) to find items like monitors, keyboards, and mice. The build preview shows photos of the parts you picked. The summary updates quantities, subtotals, and estimated power use.
+
+Open **Salvar, abrir ou comparar** (Save, open or compare) in the summary to name and save the list, reopen an older build, or compare it with the current one. **Compartilhar link** (Share link) lets you open the parts list in another browser, and **Exportar PDF** (Export PDF) opens the print dialog.
 
 ### 8. Compatibility checks and the cart
 
-The site checks whether the parts fit and have enough space, power, and connections. In the MSI MAG PANO M100R PZ case, for example, SATA SSDs and hard drives share a mounting space. The builder warns you if you pick too many.
+`compatibilidade.js` checks the catalog data for CPU and motherboard socket, supported memory and slots, and room for the graphics card, among other things. It also checks power and connections. In the MSI MAG PANO M100R PZ case, for example, SATA SSDs and hard drives share a mounting space. The builder warns you if you pick too many.
 
-In the cart, you can check the items, quantities, and total before confirming a mock purchase. On a phone, the bar with the total takes you straight to the build summary.
+On a phone, **Ver montagem** (View build) takes you straight to the summary. Check the essential parts and any warnings, then move the build to the cart. There you can review the items, change quantities, and check the total. **Simular compra** (Simulate purchase) opens one last review before you confirm.
 
 ### 9. Testing
 
-Testing covered keyboard navigation, large and small screens, text at 200%, and color contrast. It also covered part comparisons, the cart, and opening and saving builds. [Project tests](entrega-final/docs/auditoria.md) · [Adobe Color contrast results](entrega-final/docs/contraste-adobe.md) · [How I used AI](entrega-final/docs/registro-ia.md)
-
-## An example for the presentation
-
-1. Open **Montagem guiada** (Guided builder) and choose **Estudar** (Study).
-2. Enter 4000 to see the budget warning. Then raise the budget to 8500. Prices are in Brazilian reais.
-3. Check the subtotals and select **Personalizar na montagem manual** (Customize in the manual builder) to swap the case or headset.
-4. Check the new total and warnings. Move the parts to the cart and review the items before confirming the mock purchase.
+Testing covered keyboard navigation, large and small screens, text at 200%, and color contrast. It also covered part comparisons, the cart, and opening and saving builds. The latest tests covered clicking a part, zooming in, opening the catalog, and returning to the full case. They also checked that parts in the fallback image still respond to clicks without WebGL. [Project tests](entrega-final/docs/auditoria.md) · [Adobe Color contrast results](entrega-final/docs/contraste-adobe.md) · [How I used AI](entrega-final/docs/registro-ia.md)
 
 ## Run the site on your computer
 
-In VS Code, open the `index.html` file for the version you want and choose **Open with Live Server**. If you prefer Python, open a terminal in the main project folder and run this command.
+1. On GitHub, open **Code** and choose **Download ZIP**. Unzip the folder and open it in VS Code.
+2. Choose `entrega-final/index.html` or `entrega-parcial/index.html`. With the Live Server extension installed, right-click the file and select **Open with Live Server**.
+
+If you prefer Python, open a terminal in the folder that contains `entrega-parcial/` and `entrega-final/` and run the following command.
 
 ```sh
 python -m http.server 8765
 ```
 
-Then open [the first version](http://localhost:8765/entrega-parcial/) or [the final version](http://localhost:8765/entrega-final/). The local server helps the browser load the data and JavaScript files. The first version loads Three.js over the internet. The final version includes it in the project files.
+The local server helps the browser load the product data and JavaScript modules. The first version loads Three.js over the internet. The final version includes it with the project files. Once the server is running, open either version in your browser. [First version on localhost](http://localhost:8765/entrega-parcial/) · [Final version on localhost](http://localhost:8765/entrega-final/)
 
 ## Where to find the code
 
-- **HTML.** `index.html` is the home page, `estoque.html` is the catalog, and `simulador.html` is the manual builder.
+- **HTML.** `index.html` is the home page, `estoque.html` is the catalog, `montador.html` is the guided builder, and `simulador.html` is the manual builder. The pages live inside each version's folder.
 - **CSS.** `css/` holds the styles. `tokens.css` has the color palette and `layout.css` sets up the menu and footer.
-- **JavaScript.** In `js/`, `principal.js` starts each page's features and `compatibilidade.js` checks which parts work together.
+- **JavaScript.** In `js/`, `principal.js` starts each page's features. Look in `cena3d.js` for the 3D clicks, `pagina-estoque.js` for the catalog filters, and `compatibilidade.js` for the compatibility checks.
 - **Data.** `dados/` holds the products, ready-made builds, and glossary.
 - **Images and libraries.** These are in `recursos/`. Three.js draws the case, and GSAP handles animations like pulling the parts apart. [Code guide](entrega-final/docs/codigo.md)
 
-## Demo limits
+## Good to know before you try it
 
-Prices are for reference, in Brazilian reais, and exclude shipping. Some come from offers that have ended. The builder uses the dimensions and connections listed in the catalog. When assembling a real PC, you still need to check details like the BIOS version, room for cables, and radiator placement. Sign-in, contact, and checkout are simulated. The cart, preferences, and saved builds stay in the browser you use. [Photo credits and references](entrega-final/docs/referencias.md)
+The prices give you a rough idea of what the PC would cost. They're in Brazilian reais, without shipping, and some deals have already ended. If you plan to build the PC, check the manufacturer specs for details like the BIOS version, room for cables, and radiator placement. The build photos give you a sense of where the parts go, and the activity list uses the specs to give you a rough estimate of what the PC can handle.
+
+Sign-in, the contact form, and checkout are there so you can try how they work. The cart, accessibility options, and saved builds stay in the browser you used. [Photo credits and references](entrega-final/docs/referencias.md)
