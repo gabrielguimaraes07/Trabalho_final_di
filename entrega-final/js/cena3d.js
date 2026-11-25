@@ -34,6 +34,11 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   canvas.style.touchAction = 'pan-y';
 
   const projetar = projetorHotspots(botoes, pecas, camera);
+  const cabecalho = document.querySelector('.site-header');
+  const previa = dialogo.querySelector('.gaveta-previa');
+  const previaImagem = previa.querySelector('img');
+  const previaCanvas = previa.querySelector('canvas');
+  const contextoPrevia = previaCanvas.getContext('2d');
   const preferencia = matchMedia('(prefers-reduced-motion: reduce)');
   const ouvintes = new AbortController();
   const { signal } = ouvintes;
@@ -49,6 +54,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   let pecaFocada;
   let voo;
   let gsap;
+  let mostrarPrevia = false;
   carregarGSAP().then(biblioteca => { gsap = biblioteca; });
 
   function movimentoReduzido() {
@@ -56,7 +62,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   }
 
   function agendar() {
-    if (ativo && visivel && !document.hidden && quadroPendente === undefined) {
+    if (ativo && (visivel || mostrarPrevia) && !document.hidden && quadroPendente === undefined) {
       quadroPendente = requestAnimationFrame(quadro);
     }
   }
@@ -68,7 +74,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
 
   function quadro(tempo) {
     quadroPendente = undefined;
-    if (!ativo || !visivel || document.hidden) {
+    if (!ativo || (!visivel && !mostrarPrevia) || document.hidden) {
       tempoAnterior = undefined;
       return;
     }
@@ -97,6 +103,12 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
         pecas.get(categoria).userData.contorno.visible = categoria === pecaFocada || botao.hasAttribute('data-destaque');
       }
       renderer.render(mundo, camera);
+      if (mostrarPrevia) {
+        if (previaCanvas.width !== canvas.width) previaCanvas.width = canvas.width;
+        if (previaCanvas.height !== canvas.height) previaCanvas.height = canvas.height;
+        contextoPrevia.clearRect(0, 0, canvas.width, canvas.height);
+        contextoPrevia.drawImage(canvas, 0, 0);
+      }
       projetar();
       precisaRenderizar = false;
     }
@@ -113,6 +125,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
     camera.updateProjectionMatrix();
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.setSize(largura, altura, false);
+    if (pecaFocada) aproximar(pecaFocada);
     marcar();
   }
 
@@ -126,6 +139,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
     controles.autoRotate = false;
     let alvo = alvoInicial.clone();
     let destino = posicaoInicial.clone();
+    mostrarPrevia = false;
 
     if (categoria) {
       const peca = pecas.get(categoria);
@@ -134,15 +148,28 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
       const distancia = Math.max(2.6, peca.userData.tamanho * 1.42 + 1);
       const direcao = camera.position.clone().sub(controles.target).normalize();
 
-      if (dialogo.offsetWidth < innerWidth * .8) {
-        const limites = canvas.getBoundingClientRect();
-        const centro = THREE.MathUtils.clamp((innerWidth - dialogo.offsetWidth - limites.left) / (2 * limites.width), .2, .5);
+      const limites = cena.getBoundingClientRect();
+      const esquerda = Math.max(0, limites.left);
+      const direita = Math.min(limites.right, document.documentElement.clientWidth - dialogo.offsetWidth);
+      const larguraVisivel = Math.max(0, direita - esquerda);
+      const centroVertical = limites.top + limites.height / 2;
+      const topo = cabecalho?.getBoundingClientRect().bottom ?? 0;
+      mostrarPrevia = !!contextoPrevia && (larguraVisivel < Math.min(210, limites.width * .48)
+        || centroVertical < topo + 52 || centroVertical > innerHeight - 52);
+
+      if (!mostrarPrevia && larguraVisivel > 0) {
+        const centro = ((esquerda + direita) / 2 - limites.left) / limites.width;
         const largura = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * distancia * 2 * camera.aspect;
-        const direita = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
-        alvo.addScaledVector(direita, (.5 - centro) * largura);
+        const eixoHorizontal = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
+        alvo.addScaledVector(eixoHorizontal, (.5 - centro) * largura);
       }
       destino = alvo.clone().addScaledVector(direcao, distancia);
     }
+
+    previa.hidden = !mostrarPrevia;
+    previaCanvas.hidden = !mostrarPrevia;
+    previaImagem.hidden = true;
+    dialogo.toggleAttribute('data-cena-a-vista', !!categoria && !mostrarPrevia);
 
     function finalizar() {
       voo = undefined;
@@ -192,6 +219,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   observadorGaveta.observe(dialogo, { attributes: true, attributeFilter: ['open'] });
 
   controles.addEventListener('change', marcar);
+  window.addEventListener('resize', redimensionar, { signal });
   cena.addEventListener('pointerenter', evento => {
     ponteiroNaCena = evento.pointerType !== 'touch';
   }, { signal });
@@ -278,6 +306,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   }, { once: true });
 
   redimensionar();
+  if (dialogo.open) aproximar(dialogo.dataset.categoria);
   atualizarPausa();
   return marcar;
 }

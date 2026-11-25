@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { carregarScrollTrigger } from './animacoes.js?v=interfaces-11';
 import { categorias } from './estoque.js?v=1.0-final';
 import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
 
@@ -47,14 +46,14 @@ export function criarVistaExplodida() {
   return { mundo, camera, atualizar };
 }
 
-export async function iniciarVistaExplodida(secao) {
-  const ScrollTrigger = await carregarScrollTrigger();
-  if (!ScrollTrigger) return;
-
+export function iniciarVistaExplodida(secao) {
+  const percurso = secao.querySelector('.vista-explodida-percurso');
   const palco = secao.querySelector('.vista-explodida-palco');
   const area = secao.querySelector('.vista-explodida-imagem');
   const canvas = area.querySelector('canvas');
   const imagem = area.querySelector('img');
+  const quadros = area.querySelector('.vista-explodida-quadros');
+  const controle = secao.querySelector('.vista-explodida-controle');
   const texto = secao.querySelector('.vista-explodida-texto');
   const nome = texto.querySelector('.vista-explodida-nome');
   const descricao = texto.querySelector('.vista-explodida-descricao');
@@ -62,18 +61,52 @@ export async function iniciarVistaExplodida(secao) {
   const preferencia = matchMedia('(prefers-reduced-motion: reduce)');
   let renderer;
   let vista;
-  let gatilho;
-  let fixado;
+  let tentouWebGL = false;
+  let preparandoQuadros;
+  let quadrosProntos = false;
+  let animacaoAtiva = false;
+  let animarNestaVista = false;
+  let fixado = false;
   let emTela = false;
-  let progresso = 0;
+  let topo;
+  let quadroPendente;
+  let progressoAnterior;
   let categoriaAtual;
 
+  function movimentoReduzido() {
+    return preferencia.matches || document.documentElement.dataset.reduzirMovimento === 'true';
+  }
+
+  function agendar() {
+    if (animacaoAtiva && emTela && quadroPendente === undefined) {
+      quadroPendente = requestAnimationFrame(desenhar);
+    }
+  }
+
   function desenhar() {
-    if (!emTela || !gatilho) return;
+    quadroPendente = undefined;
+    if (!animacaoAtiva || !emTela) return;
+    const limites = percurso.getBoundingClientRect();
+    const posicao = fixado
+      ? (topo - limites.top) / Math.max(1, limites.height - palco.offsetHeight)
+      : (innerHeight * .82 - limites.top) / (limites.height + innerHeight * .56);
+    const progresso = THREE.MathUtils.clamp(posicao, 0, 1);
+    if (progresso === progressoAnterior) return;
+    progressoAnterior = progresso;
+
     const indice = Math.min(ordem.length - 1, Math.floor(progresso * ordem.length));
     const categoria = ordem[indice];
-    vista.atualizar(progresso, categoria);
-    renderer.render(vista.mundo, vista.camera);
+    if (renderer) {
+      vista.atualizar(progresso, categoria);
+      renderer.render(vista.mundo, vista.camera);
+    } else {
+      const colunas = 6;
+      const linhas = 3;
+      const indiceQuadro = Math.round(progresso * (colunas * linhas - 1));
+      const x = indiceQuadro % colunas * 100 / (colunas - 1);
+      const y = Math.floor(indiceQuadro / colunas) * 100 / (linhas - 1);
+      quadros.style.backgroundPosition = x + '% ' + y + '%';
+    }
 
     if (categoria !== categoriaAtual) {
       categoriaAtual = categoria;
@@ -82,99 +115,94 @@ export async function iniciarVistaExplodida(secao) {
     }
   }
 
-  function atualizarPercurso(estado) {
-    progresso = estado.progress;
-    desenhar();
-  }
-
   function redimensionar() {
-    if (!gatilho) return;
+    if (!animacaoAtiva) return;
+    topo = (cabecalho?.offsetHeight ?? 0) + 16;
+    fixado = palco.offsetHeight + topo + 8 <= innerHeight;
+    percurso.toggleAttribute('data-fixado', fixado);
+    percurso.style.setProperty('--vista-topo', topo + 'px');
+
     const largura = area.clientWidth;
     const altura = area.clientHeight;
-    if (!largura || !altura) return;
-    renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
-    renderer.setSize(largura, altura, false);
-    vista.camera.aspect = largura / altura;
-    vista.camera.updateProjectionMatrix();
-    desenhar();
-  }
-
-  function prepararPercurso() {
-    if (!renderer || canvas.hidden) return;
-    const alturaCabecalho = cabecalho?.offsetHeight ?? 0;
-    const cabeNaTela = palco.offsetHeight + alturaCabecalho + 24 <= innerHeight;
-    if (gatilho && fixado === cabeNaTela) return;
-
-    gatilho?.kill();
-    fixado = cabeNaTela;
-    gatilho = ScrollTrigger.create({
-      trigger: palco,
-      pin: fixado,
-      start: fixado ? () => 'top ' + ((cabecalho?.offsetHeight ?? 0) + 16) + 'px' : 'top 82%',
-      end: fixado ? () => '+=' + Math.max(1200, innerHeight * 1.5) : 'bottom 26%',
-      scrub: true,
-      onUpdate: atualizarPercurso,
-      onRefresh: atualizarPercurso,
-    });
-    atualizarPercurso(gatilho);
-    redimensionar();
-  }
-
-  function usarIlustracao() {
-    gatilho?.kill();
-    gatilho = undefined;
-    canvas.hidden = true;
-    imagem.hidden = false;
-    texto.hidden = true;
-    secao.removeAttribute('data-vista-animada');
+    if (renderer && largura && altura) {
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+      renderer.setSize(largura, altura, false);
+      vista.camera.aspect = largura / altura;
+      vista.camera.updateProjectionMatrix();
+    }
+    progressoAnterior = undefined;
+    agendar();
   }
 
   function aplicarPreferencia() {
-    if (preferencia.matches || document.documentElement.dataset.reduzirMovimento === 'true') {
-      usarIlustracao();
-      return;
+    const reduzido = movimentoReduzido();
+    const permiteAnimar = !reduzido || animarNestaVista;
+    controle.hidden = !reduzido;
+    controle.setAttribute('aria-pressed', String(animarNestaVista));
+
+    if (permiteAnimar && !tentouWebGL) {
+      tentouWebGL = true;
+      try {
+        const contexto = canvas.getContext('webgl2', { alpha: true, antialias: true });
+        if (contexto) {
+          vista = criarVistaExplodida();
+          renderer = new THREE.WebGLRenderer({ canvas, context: contexto, alpha: true, antialias: true });
+          ajustarRenderizador(renderer);
+        }
+      } catch {
+        renderer?.dispose();
+        renderer = undefined;
+      }
     }
 
-    if (!renderer) {
-      const contexto = canvas.getContext('webgl2', { alpha: true, antialias: true });
-      if (!contexto) return;
-      renderer = new THREE.WebGLRenderer({ canvas, context: contexto, alpha: true, antialias: true });
-      ajustarRenderizador(renderer);
-      vista = criarVistaExplodida();
+    if (permiteAnimar && !renderer && !preparandoQuadros) {
+      const folha = new Image();
+      folha.src = new URL('../recursos/img/pc-explodido-quadros.webp', import.meta.url).href;
+      preparandoQuadros = folha.decode().then(() => {
+        quadros.style.backgroundImage = 'url("' + folha.src + '")';
+        quadrosProntos = true;
+        aplicarPreferencia();
+      }).catch(() => {});
     }
 
-    canvas.hidden = false;
-    imagem.hidden = true;
-    texto.hidden = false;
-    secao.setAttribute('data-vista-animada', '');
-    prepararPercurso();
+    animacaoAtiva = permiteAnimar && (!!renderer || quadrosProntos);
+    canvas.hidden = !(animacaoAtiva && renderer);
+    quadros.hidden = !animacaoAtiva || !!renderer;
+    imagem.hidden = animacaoAtiva;
+    texto.hidden = !animacaoAtiva;
+    secao.toggleAttribute('data-vista-animada', animacaoAtiva);
+    if (animacaoAtiva) redimensionar();
+    else percurso.removeAttribute('data-fixado');
+  }
+
+  function atualizarPreferencia() {
+    animarNestaVista = false;
+    aplicarPreferencia();
   }
 
   const visibilidade = new IntersectionObserver(([entrada]) => {
     emTela = entrada.isIntersecting;
-    desenhar();
-  });
-  visibilidade.observe(area);
+    agendar();
+  }, { rootMargin: '100px 0px' });
+  visibilidade.observe(percurso);
 
-  const tamanho = new ResizeObserver(() => {
-    prepararPercurso();
-    redimensionar();
-  });
-  tamanho.observe(area);
+  const tamanho = new ResizeObserver(redimensionar);
+  tamanho.observe(palco);
   if (cabecalho) tamanho.observe(cabecalho);
-  window.addEventListener('resize', prepararPercurso);
+  window.addEventListener('resize', redimensionar);
+  window.addEventListener('scroll', agendar, { passive: true });
 
-  const movimento = new MutationObserver(aplicarPreferencia);
+  controle.addEventListener('click', () => {
+    animarNestaVista = !animarNestaVista;
+    aplicarPreferencia();
+  });
+  const movimento = new MutationObserver(atualizarPreferencia);
   movimento.observe(document.documentElement, { attributes: true, attributeFilter: ['data-reduzir-movimento'] });
-  preferencia.addEventListener('change', aplicarPreferencia);
+  preferencia.addEventListener('change', atualizarPreferencia);
   canvas.addEventListener('webglcontextlost', () => {
-    usarIlustracao();
-    visibilidade.disconnect();
-    tamanho.disconnect();
-    movimento.disconnect();
-    preferencia.removeEventListener('change', aplicarPreferencia);
-    window.removeEventListener('resize', prepararPercurso);
-    renderer.dispose();
+    renderer?.dispose();
+    renderer = undefined;
+    aplicarPreferencia();
   }, { once: true });
 
   aplicarPreferencia();

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-11">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-13">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
@@ -25,7 +25,7 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=interfaces-11"></script>
+    <script type="module" src="js/principal.js?v=interfaces-13"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -108,15 +108,19 @@
 
       <section class="secao-inicio container" id="por-dentro" aria-labelledby="titulo-por-dentro">
         <h2 id="titulo-por-dentro" data-revelar-titulo>Por dentro do seu PC</h2>
-        <div class="vista-explodida-palco">
-          <div class="vista-explodida-imagem">
-            <img src="recursos/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
-            <canvas role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></canvas>
-          </div>
-          <div class="vista-explodida-texto" aria-hidden="true" hidden>
-            <p class="vista-explodida-instrucao">Role para ver as peças se separarem.</p>
-            <p class="vista-explodida-nome"></p>
-            <p class="vista-explodida-descricao"></p>
+        <button class="botao-contorno vista-explodida-controle" type="button" aria-pressed="false" hidden>Animar as peças ao rolar</button>
+        <div class="vista-explodida-percurso">
+          <div class="vista-explodida-palco">
+            <div class="vista-explodida-imagem">
+              <img src="recursos/img/pc-explodido.webp" width="1080" height="900" loading="lazy" alt="Peças separadas, com a placa-mãe atrás, o processador e o cooler acima, a memória e o SSD à direita e a placa de vídeo e a fonte abaixo.">
+              <canvas role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></canvas>
+              <div class="vista-explodida-quadros" role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></div>
+            </div>
+            <div class="vista-explodida-texto" aria-hidden="true" hidden>
+              <p class="vista-explodida-instrucao">Role para ver as peças se separarem.</p>
+              <p class="vista-explodida-nome"></p>
+              <p class="vista-explodida-descricao"></p>
+            </div>
           </div>
         </div>
         <details class="vista-explodida-lista">
@@ -260,6 +264,10 @@
           </button>
         </header>
         <p id="gaveta-descricao"></p>
+        <div class="gaveta-previa" aria-hidden="true" hidden>
+          <canvas hidden></canvas>
+          <img src="recursos/img/pc-estatico.webp" width="900" height="900" alt="" hidden>
+        </div>
         <div class="gaveta-filtro">
           <label for="gaveta-busca">Filtrar por nome ou marca</label>
           <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">

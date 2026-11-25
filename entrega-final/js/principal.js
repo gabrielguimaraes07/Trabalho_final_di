@@ -73,7 +73,7 @@ if (secaoExplodida) {
   const observador = new IntersectionObserver(([entrada]) => {
     if (!entrada.isIntersecting) return;
     observador.disconnect();
-    import('./vista-explodida.js?v=interfaces-11')
+    import('./vista-explodida.js?v=interfaces-13')
       .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
       .catch(() => {});
   }, { rootMargin: '320px 0px' });
@@ -89,6 +89,9 @@ if (visualizador) {
   const instrucao = visualizador.querySelector('#instrucao-pc');
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
   const dialogo = document.querySelector('#gaveta-estoque');
+  const previa = dialogo.querySelector('.gaveta-previa');
+  const previaImagem = previa.querySelector('img');
+  const previaCanvas = previa.querySelector('canvas');
   const abrir = iniciarGaveta(dialogo);
   let categoriaDestacada;
   let contagem;
@@ -107,9 +110,32 @@ if (visualizador) {
     rotulo.textContent = categorias[categoria].nome + opcoes;
   }
 
+  function mostrarPreviaEstatica(categoria) {
+    const ponto = botoes.get(categoria);
+    if (!ponto) return;
+    previaImagem.style.setProperty('--x', ponto.style.getPropertyValue('--x'));
+    previaImagem.style.setProperty('--y', ponto.style.getPropertyValue('--y'));
+    dialogo.removeAttribute('data-cena-a-vista');
+    previaCanvas.hidden = true;
+    previaImagem.hidden = false;
+    previa.hidden = false;
+  }
+
+  function abrirPeca(categoria, origem) {
+    if (dialogo.open) return;
+    if (!atualizarCena) mostrarPreviaEstatica(categoria);
+    abrir(categoria, origem);
+  }
+
+  dialogo.addEventListener('close', () => {
+    if (dialogo.open || atualizarCena) return;
+    previaImagem.hidden = true;
+    previa.hidden = true;
+  });
+
   visualizador.addEventListener('click', evento => {
     const botao = evento.target.closest('button[data-categoria]');
-    if (botao) abrir(botao.dataset.categoria, botao);
+    if (botao) abrirPeca(botao.dataset.categoria, botao);
   });
 
   for (const [categoria, botao] of botoes) {
@@ -138,11 +164,12 @@ if (visualizador) {
       botao.style.removeProperty('top');
       botao.removeAttribute('data-fora');
     }
+    if (dialogo.open) mostrarPreviaEstatica(dialogo.dataset.categoria);
   }
 
-  import('./cena3d.js').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-13').then(({ iniciarCena }) => {
     const ativa = iniciarCena({
-      cena, canvas, botoes, dialogo, destacar, abrir, usarImagem, pausa,
+      cena, canvas, botoes, dialogo, destacar, abrir: abrirPeca, usarImagem, pausa,
     });
     if (!ativa) return;
     atualizarCena = ativa;

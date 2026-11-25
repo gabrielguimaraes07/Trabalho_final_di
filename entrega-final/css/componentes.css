@@ -173,6 +173,10 @@
   background: color-mix(in srgb, var(--bg) 72%, transparent);
 }
 
+.gaveta[data-cena-a-vista]::backdrop {
+  background: color-mix(in srgb, var(--bg) 38%, transparent);
+}
+
 body:has(.gaveta[open]) {
   overflow: hidden;
 }
@@ -202,6 +206,36 @@ body:has(.gaveta[open]) {
 .gaveta-fechar {
   flex: 0 0 44px;
   padding: 0;
+}
+
+.gaveta-previa {
+  justify-self: center;
+  inline-size: min(100%, 14rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: radial-gradient(ellipse at center, var(--surface), var(--bg));
+}
+
+.gaveta-previa :is(canvas, img) {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.gaveta-previa img {
+  transform-origin: var(--x, 50%) var(--y, 50%);
+  transform: translate(calc(50% - var(--x, 50%)), calc(50% - var(--y, 50%))) scale(2.3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root:not([data-reduzir-movimento="true"]) .gaveta[open] .gaveta-previa img {
+    animation: aproximar-imagem .65s ease-out;
+  }
+}
+
+@keyframes aproximar-imagem {
+  from { transform: none; }
 }
 
 .gaveta-filtro {
@@ -455,6 +489,21 @@ body:has(.gaveta[open]) {
   gap: var(--space-3);
 }
 
+.vista-explodida-controle {
+  justify-self: start;
+}
+
+.vista-explodida-percurso[data-fixado]::after {
+  display: block;
+  block-size: max(1200px, 150vh);
+  content: "";
+}
+
+.vista-explodida-percurso[data-fixado] .vista-explodida-palco {
+  position: sticky;
+  inset-block-start: var(--vista-topo);
+}
+
 .vista-explodida-imagem {
   inline-size: min(100%, 45rem);
   aspect-ratio: 6 / 5;
@@ -465,6 +514,13 @@ body:has(.gaveta[open]) {
   display: block;
   inline-size: 100%;
   block-size: 100%;
+}
+
+.vista-explodida-quadros {
+  inline-size: 100%;
+  block-size: 100%;
+  background-repeat: no-repeat;
+  background-size: 600% 300%;
 }
 
 .vista-explodida-texto {
