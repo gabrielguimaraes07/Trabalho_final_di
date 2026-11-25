@@ -1,7 +1,7 @@
 import { abaPorTecla } from './abas.js?v=1.0-final';
 import { adicionarAoCarrinho } from './carrinho.js?v=interfaces-11';
 import { perifericos } from './compatibilidade.js?v=interfaces-4';
-import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=1.0-final';
+import { carregarGlossario, escreverTermo, prepararDicas } from './glossario.js?v=lateral-1';
 import { carregarEstoque, categorias, grupos3d, mesmoGrupo, mostrarPreco, normalizarBusca, ordemCatalogo, rotuloCotacao, avisoDeVideo } from './estoque.js?v=interfaces-4';
 
 import { conflitosDaPeca, lerMontagem } from './montagem.js?v=interfaces-4';
@@ -71,7 +71,7 @@ function criarCartao(produto, termos, selecionado, conflitos) {
   const disponivel = document.createElement('p');
   disponivel.className = 'estoque-situacao';
   disponivel.textContent = rotuloCotacao(produto);
-  descricao.append(titulo, preco, disponivel, marca);
+  descricao.append(marca, titulo, preco, disponivel);
 
   const especificacoes = document.createElement('dl');
   especificacoes.className = 'estoque-produto-specs';
@@ -99,14 +99,14 @@ function criarCartao(produto, termos, selecionado, conflitos) {
   const detalhes = document.createElement('details');
   detalhes.className = 'estoque-detalhe';
   const resumo = document.createElement('summary');
-  resumo.textContent = 'Detalhes da peça';
+  resumo.textContent = 'Ver detalhes';
   const explicacao = document.createElement('p');
   explicacao.textContent = produto.descricao;
   detalhes.append(resumo, explicacao);
   if (maisEspecificacoes.childElementCount) detalhes.append(maisEspecificacoes);
   const simular = document.createElement('a');
   simular.href = './simulador.html?adicionar=' + encodeURIComponent(produto.id);
-  simular.textContent = 'Usar na montagem manual';
+  simular.textContent = 'Usar na montagem';
   simular.className = 'botao-primario';
   simular.setAttribute('aria-label', 'Usar ' + produto.nome + ' na montagem manual');
   const rotuloComparar = document.createElement('label');
@@ -133,8 +133,31 @@ function criarCartao(produto, termos, selecionado, conflitos) {
 export async function iniciarPaginaEstoque(raiz) {
   const listaAbas = raiz.querySelector('#estoque-abas');
   const painelAbas = raiz.querySelector('#estoque-painel');
+  const filtros = raiz.querySelector('.estoque-filtros-painel');
+  const resumoFiltros = filtros.querySelector('summary');
+  const filtrosNaLateral = matchMedia('(min-width: 60rem)');
+  let filtrosNoCelularAbertos = false;
+
+  function ajustarPainelFiltros() {
+    const lateral = filtrosNaLateral.matches;
+    const focoNosFiltros = filtros.contains(document.activeElement);
+    resumoFiltros.tabIndex = lateral ? -1 : 0;
+    resumoFiltros.setAttribute('aria-disabled', String(lateral));
+    filtros.open = lateral || filtrosNoCelularAbertos || focoNosFiltros;
+  }
+
+  resumoFiltros.addEventListener('click', evento => {
+    if (filtrosNaLateral.matches) evento.preventDefault();
+  });
+  filtros.addEventListener('toggle', () => {
+    if (!filtrosNaLateral.matches) filtrosNoCelularAbertos = filtros.open;
+  });
+  filtrosNaLateral.addEventListener('change', ajustarPainelFiltros);
+  ajustarPainelFiltros();
+
   const formulario = raiz.querySelector('form');
   const busca = raiz.querySelector('#busca-produtos');
+  const campoCategoria = raiz.querySelector('#estoque-categoria');
   const preco = raiz.querySelector('#preco-maximo');
   const minimo = raiz.querySelector('#preco-minimo');
   const marca = raiz.querySelector('#marca-produto');
@@ -153,6 +176,8 @@ export async function iniciarPaginaEstoque(raiz) {
   const faixaErro = raiz.querySelector('#preco-aviso');
   const painel = raiz.querySelector('#estoque-resultados');
   const status = painel.querySelector('[role="status"]');
+  const listaFiltros = painel.querySelector('.estoque-filtros-ativos');
+  const atalhoLimpar = painel.querySelector('[data-limpar-filtros]');
   const grade = painel.querySelector('.estoque-grade');
   let listaSugestoes = [];
   let sugestaoAtiva = -1;
@@ -177,9 +202,11 @@ export async function iniciarPaginaEstoque(raiz) {
     return aba;
   });
   listaAbas.replaceChildren(...abas);
+  campoCategoria.replaceChildren(...abas.map(aba => new Option(aba.textContent, aba.dataset.categoria)));
 
   function atualizarCategorias() {
     const pai = paiDaCategoria(categoria);
+    campoCategoria.value = pai;
     for (const aba of abas) {
       const selecionada = aba.dataset.categoria === pai;
       aba.setAttribute('aria-selected', String(selecionada));
@@ -296,6 +323,21 @@ export async function iniciarPaginaEstoque(raiz) {
   function atualizar(exibirSugestoes = false) {
     ocultarSugestoes();
     if (!produtos) return;
+    const filtrosAtivos = [
+      categoria !== todas && (nomesDasAbas[categoria] ?? categorias[categoria]?.nome),
+      busca.value.trim() && 'Busca: ' + busca.value.trim(),
+      marca.value,
+      minimo.value && 'A partir de ' + mostrarPreco(minimo.valueAsNumber),
+      preco.value && 'Até ' + mostrarPreco(preco.valueAsNumber),
+      compativeis.checked && 'Só peças compatíveis',
+      ordenacao.value !== 'nome' && ordenacao.selectedOptions[0].textContent,
+    ].filter(Boolean);
+    listaFiltros.replaceChildren(...filtrosAtivos.map(filtro => {
+      const item = document.createElement('li');
+      item.textContent = filtro;
+      return item;
+    }));
+    listaFiltros.hidden = atalhoLimpar.hidden = !filtrosAtivos.length;
     const erro = minimo.valueAsNumber > preco.valueAsNumber;
     preco.setCustomValidity(erro ? 'O máximo precisa ser igual ou maior que o mínimo.' : '');
     preco.setAttribute('aria-invalid', String(erro));
@@ -316,11 +358,9 @@ export async function iniciarPaginaEstoque(raiz) {
       return ordenacao.value === 'menor' ? a.preco - b.preco : b.preco - a.preco;
     });
     grade.replaceChildren(...encontrados.map(produto => criarCartao(produto, termos, selecionados.has(produto.id), conflitos.get(produto.id))));
-    const filtrosAtivos = [categoria !== todas && 'categoria', marca.value && 'marca',
-      (preco.value || minimo.value) && 'faixa de preço', compativeis.checked && 'compatibilidade'].filter(Boolean);
     status.textContent = encontrados.length === 0
       ? (busca.value.trim() ? 'Nenhuma peça para a busca “' + busca.value.trim() + '”. ' : 'Nenhuma peça encontrada. ')
-        + (filtrosAtivos.length ? 'Revise os filtros de ' + filtrosAtivos.join(', ') + ' ou limpe os filtros.' : 'Tente outro nome ou modelo.')
+        + (filtrosAtivos.length ? 'Ajuste ou limpe os filtros.' : 'Tente outro nome ou modelo.')
       : encontrados.length === 1 ? '1 peça encontrada.' : encontrados.length + ' peças encontradas.';
     if (exibirSugestoes && busca.value.trim() && encontrados.length) listarSugestoes(encontrados);
   }
@@ -348,20 +388,23 @@ export async function iniciarPaginaEstoque(raiz) {
     proxima.focus();
   });
   tipoCampo.addEventListener('change', () => ativarCategoria(tipoCampo.value, 'pushState'));
+  campoCategoria.addEventListener('change', () => ativarCategoria(campoCategoria.value, 'pushState'));
   window.addEventListener('popstate', () => ativarCategoria(categoriaDaURL()));
 
   formulario.addEventListener('submit', evento => evento.preventDefault());
   formulario.addEventListener('input', evento => {
-    if (evento.target !== tipoCampo) atualizar(evento.target === busca);
+    if (evento.target !== tipoCampo && evento.target !== campoCategoria) atualizar(evento.target === busca);
   });
-  raiz.querySelector('.estoque-reset').addEventListener('click', () => {
+  function limparFiltros() {
     formulario.reset();
     if (categoria === todas) {
       atualizarCategorias();
       atualizar();
     } else ativarCategoria(todas, 'replaceState');
-    busca.focus();
-  });
+    (filtros.open ? busca : resumoFiltros).focus();
+  }
+  raiz.querySelector('.estoque-reset').addEventListener('click', limparFiltros);
+  atalhoLimpar.addEventListener('click', limparFiltros);
   window.addEventListener('storage', evento => {
     if (evento.key === 'ggtech-montagem' || evento.key === null) atualizar();
   });

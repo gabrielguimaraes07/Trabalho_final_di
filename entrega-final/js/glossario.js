@@ -3,7 +3,7 @@ import { normalizarBusca } from './estoque.js?v=1.0-final';
 let glossario;
 
 export function carregarGlossario() {
-  glossario ??= fetch(new URL('../dados/glossario.json?v=1.0-final', import.meta.url))
+  glossario ??= fetch(new URL('../dados/glossario.json?v=lateral-1', import.meta.url))
     .then(resposta => {
       if (!resposta.ok) throw new Error('Glossário indisponível');
       return resposta.json();
@@ -135,7 +135,24 @@ function criarDefinicao(termo) {
   nome.textContent = termo.termo;
   const explicacao = document.createElement('p');
   explicacao.textContent = termo.descricao;
-  bloco.append(nome, explicacao);
+  bloco.append(nome);
+  if (termo.significado) {
+    const significado = document.createElement('p');
+    significado.className = 'glossario-significado';
+    significado.textContent = termo.significado;
+    bloco.append(significado);
+  }
+  bloco.append(explicacao);
+  if (termo.complemento) {
+    const mais = document.createElement('details');
+    const resumo = document.createElement('summary');
+    resumo.textContent = 'Ver mais';
+    resumo.setAttribute('aria-label', 'Ver mais sobre ' + termo.termo);
+    const complemento = document.createElement('p');
+    complemento.textContent = termo.complemento;
+    mais.append(resumo, complemento);
+    bloco.append(mais);
+  }
   return bloco;
 }
 
@@ -149,7 +166,7 @@ export async function iniciarPaginaGlossario(pagina) {
     const termos = [...dados].sort((a, b) => ordemAlfabetica.compare(a.termo, b.termo));
     function atualizar() {
       const termo = normalizarBusca(busca.value);
-      const encontrados = termos.filter(item => normalizarBusca([item.termo, ...item.apelidos, item.descricao].join(' ')).includes(termo));
+      const encontrados = termos.filter(item => normalizarBusca([item.termo, ...item.apelidos, item.significado, item.descricao, item.complemento].join(' ')).includes(termo));
       lista.replaceChildren(...encontrados.map(criarDefinicao));
       status.textContent = encontrados.length === 0 ? 'Nenhum termo encontrado. Tente outra palavra.'
         : encontrados.length === 1 ? '1 termo encontrado.' : encontrados.length + ' termos encontrados.';

@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, um simulador acadêmico para quem está começando.">
     <title>GGTECH — Monte seu primeiro PC sem medo</title>
-    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=marca-2">
     <script src="js/tema.js?v=interfaces-11"></script>
-    <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/base.css?v=1.0-final">
-    <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
+    <link rel="stylesheet" href="css/tokens.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/base.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/layout.css?v=lateral-1">
     <link rel="stylesheet" href="css/componentes.css?v=interfaces-19">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/laboratorio.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/navegacao.css?v=marca-2">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
     <script type="importmap">
       {
@@ -25,59 +27,64 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=interfaces-19"></script>
+    <script type="module" src="js/principal.js?v=lateral-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
-      <nav class="site-nav container" aria-label="Navegação principal">
+      <div class="site-nav">
         <a class="brand" href="./index.html">GGTECH</a>
-
         <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
-        <div class="nav-painel" id="nav-painel">
-          <ul class="nav-menu">
-            <li><a href="./index.html" aria-current="page">Início</a></li>
-            <li><a href="./estoque.html">Catálogo</a></li>
-            <li><a href="./montador.html">Montagem guiada</a></li>
-            <li><a href="./simulador.html">Montagem manual</a></li>
-            <li><a href="./setups.html">Setups prontos</a></li>
-            <li><a href="./glossario.html">Glossário</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-          </ul>
-          <div class="nav-actions">
-            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
-            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
-              <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
-              Acessibilidade
-            </button>
-          </div>
-        </div>
-        <div class="nav-actions nav-carrinho">
+        <div class="nav-actions" aria-label="Opções da conta e do site">
+          <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" aria-label="Acessibilidade" hidden>
+            <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
+            <span class="nav-acao-texto">Acessibilidade</span>
+          </button>
           <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
             <span class="icone-ui icone-carrinho" aria-hidden="true"></span>
             <span class="carrinho-contador" aria-hidden="true">0</span>
           </button>
         </div>
-      </nav>
+      </div>
     </header>
+    <nav class="nav-painel" id="nav-painel" aria-label="Navegação principal">
+      <button class="nav-recolher botao-contorno" type="button" aria-label="Recolher menu lateral" aria-controls="nav-itens" aria-expanded="true" hidden>
+        <svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#lateral"/></svg>
+        <span class="nav-texto">Recolher menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-itens">
+        <li><a href="./index.html" aria-current="page"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#inicio"/></svg><span class="nav-texto">Início</span></a></li>
+        <li><a href="./estoque.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#catalogo"/></svg><span class="nav-texto">Catálogo</span></a></li>
+        <li><a href="./montador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#guiada"/></svg><span class="nav-texto">Montagem guiada</span></a></li>
+        <li><a href="./simulador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#manual"/></svg><span class="nav-texto">Montagem manual</span></a></li>
+        <li><a href="./setups.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#setups"/></svg><span class="nav-texto">Setups prontos</span></a></li>
+        <li><a href="./glossario.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#glossario"/></svg><span class="nav-texto">Glossário</span></a></li>
+        <li><a href="./contato.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#contato"/></svg><span class="nav-texto">Contato</span></a></li>
+      </ul>
+    </nav>
 
     <main id="conteudo" tabindex="-1">
       <section class="hero container" aria-labelledby="titulo-inicio">
         <div class="hero-copy">
-          <h1 id="titulo-inicio">Monte seu primeiro PC sem medo.</h1>
+          <h1 id="titulo-inicio">Monte seu primeiro PC <span>sem medo.</span></h1>
           <p>Veja o que cada peça faz e monte um PC para o seu dia a dia, seja pra jogar, estudar, trabalhar ou criar conteúdo.</p>
           <div class="hero-acoes">
             <a class="botao-primario" href="./montador.html">Começar pela montagem guiada</a>
-            <a href="./simulador.html">Escolher cada peça</a>
+            <a class="botao-contorno" href="./simulador.html">Escolher cada peça</a>
           </div>
         </div>
 
         <div class="visualizador">
+          <div class="visualizador-cabecalho">
+            <h2>Explore o gabinete</h2>
+            <button class="botao-texto" id="pausar-giro" type="button" hidden>Pausar giro</button>
+          </div>
           <div class="cena-pc-area">
             <div class="cena-pc" id="cena-pc">
               <img class="pc-estatico" src="recursos/img/pc-estatico.webp" width="900" height="900" alt="PC com gabinete de vidro e nove peças selecionáveis." draggable="false">
-              <canvas id="pc-3d" role="img" aria-label="Modelo 3D de um PC com gabinete de vidro e nove peças selecionáveis. Use os botões sobre o modelo ou a lista abaixo." hidden></canvas>
+              <canvas id="pc-3d" role="img" aria-label="Gabinete interativo. Use as setas do teclado para girar e as teclas mais e menos para alterar o zoom." aria-describedby="instrucao-pc" tabindex="0" hidden></canvas>
               <button class="hotspot" type="button" data-categoria="gabinete" style="--x: 63.24%; --y: 10.90%" aria-label="Ver no catálogo de gabinetes" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
               <button class="hotspot" type="button" data-categoria="placa-mae" style="--x: 50.19%; --y: 19.40%" aria-label="Ver no catálogo de placas-mãe" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
               <button class="hotspot" type="button" data-categoria="cooler" style="--x: 38.09%; --y: 30.96%" aria-label="Ver no catálogo de coolers" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false"></button>
@@ -92,7 +99,11 @@
           </div>
           <div class="visualizador-controles">
             <p id="instrucao-pc">Escolha uma peça no gabinete pra ver os modelos do catálogo.</p>
-            <button class="botao-texto" id="pausar-giro" type="button" hidden>Pausar giro</button>
+            <div class="visualizador-vista" role="group" aria-label="Controlar vista do gabinete" hidden>
+              <button class="botao-contorno" type="button" data-vista-pc="afastar" aria-label="Diminuir zoom">−</button>
+              <button class="botao-contorno" type="button" data-vista-pc="aproximar" aria-label="Aumentar zoom">+</button>
+              <button class="botao-texto" type="button" data-vista-pc="restaurar">Restaurar vista</button>
+            </div>
           </div>
           <div class="pecas-alternativas" id="pecas" role="group" aria-label="Categorias de peças do PC" tabindex="-1">
             <button class="botao-contorno" type="button" data-categoria="gpu" aria-haspopup="dialog" aria-controls="gaveta-estoque" aria-expanded="false">Placa de vídeo</button>
@@ -118,10 +129,15 @@
               <canvas role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></canvas>
               <div class="vista-explodida-quadros" role="img" aria-label="Vista explodida do computador. As peças se separam conforme a página rola." hidden></div>
             </div>
-            <div class="vista-explodida-texto" aria-hidden="true" hidden>
-              <p class="vista-explodida-instrucao">Role para ver as peças se separarem.</p>
-              <p class="vista-explodida-nome"></p>
-              <p class="vista-explodida-descricao"></p>
+            <div class="vista-explodida-painel" hidden>
+              <div class="vista-explodida-texto" aria-hidden="true">
+                <p class="vista-explodida-instrucao">Role ou use o controle para separar as peças.</p>
+                <p class="vista-explodida-nome"></p>
+                <p class="vista-explodida-descricao"></p>
+              </div>
+              <label class="vista-explodida-ajuste" for="separacao-pecas">Separação das peças
+                <input type="range" id="separacao-pecas" min="0" max="100" value="0">
+              </label>
             </div>
           </div>
         </div>

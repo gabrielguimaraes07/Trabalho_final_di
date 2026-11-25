@@ -5,51 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Explore o catálogo de componentes reais da GGTECH, filtre por preço e veja as especificações das peças.">
     <title>Catálogo de peças — GGTECH</title>
-    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=marca-2">
     <script src="js/tema.js?v=interfaces-11"></script>
-    <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/base.css?v=1.0-final">
-    <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
+    <link rel="stylesheet" href="css/tokens.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/base.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/layout.css?v=lateral-1">
     <link rel="stylesheet" href="css/componentes.css?v=interfaces-11">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-12">
     <link rel="stylesheet" href="css/apoio.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/laboratorio.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/navegacao.css?v=marca-2">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
-    <script type="module" src="js/principal.js?v=interfaces-12"></script>
+    <script type="module" src="js/principal.js?v=lateral-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
-      <nav class="site-nav container" aria-label="Navegação principal">
+      <div class="site-nav">
         <a class="brand" href="./index.html">GGTECH</a>
-
         <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
-        <div class="nav-painel" id="nav-painel">
-          <ul class="nav-menu">
-            <li><a href="./index.html">Início</a></li>
-            <li><a href="./estoque.html" aria-current="page">Catálogo</a></li>
-            <li><a href="./montador.html">Montagem guiada</a></li>
-            <li><a href="./simulador.html">Montagem manual</a></li>
-            <li><a href="./setups.html">Setups prontos</a></li>
-            <li><a href="./glossario.html">Glossário</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-          </ul>
-          <div class="nav-actions">
-            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
-            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
-              <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
-              Acessibilidade
-            </button>
-          </div>
-        </div>
-        <div class="nav-actions nav-carrinho">
+        <div class="nav-actions" aria-label="Opções da conta e do site">
+          <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" aria-label="Acessibilidade" hidden>
+            <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
+            <span class="nav-acao-texto">Acessibilidade</span>
+          </button>
           <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
             <span class="icone-ui icone-carrinho" aria-hidden="true"></span>
             <span class="carrinho-contador" aria-hidden="true">0</span>
           </button>
         </div>
-      </nav>
+      </div>
     </header>
+    <nav class="nav-painel" id="nav-painel" aria-label="Navegação principal">
+      <button class="nav-recolher botao-contorno" type="button" aria-label="Recolher menu lateral" aria-controls="nav-itens" aria-expanded="true" hidden>
+        <svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#lateral"/></svg>
+        <span class="nav-texto">Recolher menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-itens">
+        <li><a href="./index.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#inicio"/></svg><span class="nav-texto">Início</span></a></li>
+        <li><a href="./estoque.html" aria-current="page"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#catalogo"/></svg><span class="nav-texto">Catálogo</span></a></li>
+        <li><a href="./montador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#guiada"/></svg><span class="nav-texto">Montagem guiada</span></a></li>
+        <li><a href="./simulador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#manual"/></svg><span class="nav-texto">Montagem manual</span></a></li>
+        <li><a href="./setups.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#setups"/></svg><span class="nav-texto">Setups prontos</span></a></li>
+        <li><a href="./glossario.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#glossario"/></svg><span class="nav-texto">Glossário</span></a></li>
+        <li><a href="./contato.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#contato"/></svg><span class="nav-texto">Contato</span></a></li>
+      </ul>
+    </nav>
 
     <main class="estoque-pagina container" id="conteudo" data-pagina-estoque tabindex="-1">
       <header class="estoque-cabecalho">
@@ -59,72 +62,85 @@
 
       <div class="estoque-abas" id="estoque-abas" role="tablist" aria-label="Categorias do catálogo" hidden></div>
 
-      <div class="estoque-painel" id="estoque-painel" role="tabpanel" aria-label="Peças do catálogo">
-        <form class="estoque-filtros" aria-label="Filtrar catálogo">
-          <div class="estoque-campo estoque-busca">
-            <label for="busca-produtos">Buscar peças</label>
-            <input id="busca-produtos" data-busca-rapida type="search" role="combobox" aria-autocomplete="list" aria-expanded="false"
-              aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Kingston">
-            <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
-          </div>
-          <div class="estoque-campo" id="estoque-tipo" hidden>
-            <label for="tipo-produto">Tipo de peça</label>
-            <select id="tipo-produto"></select>
-          </div>
-          <details class="estoque-filtros-extra">
-            <summary>Filtros de preço, marca e compatibilidade</summary>
-            <div class="estoque-filtros-grade">
-              <div class="estoque-campo">
-                <label for="preco-minimo">Preço mínimo em reais</label>
-                <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="preco-aviso">
+      <div class="estoque-painel">
+        <aside class="estoque-lateral" aria-label="Filtros do catálogo">
+          <details class="estoque-filtros-painel" open>
+            <summary>Filtros</summary>
+            <form class="estoque-filtros" aria-label="Filtrar catálogo">
+              <div class="estoque-campo estoque-busca">
+                <label for="busca-produtos">Buscar peças</label>
+                <input id="busca-produtos" data-busca-rapida type="search" role="combobox" aria-autocomplete="list" aria-expanded="false"
+                  aria-controls="sugestoes-produtos" autocomplete="off" placeholder="Ex. SSD, memória ou Kingston">
+                <ul class="estoque-sugestoes" id="sugestoes-produtos" role="listbox" aria-label="Sugestões de peças" hidden></ul>
               </div>
               <div class="estoque-campo">
-                <label for="preco-maximo">Preço máximo em reais</label>
-                <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite" aria-describedby="preco-aviso">
+                <label for="estoque-categoria">Categoria</label>
+                <select id="estoque-categoria"></select>
               </div>
-              <p id="preco-aviso" class="estoque-erro" role="status" hidden></p>
-              <div class="estoque-campo">
-                <label for="marca-produto">Marca</label>
-                <select id="marca-produto"><option value="">Todas</option></select>
+              <div class="estoque-campo" id="estoque-tipo" hidden>
+                <label for="tipo-produto">Tipo de peça</label>
+                <select id="tipo-produto"></select>
               </div>
-              <div class="estoque-campo">
-                <label for="ordem-produtos">Ordenar por</label>
-                <select id="ordem-produtos">
-                  <option value="nome">Nome de A a Z</option>
-                  <option value="menor">Menor preço</option>
-                  <option value="maior">Maior preço</option>
-                </select>
+              <div class="estoque-filtros-extra">
+                <div class="estoque-filtros-grade">
+                  <div class="estoque-campo">
+                    <label for="preco-minimo">Preço mínimo em reais</label>
+                    <input id="preco-minimo" type="number" min="0" step="0.01" inputmode="decimal" aria-describedby="preco-aviso">
+                  </div>
+                  <div class="estoque-campo">
+                    <label for="preco-maximo">Preço máximo em reais</label>
+                    <input id="preco-maximo" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Sem limite" aria-describedby="preco-aviso">
+                  </div>
+                  <p id="preco-aviso" class="estoque-erro" role="status" hidden></p>
+                  <div class="estoque-campo">
+                    <label for="marca-produto">Marca</label>
+                    <select id="marca-produto"><option value="">Todas</option></select>
+                  </div>
+                  <div class="estoque-campo">
+                    <label for="ordem-produtos">Ordenar por</label>
+                    <select id="ordem-produtos">
+                      <option value="nome">Nome de A a Z</option>
+                      <option value="menor">Menor preço</option>
+                      <option value="maior">Maior preço</option>
+                    </select>
+                  </div>
+                  <label class="estoque-disponibilidade">
+                    <input id="somente-compativeis" type="checkbox" aria-describedby="estoque-compatibilidade-dica">
+                    Só peças compatíveis com minha montagem
+                  </label>
+                  <p id="estoque-compatibilidade-dica">Esse filtro usa as peças que você já escolheu na montagem manual.</p>
+                </div>
               </div>
-              <label class="estoque-disponibilidade">
-                <input id="somente-compativeis" type="checkbox" aria-describedby="estoque-compatibilidade-dica">
-                Só peças compatíveis com minha montagem
-              </label>
-              <p id="estoque-compatibilidade-dica">Esse filtro usa as peças que você já escolheu na montagem manual.</p>
+              <button type="button" class="botao-texto estoque-reset">Limpar filtros</button>
+            </form>
+          </details>
+        </aside>
+        <div class="estoque-vitrine" id="estoque-painel" role="tabpanel" aria-label="Peças do catálogo">
+          <section class="estoque-barra-comparacao" data-barra-fixa aria-label="Seleção para comparação" hidden>
+            <div>
+              <p class="estoque-comparacao-contagem" role="status"></p>
+              <button class="botao-contorno" type="button" data-ver-comparacao aria-controls="estoque-comparacao">Ver comparação</button>
             </div>
-          </details>
-          <button type="button" class="botao-texto estoque-reset">Limpar filtros</button>
-        </form>
-
-        <section class="estoque-barra-comparacao" data-barra-fixa aria-label="Seleção para comparação" hidden>
-          <div>
-            <p class="estoque-comparacao-contagem" role="status"></p>
-            <button class="botao-contorno" type="button" data-ver-comparacao aria-controls="estoque-comparacao">Ver comparação</button>
-          </div>
-          <details>
-            <summary>Remover modelos</summary>
-            <ul class="estoque-comparacao-selecao"></ul>
-          </details>
-        </section>
-        <section class="estoque-comparacao" id="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
-          <h2 id="comparacao-titulo" tabindex="-1">Comparação de produtos</h2>
-          <p>Coloque até três modelos do mesmo tipo lado a lado. Dá pra comparar processadores entre si, por exemplo.</p>
-          <div class="estoque-comparados"></div>
-          <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>
-        </section>
-        <section id="estoque-resultados" aria-label="Produtos do catálogo">
-          <p class="estoque-status" role="status">Carregando peças…</p>
-          <ul class="estoque-grade"></ul>
-        </section>
+            <details>
+              <summary>Remover modelos</summary>
+              <ul class="estoque-comparacao-selecao"></ul>
+            </details>
+          </section>
+          <section class="estoque-comparacao" id="estoque-comparacao" aria-labelledby="comparacao-titulo" hidden>
+            <h2 id="comparacao-titulo" tabindex="-1">Comparação de produtos</h2>
+            <p>Coloque até três modelos do mesmo tipo lado a lado. Dá pra comparar processadores entre si, por exemplo.</p>
+            <div class="estoque-comparados"></div>
+            <button class="botao-contorno" type="button" data-limpar-comparacao>Limpar comparação</button>
+          </section>
+          <section id="estoque-resultados" aria-label="Produtos do catálogo">
+            <div class="estoque-resultados-topo">
+              <p class="estoque-status" role="status">Carregando peças…</p>
+              <button class="botao-texto" type="button" data-limpar-filtros hidden>Limpar filtros</button>
+            </div>
+            <ul class="estoque-filtros-ativos" aria-label="Filtros ativos" hidden></ul>
+            <ul class="estoque-grade"></ul>
+          </section>
+        </div>
       </div>
       <noscript><p>Ative o JavaScript para carregar o catálogo e usar os filtros.</p></noscript>
     </main>

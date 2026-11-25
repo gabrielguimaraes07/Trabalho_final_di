@@ -3,15 +3,15 @@ import { iniciarGaveta } from './gaveta.js?v=interfaces-18';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
-import { iniciarPaginaEstoque } from './pagina-estoque.js?v=interfaces-12';
+import { iniciarPaginaEstoque } from './pagina-estoque.js?v=lateral-1';
 import { iniciarMontador } from './montador.js?v=interfaces-5';
 import { iniciarBuildsProntos } from './configuracoes-prontas.js?v=interfaces-5';
-import { iniciarPaginaGlossario } from './glossario.js?v=1.0-final';
+import { iniciarPaginaGlossario } from './glossario.js?v=lateral-1';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
 import { iniciarRevelacaoDeTitulos } from './animacoes.js?v=interfaces-11';
 
-import { iniciarNavegacao } from './navegacao.js?v=interfaces-5';
+import { iniciarNavegacao } from './navegacao.js?v=lateral-1';
 
 const cabecalho = document.querySelector('.site-header');
 if (cabecalho) iniciarNavegacao(cabecalho);
@@ -22,19 +22,23 @@ if (titulosAnimados.length) iniciarRevelacaoDeTitulos(titulosAnimados);
 const buscaRapida = document.querySelector('[data-busca-rapida]');
 if (buscaRapida) {
   const raiz = document.documentElement;
+  const filtros = buscaRapida.closest('.estoque-filtros-painel');
   const atualizarAtalho = () => {
     if (raiz.dataset.desativarAtalhoBusca === 'true') buscaRapida.removeAttribute('aria-keyshortcuts');
-    else buscaRapida.setAttribute('aria-keyshortcuts', '/');
+    else buscaRapida.setAttribute('aria-keyshortcuts', '/ Control+K Meta+K');
   };
   new MutationObserver(atualizarAtalho)
     .observe(raiz, { attributes: true, attributeFilter: ['data-desativar-atalho-busca'] });
   atualizarAtalho();
 
   document.addEventListener('keydown', evento => {
-    if (evento.key !== '/' || evento.defaultPrevented || evento.altKey || evento.ctrlKey || evento.metaKey) return;
+    const modificador = evento.ctrlKey || evento.metaKey;
+    const atalho = modificador ? evento.key.toLowerCase() === 'k' : evento.key === '/';
+    if (!atalho || evento.defaultPrevented || evento.altKey || evento.repeat) return;
     if (raiz.dataset.desativarAtalhoBusca === 'true' || document.querySelector('dialog[open]')) return;
-    if (evento.target.closest('input, textarea, select, [contenteditable], dialog') || !buscaRapida.getClientRects().length) return;
+    if (evento.target.closest('input, textarea, select, [contenteditable], dialog')) return;
     evento.preventDefault();
+    if (filtros) filtros.open = true;
     buscaRapida.focus();
   });
 }
@@ -73,7 +77,7 @@ if (secaoExplodida) {
   const observador = new IntersectionObserver(([entrada]) => {
     if (!entrada.isIntersecting) return;
     observador.disconnect();
-    import('./vista-explodida.js?v=interfaces-13')
+    import('./vista-explodida.js?v=lateral-1')
       .then(({ iniciarVistaExplodida }) => iniciarVistaExplodida(secaoExplodida))
       .catch(() => {});
   }, { rootMargin: '320px 0px' });
@@ -89,6 +93,7 @@ if (visualizador) {
   const imagem = cena.querySelector('img');
   const rotulo = cena.querySelector('#rotulo-peca');
   const pausa = visualizador.querySelector('#pausar-giro');
+  const controlesVista = visualizador.querySelector('.visualizador-vista');
   const instrucao = visualizador.querySelector('#instrucao-pc');
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
   const acionadores = visualizador.querySelectorAll('button[data-categoria]');
@@ -138,6 +143,11 @@ if (visualizador) {
   angulo.addEventListener('input', atualizarVista);
   zoom.addEventListener('input', atualizarVista);
   painel.querySelector('#gaveta-restaurar-vista').addEventListener('click', restaurarVista);
+  controlesVista.addEventListener('click', evento => {
+    const acao = evento.target.closest('button')?.dataset.vistaPc;
+    if (acao === 'restaurar') cena3D?.restaurar();
+    else if (acao) cena3D?.moverVista(0, 0, acao === 'aproximar' ? .87 : 1 / .87);
+  });
 
   function enquadrarCena() {
     if (!painel.open && !mostrarCatalogo) return;
@@ -150,13 +160,13 @@ if (visualizador) {
     const direita = larguraTela - (gavetaEmbaixo ? 0 : painel.offsetWidth) - margem;
     const fundo = innerHeight - (gavetaEmbaixo ? painel.offsetHeight : 0) - margem;
     const topo = Math.max(0, cabecalho?.getBoundingClientRect().bottom ?? 0) + margem;
-    const tamanho = Math.max(1, Math.min(origem.width, direita - margem, fundo - topo));
-    const espacoIntroducao = direita - tamanho - margem - introducao.getBoundingClientRect().left;
-    const cabeAoLado = !gavetaEmbaixo && espacoIntroducao >= 240;
-    if (cabeAoLado) introducao.style.setProperty('max-inline-size', espacoIntroducao + 'px');
-    else introducao.style.removeProperty('max-inline-size');
+    const lateral = document.querySelector('#nav-painel');
+    const borda = matchMedia('(min-width: 60rem)').matches && lateral
+      ? lateral.getBoundingClientRect().right + margem : margem;
+    const tamanho = Math.max(1, Math.min(origem.width, direita - borda, fundo - topo));
     const limitesIntroducao = introducao.getBoundingClientRect();
-    const esquerda = cabeAoLado ? limitesIntroducao.right + margem : margem;
+    const cabeAoLado = !gavetaEmbaixo && direita - tamanho - margem >= limitesIntroducao.right;
+    const esquerda = cabeAoLado ? limitesIntroducao.right + margem : borda;
     const x = Math.max(esquerda, Math.min(origem.left, direita - tamanho));
     const y = Math.max(topo, Math.min(origem.top + (origem.height - tamanho) / 2, fundo - tamanho));
     const cobreIntroducao = x < limitesIntroducao.right && x + tamanho > limitesIntroducao.left
@@ -215,7 +225,6 @@ if (visualizador) {
     } else {
       atualizarExpansao();
       introducao.removeAttribute('data-coberta');
-      introducao.style.removeProperty('max-inline-size');
       for (const propriedade of ['--cena-x', '--cena-y', '--cena-escala']) {
         cena.style.removeProperty(propriedade);
       }
@@ -286,6 +295,7 @@ if (visualizador) {
     canvas.hidden = true;
     imagem.hidden = false;
     pausa.hidden = true;
+    controlesVista.hidden = true;
     if (ajustes.contains(document.activeElement)) painel.querySelector('#gaveta-fechar').focus();
     ajustes.hidden = true;
     atualizarInstrucao();
@@ -297,11 +307,12 @@ if (visualizador) {
     if (mostrarCatalogo) prepararCatalogoComImagem();
   }
 
-  import('./cena3d.js?v=interfaces-19').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=lateral-1').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;
     imagem.hidden = true;
+    controlesVista.hidden = false;
     if (painel.open || mostrarCatalogo) {
       clearTimeout(tempoCatalogo);
       cena3D.aproximar(painel.dataset.categoria, duracaoAproximacao, revelarCatalogo);
@@ -312,7 +323,7 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js?v=interfaces-6').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+if (simulador) import('./simulador.js?v=lateral-1').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
 
 const guia = document.querySelector('[data-guia]');
 if (guia) import('./guia.js?v=interfaces-6').then(({ iniciarGuia }) => iniciarGuia(guia));

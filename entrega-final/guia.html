@@ -5,52 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Entenda o que cada componente faz e compare especificações reais.">
     <title>Guia de componentes — GGTECH</title>
-    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=marca-2">
     <script src="js/tema.js?v=interfaces-11"></script>
-    <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/base.css?v=1.0-final">
-    <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
+    <link rel="stylesheet" href="css/tokens.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/base.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/layout.css?v=lateral-1">
     <link rel="stylesheet" href="css/componentes.css?v=interfaces-11">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
+    <link rel="stylesheet" href="css/laboratorio.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/navegacao.css?v=marca-2">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
     <link rel="stylesheet" href="css/simulador.css?v=interfaces-8">
-    <script type="module" src="js/principal.js?v=interfaces-11"></script>
+    <script type="module" src="js/principal.js?v=lateral-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
     <header class="site-header">
-      <nav class="site-nav container" aria-label="Navegação principal">
+      <div class="site-nav">
         <a class="brand" href="./index.html">GGTECH</a>
-
         <button class="nav-toggle botao-contorno" type="button" aria-controls="nav-painel" aria-expanded="false" hidden>Menu</button>
-        <div class="nav-painel" id="nav-painel">
-          <ul class="nav-menu">
-            <li><a href="./index.html">Início</a></li>
-            <li><a href="./estoque.html">Catálogo</a></li>
-            <li><a href="./montador.html">Montagem guiada</a></li>
-            <li><a href="./simulador.html">Montagem manual</a></li>
-            <li><a href="./setups.html">Setups prontos</a></li>
-            <li><a href="./glossario.html">Glossário</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-          </ul>
-          <div class="nav-actions">
-            <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
-            <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" hidden>
-              <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
-              Acessibilidade
-            </button>
-          </div>
-        </div>
-        <div class="nav-actions nav-carrinho">
+        <div class="nav-actions" aria-label="Opções da conta e do site">
+          <a class="nav-conta" href="./login.html" data-conta>Entrar</a>
+          <button class="botao-acessibilidade" type="button" data-acessibilidade aria-haspopup="dialog" aria-label="Acessibilidade" hidden>
+            <span class="icone-ui icone-acessibilidade" aria-hidden="true"></span>
+            <span class="nav-acao-texto">Acessibilidade</span>
+          </button>
           <button class="botao-carrinho" type="button" data-carrinho aria-label="Carrinho, 0 itens" aria-haspopup="dialog" hidden>
             <span class="icone-ui icone-carrinho" aria-hidden="true"></span>
             <span class="carrinho-contador" aria-hidden="true">0</span>
           </button>
         </div>
-      </nav>
+      </div>
     </header>
+    <nav class="nav-painel" id="nav-painel" aria-label="Navegação principal">
+      <button class="nav-recolher botao-contorno" type="button" aria-label="Recolher menu lateral" aria-controls="nav-itens" aria-expanded="true" hidden>
+        <svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#lateral"/></svg>
+        <span class="nav-texto">Recolher menu</span>
+      </button>
+      <ul class="nav-menu" id="nav-itens">
+        <li><a href="./index.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#inicio"/></svg><span class="nav-texto">Início</span></a></li>
+        <li><a href="./estoque.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#catalogo"/></svg><span class="nav-texto">Catálogo</span></a></li>
+        <li><a href="./montador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#guiada"/></svg><span class="nav-texto">Montagem guiada</span></a></li>
+        <li><a href="./simulador.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#manual"/></svg><span class="nav-texto">Montagem manual</span></a></li>
+        <li><a href="./setups.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#setups"/></svg><span class="nav-texto">Setups prontos</span></a></li>
+        <li><a href="./glossario.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#glossario"/></svg><span class="nav-texto">Glossário</span></a></li>
+        <li><a href="./contato.html"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#contato"/></svg><span class="nav-texto">Contato</span></a></li>
+      </ul>
+    </nav>
 
     <main class="container sim-pagina" id="conteudo" data-guia tabindex="-1">
       <header class="sim-cabecalho">

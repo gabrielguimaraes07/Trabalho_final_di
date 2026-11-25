@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="inicio" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10H3zM9 20v-6h6v6"/></symbol>
+  <symbol id="catalogo" viewBox="0 0 24 24"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></symbol>
+  <symbol id="guiada" viewBox="0 0 24 24"><path d="m4 7 3 3 5-5M14 8h7M4 16l3 3 5-5m2 3h7"/></symbol>
+  <symbol id="manual" viewBox="0 0 24 24"><path d="m3 12 9-5 9 5-9 5zm0 5 9 5 9-5M3 7l9-5 9 5"/></symbol>
+  <symbol id="setups" viewBox="0 0 24 24"><path d="M2.5 4h19v13h-19zM8 21h8m-4-4v4"/></symbol>
+  <symbol id="glossario" viewBox="0 0 24 24"><path d="M12 6C9 3 5 3 2.5 4v15C6 18 9 18 12 21c3-3 6-3 9.5-2V4C19 3 15 3 12 6v15"/></symbol>
+  <symbol id="contato" viewBox="0 0 24 24"><path d="M3 5h18v14H3zm0 1 9 7 9-7"/></symbol>
+  <symbol id="lateral" viewBox="0 0 24 24"><path d="M3 4h18v16H3zm6 0v16m4-12h4m-4 4h4m-4 4h4"/></symbol>
+</svg>

@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { categorias } from './estoque.js?v=1.0-final';
-import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
+import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=lateral-1';
 
 const ordem = ['gabinete', 'ventoinhas', 'placa-mae', 'cpu', 'cooler', 'ram', 'armazenamento', 'gpu', 'fonte'];
 const deslocamentos = {
@@ -54,6 +54,8 @@ export function iniciarVistaExplodida(secao) {
   const imagem = area.querySelector('img');
   const quadros = area.querySelector('.vista-explodida-quadros');
   const controle = secao.querySelector('.vista-explodida-controle');
+  const painel = secao.querySelector('.vista-explodida-painel');
+  const separacao = secao.querySelector('#separacao-pecas');
   const texto = secao.querySelector('.vista-explodida-texto');
   const nome = texto.querySelector('.vista-explodida-nome');
   const descricao = texto.querySelector('.vista-explodida-descricao');
@@ -71,6 +73,8 @@ export function iniciarVistaExplodida(secao) {
   let topo;
   let quadroPendente;
   let progressoAnterior;
+  let progressoManual;
+  let tempoAnterior;
   let categoriaAtual;
 
   function movimentoReduzido() {
@@ -83,16 +87,22 @@ export function iniciarVistaExplodida(secao) {
     }
   }
 
-  function desenhar() {
+  function desenhar(tempo) {
     quadroPendente = undefined;
     if (!animacaoAtiva || !emTela) return;
     const limites = percurso.getBoundingClientRect();
     const posicao = fixado
       ? (topo - limites.top) / Math.max(1, limites.height - palco.offsetHeight)
       : (innerHeight * .82 - limites.top) / (limites.height + innerHeight * .56);
-    const progresso = THREE.MathUtils.clamp(posicao, 0, 1);
+    const alvo = progressoManual ?? THREE.MathUtils.clamp(posicao, 0, 1);
+    const origem = progressoAnterior ?? alvo;
+    const delta = Math.min(.05, (tempo - (tempoAnterior ?? tempo - 16)) / 1000);
+    tempoAnterior = tempo;
+    const progresso = movimentoReduzido() || Math.abs(alvo - origem) < .003
+      ? alvo : THREE.MathUtils.damp(origem, alvo, 15, delta);
     if (progresso === progressoAnterior) return;
     progressoAnterior = progresso;
+    if (progressoManual === undefined) separacao.value = String(Math.round(progresso * 100));
 
     const indice = Math.min(ordem.length - 1, Math.floor(progresso * ordem.length));
     const categoria = ordem[indice];
@@ -113,6 +123,7 @@ export function iniciarVistaExplodida(secao) {
       nome.textContent = categorias[categoria].nome;
       descricao.textContent = categorias[categoria].descricao;
     }
+    if (alvo !== progresso) agendar();
   }
 
   function redimensionar() {
@@ -125,7 +136,7 @@ export function iniciarVistaExplodida(secao) {
     const largura = area.clientWidth;
     const altura = area.clientHeight;
     if (renderer && largura && altura) {
-      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
+      renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.65));
       renderer.setSize(largura, altura, false);
       vista.camera.aspect = largura / altura;
       vista.camera.updateProjectionMatrix();
@@ -169,7 +180,7 @@ export function iniciarVistaExplodida(secao) {
     canvas.hidden = !(animacaoAtiva && renderer);
     quadros.hidden = !animacaoAtiva || !!renderer;
     imagem.hidden = animacaoAtiva;
-    texto.hidden = !animacaoAtiva;
+    painel.hidden = !animacaoAtiva;
     secao.toggleAttribute('data-vista-animada', animacaoAtiva);
     if (animacaoAtiva) redimensionar();
     else percurso.removeAttribute('data-fixado');
@@ -190,7 +201,14 @@ export function iniciarVistaExplodida(secao) {
   tamanho.observe(palco);
   if (cabecalho) tamanho.observe(cabecalho);
   window.addEventListener('resize', redimensionar);
-  window.addEventListener('scroll', agendar, { passive: true });
+  window.addEventListener('scroll', () => {
+    progressoManual = undefined;
+    agendar();
+  }, { passive: true });
+  separacao.addEventListener('input', () => {
+    progressoManual = Number(separacao.value) / 100;
+    agendar();
+  });
 
   controle.addEventListener('click', () => {
     animarNestaVista = !animarNestaVista;

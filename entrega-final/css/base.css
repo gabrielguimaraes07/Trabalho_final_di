@@ -17,6 +17,12 @@ body {
   line-height: 1.5;
 }
 
+:root:not([data-theme="light"], [data-contraste="true"]) body {
+  background-image: linear-gradient(150deg, var(--bg-gradiente-inicio), var(--bg-gradiente-meio) 48%, var(--bg) 88%);
+  background-repeat: no-repeat;
+  background-size: 100% 58rem;
+}
+
 h1,
 p {
   margin: 0;

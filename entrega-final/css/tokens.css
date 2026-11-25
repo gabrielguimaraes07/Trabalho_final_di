@@ -1,19 +1,36 @@
+@font-face {
+  font-family: "DM Sans";
+  src: url("../recursos/fontes/dm-sans.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
 :root {
   color-scheme: dark;
 
-  --bg: #000000;
-  --surface: #1d1d1f;
+  --bg: #12161c;
+  --bg-gradiente-inicio: #202a37;
+  --bg-gradiente-meio: #181e27;
+  --surface: #18181b;
+  --surface-inset: #101013;
+  --line: #34343d;
+  --field-line: #64646f;
+  --accent-soft: #142b43;
   --text: #f5f5f7;
-  --text-2: #98989e;
-  --accent: #2997ff;
+  --text-2: #aaaab3;
+  --accent: #55aaff;
+  --brand-blue: #2997ff;
   --btn-primary: #0071e3;
+  --btn-hover: #0063cb;
   --btn-text: #ffffff;
   --success: #30d158;
   --danger: #ff5d52;
-  --glass: rgba(29, 29, 31, .96);
+  --glass: rgba(29, 29, 31, .97);
   --glass-blur: blur(20px);
 
-  --font-family: system-ui, sans-serif;
+  --font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, Consolas, monospace;
   --font-scale: 1;
   --font-14: .875rem;
   --font-16: 1rem;
@@ -30,18 +47,23 @@
   --space-6: 3rem;
   --space-8: 4rem;
   --space-12: 6rem;
-  --radius-card: 12px;
+  --radius-card: 10px;
   --radius-pill: 999px;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --bg: #f5f5f7;
+  --bg: #f4f5f7;
   --surface: #ffffff;
+  --surface-inset: #e9edf3;
+  --line: #d1d7e1;
+  --field-line: #7c8595;
+  --accent-soft: #e3eefc;
   --text: #1d1d1f;
   --text-2: #606067;
   --accent: #005bb5;
+  --brand-blue: #005bb5;
   --success: #176e32;
   --danger: #b52825;
   --glass: rgba(255, 255, 255, .96);
