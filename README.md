@@ -8,7 +8,7 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. No site, dar para explo
 
 ## Abra as duas entregas
 
-- **Parcial.** Tem o gabinete 3D com quatro grupos de peças, 20 produtos de exemplo, troca de tema e carrossel. Esta cópia vem do commit `5615947`, que inclui ajustes no contraste, no foco do teclado e no ícone da aba. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Arquivos da parcial](entrega-parcial/)
+- **Parcial.** Tem o gabinete 3D com quatro grupos de peças, 20 produtos de exemplo, troca de tema e carrossel. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Arquivos da parcial](entrega-parcial/)
 - **Final.** Tem 62 produtos reais em 19 categorias, 16 setups prontos, montagem guiada e manual, comparação de peças, guia, glossário, carrinho e painel de acessibilidade. [Abrir a final](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Arquivos da final](entrega-final/)
 
 ![Página inicial do GGTECH com as opções de montagem e o gabinete interativo](entrega-final/docs/capturas/apresentacao-inicio.jpg)
