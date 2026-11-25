@@ -4,7 +4,7 @@
 
 **Gabriel Guimarães · Desenvolvimento de Interfaces · UniCEUB, 2026**
 
-Fiz o GGTECH para ajudar quem quer montar o primeiro PC. No site, dá para explorar um gabinete em 3D, entender para que serve cada peça, comparar preços e ver se as peças funcionam juntas.
+Fiz o GGTECH para ajudar quem quer montar o primeiro PC. No site, dar para explorar um gabinete em 3D, entender para que serve cada peça, comparar preços e ver se as peças funcionam juntas.
 
 ## Abra as duas entregas
 
