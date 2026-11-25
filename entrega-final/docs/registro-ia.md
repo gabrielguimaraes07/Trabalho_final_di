@@ -6,7 +6,7 @@ Usei o **OpenAI Codex** em várias etapas. No começo, pedi ajuda para organizar
 
 O Codex me ajudou a montar o computador no Three.js, com as formas das peças, a iluminação e os pontos clicáveis. Também ajudou a ligar esses pontos às categorias do catálogo. Assim, clicar na placa de vídeo abre uma lista daquela categoria. Pedi que as peças aparecessem com foto e preço na própria gaveta, porque ter que abrir outra página só para ver a foto atrapalhava a escolha. A IA ajudou a implementar isso e a separar visualmente as peças na seção **Por dentro do seu PC**.
 
-No catálogo, a ajuda foi desde consultar fichas técnicas e preços até organizar a busca, os filtros e a comparação. Na comparação, por exemplo, o Codex ajudou a alinhar as mesmas características lado a lado. Dá para ver o preço e conferir se cada processador tem vídeo integrado na mesma tela.
+No catálogo, a ajuda foi desde consultar fichas técnicas e preços até organizar a busca, os filtros e a comparação. Na comparação, por exemplo, o Codex ajudou a alinhar as mesmas características lado a lado. Você pode ver o preço e conferir se cada processador tem vídeo integrado na mesma tela.
 
 ## Montagem e carrinho
 

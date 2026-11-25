@@ -3,7 +3,7 @@
 ## Revisão mais recente
 
 - **Navegação.** No Chromium, foram testadas larguras de 320, 390, 1.170, 1.260 e 1.440 px. O menu lateral recolheu, mostrou o rótulo no foco e permaneceu fixo ao rolar. No celular, **Menu** abriu o painel, e Esc devolveu o foco ao botão.
-- **Gabinete.** O modelo girou por mouse, toque simulado e teclado. Arrastar manteve a gaveta fechada, e o giro automático voltou depois de alguns segundos sem mexer. O botão de pausa manteve o giro desligado. A seleção abriu a gaveta com fotos e preços. Também foram conferidos zoom, restauração da vista, movimento reduzido e a imagem de reserva sem WebGL.
+- **Gabinete.** O modelo girou por mouse, toque simulado e teclado. Arrastar manteve a gaveta fechada, e o giro automático voltou depois de alguns segundos sem mexer. O botão de pausa manteve o giro desligado. A seleção abriu a gaveta com fotos e preços. A abertura e os atalhos de montagem ficaram visíveis em telas de 1.024, 1.152 e 1.440 px. Também foram conferidos zoom, restauração da vista, movimento reduzido e a imagem de reserva sem WebGL.
 - **Catálogo e glossário.** O painel de filtros abriu no celular, a categoria escolhida na lateral atualizou a aba, e limpar os filtros voltou a mostrar os 62 produtos. A comparação abriu e a busca aceitou termos e siglas. O link direto para **Socket** chegou à definição e **Ver mais** mostrou o complemento.
 - **Visual.** As nove páginas carregaram a DM Sans localmente em 1.440 px. O início e o catálogo também foram conferidos em 320 e 390 px. O tema claro e a opção de alto contraste usaram fundo sólido. [Capturas atualizadas](design-site.md#capturas-da-versão-publicada)
 

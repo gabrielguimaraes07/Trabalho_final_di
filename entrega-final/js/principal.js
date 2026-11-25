@@ -124,8 +124,8 @@ if (visualizador) {
 
   function atualizarInstrucao() {
     instrucao.textContent = painel.open
-      ? 'Feche o catálogo pra voltar ao gabinete.'
-      : cena3D ? 'Clique numa peça pra aproximar. Arraste pra girar.' : 'Clique numa peça pra aproximar.';
+      ? 'Feche o catálogo para voltar ao gabinete.'
+      : cena3D ? 'Clique numa peça para aproximar. Arraste para girar.' : 'Clique numa peça para aproximar.';
   }
 
   function atualizarVista() {
@@ -157,21 +157,32 @@ if (visualizador) {
     const margem = 16;
     const larguraTela = document.documentElement.clientWidth;
     const gavetaEmbaixo = painel.offsetWidth >= larguraTela - 1;
+    const limitesIntroducao = introducao.getBoundingClientRect();
+    const introducaoAoLado = origem.left >= limitesIntroducao.right;
+    const topoDaPagina = Math.max(0, cabecalho?.getBoundingClientRect().bottom ?? 0) + margem;
+    const topo = introducaoAoLado ? topoDaPagina : Math.max(topoDaPagina, limitesIntroducao.bottom + margem);
+    if (gavetaEmbaixo) {
+      const inicioGaveta = Math.max(limitesIntroducao.bottom + margem, topo + Math.min(160, origem.width * .4));
+      const altura = Math.max(innerHeight * .28, innerHeight - inicioGaveta);
+      painel.style.setProperty('--altura-gaveta', altura + 'px');
+    } else {
+      painel.style.removeProperty('--altura-gaveta');
+    }
     const direita = larguraTela - (gavetaEmbaixo ? 0 : painel.offsetWidth) - margem;
     const fundo = innerHeight - (gavetaEmbaixo ? painel.offsetHeight : 0) - margem;
-    const topo = Math.max(0, cabecalho?.getBoundingClientRect().bottom ?? 0) + margem;
     const lateral = document.querySelector('#nav-painel');
     const borda = matchMedia('(min-width: 60rem)').matches && lateral
       ? lateral.getBoundingClientRect().right + margem : margem;
-    const tamanho = Math.max(1, Math.min(origem.width, direita - borda, fundo - topo));
-    const limitesIntroducao = introducao.getBoundingClientRect();
-    const cabeAoLado = !gavetaEmbaixo && direita - tamanho - margem >= limitesIntroducao.right;
-    const esquerda = cabeAoLado ? limitesIntroducao.right + margem : borda;
+    const esquerda = introducaoAoLado ? Math.max(borda, limitesIntroducao.right + margem) : borda;
+    const tamanho = Math.min(origem.width, direita - esquerda, fundo - topo);
+    if (tamanho <= 0) {
+      cena.style.setProperty('--cena-x', '0px');
+      cena.style.setProperty('--cena-y', '0px');
+      cena.style.setProperty('--cena-escala', '1');
+      return;
+    }
     const x = Math.max(esquerda, Math.min(origem.left, direita - tamanho));
     const y = Math.max(topo, Math.min(origem.top + (origem.height - tamanho) / 2, fundo - tamanho));
-    const cobreIntroducao = x < limitesIntroducao.right && x + tamanho > limitesIntroducao.left
-      && y < limitesIntroducao.bottom && y + tamanho > limitesIntroducao.top;
-    introducao.toggleAttribute('data-coberta', cobreIntroducao);
     cena.style.setProperty('--cena-x', x - origem.left + 'px');
     cena.style.setProperty('--cena-y', y - origem.top + 'px');
     cena.style.setProperty('--cena-escala', tamanho / origem.width);
@@ -224,7 +235,7 @@ if (visualizador) {
       else prepararCatalogoComImagem();
     } else {
       atualizarExpansao();
-      introducao.removeAttribute('data-coberta');
+      painel.style.removeProperty('--altura-gaveta');
       for (const propriedade of ['--cena-x', '--cena-y', '--cena-escala']) {
         cena.style.removeProperty(propriedade);
       }

@@ -245,10 +245,6 @@ body:has(.gaveta[open]) {
   pointer-events: none;
 }
 
-.hero-copy[data-coberta] {
-  opacity: 0;
-}
-
 .cena-pc:has(> .pc-estatico:not([hidden])) {
   overflow: hidden;
 }
@@ -261,8 +257,12 @@ body:has(.gaveta[open]) {
   transform: translate(calc(50% - var(--zoom-x, 50%)), calc(50% - var(--zoom-y, 50%))) scale(2.1);
 }
 
+:root {
+  --largura-gaveta-catalogo: clamp(22rem, 29vw, 29rem);
+}
+
 .gaveta-catalogo {
-  inline-size: min(29rem, 47vw);
+  inline-size: var(--largura-gaveta-catalogo);
 }
 
 .gaveta-catalogo[data-preparando]:not([open]) {
@@ -273,11 +273,7 @@ body:has(.gaveta[open]) {
 }
 
 .gaveta-catalogo::backdrop {
-  background: color-mix(in srgb, var(--bg) 20%, transparent);
-}
-
-body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pecas-alternativas, .hotspot, .rotulo-peca) {
-  opacity: 0;
+  background: transparent;
 }
 
 .gaveta-camera {
@@ -301,11 +297,12 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
   accent-color: var(--accent);
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 71.99rem) {
   .gaveta-catalogo {
     inset: auto 0 0;
     inline-size: 100%;
     block-size: 52dvh;
+    max-block-size: var(--altura-gaveta, none);
     border-inline-start: 0;
     border-block-start: 1px solid var(--text-2);
   }
@@ -316,10 +313,6 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-reduzir-movimento="true"]) .hero-copy {
-    transition: opacity .25s ease;
-  }
-
   :root:not([data-reduzir-movimento="true"]) .cena-pc-area > .cena-pc {
     transition: transform .76s cubic-bezier(.333, 0, .667, 1), background-color .4s ease;
   }
@@ -330,10 +323,6 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
 
   :root:not([data-reduzir-movimento="true"]) .gaveta-catalogo[open] {
     animation-duration: .32s;
-  }
-
-  :root:not([data-reduzir-movimento="true"]) .gaveta-catalogo[open]::backdrop {
-    animation: aparecer-fundo-catalogo .32s ease-out;
   }
 
   :root:not([data-reduzir-movimento="true"]) .cena-pc > .pc-estatico {
@@ -348,11 +337,6 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
 @keyframes abrir-catalogo-inferior {
   from { transform: translateY(100%); }
   to { transform: none; }
-}
-
-@keyframes aparecer-fundo-catalogo {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 .gaveta-filtro {

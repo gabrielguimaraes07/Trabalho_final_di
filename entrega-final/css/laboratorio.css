@@ -615,6 +615,26 @@ button.botao-primario:not(:disabled):hover {
 
 @media (min-width: 56rem) {
   .hero { grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); }
+
+  .hero:has(.cena-pc[data-aproximado]) h1 {
+    font-size: clamp(2.15rem, 3.5vw, 4rem);
+  }
+}
+
+@media (min-width: 56rem) and (max-width: 71.99rem) {
+  .hero:has(.cena-pc[data-aproximado]) {
+    align-items: start;
+  }
+}
+
+@media (min-width: 72rem) {
+  .hero:has(.cena-pc[data-aproximado]) {
+    --margem-hero: clamp(1rem, 3.2vw, 2.75rem);
+    --inicio-hero: max(var(--margem-hero), (100% - 78rem) / 2);
+    margin-inline: var(--inicio-hero) auto;
+    inline-size: min(78rem, 100% - var(--largura-gaveta-catalogo) - var(--inicio-hero) - var(--margem-hero));
+    grid-template-columns: min(41%, 21rem) minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 35rem) {
@@ -676,5 +696,4 @@ button.botao-primario:not(:disabled):hover {
 }
 .glossario-definicao details p { color: var(--text-2); }
 
-.visualizador:has(.cena-pc[data-aproximado]) .visualizador-cabecalho { opacity: 0; }
 .glossario-lista .glossario-definicao:has(h2:target) { border-block-start-color: var(--accent); }

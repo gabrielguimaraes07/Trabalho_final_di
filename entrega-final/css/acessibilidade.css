@@ -38,7 +38,7 @@
   background: var(--bg);
 }
 
-:root[data-contraste="true"] :is(.acessibilidade-dialogo, .gaveta)::backdrop {
+:root[data-contraste="true"] :is(.acessibilidade-dialogo, .gaveta:not(.gaveta-catalogo))::backdrop {
   background: var(--bg);
 }
 

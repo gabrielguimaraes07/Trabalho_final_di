@@ -1,6 +1,6 @@
 # Heurísticas de Nielsen no GGTECH
 
-As ideias de Nielsen aparecem em situações do dia a dia do site. Abaixo dá para ver como cada uma funciona, do contador no carrinho ao aviso de incompatibilidade. As imagens são da versão usada no relatório.
+As ideias de Nielsen aparecem em situações do dia a dia do site. Os exemplos abaixo mostram como cada uma funciona, do contador no carrinho ao aviso de incompatibilidade. As imagens são da versão usada no relatório.
 
 1. **Visibilidade do estado.** O contador mostra quantas unidades foram adicionadas. A barra do carrinho mostra o total e quanto excedeu o orçamento. A montagem também indica quantas etapas essenciais foram atendidas. [Carrinho](capturas/final-carrinho-orcamento.png)
 2. **Correspondência com o mundo real.** A RAM é comparada à mesa de trabalho e o SSD ao armário. Os termos técnicos têm explicações próximas ao produto. [Início e analogias](capturas/final-inicio-desktop-escuro.png)

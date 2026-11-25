@@ -1,15 +1,15 @@
 # GGTECH — Entrega final
 
-Aqui está a versão completa do site. Dá para explorar 62 produtos, partir de um dos 16 setups ou montar o PC peça por peça. Também dá para comparar modelos e revisar o carrinho antes da compra simulada.
+Aqui está a versão completa do site. Você pode explorar 62 produtos, partir de um dos 16 setups ou montar o PC peça por peça. Você também pode comparar modelos e revisar o carrinho antes da compra simulada.
 
-[Abrir a entrega final no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=5385b5f)
+[Abrir a entrega final no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=gabinete-1)
 
-## O que dá para fazer
+## O que você pode fazer
 
 - Explorar o gabinete com mouse, toque ou teclado e abrir o catálogo de cada peça. A seção **Por dentro do seu PC** mostra as peças separadas pela rolagem ou pelo controle deslizante.
 - Usar o menu lateral recolhível no computador ou o botão **Menu** no celular. Entrar, Acessibilidade e Carrinho ficam juntos no cabeçalho.
 - Filtrar o catálogo por categoria, preço, marca e compatibilidade, ver os filtros ativos e comparar até três modelos do mesmo tipo.
-- Montar o PC por uso e orçamento ou escolher cada peça na montagem manual. Dá para partir de um setup pronto, salvar uma montagem, compartilhar o link e exportar o resumo para PDF.
+- Montar o PC por uso e orçamento ou escolher cada peça na montagem manual. Você pode partir de um setup pronto, salvar uma montagem, compartilhar o link e exportar o resumo para PDF.
 - Consultar o guia e o glossário. As definições são curtas e os complementos ficam em **Ver mais**.
 
 O visual usa DM Sans, a marca do G branco em azul e um degradê discreto no tema escuro. O painel de acessibilidade mantém as opções de tema, tamanho do texto, alto contraste e movimento reduzido.

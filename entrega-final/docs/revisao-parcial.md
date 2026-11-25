@@ -1,6 +1,6 @@
 # Revisão da entrega parcial
 
-A revisão começou em 18/11/2026, quando a parcial já estava com o nome corrigido no commit `c44953d`. A versão que dá para abrir hoje vem do commit `5615947`. É a mesma edição da tag `v0.1.1-parcial`, já com os ajustes de contraste, foco e ícone. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Baixar a parcial](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
+A revisão começou em 18/11/2026, quando a parcial já estava com o nome corrigido no commit `c44953d`. A versão disponível hoje vem do commit `5615947`. É a mesma edição da tag `v0.1.1-parcial`, já com os ajustes de contraste, foco e ícone. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Baixar a parcial](https://github.com/gabrielguimaraes07/Trabalho_final_di/releases/tag/v0.1.1-parcial)
 
 ## O que estava pronto
 

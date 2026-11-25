@@ -1,6 +1,6 @@
 # Design do site
 
-O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial dá dois caminhos para começar. **Montar pelo orçamento** abre a seleção por uso e orçamento. **Montar peça por peça** leva direto ao simulador manual.
+O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial oferece dois caminhos para começar. **Montar pelo orçamento** abre a seleção por uso e orçamento. **Montar peça por peça** leva direto ao simulador manual.
 
 ## Identidade visual e navegação
 
@@ -10,15 +10,15 @@ No computador, a barra lateral fica visível durante a rolagem e pode ser recolh
 
 ## Explorar o gabinete e aprender sobre as peças
 
-Na página inicial, dá para girar o PC com mouse, toque ou setas. O giro automático para durante a exploração e volta após alguns segundos sem mexer. **Pausar giro** mantém a rotação desligada até escolher **Retomar giro**. A câmera desacelera perto da peça e, ao fechar a gaveta, retoma a visão anterior. Também há botões de zoom e de restauração da vista. Ao escolher uma categoria, a gaveta lateral explica o que a peça faz e mostra modelos, fotos e preços. A busca na gaveta filtra por nome ou marca. Os botões abaixo do gabinete abrem as mesmas categorias. Se o 3D ficar indisponível, o site mostra uma imagem do gabinete com os controles em texto. [Gaveta de peças](capturas/apresentacao-gabinete.jpg)
+Na página inicial, você pode girar o PC com mouse, toque ou setas. O giro automático para durante a exploração e volta após alguns segundos sem mexer. **Pausar giro** mantém a rotação desligada até escolher **Retomar giro**. A câmera desacelera perto da peça e, ao fechar a gaveta, retoma a visão anterior. Também há botões de zoom e de restauração da vista. Ao escolher uma categoria, a gaveta explica o que a peça faz e mostra modelos, fotos e preços. Nas telas largas, ela abre à direita. Nas estreitas, abre embaixo. O título e os atalhos de montagem continuam na abertura. A busca na gaveta filtra por nome ou marca. Os botões abaixo do gabinete abrem as mesmas categorias. Se o 3D ficar indisponível, o site mostra uma imagem do gabinete com os controles em texto. [Gaveta de peças](capturas/apresentacao-gabinete.jpg)
 
 Na seção **Por dentro do seu PC**, a rolagem e a régua de separação mostram onde cada peça fica. Os cartões da página inicial usam exemplos do dia a dia, como a RAM comparada a uma mesa de trabalho. O guia reúne fotos, preços e diferenças entre modelos de 19 categorias. O glossário explica 29 termos. Cada termo tem uma definição curta, com o significado da sigla quando houver. Exemplos e complementos ficam em **Ver mais**, e as explicações também podem aparecer junto das especificações do catálogo. [Glossário](capturas/apresentacao-glossario.jpg)
 
 ## Encontrar e comparar modelos
 
-O catálogo tem 62 modelos. As abas deixam os grupos de peças à vista. Ao escolher **Armazenamento**, **Refrigeração** ou **Periféricos**, dá para refinar a lista em **Tipo de peça**. Busca, categoria, preço, marca e compatibilidade ficam no painel à esquerda. No celular, o painel abre pelo botão **Filtros**. O topo dos resultados mostra a quantidade de peças, os filtros ativos e a ação para limpar. Cada cartão traz foto, nome, preço e algumas especificações. **Ver detalhes** abre a ficha e **Usar na montagem** leva o modelo ao simulador. [Catálogo com as abas](capturas/apresentacao-catalogo.jpg)
+O catálogo tem 62 modelos. As abas deixam os grupos de peças à vista. Ao escolher **Armazenamento**, **Refrigeração** ou **Periféricos**, você pode refinar a lista em **Tipo de peça**. Busca, categoria, preço, marca e compatibilidade ficam no painel à esquerda. No celular, o painel abre pelo botão **Filtros**. O topo dos resultados mostra a quantidade de peças, os filtros ativos e a ação para limpar. Cada cartão traz foto, nome, preço e algumas especificações. **Ver detalhes** abre a ficha e **Usar na montagem** leva o modelo ao simulador. [Catálogo com as abas](capturas/apresentacao-catalogo.jpg)
 
-Dá para comparar até três modelos do mesmo tipo. As escolhas ficam em uma barra enquanto a pessoa pesquisa. O quadro compara preço e características equivalentes na mesma linha. Por exemplo, quem está escolhendo um processador consegue ver quais modelos têm vídeo integrado. O filtro de compatibilidade usa as peças já selecionadas na montagem manual.
+Você pode comparar até três modelos do mesmo tipo. As escolhas ficam em uma barra enquanto a pessoa pesquisa. O quadro compara preço e características equivalentes na mesma linha. Por exemplo, quem está escolhendo um processador consegue ver quais modelos têm vídeo integrado. O filtro de compatibilidade usa as peças já selecionadas na montagem manual.
 
 ## Escolher uma configuração pronta ou montar do zero
 

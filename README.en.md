@@ -9,7 +9,7 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 ## Open either version
 
 - **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
-- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=5385b5f) · [Final files](entrega-final/)
+- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=gabinete-1) · [Final files](entrega-final/)
 
 ![GGTECH home page with the sidebar, soft gradient, and interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
@@ -25,7 +25,7 @@ I used plain CSS and split the styles by what they do. `tokens.css` holds the co
 
 ### 2. The 3D PC case
 
-`modelo-pc.js` builds the case and its parts from Three.js shapes and materials. `cena3d.js` figures out which part you clicked and moves the camera toward it, slowing down as it gets close. The catalog then opens on the right on a computer and below the model on a phone. It shows photos, prices, and a link to use a part in the manual builder.
+`modelo-pc.js` builds the case and its parts from Three.js shapes and materials. `cena3d.js` figures out which part you clicked and moves the camera toward it, slowing down as it gets close. The catalog then opens on the right on wider screens and at the bottom on narrower screens. The panel shows photos, prices, and a link to use a part in the manual builder. The introduction and builder links stay on the page.
 
 You can turn the case with a mouse, touch, or the arrow keys. Automatic rotation pauses while you explore and resumes after a few seconds of inactivity. The **Pausar giro** (Pause rotation) button keeps the case still until you choose to resume. Use the zoom buttons or **Restaurar vista** (Reset view) to adjust the framing. The part buttons still work with the fallback image if WebGL is unavailable. In **Por dentro do seu PC** (Inside your PC), scrolling or using the slider pulls the parts apart so you can see where they fit.
 
