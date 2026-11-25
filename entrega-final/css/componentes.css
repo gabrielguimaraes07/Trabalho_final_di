@@ -252,8 +252,29 @@ body:has(.gaveta[open]) {
   background: color-mix(in srgb, var(--bg) 30%, transparent);
 }
 
-body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pecas-alternativas) {
+body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pecas-alternativas, .hotspot, .rotulo-peca) {
   opacity: 0;
+}
+
+.gaveta-camera {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+  align-items: end;
+  gap: var(--space-1);
+  font-size: var(--font-14);
+}
+
+.gaveta-camera label {
+  display: grid;
+  min-inline-size: 0;
+}
+
+.gaveta-camera input {
+  min-inline-size: 0;
+  inline-size: 100%;
+  min-block-size: 44px;
+  margin: 0;
+  accent-color: var(--accent);
 }
 
 @media (max-width: 48rem) {
@@ -276,7 +297,11 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
   }
 
   :root:not([data-reduzir-movimento="true"]) .cena-pc-area > .cena-pc {
-    transition: transform 1.05s cubic-bezier(.28, .06, .23, 1), background-color .4s ease;
+    transition: transform .82s cubic-bezier(.45, .02, .35, 1), background-color .4s ease;
+  }
+
+  :root:not([data-reduzir-movimento="true"]) .cena-pc-area > .cena-pc[data-aproximado] {
+    transition-duration: 1.18s, .4s;
   }
 
   :root:not([data-reduzir-movimento="true"]) .gaveta-catalogo[open] {
@@ -284,7 +309,7 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
   }
 
   :root:not([data-reduzir-movimento="true"]) .cena-pc[data-aproximado] > .pc-estatico {
-    animation: aproximar-imagem 1.15s ease-in-out;
+    animation: aproximar-imagem 1.18s cubic-bezier(.45, .02, .35, 1);
   }
 }
 

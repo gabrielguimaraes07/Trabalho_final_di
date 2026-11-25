@@ -17,6 +17,9 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   const camera = new THREE.PerspectiveCamera(CAMERA_PC.fov, 1, .1, 40);
   const posicaoInicial = new THREE.Vector3(...CAMERA_PC.posicao);
   const alvoInicial = new THREE.Vector3(...CAMERA_PC.alvo);
+  const orbitaInicial = new THREE.Spherical().setFromVector3(posicaoInicial.clone().sub(alvoInicial));
+  const orbita = new THREE.Spherical();
+  const deslocamento = new THREE.Vector3();
   camera.position.copy(posicaoInicial);
   const controles = new OrbitControls(camera, canvas);
   controles.minDistance = 7.55;
@@ -46,6 +49,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   let sentido = 1;
   let tempoPecas = 0;
   let pecaFocada;
+  let vistaFoco;
   let voo;
   let larguraAnterior;
   let alturaAnterior;
@@ -66,6 +70,12 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     agendar();
   }
 
+  function posicionarCamera(alvo) {
+    controles.target.copy(alvo);
+    camera.position.copy(alvo).add(deslocamento.setFromSpherical(orbita));
+    camera.lookAt(alvo);
+  }
+
   function quadro(tempo) {
     quadroPendente = undefined;
     if (!ativo || (!visivel && !pecaFocada) || document.hidden) {
@@ -78,25 +88,41 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     if (angulo > controles.maxAzimuthAngle - .035) sentido = 1;
     controles.autoRotateSpeed = .56 * sentido;
     const emAproximacao = !!voo || !!pecaFocada;
-    const cameraMoveu = !!voo;
+    let cameraMoveu = false;
+    const intervalo = Math.min((tempo - (tempoAnterior ?? tempo - 1000 / 60)) / 1000, .05);
+    tempoAnterior = tempo;
     if (voo) {
       voo.decorrido += Math.min(64, tempo - (voo.quadroAnterior ?? tempo));
       voo.quadroAnterior = tempo;
       const progresso = Math.min(1, voo.decorrido / voo.duracao);
       const passo = THREE.MathUtils.smootherstep(progresso, 0, 1);
-      camera.position.lerpVectors(voo.posicaoInicial, voo.destino, passo);
-      controles.target.lerpVectors(voo.alvoInicial, voo.alvo, passo);
+      const { origem, destino } = voo;
+      orbita.set(
+        origem.radius * Math.pow(destino.radius / origem.radius, passo),
+        THREE.MathUtils.lerp(origem.phi, destino.phi, passo),
+        THREE.MathUtils.lerp(origem.theta, destino.theta, passo),
+      );
+      voo.alvoAtual.lerpVectors(voo.alvoInicial, voo.alvo, passo);
+      posicionarCamera(voo.alvoAtual);
+      cameraMoveu = true;
       if (progresso === 1) {
         voo = undefined;
         controles.enabled = !pecaFocada;
+      }
+    } else if (vistaFoco) {
+      const { alvo, destino } = vistaFoco;
+      if (orbita.theta !== destino.theta || orbita.radius !== destino.radius) {
+        orbita.theta = Math.abs(orbita.theta - destino.theta) < .001 ? destino.theta
+          : THREE.MathUtils.damp(orbita.theta, destino.theta, 16, intervalo);
+        orbita.radius = Math.abs(orbita.radius - destino.radius) < .005 ? destino.radius
+          : THREE.MathUtils.damp(orbita.radius, destino.radius, 16, intervalo);
+        posicionarCamera(alvo);
+        cameraMoveu = true;
       }
     }
     const animarPecas = !pausado && !movimentoReduzido() && !pecaFocada;
     controles.autoRotate = animarPecas && !emAproximacao && !ponteiroNaCena
       && !cena.contains(document.activeElement);
-    const intervalo = Math.min((tempo - (tempoAnterior ?? tempo)) / 1000, .05);
-    tempoAnterior = tempo;
-    if (emAproximacao) camera.lookAt(controles.target);
     const moveu = !emAproximacao && controles.update(intervalo);
 
     if (animarPecas) {
@@ -110,11 +136,11 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
         pecas.get(categoria).userData.contorno.visible = categoria === pecaFocada || botao.hasAttribute('data-destaque');
       }
       renderer.render(mundo, camera);
-      projetar();
+      if (!pecaFocada) projetar();
       precisaRenderizar = false;
     }
 
-    if (voo || animarPecas || moveu) agendar();
+    if (voo || (pecaFocada && cameraMoveu) || animarPecas || moveu) agendar();
     else tempoAnterior = undefined;
   }
 
@@ -136,32 +162,39 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
 
   function aproximar(categoria) {
     voo = undefined;
+    vistaFoco = undefined;
     pecaFocada = categoria;
     controles.enabled = false;
     controles.autoRotate = false;
+    const origem = new THREE.Spherical().setFromVector3(deslocamento.copy(camera.position).sub(controles.target));
     let alvo = alvoInicial;
-    let destino = posicaoInicial;
+    let destino = orbitaInicial;
 
     if (categoria) {
       const peca = pecas.get(categoria);
       alvo = peca.userData.contorno.getWorldPosition(new THREE.Vector3());
       const distancia = Math.max(2, peca.userData.tamanho * 1.54 + .4);
-      const direcao = camera.position.clone().sub(controles.target).normalize();
-      destino = alvo.clone().addScaledVector(direcao, distancia);
+      const base = new THREE.Spherical(
+        distancia,
+        THREE.MathUtils.lerp(origem.phi, 1.32, .25),
+        THREE.MathUtils.clamp(origem.theta + .09, -.72, .72),
+      );
+      destino = base.clone();
+      vistaFoco = { alvo, base, destino };
     }
     redimensionar();
 
     if (movimentoReduzido()) {
-      camera.position.copy(destino);
-      controles.target.copy(alvo);
-      camera.lookAt(alvo);
+      orbita.copy(destino);
+      posicionarCamera(alvo);
       controles.enabled = !categoria;
     } else {
       voo = {
         decorrido: 0,
         duracao: categoria ? 1180 : 820,
-        posicaoInicial: camera.position.clone(),
+        origem,
         alvoInicial: controles.target.clone(),
+        alvoAtual: new THREE.Vector3(),
         destino,
         alvo,
       };
@@ -170,10 +203,31 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     marcar();
   }
 
+  function ajustarVista(angulo, zoom) {
+    if (!vistaFoco) return;
+    const { alvo, base, destino } = vistaFoco;
+    destino.theta = base.theta + THREE.MathUtils.degToRad(angulo);
+    destino.radius = base.radius * 100 / zoom;
+    if (movimentoReduzido()) {
+      orbita.copy(destino);
+      posicionarCamera(alvo);
+      marcar();
+    } else {
+      agendar();
+    }
+  }
+
   function atualizarPausa() {
     const reduzido = movimentoReduzido();
     controles.enableDamping = !reduzido;
-    if (reduzido && voo) aproximar(pecaFocada);
+    const enquadramento = voo ?? vistaFoco;
+    if (reduzido && enquadramento) {
+      voo = undefined;
+      orbita.copy(enquadramento.destino);
+      posicionarCamera(enquadramento.alvo);
+      controles.enabled = !pecaFocada;
+      marcar();
+    }
     pausa.hidden = reduzido || !!pecaFocada;
     pausa.textContent = pausado ? 'Retomar giro' : 'Pausar giro';
     agendar();
@@ -278,5 +332,5 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
 
   redimensionar();
   atualizarPausa();
-  return { marcar, aproximar };
+  return { marcar, aproximar, ajustarVista };
 }

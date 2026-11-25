@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-16">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-17">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
@@ -25,7 +25,7 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=interfaces-16"></script>
+    <script type="module" src="js/principal.js?v=interfaces-17"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -266,6 +266,15 @@
           </button>
         </header>
         <p id="gaveta-descricao"></p>
+        <div class="gaveta-camera" role="group" aria-label="Ajustes da vista 3D" hidden>
+          <label for="gaveta-angulo">Ângulo
+            <input id="gaveta-angulo" type="range" min="-20" max="20" value="0">
+          </label>
+          <label for="gaveta-zoom">Zoom
+            <input id="gaveta-zoom" type="range" min="80" max="125" value="100" step="5">
+          </label>
+          <button class="botao-contorno" id="gaveta-restaurar-vista" type="button" aria-label="Restaurar vista 3D">Restaurar</button>
+        </div>
         <div class="gaveta-filtro">
           <label for="gaveta-busca">Filtrar por nome ou marca</label>
           <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">

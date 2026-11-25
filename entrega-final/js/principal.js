@@ -93,6 +93,9 @@ if (visualizador) {
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
   const acionadores = visualizador.querySelectorAll('button[data-categoria]');
   const painel = document.querySelector('#gaveta-estoque');
+  const ajustes = painel.querySelector('.gaveta-camera');
+  const angulo = painel.querySelector('#gaveta-angulo');
+  const zoom = painel.querySelector('#gaveta-zoom');
   let categoriaDestacada;
   let contagem;
   let cena3D;
@@ -102,6 +105,22 @@ if (visualizador) {
       ? 'Feche o catálogo pra voltar ao gabinete.'
       : cena3D ? 'Arraste o PC e escolha uma peça.' : 'Escolha uma peça pra ver as opções.';
   }
+
+  function atualizarVista() {
+    angulo.setAttribute('aria-valuetext', angulo.value + ' graus');
+    zoom.setAttribute('aria-valuetext', zoom.value + '%');
+    cena3D?.ajustarVista(Number(angulo.value), Number(zoom.value));
+  }
+
+  function restaurarVista() {
+    angulo.value = angulo.defaultValue;
+    zoom.value = zoom.defaultValue;
+    atualizarVista();
+  }
+
+  angulo.addEventListener('input', atualizarVista);
+  zoom.addEventListener('input', atualizarVista);
+  painel.querySelector('#gaveta-restaurar-vista').addEventListener('click', restaurarVista);
 
   function enquadrarCena() {
     if (!painel.open) return;
@@ -158,6 +177,8 @@ if (visualizador) {
     }
 
     cena3D?.aproximar(categoria);
+    ajustes.hidden = !categoria || !cena3D;
+    if (categoria) restaurarVista();
     atualizarInstrucao();
   });
 
@@ -199,6 +220,8 @@ if (visualizador) {
     canvas.hidden = true;
     imagem.hidden = false;
     pausa.hidden = true;
+    if (ajustes.contains(document.activeElement)) painel.querySelector('#gaveta-fechar').focus();
+    ajustes.hidden = true;
     atualizarInstrucao();
     for (const botao of botoes.values()) {
       botao.style.removeProperty('left');
@@ -207,12 +230,15 @@ if (visualizador) {
     }
   }
 
-  import('./cena3d.js?v=interfaces-16').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-17').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;
     imagem.hidden = true;
-    if (painel.open) cena3D.aproximar(painel.dataset.categoria);
+    if (painel.open) {
+      cena3D.aproximar(painel.dataset.categoria);
+      ajustes.hidden = false;
+    }
     atualizarInstrucao();
   }).catch(usarImagem);
 }
