@@ -2,7 +2,7 @@
 
 Aqui está a versão completa do site. Dá para explorar 62 produtos, partir de um dos 16 setups ou montar o PC peça por peça. Também dá para comparar modelos e revisar o carrinho antes da compra simulada.
 
-[Abrir a entrega final no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/)
+[Abrir a entrega final no GitHub Pages](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=5385b5f)
 
 ## O que dá para fazer
 

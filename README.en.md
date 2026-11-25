@@ -9,7 +9,7 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 ## Open either version
 
 - **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
-- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Final files](entrega-final/)
+- **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/index.html?versao=5385b5f) · [Final files](entrega-final/)
 
 ![GGTECH home page with the sidebar, soft gradient, and interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
