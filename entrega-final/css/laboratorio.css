@@ -21,7 +21,7 @@
   flex: none;
   inline-size: 1.5rem;
   block-size: 1.5rem;
-  background: url("../recursos/icones/favicon.svg?v=petroleo-1") center / contain no-repeat;
+  background: url("../recursos/icones/favicon.svg?v=ardosia-1") center / contain no-repeat;
 }
 
 .nav-menu a[href] {

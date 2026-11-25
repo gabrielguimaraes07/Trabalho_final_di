@@ -6,33 +6,33 @@ O cálculo compara os fundos da página, dos cartões e das áreas translúcidas
 
 ## Tema escuro
 
-- **Texto principal.** 10,14:1.
-- **Texto secundário.** 6,65:1.
-- **Links.** 6,12:1.
-- **Item selecionado do menu.** 6,57:1.
-- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,44:1.
-- **Texto de apoio no cartão da montagem guiada.** 5,99:1.
-- **Mensagens de confirmação.** 6,36:1.
-- **Mensagens de erro.** 6,27:1.
-- **Texto no botão principal.** 9,45:1.
-- **Contorno de foco.** 6,12:1.
-- **Borda dos campos.** 5,20:1.
-- **Botão principal em relação ao fundo.** 6,44:1.
+- **Texto principal.** 9,00:1.
+- **Texto secundário.** 5,99:1.
+- **Links.** 5,36:1.
+- **Item selecionado do menu.** 6,09:1.
+- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,12:1.
+- **Texto de apoio no cartão da montagem guiada.** 5,51:1.
+- **Mensagens de confirmação.** 5,77:1.
+- **Mensagens de erro.** 5,69:1.
+- **Texto no botão principal.** 8,57:1.
+- **Contorno de foco.** 5,36:1.
+- **Borda dos campos.** 4,71:1.
+- **Botão principal em relação ao fundo.** 5,50:1.
 
 ## Tema claro
 
-- **Texto principal.** 12,01:1.
-- **Texto secundário.** 5,71:1.
-- **Links.** 6,20:1.
-- **Item selecionado do menu.** 6,25:1.
-- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,55:1.
-- **Texto de apoio no cartão da montagem guiada.** 5,27:1.
-- **Mensagens de confirmação.** 5,85:1.
-- **Mensagens de erro.** 5,77:1.
-- **Texto no botão principal.** 6,63:1.
-- **Contorno de foco.** 6,20:1.
-- **Borda dos campos.** 3,99:1.
-- **Botão principal em relação ao fundo.** 5,58:1.
+- **Texto principal.** 11,75:1.
+- **Texto secundário.** 5,78:1.
+- **Links.** 5,97:1.
+- **Item selecionado do menu.** 6,03:1.
+- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,46:1.
+- **Texto de apoio no cartão da montagem guiada.** 5,38:1.
+- **Mensagens de confirmação.** 5,68:1.
+- **Mensagens de erro.** 5,60:1.
+- **Texto no botão principal.** 7,21:1.
+- **Contorno de foco.** 5,97:1.
+- **Borda dos campos.** 4,10:1.
+- **Botão principal em relação ao fundo.** 5,87:1.
 
 Para refazer o cálculo, rode `node scripts/contraste.js`. O script lê as cores de `css/tokens.css`.
 

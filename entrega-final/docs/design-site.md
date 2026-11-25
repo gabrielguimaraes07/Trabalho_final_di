@@ -4,7 +4,7 @@ O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendend
 
 ## Identidade visual e navegação
 
-O gabinete é a primeira coisa que ganha destaque. Usei um fundo em degradê azul-petróleo, a fonte DM Sans e um G claro em um quadrado azul-petróleo. O ícone aparece no cabeçalho, no rodapé e na aba do navegador. No catálogo, a foto, o nome e o preço vêm antes dos detalhes da peça nos dois temas. O azul mineral marca links e o foco no teclado. O latão aparece na borda do item atual e em alguns detalhes da abertura. Nos avisos de montagem e orçamento, a cor chama a atenção e o texto explica o que aconteceu. [Psicologia das cores](psicologia-cores.md)
+O gabinete é a primeira coisa que ganha destaque. Usei um fundo em degradê azul ardósia, a fonte DM Sans e um G claro em um quadrado azul ardósia. O ícone aparece no cabeçalho, no rodapé e na aba do navegador. No catálogo, a foto, o nome e o preço vêm antes dos detalhes da peça nos dois temas. O azul de porcelana marca links e o foco no teclado. O latão aparece na borda do item atual e em alguns detalhes da abertura. Nos avisos de montagem e orçamento, a cor chama a atenção e o texto explica o que aconteceu. [Psicologia das cores](psicologia-cores.md)
 
 No computador, a barra lateral fica visível durante a rolagem e pode ser recolhida. Ela mostra o item atual, e os nomes aparecem ao focar os ícones ou ao passar o mouse no modo recolhido. No celular, o botão **Menu** abre o painel, e Esc fecha e devolve o foco. Entrar, Acessibilidade e Carrinho ficam no cabeçalho nos dois tamanhos. Na montagem manual, as áreas de escolha e resumo ficam lado a lado no computador. No celular, a barra com o total leva ao resumo completo. [Início no celular](capturas/apresentacao-celular.jpg) · [Montagem manual](capturas/apresentacao-simulador.jpg)
 
@@ -38,7 +38,7 @@ O link para pular ao conteúdo e os indicadores de foco ajudam quem usa teclado.
 
 [Início](capturas/apresentacao-inicio.jpg) · [Gabinete](capturas/apresentacao-gabinete.jpg) · [Glossário](capturas/apresentacao-glossario.jpg) · [Catálogo](capturas/apresentacao-catalogo.jpg) · [Montagem guiada](capturas/apresentacao-montador.jpg) · [Simulador](capturas/apresentacao-simulador.jpg) · [Celular](capturas/apresentacao-celular.jpg) · [Painel de acessibilidade](capturas/apresentacao-acessibilidade.jpg)
 
-Essas capturas mostram a entrega com o menu lateral, a paleta azul-petróleo e a DM Sans. Para testar os controles, abra o site ou rode o projeto no computador. [Site](https://gabrielguimaraes07.github.io/Trabalho_final_di/) · [Como rodar](../README.md#como-rodar-no-seu-computador)
+Essas capturas mostram a entrega com o menu lateral, a paleta azul ardósia e a DM Sans. Para testar os controles, abra o site ou rode o projeto no computador. [Site](https://gabrielguimaraes07.github.io/Trabalho_final_di/) · [Como rodar](../README.md#como-rodar-no-seu-computador)
 
 ## Capturas da primeira versão final
 
