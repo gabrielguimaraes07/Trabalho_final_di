@@ -1,5 +1,4 @@
 import { carregarEstoque, categorias, mesmoGrupo, mostrarPreco, normalizarBusca, rotuloCotacao } from './estoque.js?v=interfaces-4';
-import { configurarGaveta } from './dialogo.js?v=1.0-final';
 
 function resumoProduto(produto) {
   const item = document.createElement('li');
@@ -32,14 +31,13 @@ function resumoProduto(produto) {
   return item;
 }
 
-export function iniciarGaveta(dialogo) {
-  const titulo = dialogo.querySelector('#gaveta-titulo');
-  const descricao = dialogo.querySelector('#gaveta-descricao');
-  const fechar = dialogo.querySelector('#gaveta-fechar');
-  const busca = dialogo.querySelector('#gaveta-busca');
-  const status = dialogo.querySelector('#gaveta-status');
-  const lista = dialogo.querySelector('#gaveta-lista');
-  const verTodas = dialogo.querySelector('#gaveta-link-estoque');
+export function iniciarGaveta(painel, atualizarSelecao) {
+  const titulo = painel.querySelector('#gaveta-titulo');
+  const descricao = painel.querySelector('#gaveta-descricao');
+  const fechar = painel.querySelector('#gaveta-fechar');
+  const busca = painel.querySelector('#gaveta-busca');
+  const status = painel.querySelector('#gaveta-status');
+  const lista = painel.querySelector('#gaveta-lista');
   let selecao;
   let produtos;
 
@@ -55,36 +53,56 @@ export function iniciarGaveta(dialogo) {
     }
   }
 
-  busca.addEventListener('input', atualizarLista);
-  const abrirGaveta = configurarGaveta(dialogo, fechar, () => {
-    delete dialogo.dataset.categoria;
+  function fecharPainel() {
+    if (!selecao) return;
+    const origem = selecao.origem;
     selecao = undefined;
+    painel.hidden = true;
+    delete painel.dataset.categoria;
+    atualizarSelecao();
+    origem.focus();
+  }
+
+  busca.addEventListener('input', atualizarLista);
+  fechar.addEventListener('click', fecharPainel);
+  document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape' && !evento.defaultPrevented && selecao && !document.querySelector('dialog[open]')) {
+      evento.preventDefault();
+      fecharPainel();
+    }
   });
 
-  return async function abrir(categoria, origem) {
-    if (dialogo.open) return;
-    const abertura = {};
+  return async function abrir(categoria, origem, focarPainel = false) {
+    if (selecao && painel.dataset.categoria === categoria) {
+      selecao.origem = origem;
+      if (focarPainel) fechar.focus();
+      return;
+    }
+
+    const abertura = { origem };
     selecao = abertura;
-    dialogo.dataset.categoria = categoria;
+    painel.dataset.categoria = categoria;
     titulo.textContent = categorias[categoria].titulo;
     descricao.textContent = categorias[categoria].descricao;
-    verTodas.href = './estoque.html?cat=' + encodeURIComponent(categoria);
     produtos = [];
     busca.value = '';
     busca.disabled = true;
     lista.replaceChildren();
     status.textContent = 'Carregando opções…';
-    abrirGaveta(origem);
+    painel.hidden = false;
+    lista.scrollTop = 0;
+    atualizarSelecao(categoria);
+    if (focarPainel) fechar.focus();
 
     try {
       const catalogo = await carregarEstoque();
-      if (selecao !== abertura || !dialogo.open) return;
+      if (selecao !== abertura) return;
       produtos = catalogo.filter(produto => mesmoGrupo(produto, categoria)).sort((a, b) => a.preco - b.preco);
       busca.disabled = false;
       atualizarLista();
     } catch {
-      if (selecao !== abertura || !dialogo.open) return;
-      status.textContent = 'Não foi possível carregar o catálogo. Feche a gaveta e tente novamente.';
+      if (selecao !== abertura) return;
+      status.textContent = 'Não foi possível carregar o catálogo. Feche as opções e tente novamente.';
     }
   };
 }

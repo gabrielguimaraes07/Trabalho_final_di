@@ -139,6 +139,12 @@
   font-size: var(--font-14);
 }
 
+.pecas-alternativas .botao-contorno[aria-expanded="true"] {
+  border-color: var(--btn-primary);
+  background: var(--btn-primary);
+  color: var(--btn-text);
+}
+
 .pecas-alternativas {
   margin-block-start: var(--space-1);
   font-size: var(--font-14);
@@ -204,100 +210,104 @@ body:has(.gaveta[open]) {
   padding: 0;
 }
 
-.gaveta-peca {
-  inset: 0;
-  inline-size: min(calc(100% - 2rem), 72rem);
-  block-size: min(calc(100% - 2rem), 47rem);
-  margin: auto;
+.hero[data-inspecao] {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  padding-block: var(--space-3);
+}
+
+.hero[data-inspecao] .hero-copy {
+  display: none;
+}
+
+.visualizador-catalogo {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  min-block-size: 44px;
+}
+
+.painel-peca {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-inline-size: 0;
+  padding: var(--space-3);
   border: 1px solid var(--text-2);
   border-radius: var(--radius-card);
+  background: var(--surface);
+  text-align: start;
+}
+
+.painel-peca .produto-resumo {
   background: var(--bg);
-  backdrop-filter: none;
 }
 
-.gaveta-peca[open] {
-  display: grid;
-  grid-template:
-    "modelo cabecalho" auto
-    "modelo detalhes" minmax(0, 1fr)
-    / minmax(0, 1.2fr) minmax(0, 1fr);
-  gap: var(--space-2) var(--space-3);
-  padding: var(--space-3);
-  animation: none;
-}
-
-.gaveta-peca > .gaveta-cabecalho {
-  grid-area: cabecalho;
-  align-items: center;
-}
-
-.gaveta-peca > .gaveta-conteudo {
-  grid-area: detalhes;
-  min-block-size: 0;
-  min-inline-size: 0;
-  overflow: auto;
-  padding: 0 var(--space-1) var(--space-1) 0;
-}
-
-.gaveta-previa {
-  grid-area: modelo;
-  align-self: center;
-  justify-self: center;
-  inline-size: min(100%, calc(100dvh - 7rem));
-  aspect-ratio: 1;
+.cena-pc[data-aproximado]:has(> .pc-estatico:not([hidden])) {
   overflow: hidden;
-  border-radius: var(--radius-card);
-  background: radial-gradient(ellipse at center, var(--surface), var(--bg));
 }
 
-.gaveta-previa :is(canvas, img) {
-  display: block;
-  inline-size: 100%;
-  block-size: 100%;
-  pointer-events: none;
+.cena-pc[data-aproximado] > .pc-estatico {
+  transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
+  transform: translate(calc(50% - var(--zoom-x, 50%)), calc(50% - var(--zoom-y, 50%))) scale(2.3);
 }
 
-.gaveta-previa img {
-  transform-origin: var(--x, 50%) var(--y, 50%);
-  transform: translate(calc(50% - var(--x, 50%)), calc(50% - var(--y, 50%))) scale(2.3);
+.cena-pc[data-aproximado]:has(> .pc-estatico:not([hidden])) > .hotspot[data-selecionado] {
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+}
+
+@media (min-width: 52rem) {
+  .hero[data-inspecao] {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+@media (width < 52rem) {
+  .hero[data-inspecao] .pecas-alternativas {
+    inline-size: 100%;
+    min-inline-size: 0;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: .25rem .25rem .5rem;
+  }
+
+  .hero[data-inspecao] .pecas-alternativas > button {
+    flex: 0 0 auto;
+  }
+}
+
+@media (min-width: 52rem) and (min-height: 34rem) {
+  .painel-peca {
+    max-block-size: calc(100dvh - var(--cabecalho-altura, 4.5rem) - 2 * var(--space-3));
+  }
+
+  .painel-peca .gaveta-lista {
+    min-block-size: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: .2rem;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-reduzir-movimento="true"]) .gaveta[open] .gaveta-previa img {
+  :root:not([data-reduzir-movimento="true"]) .painel-peca:not([hidden]) {
+    animation: mostrar-opcoes-peca .25s ease-out;
+  }
+
+  :root:not([data-reduzir-movimento="true"]) .cena-pc[data-aproximado] > .pc-estatico {
     animation: aproximar-imagem .65s ease-out;
   }
 }
 
-@keyframes aproximar-imagem {
-  from { transform: none; }
+@keyframes mostrar-opcoes-peca {
+  from { opacity: 0; transform: translateX(.75rem); }
+  to { opacity: 1; transform: none; }
 }
 
-@media (max-width: 53rem), (max-height: 28rem) {
-  .gaveta-peca[open] {
-    inline-size: 100%;
-    block-size: 100%;
-    grid-template: "cabecalho" auto "modelo" auto "detalhes" auto / minmax(0, 1fr);
-    align-content: start;
-    border: 0;
-    border-radius: 0;
-  }
-
-  .gaveta-peca > .gaveta-cabecalho {
-    position: sticky;
-    inset-block-start: calc(-1 * var(--space-3));
-    z-index: 1;
-    padding-block: var(--space-1);
-    background: var(--bg);
-  }
-
-  .gaveta-peca > .gaveta-conteudo {
-    overflow: visible;
-    padding-inline-end: 0;
-  }
-
-  .gaveta-previa {
-    inline-size: min(100%, 46dvh);
-  }
+@keyframes aproximar-imagem {
+  from { transform: none; }
 }
 
 .gaveta-filtro {

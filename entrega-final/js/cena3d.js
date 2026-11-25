@@ -3,7 +3,7 @@ import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { projetorHotspots } from './pontos-interativos.js?v=1.0-final';
 import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
 
-export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, abrir, usarImagem, pausa }) {
+export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa }) {
   const contexto = canvas.getContext('webgl2', { alpha: true, antialias: true });
   if (!contexto) return;
 
@@ -33,8 +33,6 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
   canvas.style.touchAction = 'pan-y';
 
   const projetar = projetorHotspots(botoes, pecas, camera);
-  const previa = dialogo.querySelector('.gaveta-previa');
-  const previaImagem = previa.querySelector('img');
   const preferencia = matchMedia('(prefers-reduced-motion: reduce)');
   const ouvintes = new AbortController();
   const { signal } = ouvintes;
@@ -58,7 +56,7 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
   }
 
   function agendar() {
-    if (ativo && (visivel || dialogo.open) && !document.hidden && quadroPendente === undefined) {
+    if (ativo && visivel && !document.hidden && quadroPendente === undefined) {
       quadroPendente = requestAnimationFrame(quadro);
     }
   }
@@ -70,7 +68,7 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
 
   function quadro(tempo) {
     quadroPendente = undefined;
-    if (!ativo || (!visivel && !dialogo.open) || document.hidden) {
+    if (!ativo || !visivel || document.hidden) {
       tempoAnterior = undefined;
       return;
     }
@@ -91,7 +89,7 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
         controles.enabled = !pecaFocada;
       }
     }
-    const animarPecas = !pausado && !movimentoReduzido() && !dialogo.open;
+    const animarPecas = !pausado && !movimentoReduzido() && !pecaFocada;
     controles.autoRotate = animarPecas && !emAproximacao && !ponteiroNaCena
       && !cena.contains(document.activeElement);
     const intervalo = Math.min((tempo - (tempoAnterior ?? tempo)) / 1000, .05);
@@ -110,7 +108,7 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
         pecas.get(categoria).userData.contorno.visible = categoria === pecaFocada || botao.hasAttribute('data-destaque');
       }
       renderer.render(mundo, camera);
-      if (!dialogo.open) projetar();
+      projetar();
       precisaRenderizar = false;
     }
 
@@ -119,9 +117,8 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
   }
 
   function redimensionar() {
-    const area = canvas.parentElement;
-    const largura = area.clientWidth;
-    const altura = area.clientHeight;
+    const largura = cena.clientWidth;
+    const altura = cena.clientHeight;
     const escala = Math.min(window.devicePixelRatio || 1, 2);
     if (!largura || !altura) return;
     if (largura === larguraAnterior && altura === alturaAnterior && escala === escalaAnterior) return;
@@ -138,8 +135,6 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
   function aproximar(categoria) {
     voo = undefined;
     pecaFocada = categoria;
-    cena.toggleAttribute('data-aproximado', !!categoria);
-    for (const [chave, botao] of botoes) botao.toggleAttribute('data-selecionado', chave === categoria);
     controles.enabled = false;
     controles.autoRotate = false;
     let alvo = alvoInicial;
@@ -151,14 +146,6 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
       const distancia = Math.max(2, peca.userData.tamanho * 1.54 + .4);
       const direcao = camera.position.clone().sub(controles.target).normalize();
       destino = alvo.clone().addScaledVector(direcao, distancia);
-      if (canvas.parentElement !== previa) {
-        previaImagem.hidden = true;
-        imagem.hidden = false;
-        previa.append(canvas);
-      }
-    } else if (canvas.parentElement !== cena) {
-      imagem.after(canvas);
-      imagem.hidden = true;
     }
     redimensionar();
 
@@ -177,6 +164,7 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
         alvo,
       };
     }
+    pausa.hidden = movimentoReduzido() || !!categoria;
     marcar();
   }
 
@@ -184,14 +172,13 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
     const reduzido = movimentoReduzido();
     controles.enableDamping = !reduzido;
     if (reduzido && voo) aproximar(pecaFocada);
-    pausa.hidden = reduzido;
+    pausa.hidden = reduzido || !!pecaFocada;
     pausa.textContent = pausado ? 'Retomar giro' : 'Pausar giro';
     agendar();
   }
 
   const observadorTamanho = new ResizeObserver(redimensionar);
   observadorTamanho.observe(cena);
-  observadorTamanho.observe(previa);
   const observadorTela = new IntersectionObserver(([entrada]) => {
     visivel = entrada.isIntersecting;
     tempoAnterior = undefined;
@@ -202,9 +189,6 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
   observadorMovimento.observe(document.documentElement, {
     attributes: true, attributeFilter: ['data-reduzir-movimento'],
   });
-  const observadorGaveta = new MutationObserver(() => aproximar(dialogo.open ? dialogo.dataset.categoria : undefined));
-  observadorGaveta.observe(dialogo, { attributes: true, attributeFilter: ['open'] });
-
   controles.addEventListener('change', marcar);
   window.addEventListener('resize', redimensionar, { signal });
   cena.addEventListener('pointerenter', evento => {
@@ -286,13 +270,11 @@ export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, a
     observadorTamanho.disconnect();
     observadorTela.disconnect();
     observadorMovimento.disconnect();
-    observadorGaveta.disconnect();
     renderer.dispose();
     usarImagem();
   }, { once: true });
 
   redimensionar();
-  if (dialogo.open) aproximar(dialogo.dataset.categoria);
   atualizarPausa();
-  return marcar;
+  return { marcar, aproximar };
 }

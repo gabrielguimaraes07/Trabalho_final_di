@@ -1,5 +1,5 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
-import { iniciarGaveta } from './gaveta.js?v=interfaces-6';
+import { iniciarGaveta } from './gaveta.js?v=interfaces-15';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
@@ -81,6 +81,7 @@ if (secaoExplodida) {
 }
 
 if (visualizador) {
+  const hero = visualizador.closest('.hero');
   const cena = visualizador.querySelector('.cena-pc');
   const canvas = cena.querySelector('canvas');
   const imagem = cena.querySelector('img');
@@ -88,19 +89,51 @@ if (visualizador) {
   const pausa = visualizador.querySelector('#pausar-giro');
   const instrucao = visualizador.querySelector('#instrucao-pc');
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
-  const dialogo = document.querySelector('#gaveta-estoque');
-  const previaImagem = dialogo.querySelector('.gaveta-previa img');
-  const conteudoGaveta = dialogo.querySelector('.gaveta-conteudo');
-  const abrir = iniciarGaveta(dialogo);
+  const acionadores = visualizador.querySelectorAll('button[data-categoria]');
+  const painel = hero.querySelector('#gaveta-estoque');
+  const linkCatalogo = visualizador.querySelector('#gaveta-link-estoque');
   let categoriaDestacada;
   let contagem;
-  let atualizarCena;
+  let cena3D;
+
+  function atualizarInstrucao() {
+    instrucao.textContent = !painel.hidden
+      ? 'Escolha outra peça ou feche as opções pra voltar.'
+      : cena3D ? 'Arraste o PC e escolha uma peça.' : 'Escolha uma peça pra ver as opções.';
+  }
+
+  const abrir = iniciarGaveta(painel, categoria => {
+    hero.toggleAttribute('data-inspecao', !!categoria);
+    cena.toggleAttribute('data-aproximado', !!categoria);
+    linkCatalogo.hidden = !categoria;
+    for (const botao of acionadores) {
+      botao.setAttribute('aria-expanded', String(botao.dataset.categoria === categoria));
+    }
+    for (const [chave, botao] of botoes) {
+      botao.toggleAttribute('data-selecionado', chave === categoria);
+    }
+
+    if (categoria) {
+      const ponto = botoes.get(categoria);
+      imagem.style.setProperty('--zoom-x', ponto.style.getPropertyValue('--x'));
+      imagem.style.setProperty('--zoom-y', ponto.style.getPropertyValue('--y'));
+      linkCatalogo.href = './estoque.html?cat=' + encodeURIComponent(categoria);
+      const area = cena.getBoundingClientRect();
+      const topo = cabecalho?.getBoundingClientRect().bottom ?? 0;
+      if (area.top < topo || area.top + Math.min(200, area.height) > innerHeight) {
+        linkCatalogo.scrollIntoView({ block: 'start', behavior: 'instant' });
+      }
+    }
+
+    cena3D?.aproximar(categoria);
+    atualizarInstrucao();
+  });
 
   function destacar(categoria) {
     if (categoriaDestacada) botoes.get(categoriaDestacada).removeAttribute('data-destaque');
     categoriaDestacada = categoria;
     rotulo.hidden = !categoria;
-    atualizarCena?.();
+    cena3D?.marcar();
     if (!categoria) return;
 
     botoes.get(categoria).setAttribute('data-destaque', '');
@@ -109,29 +142,9 @@ if (visualizador) {
     rotulo.textContent = categorias[categoria].nome + opcoes;
   }
 
-  function mostrarPreviaEstatica(categoria) {
-    const ponto = botoes.get(categoria);
-    if (!ponto) return;
-    previaImagem.style.setProperty('--x', ponto.style.getPropertyValue('--x'));
-    previaImagem.style.setProperty('--y', ponto.style.getPropertyValue('--y'));
-    previaImagem.hidden = false;
-  }
-
-  function abrirPeca(categoria, origem) {
-    if (dialogo.open) return;
-    if (!atualizarCena) mostrarPreviaEstatica(categoria);
-    abrir(categoria, origem);
-    conteudoGaveta.scrollTop = 0;
-  }
-
-  dialogo.addEventListener('close', () => {
-    if (dialogo.open || atualizarCena) return;
-    previaImagem.hidden = true;
-  });
-
   visualizador.addEventListener('click', evento => {
     const botao = evento.target.closest('button[data-categoria]');
-    if (botao) abrirPeca(botao.dataset.categoria, botao);
+    if (botao) abrir(botao.dataset.categoria, botao, evento.detail === 0);
   });
 
   for (const [categoria, botao] of botoes) {
@@ -150,29 +163,25 @@ if (visualizador) {
   }).catch(() => {});
 
   function usarImagem() {
-    atualizarCena = undefined;
-    imagem.after(canvas);
+    cena3D = undefined;
     canvas.hidden = true;
     imagem.hidden = false;
     pausa.hidden = true;
-    instrucao.textContent = 'Escolha uma peça para ver o catálogo.';
+    atualizarInstrucao();
     for (const botao of botoes.values()) {
       botao.style.removeProperty('left');
       botao.style.removeProperty('top');
       botao.removeAttribute('data-fora');
     }
-    if (dialogo.open) mostrarPreviaEstatica(dialogo.dataset.categoria);
   }
 
-  import('./cena3d.js?v=interfaces-14').then(({ iniciarCena }) => {
-    const ativa = iniciarCena({
-      cena, canvas, imagem, botoes, dialogo, destacar, abrir: abrirPeca, usarImagem, pausa,
-    });
-    if (!ativa) return;
-    atualizarCena = ativa;
+  import('./cena3d.js?v=interfaces-15').then(({ iniciarCena }) => {
+    cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
+    if (!cena3D) return;
     canvas.hidden = false;
-    imagem.hidden = canvas.parentElement === cena;
-    instrucao.textContent = 'Arraste o PC e escolha uma peça.';
+    imagem.hidden = true;
+    if (!painel.hidden) cena3D.aproximar(painel.dataset.categoria);
+    atualizarInstrucao();
   }).catch(usarImagem);
 }
 
