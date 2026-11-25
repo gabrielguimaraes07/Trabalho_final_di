@@ -14,6 +14,7 @@
 .sim-painel > p,
 .sim-status { color: var(--text-2); }
 .sim-status:empty { position: absolute; }
+.sim-recarregar { justify-self: start; }
 
 .sim-grade,
 .sim-principal,

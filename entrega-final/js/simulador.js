@@ -108,15 +108,18 @@ function estadoDasEtapas(itens) {
 export async function iniciarSimulador(raiz) {
   const localizar = seletor => raiz.querySelector(seletor);
   const status = localizar('#sim-status');
-  let catalogo;
-  let glossario;
-  try {
-    [catalogo, glossario] = await Promise.all([carregarEstoque(), carregarGlossario().catch(() => [])]);
-  } catch {
-    status.textContent = 'O catálogo não carregou. Recarregue a página para tentar novamente.';
+  const url = new URL(location.href);
+  if (!localizar('#sim-etapa-atual')) {
+    if (url.searchParams.get('versao') === 'montagem-2') {
+      status.textContent = 'A página da montagem não atualizou. Recarregue a página para tentar novamente.';
+    } else {
+      url.searchParams.set('versao', 'montagem-2');
+      location.replace(url);
+    }
     return;
   }
-  const url = new URL(location.href);
+  const catalogo = await carregarEstoque();
+  let glossario = [];
   let linhas = lerMontagem(catalogo);
   let avisoInicial;
   if (url.searchParams.has('pecas')) {
@@ -232,7 +235,6 @@ export async function iniciarSimulador(raiz) {
   function atualizarGlossario() {
     const bloco = localizar('#sim-glossario');
     const termos = glossario.filter(({ id }) => termosPorCategoria[categoria]?.includes(id));
-    bloco.open = false;
     const definicoes = bloco.querySelector('dl');
     definicoes.hidden = !termos.length;
     definicoes.replaceChildren(...termos.flatMap(({ termo, descricao }) =>
@@ -242,6 +244,7 @@ export async function iniciarSimulador(raiz) {
   function mudarCategoria(nova) {
     categoria = nova;
     grupos.open = false;
+    localizar('#sim-glossario').open = false;
     atualizarOpcoes();
     atualizarGlossario();
     tituloCategoria.focus();
@@ -449,4 +452,8 @@ export async function iniciarSimulador(raiz) {
   atualizarGlossario();
   localizar('#sim-conteudo').hidden = false;
   status.textContent = avisoInicial ?? '';
+  carregarGlossario().then(termos => {
+    glossario = termos;
+    atualizarGlossario();
+  }).catch(() => {});
 }

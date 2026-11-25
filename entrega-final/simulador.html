@@ -16,8 +16,36 @@
     <link rel="stylesheet" href="css/laboratorio.css?v=meia-noite-1">
     <link rel="stylesheet" href="css/navegacao.css?v=petroleo-1">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/simulador.css?v=montagem-1">
-    <script type="module" src="js/principal.js?v=montagem-1"></script>
+    <link rel="stylesheet" href="css/simulador.css?v=montagem-2">
+    <script type="module">
+      const status = document.querySelector('#sim-status');
+      const recarregar = document.querySelector('#sim-recarregar');
+      const conteudo = document.querySelector('#sim-conteudo');
+
+      function mostrarFalha(mensagem) {
+        const destino = new URL(location.href);
+        destino.searchParams.set('versao', 'montagem-2');
+        status.textContent = mensagem;
+        recarregar.href = destino.href;
+        recarregar.hidden = false;
+      }
+
+      const limite = setTimeout(() => {
+        mostrarFalha('A montagem está demorando para carregar.');
+      }, 10000);
+
+      import('./js/principal.js?v=montagem-2')
+        .then(({ montagemPronta }) => montagemPronta)
+        .then(() => {
+          if (conteudo.hidden) mostrarFalha('A montagem não carregou.');
+          else recarregar.hidden = true;
+        })
+        .catch(erro => {
+          console.error('Falha ao carregar a montagem.', erro);
+          mostrarFalha('A montagem não carregou.');
+        })
+        .finally(() => clearTimeout(limite));
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -68,6 +96,7 @@
         </details>
       </header>
       <p id="sim-status" class="sim-status" role="status">Carregando catálogo…</p>
+      <a class="botao-texto sim-recarregar" id="sim-recarregar" href="./simulador.html?versao=montagem-2" hidden>Tentar novamente</a>
       <div class="sim-grade" id="sim-conteudo" hidden>
         <div class="sim-principal">
           <div class="sim-fluxo" id="sim-barra" data-barra-fixa>

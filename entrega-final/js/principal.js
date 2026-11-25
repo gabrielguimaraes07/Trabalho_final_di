@@ -334,7 +334,9 @@ if (visualizador) {
 }
 
 const simulador = document.querySelector('[data-simulador]');
-if (simulador) import('./simulador.js?v=montagem-1').then(({ iniciarSimulador }) => iniciarSimulador(simulador));
+export const montagemPronta = simulador
+  ? import('./simulador.js?v=montagem-2').then(({ iniciarSimulador }) => iniciarSimulador(simulador))
+  : undefined;
 
 const guia = document.querySelector('[data-guia]');
 if (guia) import('./guia.js?v=interfaces-6').then(({ iniciarGuia }) => iniciarGuia(guia));
