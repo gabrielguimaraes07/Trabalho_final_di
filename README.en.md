@@ -27,11 +27,13 @@ The case was built with Three.js. You can rotate it and click a part to see prod
 
 ### 3. The first examples
 
-I added simple explanations of what the parts do. RAM, for example, works like a desk where you keep the things you are using. The slideshow got arrows and a pause button, and the browser began saving the theme choice. The first version also got a fix for controls that were hidden behind the menu when using Tab. [Review of the first submission](entrega-final/docs/revisao-parcial.md)
+I added simple explanations of what the parts do. RAM, for example, works like a desk where you keep the things you are using. Codex helped me arrange the carousel images and set up the arrows, slide indicators, and pause button. I also fixed controls that were hidden behind the menu when using Tab. [Review of the first submission](entrega-final/docs/revisao-parcial.md)
 
-### 4. The menu and reading options
+### 4. The menu, login, and reading options
 
-In the final version, the menu links to the catalog, builders, ready-made builds, glossary, and contact page. On a phone, you can open and close the menu with a button. The accessibility panel lets you change the theme, text size and spacing, increase contrast, and underline links. A preview shows the changes right away. You can also reduce motion in the 3D model and slideshow. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
+In the final version, the menu links to the catalog, builders, ready-made builds, glossary, and contact page. On a phone, you can open and close the menu with a button. Codex helped me set up the **Sign in** and **Create account** tabs and the feedback messages for the demo login.
+
+Codex also helped me build the accessibility panel. You can choose a light or dark theme, make the text bigger, change the spacing, increase contrast, and underline links. A preview shows the changes right away, and the browser saves your choices. The reduced-motion setting pauses the 3D case rotation and automatic carousel slides. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
 
 ### 5. Real products
 

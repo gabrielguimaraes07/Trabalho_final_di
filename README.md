@@ -27,11 +27,13 @@ O gabinete foi feito no Three.js. Dá para girá-lo e clicar nas peças para abr
 
 ### 3. Os primeiros exemplos
 
-Adicionei explicações simples sobre as peças. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. O carrossel ganhou setas e um botão de pausa, e a escolha do tema passou a ficar salva no navegador. Na revisão da parcial, alguns controles que ficavam atrás do menu ao usar Tab foram ajustados. [Revisão da parcial](entrega-final/docs/revisao-parcial.md)
+Adicionei explicações simples sobre as peças. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. Com ajuda do Codex, organizei as imagens do carrossel e liguei as setas, os indicadores e o botão de pausa. Também ajustei os controles que ficavam atrás do menu ao usar Tab. [Revisão da parcial](entrega-final/docs/revisao-parcial.md)
 
-### 4. O menu e a leitura
+### 4. O menu, o login e a leitura
 
-Na final, o menu passou a levar ao catálogo, às montagens, aos setups, ao glossário e ao contato. No celular, dá para abrir e fechar o menu com um botão. No painel de acessibilidade, dá para mudar o tema, o tamanho e o espaçamento do texto, aumentar o contraste e sublinhar os links. A prévia mostra as mudanças na hora. Também dá para reduzir o movimento do gabinete e do carrossel. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
+Na final, o menu passou a levar ao catálogo, às montagens, aos setups, ao glossário e ao contato. No celular, dá para abrir e fechar o menu com um botão. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
+
+O Codex também me ajudou no painel de acessibilidade. Dá para trocar entre modo claro e escuro, aumentar a fonte, mudar o espaçamento, reforçar o contraste e sublinhar os links. A prévia mostra as mudanças na hora, e as preferências ficam no navegador. A opção de reduzir movimento pausa o giro do gabinete e a troca automática do carrossel. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
 
 ### 5. Os produtos reais
 

@@ -14,12 +14,16 @@ A montagem manual estava difícil de seguir, então pedi que ficasse mais claro 
 
 No carrinho, pedi uma tela que servisse para simular a compra. A IA ajudou a montar a revisão dos itens e a conferir se quantidades, subtotais e total batiam com a seleção. Também ajudou a testar o aviso de incompatibilidade e o que acontece ao cancelar a troca de uma montagem salva.
 
-## Acessibilidade e testes
+## Login, carrossel e acessibilidade
 
-Pedi um painel de acessibilidade para dar mais controle sobre a leitura. O Codex ajudou a implementar a prévia dos ajustes de tema, tamanho e espaçamento do texto, e a guardar a escolha no navegador. Também ajudou a testar o site com teclado, conferir o contraste e corrigir a rolagem quando um controle ficava escondido atrás do cabeçalho. Usei o apoio da IA para conferir os caminhos das imagens e verificar a montagem em telas de tamanhos diferentes. [Testes do GGTECH](auditoria.md)
+Na página de login, o Codex me ajudou a organizar as abas **Entrar** e **Criar conta**, mostrar os avisos de preenchimento e conferir se dava para trocar de aba pelas setas. A sessão é de demonstração e fica no navegador.
 
-## Imagens e organização do GitHub
+No carrossel da página inicial, ele me ajudou a colocar as fotos, ligar as setas e os indicadores e acertar a pausa e a troca automática. Usei o **OpenAI ImageGen** para três ilustrações da parcial. Na final, pedi fotos de ambientes reais, e o Codex também ajudou a buscar e organizar essas referências. [Créditos das imagens](referencias.md#ambientes-reais)
 
-Usei o **OpenAI ImageGen** para três imagens ilustrativas do carrossel da parcial. Para a final, pedi fotos reais, com ambientes diferentes para cada tipo de setup. O Codex ajudou a procurar e organizar essas referências e a ajustar o vídeo para ficar dentro da tela do notebook na página de setups. [Créditos das imagens](referencias.md#ambientes-reais)
+Na aba de acessibilidade, pedi ajuda para montar a troca entre modo claro e escuro, os tamanhos maiores de fonte e a prévia do espaçamento e do contraste. O Codex ajudou a guardar essas escolhas no navegador e a ligar a opção de reduzir movimento ao gabinete e ao carrossel. Também me ajudou a testar com teclado, conferir o contraste e ajustar a rolagem quando um controle ficava escondido atrás do cabeçalho. [Testes do GGTECH](auditoria.md)
+
+## Setups e organização do GitHub
+
+Na página de setups, o Codex ajudou a separar as fotos por tipo de uso e a encaixar o vídeo na tela do notebook.
 
 No GitHub, o Codex me ajudou a localizar a parcial no histórico, separar as duas entregas em pastas e conferir os endereços no GitHub Pages. Também usei essa ajuda para organizar o README, explicar onde ficam os arquivos e registrar os problemas encontrados nos testes.
