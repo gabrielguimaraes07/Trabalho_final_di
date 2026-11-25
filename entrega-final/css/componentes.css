@@ -173,10 +173,6 @@
   background: color-mix(in srgb, var(--bg) 72%, transparent);
 }
 
-.gaveta[data-cena-a-vista]::backdrop {
-  background: color-mix(in srgb, var(--bg) 38%, transparent);
-}
-
 body:has(.gaveta[open]) {
   overflow: hidden;
 }
@@ -208,9 +204,46 @@ body:has(.gaveta[open]) {
   padding: 0;
 }
 
+.gaveta-peca {
+  inset: 0;
+  inline-size: min(calc(100% - 2rem), 72rem);
+  block-size: min(calc(100% - 2rem), 47rem);
+  margin: auto;
+  border: 1px solid var(--text-2);
+  border-radius: var(--radius-card);
+  background: var(--bg);
+  backdrop-filter: none;
+}
+
+.gaveta-peca[open] {
+  display: grid;
+  grid-template:
+    "modelo cabecalho" auto
+    "modelo detalhes" minmax(0, 1fr)
+    / minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: var(--space-2) var(--space-3);
+  padding: var(--space-3);
+  animation: none;
+}
+
+.gaveta-peca > .gaveta-cabecalho {
+  grid-area: cabecalho;
+  align-items: center;
+}
+
+.gaveta-peca > .gaveta-conteudo {
+  grid-area: detalhes;
+  min-block-size: 0;
+  min-inline-size: 0;
+  overflow: auto;
+  padding: 0 var(--space-1) var(--space-1) 0;
+}
+
 .gaveta-previa {
+  grid-area: modelo;
+  align-self: center;
   justify-self: center;
-  inline-size: min(100%, 14rem);
+  inline-size: min(100%, calc(100dvh - 7rem));
   aspect-ratio: 1;
   overflow: hidden;
   border-radius: var(--radius-card);
@@ -221,6 +254,7 @@ body:has(.gaveta[open]) {
   display: block;
   inline-size: 100%;
   block-size: 100%;
+  pointer-events: none;
 }
 
 .gaveta-previa img {
@@ -236,6 +270,34 @@ body:has(.gaveta[open]) {
 
 @keyframes aproximar-imagem {
   from { transform: none; }
+}
+
+@media (max-width: 53rem), (max-height: 28rem) {
+  .gaveta-peca[open] {
+    inline-size: 100%;
+    block-size: 100%;
+    grid-template: "cabecalho" auto "modelo" auto "detalhes" auto / minmax(0, 1fr);
+    align-content: start;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .gaveta-peca > .gaveta-cabecalho {
+    position: sticky;
+    inset-block-start: calc(-1 * var(--space-3));
+    z-index: 1;
+    padding-block: var(--space-1);
+    background: var(--bg);
+  }
+
+  .gaveta-peca > .gaveta-conteudo {
+    overflow: visible;
+    padding-inline-end: 0;
+  }
+
+  .gaveta-previa {
+    inline-size: min(100%, 46dvh);
+  }
 }
 
 .gaveta-filtro {

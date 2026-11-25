@@ -89,9 +89,8 @@ if (visualizador) {
   const instrucao = visualizador.querySelector('#instrucao-pc');
   const botoes = new Map([...cena.querySelectorAll('.hotspot')].map(botao => [botao.dataset.categoria, botao]));
   const dialogo = document.querySelector('#gaveta-estoque');
-  const previa = dialogo.querySelector('.gaveta-previa');
-  const previaImagem = previa.querySelector('img');
-  const previaCanvas = previa.querySelector('canvas');
+  const previaImagem = dialogo.querySelector('.gaveta-previa img');
+  const conteudoGaveta = dialogo.querySelector('.gaveta-conteudo');
   const abrir = iniciarGaveta(dialogo);
   let categoriaDestacada;
   let contagem;
@@ -115,22 +114,19 @@ if (visualizador) {
     if (!ponto) return;
     previaImagem.style.setProperty('--x', ponto.style.getPropertyValue('--x'));
     previaImagem.style.setProperty('--y', ponto.style.getPropertyValue('--y'));
-    dialogo.removeAttribute('data-cena-a-vista');
-    previaCanvas.hidden = true;
     previaImagem.hidden = false;
-    previa.hidden = false;
   }
 
   function abrirPeca(categoria, origem) {
     if (dialogo.open) return;
     if (!atualizarCena) mostrarPreviaEstatica(categoria);
     abrir(categoria, origem);
+    conteudoGaveta.scrollTop = 0;
   }
 
   dialogo.addEventListener('close', () => {
     if (dialogo.open || atualizarCena) return;
     previaImagem.hidden = true;
-    previa.hidden = true;
   });
 
   visualizador.addEventListener('click', evento => {
@@ -155,6 +151,7 @@ if (visualizador) {
 
   function usarImagem() {
     atualizarCena = undefined;
+    imagem.after(canvas);
     canvas.hidden = true;
     imagem.hidden = false;
     pausa.hidden = true;
@@ -167,14 +164,14 @@ if (visualizador) {
     if (dialogo.open) mostrarPreviaEstatica(dialogo.dataset.categoria);
   }
 
-  import('./cena3d.js?v=interfaces-13').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-14').then(({ iniciarCena }) => {
     const ativa = iniciarCena({
-      cena, canvas, botoes, dialogo, destacar, abrir: abrirPeca, usarImagem, pausa,
+      cena, canvas, imagem, botoes, dialogo, destacar, abrir: abrirPeca, usarImagem, pausa,
     });
     if (!ativa) return;
     atualizarCena = ativa;
     canvas.hidden = false;
-    imagem.hidden = true;
+    imagem.hidden = canvas.parentElement === cena;
     instrucao.textContent = 'Arraste o PC e escolha uma peça.';
   }).catch(usarImagem);
 }

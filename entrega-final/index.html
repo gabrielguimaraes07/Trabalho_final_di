@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/tokens.css?v=interfaces-11">
     <link rel="stylesheet" href="css/base.css?v=1.0-final">
     <link rel="stylesheet" href="css/layout.css?v=interfaces-9">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-13">
+    <link rel="stylesheet" href="css/componentes.css?v=interfaces-14">
     <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
     <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
@@ -25,7 +25,7 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=interfaces-13"></script>
+    <script type="module" src="js/principal.js?v=interfaces-14"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -255,19 +255,18 @@
       </div>
     </footer>
 
-    <dialog class="gaveta" id="gaveta-estoque" aria-labelledby="gaveta-titulo" aria-describedby="gaveta-descricao">
+    <dialog class="gaveta gaveta-peca" id="gaveta-estoque" aria-labelledby="gaveta-titulo" aria-describedby="gaveta-descricao">
+      <header class="gaveta-cabecalho">
+        <h2 id="gaveta-titulo">Catálogo</h2>
+        <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar catálogo" autofocus>
+          <span class="icone-simbolo" aria-hidden="true">×</span>
+        </button>
+      </header>
+      <div class="gaveta-previa" aria-hidden="true">
+        <img src="recursos/img/pc-estatico.webp" width="900" height="900" alt="" hidden>
+      </div>
       <div class="gaveta-conteudo">
-        <header class="gaveta-cabecalho">
-          <h2 id="gaveta-titulo">Catálogo</h2>
-          <button class="botao-contorno gaveta-fechar" id="gaveta-fechar" type="button" aria-label="Fechar catálogo" autofocus>
-            <span class="icone-simbolo" aria-hidden="true">×</span>
-          </button>
-        </header>
         <p id="gaveta-descricao"></p>
-        <div class="gaveta-previa" aria-hidden="true" hidden>
-          <canvas hidden></canvas>
-          <img src="recursos/img/pc-estatico.webp" width="900" height="900" alt="" hidden>
-        </div>
         <div class="gaveta-filtro">
           <label for="gaveta-busca">Filtrar por nome ou marca</label>
           <input id="gaveta-busca" type="search" autocomplete="off" placeholder="Ex. Kingston">

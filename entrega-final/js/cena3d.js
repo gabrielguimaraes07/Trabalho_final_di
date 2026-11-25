@@ -2,9 +2,8 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { projetorHotspots } from './pontos-interativos.js?v=1.0-final';
 import { ajustarRenderizador, CAMERA_PC, criarComputador, iluminar } from './modelo-pc.js?v=1.0-final';
-import { carregarGSAP } from './animacoes.js?v=interfaces-11';
 
-export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, usarImagem, pausa }) {
+export function iniciarCena({ cena, canvas, imagem, botoes, dialogo, destacar, abrir, usarImagem, pausa }) {
   const contexto = canvas.getContext('webgl2', { alpha: true, antialias: true });
   if (!contexto) return;
 
@@ -34,11 +33,8 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   canvas.style.touchAction = 'pan-y';
 
   const projetar = projetorHotspots(botoes, pecas, camera);
-  const cabecalho = document.querySelector('.site-header');
   const previa = dialogo.querySelector('.gaveta-previa');
   const previaImagem = previa.querySelector('img');
-  const previaCanvas = previa.querySelector('canvas');
-  const contextoPrevia = previaCanvas.getContext('2d');
   const preferencia = matchMedia('(prefers-reduced-motion: reduce)');
   const ouvintes = new AbortController();
   const { signal } = ouvintes;
@@ -53,16 +49,16 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
   let tempoPecas = 0;
   let pecaFocada;
   let voo;
-  let gsap;
-  let mostrarPrevia = false;
-  carregarGSAP().then(biblioteca => { gsap = biblioteca; });
+  let larguraAnterior;
+  let alturaAnterior;
+  let escalaAnterior;
 
   function movimentoReduzido() {
     return preferencia.matches || document.documentElement.dataset.reduzirMovimento === 'true';
   }
 
   function agendar() {
-    if (ativo && (visivel || mostrarPrevia) && !document.hidden && quadroPendente === undefined) {
+    if (ativo && (visivel || dialogo.open) && !document.hidden && quadroPendente === undefined) {
       quadroPendente = requestAnimationFrame(quadro);
     }
   }
@@ -74,7 +70,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
 
   function quadro(tempo) {
     quadroPendente = undefined;
-    if (!ativo || (!visivel && !mostrarPrevia) || document.hidden) {
+    if (!ativo || (!visivel && !dialogo.open) || document.hidden) {
       tempoAnterior = undefined;
       return;
     }
@@ -84,6 +80,17 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
     if (angulo > controles.maxAzimuthAngle - .035) sentido = 1;
     controles.autoRotateSpeed = .56 * sentido;
     const emAproximacao = !!voo || !!pecaFocada;
+    const cameraMoveu = !!voo;
+    if (voo) {
+      const progresso = THREE.MathUtils.clamp((tempo - voo.inicio) / voo.duracao, 0, 1);
+      const passo = THREE.MathUtils.smoothstep(progresso, 0, 1);
+      camera.position.lerpVectors(voo.posicaoInicial, voo.destino, passo);
+      controles.target.lerpVectors(voo.alvoInicial, voo.alvo, passo);
+      if (progresso === 1) {
+        voo = undefined;
+        controles.enabled = !pecaFocada;
+      }
+    }
     const animarPecas = !pausado && !movimentoReduzido() && !dialogo.open;
     controles.autoRotate = animarPecas && !emAproximacao && !ponteiroNaCena
       && !cena.contains(document.activeElement);
@@ -98,100 +105,79 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
       luz.emissiveIntensity = .86 + Math.sin(tempoPecas * 1.9) * .12;
     }
 
-    if (moveu || precisaRenderizar || animarPecas) {
+    if (moveu || cameraMoveu || precisaRenderizar || animarPecas) {
       for (const [categoria, botao] of botoes) {
         pecas.get(categoria).userData.contorno.visible = categoria === pecaFocada || botao.hasAttribute('data-destaque');
       }
       renderer.render(mundo, camera);
-      if (mostrarPrevia) {
-        if (previaCanvas.width !== canvas.width) previaCanvas.width = canvas.width;
-        if (previaCanvas.height !== canvas.height) previaCanvas.height = canvas.height;
-        contextoPrevia.clearRect(0, 0, canvas.width, canvas.height);
-        contextoPrevia.drawImage(canvas, 0, 0);
-      }
-      projetar();
+      if (!dialogo.open) projetar();
       precisaRenderizar = false;
     }
 
-    if (animarPecas || moveu) agendar();
+    if (voo || animarPecas || moveu) agendar();
     else tempoAnterior = undefined;
   }
 
   function redimensionar() {
-    const largura = cena.clientWidth;
-    const altura = cena.clientHeight;
+    const area = canvas.parentElement;
+    const largura = area.clientWidth;
+    const altura = area.clientHeight;
+    const escala = Math.min(window.devicePixelRatio || 1, 2);
     if (!largura || !altura) return;
+    if (largura === larguraAnterior && altura === alturaAnterior && escala === escalaAnterior) return;
+    larguraAnterior = largura;
+    alturaAnterior = altura;
+    escalaAnterior = escala;
     camera.aspect = largura / altura;
     camera.updateProjectionMatrix();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(escala);
     renderer.setSize(largura, altura, false);
-    if (pecaFocada) aproximar(pecaFocada);
     marcar();
   }
 
   function aproximar(categoria) {
-    voo?.kill();
     voo = undefined;
     pecaFocada = categoria;
     cena.toggleAttribute('data-aproximado', !!categoria);
     for (const [chave, botao] of botoes) botao.toggleAttribute('data-selecionado', chave === categoria);
     controles.enabled = false;
     controles.autoRotate = false;
-    let alvo = alvoInicial.clone();
-    let destino = posicaoInicial.clone();
-    mostrarPrevia = false;
+    let alvo = alvoInicial;
+    let destino = posicaoInicial;
 
     if (categoria) {
       const peca = pecas.get(categoria);
-      pc.updateMatrixWorld(true);
-      alvo = peca.userData.ponto.clone().applyMatrix4(peca.matrixWorld);
-      const distancia = Math.max(2.6, peca.userData.tamanho * 1.42 + 1);
+      alvo = peca.userData.contorno.getWorldPosition(new THREE.Vector3());
+      const distancia = Math.max(2, peca.userData.tamanho * 1.54 + .4);
       const direcao = camera.position.clone().sub(controles.target).normalize();
-
-      const limites = cena.getBoundingClientRect();
-      const esquerda = Math.max(0, limites.left);
-      const direita = Math.min(limites.right, document.documentElement.clientWidth - dialogo.offsetWidth);
-      const larguraVisivel = Math.max(0, direita - esquerda);
-      const centroVertical = limites.top + limites.height / 2;
-      const topo = cabecalho?.getBoundingClientRect().bottom ?? 0;
-      mostrarPrevia = !!contextoPrevia && (larguraVisivel < Math.min(210, limites.width * .48)
-        || centroVertical < topo + 52 || centroVertical > innerHeight - 52);
-
-      if (!mostrarPrevia && larguraVisivel > 0) {
-        const centro = ((esquerda + direita) / 2 - limites.left) / limites.width;
-        const largura = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * distancia * 2 * camera.aspect;
-        const eixoHorizontal = new THREE.Vector3().setFromMatrixColumn(camera.matrixWorld, 0);
-        alvo.addScaledVector(eixoHorizontal, (.5 - centro) * largura);
-      }
       destino = alvo.clone().addScaledVector(direcao, distancia);
+      if (canvas.parentElement !== previa) {
+        previaImagem.hidden = true;
+        imagem.hidden = false;
+        previa.append(canvas);
+      }
+    } else if (canvas.parentElement !== cena) {
+      imagem.after(canvas);
+      imagem.hidden = true;
     }
+    redimensionar();
 
-    previa.hidden = !mostrarPrevia;
-    previaCanvas.hidden = !mostrarPrevia;
-    previaImagem.hidden = true;
-    dialogo.toggleAttribute('data-cena-a-vista', !!categoria && !mostrarPrevia);
-
-    function finalizar() {
-      voo = undefined;
-      controles.enabled = !categoria;
-      camera.lookAt(controles.target);
-      marcar();
-    }
-
-    if (!gsap || movimentoReduzido()) {
+    if (movimentoReduzido()) {
       camera.position.copy(destino);
       controles.target.copy(alvo);
-      finalizar();
-      return;
+      camera.lookAt(alvo);
+      controles.enabled = !categoria;
+    } else {
+      voo = {
+        inicio: performance.now(),
+        duracao: categoria ? 880 : 620,
+        posicaoInicial: camera.position.clone(),
+        alvoInicial: controles.target.clone(),
+        destino,
+        alvo,
+      };
     }
-
-    voo = gsap.timeline({
-      defaults: { duration: 1.2, ease: 'power3.inOut' },
-      onUpdate: marcar,
-      onComplete: finalizar,
-    });
-    voo.to(camera.position, { x: destino.x, y: destino.y, z: destino.z }, 0);
-    voo.to(controles.target, { x: alvo.x, y: alvo.y, z: alvo.z }, 0);
+    marcar();
   }
 
   function atualizarPausa() {
@@ -205,6 +191,7 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
 
   const observadorTamanho = new ResizeObserver(redimensionar);
   observadorTamanho.observe(cena);
+  observadorTamanho.observe(previa);
   const observadorTela = new IntersectionObserver(([entrada]) => {
     visivel = entrada.isIntersecting;
     tempoAnterior = undefined;
@@ -294,7 +281,6 @@ export function iniciarCena({ cena, canvas, botoes, dialogo, destacar, abrir, us
 
   canvas.addEventListener('webglcontextlost', () => {
     ativo = false;
-    voo?.kill();
     ouvintes.abort();
     controles.dispose();
     observadorTamanho.disconnect();
