@@ -4,13 +4,13 @@ Quem abre o GGTECH pela primeira vez precisa encontrar por onde começar, entend
 
 ## Fundos neutros deixam a peça aparecer
 
-Na tela inicial, o preto e o grafite lembram o acabamento de um gabinete e dão espaço para a iluminação do modelo 3D. No catálogo, o grafite ajuda a separar cada cartão do fundo preto. Assim, a pessoa pode passar de uma foto para outra sem um fundo colorido diferente disputando a atenção. Essa base escura também combina com a ideia de mostrar as peças por dentro do gabinete, com luz e sombra ajudando a distinguir os contornos.
+Na tela inicial, o grafite e o degradê azul acinzentado lembram o acabamento de um gabinete e dão espaço para a iluminação do modelo 3D. No catálogo, o grafite ajuda a separar cada cartão do fundo escuro. Assim, a pessoa pode passar de uma foto para outra sem um fundo colorido diferente disputando a atenção. Essa base escura também combina com a ideia de mostrar as peças por dentro do gabinete, com luz e sombra ajudando a distinguir os contornos.
 
 No tema claro, a página é cinza bem suave e os cartões são brancos. A diferença é discreta e mantém as mesmas áreas bem marcadas. Em ambos os temas, o nome e o preço chamam a atenção primeiro pelo tamanho, pelo peso e pela cor do texto. As informações complementares, como detalhes e legendas, usam cinza. Isso ajuda a identificar um produto de relance e depois ler as especificações com calma.
 
 ## O azul cria um caminho pela interface
 
-Na página inicial, o botão azul **Começar pela montagem guiada** indica um primeiro passo para quem prefere responder a algumas perguntas. No menu, o azul destaca a página atual. Ao navegar com Tab, ele aparece em volta do controle que está com o foco. São usos diferentes com a mesma intenção de mostrar onde a pessoa está ou onde pode agir. O preenchimento do botão, o fundo do item atual e o contorno do foco ajudam a distinguir esses casos.
+Na página inicial, o botão azul **Começar pela montagem guiada** indica um primeiro passo para quem prefere responder a algumas perguntas. Na barra lateral, o azul destaca a página atual e a borda do item reforça esse estado. Ao navegar com Tab, ele aparece em volta do controle que está com o foco. São usos diferentes com a mesma intenção de mostrar onde a pessoa está ou onde pode agir. O preenchimento do botão, o fundo do item atual e o contorno do foco ajudam a distinguir esses casos.
 
 O azul é a cor mais presente fora dos fundos neutros. Ele dá ao projeto um tom técnico e organizado. Estudos sobre cores em marcas já associaram o azul à ideia de competência no contexto pesquisado. A associação varia conforme a pessoa e a situação. No site, o efeito mais imediato vem da repetição. Depois de usar uma área, fica mais fácil reconhecer o azul em outra.
 

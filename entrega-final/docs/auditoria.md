@@ -1,5 +1,12 @@
 # Testes do GGTECH
 
+## Revisão mais recente
+
+- **Navegação.** No Chromium, foram testadas larguras de 320, 390, 1.170, 1.260 e 1.440 px. O menu lateral recolheu, mostrou o rótulo no foco e permaneceu fixo ao rolar. No celular, **Menu** abriu o painel, e Esc devolveu o foco ao botão.
+- **Gabinete.** O modelo girou por mouse, toque simulado e teclado. O arraste manteve a gaveta fechada e pausou o giro automático. A seleção abriu a gaveta com fotos e preços. Também foram conferidos zoom, restauração da vista, movimento reduzido e a imagem de reserva sem WebGL.
+- **Catálogo e glossário.** O painel de filtros abriu no celular, a categoria escolhida na lateral atualizou a aba, e limpar os filtros voltou a mostrar os 62 produtos. A comparação abriu e a busca aceitou termos e siglas. O link direto para **Socket** chegou à definição e **Ver mais** mostrou o complemento.
+- **Visual.** As nove páginas carregaram a DM Sans localmente em 1.440 px. O início e o catálogo também foram conferidos em 320 e 390 px. O tema claro e a opção de alto contraste usaram fundo sólido. [Capturas atualizadas](design-site.md#capturas-da-versão-publicada)
+
 ## O site em telas grandes e pequenas
 
 O teste no Chromium passou pelas nove páginas da final, com larguras de 390 e 1.440 px e nos dois temas. Na tela pequena, deu para abrir o menu pelo teclado, fechar com Esc e voltar ao mesmo botão. Na montagem manual, a barra de total levou direto ao resumo.
@@ -25,11 +32,13 @@ A entrega parcial foi aberta em uma subpasta, como no GitHub Pages. O gabinete g
 
 ## Contraste
 
-A transparência da gaveta foi um dos pontos que precisaram de ajuste. No tema escuro, uma legenda chegou a **3,84:1** com um fundo claro atrás da gaveta. A mudança de opacidade e de cor levou o cálculo para **5,26:1** no escuro e **5,71:1** no claro, mesmo nos fundos mais desfavoráveis usados no teste.
+No cálculo da entrega atual, o texto secundário mediu pelo menos **6,29:1** no escuro e **5,31:1** no claro. O item atual do menu deu **5,89:1** no escuro e **5,66:1** no claro. As paradas do degradê entram no cálculo do tema escuro. [Cálculo atual](wcag-contraste.md)
 
-No Adobe Color, o item atual do menu deu **4,89:1** no escuro e **5,71:1** no claro com os códigos das cores. O teste no navegador usou as cores aplicadas na tela e deu **4,88:1** e **5,69:1** para o mesmo item. No PDF, o total em grafite sobre branco ficou em **16,83:1**. [Resultados no Adobe Color](contraste-adobe.md)
+Em uma revisão anterior, a transparência da gaveta foi um dos pontos que precisaram de ajuste. No tema escuro, uma legenda chegou a **3,84:1** com um fundo claro atrás da gaveta. A mudança de opacidade e de cor levou o cálculo para **5,26:1** no escuro e **5,71:1** no claro, mesmo nos fundos mais desfavoráveis usados no teste.
 
-Em uma revisão anterior, o axe checou o contraste em 48 estados e não apontou violações automáticas dessa regra. A gaveta, o carrinho, o menu e o painel também foram conferidos com atenção às cores em camadas. O campo de mensagem foi testado nos dois temas. [Cálculo do projeto](wcag-contraste.md)
+No Adobe Color, o item atual do menu deu **4,89:1** no escuro e **5,71:1** no claro com os códigos das cores. O teste no navegador usou as cores aplicadas na tela e deu **4,88:1** e **5,69:1** para o mesmo item. No PDF, o total em grafite sobre branco ficou em **16,83:1**. [Registro anterior no Adobe Color](contraste-adobe.md)
+
+Em uma revisão anterior, o axe checou o contraste em 48 estados e não apontou violações automáticas dessa regra. A gaveta, o carrinho, o menu e o painel também foram conferidos com atenção às cores em camadas. O campo de mensagem foi testado nos dois temas. [Método de cálculo](wcag-contraste.md)
 
 ## Testes de versões anteriores
 

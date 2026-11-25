@@ -11,9 +11,9 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 - **First submission.** It has a 3D PC case with four groups of parts, 20 sample products, a theme switch, and a slideshow. [Open the first version](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [First version files](entrega-parcial/)
 - **Final version.** It has 62 real products in 19 categories, 16 ready-made builds, a guided and a manual builder, part comparisons, a guide, a glossary, a cart, and accessibility settings. [Open the final site](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Final files](entrega-final/)
 
-![GGTECH home page with the two build options and the interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
+![GGTECH home page with the sidebar, soft gradient, and interactive PC case](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
-[Product catalog](entrega-final/docs/capturas/apresentacao-catalogo.jpg) · [Guided builder](entrega-final/docs/capturas/apresentacao-montador.jpg) · [Manual builder](entrega-final/docs/capturas/apresentacao-simulador.jpg) · [Mobile home page](entrega-final/docs/capturas/apresentacao-celular.jpg) · [Accessibility settings](entrega-final/docs/capturas/apresentacao-acessibilidade.jpg)
+[PC case](entrega-final/docs/capturas/apresentacao-gabinete.jpg) · [Glossary](entrega-final/docs/capturas/apresentacao-glossario.jpg) · [Product catalog](entrega-final/docs/capturas/apresentacao-catalogo.jpg) · [Guided builder](entrega-final/docs/capturas/apresentacao-montador.jpg) · [Manual builder](entrega-final/docs/capturas/apresentacao-simulador.jpg) · [Mobile home page](entrega-final/docs/capturas/apresentacao-celular.jpg) · [Accessibility settings](entrega-final/docs/capturas/apresentacao-acessibilidade.jpg)
 
 ## How the site came together
 
@@ -21,23 +21,23 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 
 I started with `index.html` and set up the header, navigation, main content, and footer. At the top, I put the two ways to start a build next to the 3D case. The part cards, carousel, and ready-made builds sit farther down the page. The **Pular para o conteúdo** (Skip to content) link takes keyboard users straight to the main content.
 
-I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. `layout.css` handles the menu and page layout. On smaller screens, the menu collapses and the cards use fewer columns. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
+I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. The project bundles DM Sans and uses a subtle blue-gray to charcoal gradient in dark mode. The white G on a blue square identifies the project in the header and browser tab. `layout.css` handles page structure, and `navegacao.css` styles the sidebar. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
 
 ### 2. The 3D PC case
 
 `modelo-pc.js` builds the case and its parts from Three.js shapes and materials. `cena3d.js` figures out which part you clicked and moves the camera toward it, slowing down as it gets close. The catalog then opens on the right on a computer and below the model on a phone. It shows photos, prices, and a link to use a part in the manual builder.
 
-Drag to turn the case or use the buttons below it to choose a part with the keyboard. If the browser cannot load 3D, the parts in the image still respond to clicks. Farther down, **Por dentro do seu PC** (Inside your PC) pulls the parts apart as you scroll so you can see where they fit.
+You can turn the case with a mouse, touch, or the arrow keys. Automatic rotation pauses when you take control. Use the zoom buttons or **Restaurar vista** (Reset view) to adjust the framing. The part buttons still work with the fallback image if WebGL is unavailable. In **Por dentro do seu PC** (Inside your PC), scrolling or using the slider pulls the parts apart so you can see where they fit.
 
 ### 3. The first examples
 
-I added short explanations to the home page cards. RAM, for example, works like a desk where you keep the things you are using. The component guide goes further with models, photos, and prices. The glossary explains terms like *socket* and DDR without sending you away from the site.
+I added short explanations to the home page cards. RAM, for example, works like a desk where you keep the things you are using. The component guide goes further with models, photos, and prices. The glossary explains terms like *socket* and DDR in short definitions. Search by name or abbreviation, and open **Ver mais** (Read more) for examples and extra details.
 
 Codex helped me organize the setup photos and connect the carousel arrows, slide indicators, and pause button. Each photo comes with a practical detail, like turning a second monitor vertically or leaving room for a notebook. I also fixed controls that were hidden behind the menu when using Tab. [Review of the first submission](entrega-final/docs/revisao-parcial.md)
 
 ### 4. The menu, login, and reading options
 
-In the final version, the menu links to the catalog, builders, ready-made builds, glossary, and contact page. The footer also links to **Contato** (Contact), where you'll find the form and frequently asked questions. On a phone, use the **Menu** button to open and close navigation. Codex helped me set up the **Entrar** (Sign in) and **Criar conta** (Create account) tabs and the messages for the demo login.
+On desktop, navigation stays fixed on the left. You can collapse it to icons and read the labels on hover or keyboard focus. Sign-in, accessibility, and the cart stay together in the header. The footer also links to **Contato** (Contact), where you'll find the form and frequently asked questions. On a phone, use the **Menu** button to open and close navigation. Codex helped me set up the **Entrar** (Sign in) and **Criar conta** (Create account) tabs and the messages for the demo login.
 
 Codex also helped me build the accessibility panel. You can switch between light and dark themes, make the text bigger, change spacing, increase contrast, and underline links. The preview shows the changes right away, and the browser saves your choices. With **Reduzir movimento** (Reduce motion) on, the case and carousel stop moving automatically, and the camera goes straight to the selected part. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
 
@@ -49,9 +49,9 @@ The catalog, guide, cart, and saved builds all use the same product ID. That way
 
 ### 6. Search and comparisons
 
-The catalog uses the product data to fill the category tabs, search suggestions, and product cards. Search by name works alongside the brand, price, and compatibility filters. In **Armazenamento** (Storage), for example, **Tipo de peça** (Part type) separates SATA SSDs, NVMe SSDs, and hard drives.
+The catalog uses the product data to fill the category tabs, search suggestions, and product cards. Filters sit on the left on a computer and in a collapsible panel on a phone. The results show the count, active filters, and a clear option. Search by name works alongside the brand, price, and compatibility filters. In **Armazenamento** (Storage), for example, **Tipo de peça** (Part type) separates SATA SSDs, NVMe SSDs, and hard drives.
 
-Open **Detalhes da peça** (Part details) on a card to see its specs. To compare, mark **Comparar** (Compare) on up to three models of the same type and open **Ver comparação** (View comparison). You can see specs and prices side by side or check which CPUs have integrated graphics. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+Open **Ver detalhes** (View details) on a card to see its specs. **Usar na montagem** (Use in build) opens the part in the manual builder. To compare, mark **Comparar** (Compare) on up to three models of the same type and open **Ver comparação** (View comparison). You can see specs and prices side by side or check which CPUs have integrated graphics. [Nielsen's usability principles in GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Two ways to build a PC
 
@@ -71,7 +71,7 @@ On a phone, **Ver montagem** (View build) takes you straight to the summary. Che
 
 ### 9. Testing
 
-Testing covered keyboard navigation, large and small screens, text at 200%, and color contrast. It also covered part comparisons, the cart, and opening and saving builds. The latest tests covered clicking a part, zooming in, opening the catalog, and returning to the full case. They also checked that parts in the fallback image still respond to clicks without WebGL. [Project tests](entrega-final/docs/auditoria.md) · [Adobe Color contrast results](entrega-final/docs/contraste-adobe.md) · [How I used AI](entrega-final/docs/registro-ia.md)
+Testing covered keyboard navigation, large and small screens, text at 200%, and color contrast. It also covered part comparisons, the cart, and opening and saving builds. The latest Chromium checks covered widths from 320 to 1,440 px. They included keyboard navigation, the case with a mouse and simulated touch, filters, the glossary, the bundled font, theme switching, reduced motion, and the image fallback without WebGL. [Project tests](entrega-final/docs/auditoria.md) · [Current contrast results](entrega-final/docs/wcag-contraste.md) · [How I used AI](entrega-final/docs/registro-ia.md)
 
 ## Run the site on your computer
 
@@ -89,10 +89,10 @@ The local server helps the browser load the product data and JavaScript modules.
 ## Where to find the code
 
 - **HTML.** `index.html` is the home page, `estoque.html` is the catalog, `montador.html` is the guided builder, and `simulador.html` is the manual builder. The pages live inside each version's folder.
-- **CSS.** `css/` holds the styles. `tokens.css` has the color palette and `layout.css` sets up the menu and footer.
+- **CSS.** `css/` holds the styles. `tokens.css` holds the palette and loads DM Sans. `layout.css` handles the page structure and footer, `navegacao.css` styles the sidebar, and `laboratorio.css` handles the visual refinements.
 - **JavaScript.** In `js/`, `principal.js` starts each page's features. Look in `cena3d.js` for the 3D clicks, `pagina-estoque.js` for the catalog filters, and `compatibilidade.js` for the compatibility checks.
 - **Data.** `dados/` holds the products, ready-made builds, and glossary.
-- **Images and libraries.** These are in `recursos/`. Three.js draws the case, and GSAP handles animations like pulling the parts apart. [Code guide](entrega-final/docs/codigo.md)
+- **Images and libraries.** These are in `recursos/`. Three.js draws the case, and GSAP helps animate section headings as they enter the view. [Code guide](entrega-final/docs/codigo.md)
 
 ## Good to know before you try it
 

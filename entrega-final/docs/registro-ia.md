@@ -22,6 +22,10 @@ No carrossel da página inicial, ele me ajudou a colocar as fotos, ligar as seta
 
 Na aba de acessibilidade, pedi ajuda para montar a troca entre modo claro e escuro, os tamanhos maiores de fonte e a prévia do espaçamento e do contraste. O Codex ajudou a guardar essas escolhas no navegador e a ligar a opção de reduzir movimento ao gabinete e ao carrossel. Também me ajudou a testar com teclado, conferir o contraste e ajustar a rolagem quando um controle ficava escondido atrás do cabeçalho. [Testes do GGTECH](auditoria.md)
 
+## Acabamento da versão final
+
+Usei o laboratório visual para escolher os ajustes que queria aproveitar. Pedi ao Codex que aplicasse o menu lateral, reorganizasse os filtros do catálogo e resumisse o glossário. Também pedi ajuda para suavizar a câmera do gabinete e testar os controles por teclado. Depois de ver a prévia, escolhi o G em um quadrado azul, a troca da fonte e um degradê mais leve para o fundo.
+
 ## Setups e organização do GitHub
 
 Na página de setups, o Codex ajudou a separar as fotos por tipo de uso e a encaixar o vídeo na tela do notebook.

@@ -8,12 +8,12 @@ Os botões principais ficam perto da lista ou da pergunta que a pessoa está res
 
 ## Como organizei a leitura
 
-Os cartões do catálogo mostram três especificações de cara. Os outros dados ficam em **Detalhes da peça**, e o glossário explica termos como socket sem tirar a pessoa do catálogo. A vista explodida ajuda a ligar o nome ao lugar da peça dentro do gabinete. Depois, o guia mostra exemplos reais de cada categoria.
+Os cartões do catálogo mostram três especificações de cara. Os outros dados ficam em **Ver detalhes**, e o glossário explica termos como socket sem tirar a pessoa do catálogo. A vista explodida ajuda a ligar o nome ao lugar da peça dentro do gabinete. Depois, o guia mostra exemplos reais de cada categoria.
 
-O menu marca a página atual e o foco do teclado tem um contorno próprio. Se a pessoa colocar o preço mínimo acima do máximo, o catálogo avisa onde corrigir. No montador, um orçamento baixo mostra o preço do menor setup do catálogo para aquele uso. As telas também avisam quando estão carregando ou quando a busca ficou sem resultados.
+O menu lateral marca a página atual e dá para recolhê-lo para abrir espaço. O foco do teclado tem um contorno próprio e mostra o nome do ícone quando a barra está recolhida. Se a pessoa colocar o preço mínimo acima do máximo, o catálogo avisa onde corrigir. No montador, um orçamento baixo mostra o preço do menor setup do catálogo para aquele uso. As telas também avisam quando estão carregando ou quando a busca ficou sem resultados.
 
 ## O visual e as opções de leitura
 
-O grafite dá espaço para as fotos, e o azul reaparece nas ações, nos links e no foco. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim dá para entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
+O fundo em grafite e azul acinzentado dá espaço para as fotos, e o azul mais vivo reaparece nas ações, nos links e no foco. A DM Sans mantém a mesma leitura nas várias páginas. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim dá para entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
 
 O painel tem tema, tamanho de texto, espaçamento, alto contraste e opções para sublinhar links ou reduzir movimento. Dá para conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)

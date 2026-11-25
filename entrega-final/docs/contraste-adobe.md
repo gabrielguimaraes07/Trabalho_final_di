@@ -1,5 +1,7 @@
 # Teste de contraste no Adobe Color
 
+Este é o registro de uma versão anterior, antes do menu lateral e do degradê. Para consultar as cores atuais, veja o cálculo da entrega final. [Contraste atual](wcag-contraste.md)
+
 O teste compara as cores do texto, dos links e dos avisos do GGTECH. Em cada par, o primeiro código é a cor em destaque e o segundo é o fundo. Na simulação da transparência, a camada escura ficou sobre branco e a clara sobre preto. O item selecionado no menu entrou no teste com seu próprio fundo.
 
 No nível AA, o mínimo é **4,5:1** para texto comum e **3:1** para texto grande ou para sinais visuais como o contorno de foco. Os 12 pares abaixo passaram no mínimo para o uso indicado.

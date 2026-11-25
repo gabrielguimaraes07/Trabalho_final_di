@@ -76,6 +76,10 @@ As fotos são exemplos de mesas e ambientes. Para conferir as peças de cada sug
 - O gabinete, as peças e suas ilustrações foram produzidos com Three.js 0.179.1. [Documentação do Three.js](https://threejs.org/docs/)
 - A câmera e a vista explodida usam GSAP e ScrollTrigger 3.13.0. [Documentação do GSAP](https://gsap.com/docs/v3/) · [ScrollTrigger](https://gsap.com/docs/v3/Plugins/ScrollTrigger/)
 
+## Tipografia
+
+A fonte DM Sans é distribuída com o projeto sob a SIL Open Font License. [Projeto da fonte](https://github.com/googlefonts/dm-fonts) · [Licença incluída](../recursos/fontes/dm-sans-ofl.txt)
+
 ## Acessibilidade e design
 
 - Critérios de acessibilidade, incluindo contraste e avisos que funcionam também sem cor. [WCAG 2.2](https://www.w3.org/TR/WCAG22/) · [Uso da cor](https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html)

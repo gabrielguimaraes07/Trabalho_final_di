@@ -48,16 +48,19 @@ function contraste(primeira, segunda) {
   return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
 }
 
-function resumo(cores, corAtrasDoVidro) {
+function resumo(cores, corAtrasDoVidro, paradasDoGradiente = []) {
   const fundos = [
     cores['--bg'].canais,
     cores['--surface'].canais,
+    cores['--surface-inset'].canais,
+    ...paradasDoGradiente.map(token => cores[token].canais),
     compor(cores['--glass'], corAtrasDoVidro),
   ];
   const verificacoes = [
     ['Texto principal', '--text', fundos, 4.5],
     ['Texto secundário', '--text-2', fundos, 4.5],
     ['Links', '--accent', fundos, 4.5],
+    ['Item selecionado do menu', '--accent', [cores['--accent-soft'].canais], 4.5],
     ['Mensagens de confirmação', '--success', fundos, 4.5],
     ['Mensagens de erro', '--danger', fundos, 4.5],
     ['Texto branco no botão principal', '--btn-text', [cores['--btn-primary'].canais], 4.5],
@@ -82,11 +85,11 @@ const documento = [
   '',
   'A WCAG 2.2 pede **4,5:1** para texto comum e **3:1** para texto grande e para os elementos visuais necessários para identificar controles ou estados.',
   '',
-  'O cálculo compara o fundo da página, o dos cartões e o das áreas translúcidas. O resultado mostra o menor valor. Para ver o efeito da transparência, o fundo escuro fica sobre branco e o claro fica sobre preto. O texto do botão é comparado com o próprio azul do botão.',
+  'O cálculo compara os fundos da página, dos cartões e das áreas translúcidas. No tema escuro, também inclui as paradas do degradê. A camada escura é simulada sobre branco e a clara sobre preto. Cada resultado mostra o menor valor entre as amostras verificadas para aquele uso. Essa medição cobre as combinações de cores listadas.',
   '',
   '## Tema escuro',
   '',
-  resumo(escuro, [255, 255, 255]),
+  resumo(escuro, [255, 255, 255], ['--bg-gradiente-inicio', '--bg-gradiente-meio']),
   '',
   '## Tema claro',
   '',
@@ -94,7 +97,7 @@ const documento = [
   '',
   'Para refazer o cálculo, rode `node scripts/contraste.js`. O script lê as cores de `css/tokens.css`.',
   '',
-  '[Testes no Adobe Color](contraste-adobe.md) · [Contraste de texto na WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [Contraste de componentes](https://www.w3.org/TR/WCAG22/#non-text-contrast)',
+  '[Registro anterior no Adobe Color](contraste-adobe.md) · [Contraste de texto na WCAG 2.2](https://www.w3.org/TR/WCAG22/#contrast-minimum) · [Contraste de componentes](https://www.w3.org/TR/WCAG22/#non-text-contrast)',
   '',
 ].join('\n');
 

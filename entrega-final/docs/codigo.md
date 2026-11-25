@@ -16,9 +16,11 @@ Se quiser ver como uma peça sai do catálogo e vai parar na montagem, comece po
 
 ## Estilos
 
-- [css/tokens.css](../css/tokens.css) — Cores, medidas e tipografia dos temas.
+- [css/tokens.css](../css/tokens.css) — Cores, medidas, paradas do degradê e carregamento local da DM Sans.
 - [css/base.css](../css/base.css) — Estilos de elementos básicos, foco e texto para leitor de tela.
-- [css/layout.css](../css/layout.css) — Estrutura da página, navegação e rodapé.
+- [css/layout.css](../css/layout.css) — Estrutura da página e rodapé.
+- [css/navegacao.css](../css/navegacao.css) — Cabeçalho, menu lateral, modo recolhido e painel no celular.
+- [css/laboratorio.css](../css/laboratorio.css) — Acabamento visual, cartões, layout do catálogo e superfícies do gabinete.
 - [css/componentes.css](../css/componentes.css) — Botões, gaveta, modelo 3D, carrossel e cartões.
 - [css/loja.css](../css/loja.css) — Estoque, cartões de produto e carrinho.
 - [css/montador.css](../css/montador.css) — Passos do quiz, resultado e cartões de configurações.
@@ -29,20 +31,20 @@ Se quiser ver como uma peça sai do catálogo e vai parar na montagem, comece po
 ## Comportamento e regras
 
 - [js/principal.js](../js/principal.js) — Inicia páginas, componentes e atalhos.
-- [js/navegacao.js](../js/navegacao.js) — Menu compacto, retorno de foco e espaçamento dos atalhos de rolagem.
+- [js/navegacao.js](../js/navegacao.js) — Menu lateral persistente, rótulos no modo recolhido, painel no celular, retorno de foco e espaçamento dos atalhos de rolagem.
 - [js/abas.js](../js/abas.js) — Calcula a próxima aba para as teclas de navegação.
 - [js/acessibilidade.js](../js/acessibilidade.js) — Interface de ajustes, prévia e restauração das preferências.
 - [js/tema.js](../js/tema.js) — Aplica a preferência salva antes da primeira pintura e acompanha o tema do sistema.
 - [js/animacoes.js](../js/animacoes.js) — Carrega GSAP e revela títulos ao rolar.
-- [js/cena3d.js](../js/cena3d.js) — Renderiza, gira, seleciona e aproxima a câmera do gabinete.
+- [js/cena3d.js](../js/cena3d.js) — Renderiza o modelo, trata os gestos de rotação, limita o zoom e aproxima a câmera da peça selecionada.
 - [js/modelo-pc.js](../js/modelo-pc.js) — Constrói as peças do PC com formas e materiais do Three.js.
 - [js/pontos-interativos.js](../js/pontos-interativos.js) — Projeta as posições das peças em botões HTML.
-- [js/vista-explodida.js](../js/vista-explodida.js) — Anima a separação das peças durante a rolagem.
+- [js/vista-explodida.js](../js/vista-explodida.js) — Anima a separação das peças durante a rolagem ou pelo controle deslizante.
 - [js/gaveta.js](../js/gaveta.js) — Abre o estoque no PC 3D e filtra as peças da categoria.
 - [js/dialogo.js](../js/dialogo.js) — Controla foco, Escape e fechamento das gavetas.
 - [js/carrossel.js](../js/carrossel.js) — Alterna as imagens e controla a pausa e o movimento reduzido.
 - [js/estoque.js](../js/estoque.js) — Carrega produtos e fornece nomes, descrições e formatação de preços.
-- [js/pagina-estoque.js](../js/pagina-estoque.js) — Exibe categorias, filtros, sugestões e a tabela de comparação.
+- [js/pagina-estoque.js](../js/pagina-estoque.js) — Exibe categorias, filtros ativos, sugestões de busca e o quadro de comparação.
 - [js/carrinho.js](../js/carrinho.js) — Salva itens e orçamento e mostra a revisão da compra simulada.
 - [js/compatibilidade.js](../js/compatibilidade.js) — Compara encaixe, memória, formato e potência.
 - [js/configuracoes-prontas.js](../js/configuracoes-prontas.js) — Agrupa as configurações por tipo de uso e mostra exemplos na página inicial.
@@ -51,7 +53,7 @@ Se quiser ver como uma peça sai do catálogo e vai parar na montagem, comece po
 - [js/montagem.js](../js/montagem.js) — Seleção de peças, validação dos dados e gravação local.
 - [js/guia.js](../js/guia.js) — Explicações e fichas do guia de componentes.
 - [js/montador.js](../js/montador.js) — Coordena as perguntas, respostas e resultado do montador.
-- [js/glossario.js](../js/glossario.js) — Carrega termos e cria dicas e links para as explicações.
+- [js/glossario.js](../js/glossario.js) — Carrega termos, mantém os links e as dicas do catálogo e abre complementos em **Ver mais**.
 - [js/formularios.js](../js/formularios.js) — Valida campos e confirma a simulação do contato.
 - [js/login.js](../js/login.js) — Controla abas, senha visível e sessão fictícia.
 

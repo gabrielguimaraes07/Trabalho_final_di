@@ -11,9 +11,9 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Dá para olhar as peça
 - **Parcial.** Tem o gabinete 3D com quatro grupos de peças, 20 produtos de exemplo, troca de tema e carrossel. [Abrir a parcial](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-parcial/) · [Arquivos da parcial](entrega-parcial/)
 - **Final.** Tem 62 produtos reais em 19 categorias, 16 setups prontos, montagem guiada e manual, comparação de peças, guia, glossário, carrinho e painel de acessibilidade. [Abrir a final](https://gabrielguimaraes07.github.io/Trabalho_final_di/entrega-final/) · [Arquivos da final](entrega-final/)
 
-![Página inicial do GGTECH com as opções de montagem e o gabinete interativo](entrega-final/docs/capturas/apresentacao-inicio.jpg)
+![Página inicial com menu lateral, fundo em degradê e gabinete interativo](entrega-final/docs/capturas/apresentacao-inicio.jpg)
 
-[Catálogo](entrega-final/docs/capturas/apresentacao-catalogo.jpg) · [Montagem guiada](entrega-final/docs/capturas/apresentacao-montador.jpg) · [Montagem manual](entrega-final/docs/capturas/apresentacao-simulador.jpg) · [Início no celular](entrega-final/docs/capturas/apresentacao-celular.jpg) · [Painel de acessibilidade](entrega-final/docs/capturas/apresentacao-acessibilidade.jpg)
+[Gabinete](entrega-final/docs/capturas/apresentacao-gabinete.jpg) · [Glossário](entrega-final/docs/capturas/apresentacao-glossario.jpg) · [Catálogo](entrega-final/docs/capturas/apresentacao-catalogo.jpg) · [Montagem guiada](entrega-final/docs/capturas/apresentacao-montador.jpg) · [Montagem manual](entrega-final/docs/capturas/apresentacao-simulador.jpg) · [Início no celular](entrega-final/docs/capturas/apresentacao-celular.jpg) · [Painel de acessibilidade](entrega-final/docs/capturas/apresentacao-acessibilidade.jpg)
 
 ## Como o site foi construído
 
@@ -21,23 +21,23 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Dá para olhar as peça
 
 Comecei pelo `index.html`, com cabeçalho, menu, conteúdo e rodapé. Na parte de cima, deixei dois caminhos para montar o PC e coloquei o gabinete 3D ao lado. Mais abaixo ficaram os cartões das peças, o carrossel e os setups prontos. O link **Pular para o conteúdo** leva quem usa o teclado direto à parte principal.
 
-Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Em `layout.css` ficam as regras do menu e da estrutura das páginas. Em telas menores, o menu recolhe e os cartões passam a ocupar menos colunas. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
+Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Usei a fonte DM Sans, que vem no próprio projeto, e um degradê discreto de azul acinzentado para grafite no tema escuro. O G branco no quadrado azul identifica a marca no cabeçalho e na aba do navegador. A estrutura das páginas fica em `layout.css`, e a navegação lateral em `navegacao.css`. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
 
 ### 2. O gabinete em 3D
 
 O `modelo-pc.js` monta o gabinete e as peças com formas e materiais do Three.js. No `cena3d.js`, o clique identifica qual peça foi selecionada e leva a câmera até ela. A aproximação desacelera perto da peça. Quando termina, o catálogo abre à direita no computador e embaixo no celular. Ali aparecem as fotos, os preços e o atalho para usar a peça na montagem manual.
 
-Dá para arrastar o gabinete para girar ou escolher uma peça pelos botões abaixo do modelo. Se o navegador não carregar o 3D, ainda dá para clicar nas peças da imagem. Mais abaixo, em **Por dentro do seu PC**, a vista explodida acompanha a rolagem da página e mostra onde as peças ficam encaixadas.
+Dá para girar o gabinete com mouse, toque ou setas do teclado. O giro automático pausa quando a pessoa assume o controle. Os botões de zoom e **Restaurar vista** ajudam a retomar o enquadramento. As categorias abaixo do modelo continuam disponíveis na imagem de reserva caso o navegador fique sem WebGL. Em **Por dentro do seu PC**, as peças se separam com a rolagem ou com o controle de separação.
 
 ### 3. Os primeiros exemplos
 
-Adicionei explicações curtas nos cartões da página inicial. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. Quem quer ver modelos, fotos e preços pode seguir para **Conheça os componentes do seu PC**. O glossário ajuda a entender termos como *socket* e DDR sem precisar sair do site.
+Adicionei explicações curtas nos cartões da página inicial. A RAM, por exemplo, funciona como uma mesa de trabalho onde ficam as coisas em uso. Quem quer ver modelos, fotos e preços pode seguir para **Conheça os componentes do seu PC**. O glossário explica termos como *socket* e DDR com definições curtas. A busca aceita o nome e a sigla, e **Ver mais** abre exemplos ou explicações extras quando fazem falta.
 
 Com ajuda do Codex, organizei as fotos de **Ambientes de referência** e liguei as setas, os indicadores e o botão de pausa. Cada foto tem uma legenda sobre o que dá para aproveitar daquele ambiente, como usar um segundo monitor na vertical ou deixar espaço para o caderno. Também ajustei os controles que ficavam atrás do menu ao usar Tab. [Revisão da parcial](entrega-final/docs/revisao-parcial.md)
 
 ### 4. O menu, o login e a leitura
 
-Na final, o menu passou a levar ao catálogo, às montagens, aos setups, ao glossário e ao contato. O rodapé também dá acesso a **Contato**, onde ficam o formulário e as perguntas frequentes. No celular, dá para abrir e fechar a navegação pelo botão **Menu**. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
+No computador, o menu fica fixo à esquerda. Dá para recolher a barra para deixar só os ícones, e os nomes aparecem ao passar o mouse ou chegar pelo teclado. Entrar, Acessibilidade e Carrinho ficam juntos no alto da página. O rodapé também dá acesso a **Contato**, onde ficam o formulário e as perguntas frequentes. No celular, dá para abrir e fechar a navegação pelo botão **Menu**. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
 
 O Codex também me ajudou no painel de acessibilidade. Dá para trocar entre modo claro e escuro, aumentar a fonte, mudar o espaçamento, reforçar o contraste e sublinhar os links. A prévia mostra as mudanças na hora, e as preferências ficam no navegador. Com **Reduzir movimento** ativo, o giro automático e o carrossel automático param, e o enquadramento da peça muda direto ao clicar. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
 
@@ -49,9 +49,9 @@ O mesmo código de identificação liga a peça ao catálogo, ao guia, ao carrin
 
 ### 6. A busca e a comparação
 
-O catálogo usa os dados dos produtos para preencher as abas, as sugestões de busca e os cartões. A busca por nome funciona junto com os filtros de marca, preço e compatibilidade. Em **Armazenamento**, por exemplo, o filtro **Tipo de peça** separa SSD SATA, SSD NVMe e HD.
+O catálogo usa os dados dos produtos para preencher as abas, as sugestões de busca e os cartões. Os filtros ficam na lateral esquerda no computador e no painel **Filtros** no celular. Dá para escolher categoria, marca, faixa de preço e compatibilidade. A lista mostra a contagem, os filtros ativos e a opção **Limpar filtros**. Em **Armazenamento**, por exemplo, o filtro **Tipo de peça** separa SSD SATA, SSD NVMe e HD.
 
-Para conferir um modelo, abra **Detalhes da peça** no cartão. Para comparar, marque **Comparar** em até três modelos do mesmo tipo e escolha **Ver comparação**. Assim dá para olhar os preços e as fichas lado a lado, ou descobrir quais processadores têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
+Para conferir um modelo, abra **Ver detalhes** no cartão. **Usar na montagem** leva a peça ao simulador. Para comparar, marque **Comparar** em até três modelos do mesmo tipo e escolha **Ver comparação**. Assim dá para olhar os preços e as fichas lado a lado, ou descobrir quais processadores têm vídeo integrado. [Heurísticas de Nielsen no GGTECH](entrega-final/docs/heuristicas-nielsen.md)
 
 ### 7. Dois jeitos de montar o PC
 
@@ -71,7 +71,7 @@ No celular, **Ver montagem** leva direto ao resumo. Depois de conferir as peças
 
 ### 9. Os testes
 
-Os testes passaram pelo teclado, por telas grandes e pequenas, pelo texto ampliado a 200% e pelo contraste. Também foram conferidos a comparação, o carrinho e a opção de abrir e salvar montagens. Os testes da versão mais recente incluíram o clique direto na peça, o zoom, a abertura do catálogo e a volta à visão geral do gabinete. O clique também foi testado na imagem que aparece quando o navegador fica sem WebGL. [Testes do projeto](entrega-final/docs/auditoria.md) · [Contraste no Adobe Color](entrega-final/docs/contraste-adobe.md) · [Como usei IA](entrega-final/docs/registro-ia.md)
+Os testes passaram pelo teclado, por telas grandes e pequenas, pelo texto ampliado a 200% e pelo contraste. Também foram conferidos a comparação, o carrinho e a opção de abrir e salvar montagens. Na revisão mais recente, os testes no Chromium foram de 320 a 1.440 px. Eles incluíram o menu pelo teclado, o giro do gabinete com mouse e toque simulado, os filtros, o glossário, a fonte local e a troca de temas. A imagem de reserva e a opção de movimento reduzido também foram conferidas. [Testes do projeto](entrega-final/docs/auditoria.md) · [Contraste atual](entrega-final/docs/wcag-contraste.md) · [Como usei IA](entrega-final/docs/registro-ia.md)
 
 ## Como rodar no seu computador
 
@@ -89,10 +89,10 @@ O servidor local ajuda o navegador a carregar o catálogo e os módulos JavaScri
 ## Onde mexer no código
 
 - **HTML.** `index.html` é a página inicial, `estoque.html` é o catálogo, `montador.html` é a montagem guiada e `simulador.html` é a montagem manual. As telas ficam dentro da pasta de cada entrega.
-- **CSS.** A pasta `css/` guarda os estilos. `tokens.css` tem a paleta e `layout.css` define o menu e o rodapé.
+- **CSS.** A pasta `css/` guarda os estilos. `tokens.css` tem a paleta e carrega a DM Sans. `layout.css` define a estrutura e o rodapé, `navegacao.css` cuida do menu lateral e `laboratorio.css` reúne o acabamento visual.
 - **JavaScript.** Em `js/`, `principal.js` liga as funções de cada página. Para mexer no clique do 3D, procure `cena3d.js`. Para mexer nos filtros do catálogo, veja `pagina-estoque.js`. As checagens ficam em `compatibilidade.js`.
 - **Dados.** A pasta `dados/` guarda os produtos, os setups prontos e o glossário.
-- **Imagens e bibliotecas.** Tudo fica em `recursos/`. O Three.js desenha o gabinete, e o GSAP cuida de animações como a separação das peças. [Mapa do código](entrega-final/docs/codigo.md)
+- **Imagens e bibliotecas.** Tudo fica em `recursos/`. O Three.js desenha o gabinete, e o GSAP ajuda nas animações de entrada dos títulos. [Mapa do código](entrega-final/docs/codigo.md)
 
 ## O que vale saber antes de usar
 
