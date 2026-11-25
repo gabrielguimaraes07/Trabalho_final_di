@@ -56,15 +56,29 @@ export function iniciarGaveta(painel, atualizarSelecao) {
   }
 
   busca.addEventListener('input', atualizarLista);
-  const abrirCatalogo = configurarGaveta(painel, fechar, () => {
+  function limparSelecao() {
     selecao = undefined;
+    painel.removeAttribute('data-preparando');
     delete painel.dataset.categoria;
     atualizarSelecao();
+  }
+
+  const abrirCatalogo = configurarGaveta(painel, fechar, limparSelecao);
+  document.addEventListener('keydown', evento => {
+    if (evento.key !== 'Escape' || evento.defaultPrevented || !selecao || selecao.revelada) return;
+    evento.preventDefault();
+    const origem = selecao.origem;
+    limparSelecao();
+    origem.focus({ preventScroll: true });
   });
 
   return async function abrir(categoria, origem) {
     if (painel.open) return;
-    const abertura = {};
+    if (selecao?.revelada) {
+      await new Promise(resolver => painel.addEventListener('close', resolver, { once: true }));
+    }
+    if (selecao) return;
+    const abertura = { origem };
     selecao = abertura;
     painel.dataset.categoria = categoria;
     titulo.textContent = categorias[categoria].titulo;
@@ -75,17 +89,26 @@ export function iniciarGaveta(painel, atualizarSelecao) {
     busca.disabled = true;
     lista.replaceChildren();
     status.textContent = 'Carregando opções…';
-    abrirCatalogo(origem);
-    atualizarSelecao(categoria);
+    painel.setAttribute('data-preparando', '');
+    atualizarSelecao(categoria, () => {
+      if (selecao !== abertura) return;
+      if (document.querySelector('dialog[open]')) {
+        limparSelecao();
+        return;
+      }
+      painel.removeAttribute('data-preparando');
+      abrirCatalogo(origem);
+      abertura.revelada = true;
+    });
 
     try {
       const catalogo = await carregarEstoque();
-      if (selecao !== abertura || !painel.open) return;
+      if (selecao !== abertura) return;
       produtos = catalogo.filter(produto => mesmoGrupo(produto, categoria)).sort((a, b) => a.preco - b.preco);
       busca.disabled = false;
       atualizarLista();
     } catch {
-      if (selecao !== abertura || !painel.open) return;
+      if (selecao !== abertura) return;
       status.textContent = 'Não foi possível carregar o catálogo. Feche a gaveta e tente novamente.';
     }
   };

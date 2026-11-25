@@ -89,13 +89,17 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     controles.autoRotateSpeed = .56 * sentido;
     const emAproximacao = !!voo || !!pecaFocada;
     let cameraMoveu = false;
+    let progressoDoVoo;
+    const acompanhar = voo?.acompanhar;
     const intervalo = Math.min((tempo - (tempoAnterior ?? tempo - 1000 / 60)) / 1000, .05);
     tempoAnterior = tempo;
     if (voo) {
       voo.decorrido += Math.min(64, tempo - (voo.quadroAnterior ?? tempo));
       voo.quadroAnterior = tempo;
       const progresso = Math.min(1, voo.decorrido / voo.duracao);
-      const passo = THREE.MathUtils.smootherstep(progresso, 0, 1);
+      progressoDoVoo = progresso;
+      const passo = pecaFocada ? THREE.MathUtils.smoothstep(progresso, 0, 1)
+        : THREE.MathUtils.smootherstep(progresso, 0, 1);
       const { origem, destino } = voo;
       orbita.set(
         origem.radius * Math.pow(destino.radius / origem.radius, passo),
@@ -140,6 +144,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       precisaRenderizar = false;
     }
 
+    acompanhar?.(progressoDoVoo);
     if (voo || (pecaFocada && cameraMoveu) || animarPecas || moveu) agendar();
     else tempoAnterior = undefined;
   }
@@ -160,7 +165,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     marcar();
   }
 
-  function aproximar(categoria) {
+  function aproximar(categoria, acompanhar) {
     voo = undefined;
     vistaFoco = undefined;
     pecaFocada = categoria;
@@ -188,6 +193,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       orbita.copy(destino);
       posicionarCamera(alvo);
       controles.enabled = !categoria;
+      acompanhar?.(1);
     } else {
       voo = {
         decorrido: 0,
@@ -197,6 +203,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
         alvoAtual: new THREE.Vector3(),
         destino,
         alvo,
+        acompanhar,
       };
     }
     pausa.hidden = movimentoReduzido() || !!categoria;
@@ -227,6 +234,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       posicionarCamera(enquadramento.alvo);
       controles.enabled = !pecaFocada;
       marcar();
+      enquadramento.acompanhar?.(1);
     }
     pausa.hidden = reduzido || !!pecaFocada;
     pausa.textContent = pausado ? 'Retomar giro' : 'Pausar giro';

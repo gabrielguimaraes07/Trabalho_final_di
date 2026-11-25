@@ -1,5 +1,5 @@
 import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfaces-4';
-import { iniciarGaveta } from './gaveta.js?v=interfaces-16';
+import { iniciarGaveta } from './gaveta.js?v=interfaces-18';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
 import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
@@ -96,9 +96,17 @@ if (visualizador) {
   const ajustes = painel.querySelector('.gaveta-camera');
   const angulo = painel.querySelector('#gaveta-angulo');
   const zoom = painel.querySelector('#gaveta-zoom');
+  const movimentoDoSistema = matchMedia('(prefers-reduced-motion: reduce)');
+  const inicioEnquadramento = .23;
+  const momentoCatalogo = .62;
+  const duracaoImagem = 1180;
   let categoriaDestacada;
   let contagem;
   let cena3D;
+  let mostrarCatalogo;
+  let enquadrando = false;
+  let tempoEnquadramento;
+  let tempoCatalogo;
 
   function atualizarInstrucao() {
     instrucao.textContent = painel.open
@@ -123,7 +131,7 @@ if (visualizador) {
   painel.querySelector('#gaveta-restaurar-vista').addEventListener('click', restaurarVista);
 
   function enquadrarCena() {
-    if (!painel.open) return;
+    if (!painel.open && !enquadrando) return;
     const origem = areaCena.getBoundingClientRect();
     if (!origem.width) return;
 
@@ -154,11 +162,47 @@ if (visualizador) {
   const observarArea = new ResizeObserver(enquadrarCena);
   observarArea.observe(areaCena);
 
-  const abrir = iniciarGaveta(painel, categoria => {
-    cena.toggleAttribute('data-aproximado', !!categoria);
+  function atualizarExpansao(categoria) {
     for (const botao of acionadores) {
       botao.setAttribute('aria-expanded', String(botao.dataset.categoria === categoria));
     }
+  }
+
+  function avancarAproximacao(progresso) {
+    if (!mostrarCatalogo) return;
+    if (progresso >= inicioEnquadramento && !enquadrando) {
+      enquadrando = true;
+      enquadrarCena();
+    }
+    if (progresso >= momentoCatalogo) {
+      const mostrar = mostrarCatalogo;
+      mostrarCatalogo = undefined;
+      mostrar();
+      if (painel.open) atualizarExpansao(painel.dataset.categoria);
+      atualizarInstrucao();
+    }
+  }
+
+  function cancelarTemposDaImagem() {
+    clearTimeout(tempoEnquadramento);
+    clearTimeout(tempoCatalogo);
+  }
+
+  function prepararCatalogoComImagem() {
+    cancelarTemposDaImagem();
+    if (movimentoDoSistema.matches || document.documentElement.dataset.reduzirMovimento === 'true') {
+      avancarAproximacao(1);
+      return;
+    }
+    tempoEnquadramento = setTimeout(() => avancarAproximacao(inicioEnquadramento), duracaoImagem * inicioEnquadramento);
+    tempoCatalogo = setTimeout(() => avancarAproximacao(momentoCatalogo), duracaoImagem * momentoCatalogo);
+  }
+
+  const abrir = iniciarGaveta(painel, (categoria, revelar) => {
+    cancelarTemposDaImagem();
+    mostrarCatalogo = revelar;
+    enquadrando = false;
+    cena.toggleAttribute('data-aproximado', !!categoria);
     for (const [chave, botao] of botoes) {
       botao.toggleAttribute('data-selecionado', chave === categoria);
     }
@@ -167,16 +211,18 @@ if (visualizador) {
       const ponto = botoes.get(categoria);
       imagem.style.setProperty('--zoom-x', ponto.style.getPropertyValue('--x'));
       imagem.style.setProperty('--zoom-y', ponto.style.getPropertyValue('--y'));
-      enquadrarCena();
+      if (cena3D) cena3D.aproximar(categoria, avancarAproximacao);
+      else prepararCatalogoComImagem();
     } else {
+      atualizarExpansao();
       introducao.removeAttribute('data-coberta');
       introducao.style.removeProperty('max-inline-size');
       for (const propriedade of ['--cena-x', '--cena-y', '--cena-escala']) {
         cena.style.removeProperty(propriedade);
       }
+      cena3D?.aproximar();
     }
 
-    cena3D?.aproximar(categoria);
     ajustes.hidden = !categoria || !cena3D;
     if (categoria) restaurarVista();
     atualizarInstrucao();
@@ -228,15 +274,17 @@ if (visualizador) {
       botao.style.removeProperty('top');
       botao.removeAttribute('data-fora');
     }
+    if (mostrarCatalogo) prepararCatalogoComImagem();
   }
 
-  import('./cena3d.js?v=interfaces-17').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=interfaces-18').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;
     imagem.hidden = true;
-    if (painel.open) {
-      cena3D.aproximar(painel.dataset.categoria);
+    if (painel.open || mostrarCatalogo) {
+      cancelarTemposDaImagem();
+      cena3D.aproximar(painel.dataset.categoria, mostrarCatalogo ? avancarAproximacao : undefined);
       ajustes.hidden = false;
     }
     atualizarInstrucao();

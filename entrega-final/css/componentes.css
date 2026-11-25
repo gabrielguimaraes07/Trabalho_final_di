@@ -226,6 +226,11 @@ body:has(.gaveta[open]) {
   background-color: var(--bg);
 }
 
+.cena-pc[data-aproximado] :is(.hotspot, .rotulo-peca) {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .hero-copy[data-coberta] {
   opacity: 0;
 }
@@ -246,6 +251,13 @@ body:has(.gaveta[open]) {
 
 .gaveta-catalogo {
   inline-size: min(29rem, 47vw);
+}
+
+.gaveta-catalogo[data-preparando]:not([open]) {
+  display: block;
+  position: fixed;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .gaveta-catalogo::backdrop {
@@ -301,7 +313,7 @@ body:has(.gaveta-catalogo[open]) .visualizador :is(.visualizador-controles, .pec
   }
 
   :root:not([data-reduzir-movimento="true"]) .cena-pc-area > .cena-pc[data-aproximado] {
-    transition-duration: 1.18s, .4s;
+    transition-duration: .57s, .4s;
   }
 
   :root:not([data-reduzir-movimento="true"]) .gaveta-catalogo[open] {
