@@ -21,7 +21,7 @@ function criarCartao(build, completo) {
   const conteudo = elemento('div', '', 'builds-cartao-conteudo');
   const titulo = elemento('h3', build.titulo);
   const preco = elemento('strong', mostrarSubtotal(build.cotacao));
-  const link = elemento('a', 'Personalizar montagem', 'builds-link');
+  const link = elemento('a', 'Personalizar montagem', 'builds-link botao-texto');
   link.href = linkDaConfiguracao(build.produtos);
   link.setAttribute('aria-label', 'Personalizar montagem: ' + build.titulo);
   if (build.imagem) {

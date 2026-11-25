@@ -9,24 +9,28 @@
 :root {
   color-scheme: dark;
 
-  --bg: #12161c;
-  --bg-gradiente-inicio: #202a37;
-  --bg-gradiente-meio: #181e27;
-  --surface: #18181b;
-  --surface-inset: #101013;
-  --line: #34343d;
-  --field-line: #64646f;
-  --accent-soft: #142b43;
-  --text: #f5f5f7;
-  --text-2: #aaaab3;
-  --accent: #55aaff;
-  --brand-blue: #2997ff;
-  --btn-primary: #0071e3;
-  --btn-hover: #0063cb;
-  --btn-text: #ffffff;
-  --success: #30d158;
-  --danger: #ff5d52;
-  --glass: rgba(29, 29, 31, .97);
+  --bg: #0c1a20;
+  --bg-gradiente-inicio: #203f49;
+  --bg-gradiente-meio: #142932;
+  --surface: #152a32;
+  --surface-inset: #0a161b;
+  --line: #364f57;
+  --field-line: #849da3;
+  --accent-soft: #1d3a44;
+  --accent-soft-hover: #264650;
+  --text: #edf5f2;
+  --text-2: #b7cbcb;
+  --accent: #83cbd2;
+  --brand-blue: #add9d9;
+  --metal: #d5a17c;
+  --palco-luz: #284953;
+  --palco-grade: rgba(131, 203, 210, .08);
+  --btn-primary: #95ced2;
+  --btn-hover: #b0e1e1;
+  --btn-text: #0b2228;
+  --success: #72d6a5;
+  --danger: #ffad9e;
+  --glass: rgba(16, 34, 41, .97);
   --glass-blur: blur(20px);
 
   --font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -54,17 +58,24 @@
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --bg: #f4f5f7;
-  --surface: #ffffff;
-  --surface-inset: #e9edf3;
-  --line: #d1d7e1;
-  --field-line: #7c8595;
-  --accent-soft: #e3eefc;
-  --text: #1d1d1f;
-  --text-2: #606067;
-  --accent: #005bb5;
-  --brand-blue: #005bb5;
-  --success: #176e32;
-  --danger: #b52825;
-  --glass: rgba(255, 255, 255, .96);
+  --bg: #edf2ef;
+  --surface: #fcfdf9;
+  --surface-inset: #dfeae6;
+  --line: #b9cac6;
+  --field-line: #627b7c;
+  --accent-soft: #dbeceb;
+  --accent-soft-hover: #cfe3e2;
+  --text: #152b30;
+  --text-2: #455d60;
+  --accent: #245b63;
+  --brand-blue: #214952;
+  --metal: #89563b;
+  --palco-luz: #cae0dc;
+  --palco-grade: rgba(36, 91, 99, .09);
+  --btn-primary: #2b626a;
+  --btn-hover: #214f56;
+  --btn-text: #f8fcf9;
+  --success: #176347;
+  --danger: #9c352a;
+  --glass: rgba(247, 251, 247, .96);
 }

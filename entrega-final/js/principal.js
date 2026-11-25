@@ -2,10 +2,10 @@ import { carregarEstoque, categorias, mesmoGrupo } from './estoque.js?v=interfac
 import { iniciarGaveta } from './gaveta.js?v=interfaces-18';
 import { iniciarCarrossel } from './carrossel.js?v=1.0-final';
 import { iniciarAcessibilidade } from './acessibilidade.js?v=interfaces-11';
-import { iniciarCarrinho } from './carrinho.js?v=interfaces-11';
+import { iniciarCarrinho } from './carrinho.js?v=inicio-1';
 import { iniciarPaginaEstoque } from './pagina-estoque.js?v=lateral-1';
 import { iniciarMontador } from './montador.js?v=interfaces-5';
-import { iniciarBuildsProntos } from './configuracoes-prontas.js?v=interfaces-5';
+import { iniciarBuildsProntos } from './configuracoes-prontas.js?v=inicio-1';
 import { iniciarPaginaGlossario } from './glossario.js?v=lateral-1';
 import { iniciarAcesso } from './login.js?v=1.0-final';
 import { iniciarContato } from './formularios.js?v=1.0-final';
@@ -307,7 +307,7 @@ if (visualizador) {
     if (mostrarCatalogo) prepararCatalogoComImagem();
   }
 
-  import('./cena3d.js?v=lateral-1').then(({ iniciarCena }) => {
+  import('./cena3d.js?v=inicio-1').then(({ iniciarCena }) => {
     cena3D = iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem, pausa });
     if (!cena3D) return;
     canvas.hidden = false;

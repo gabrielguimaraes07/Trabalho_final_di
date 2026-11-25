@@ -14,6 +14,6 @@ O menu lateral marca a página atual e dá para recolhê-lo para abrir espaço. 
 
 ## O visual e as opções de leitura
 
-O fundo em grafite e azul acinzentado dá espaço para as fotos, e o azul mais vivo reaparece nas ações, nos links e no foco. A DM Sans mantém a mesma leitura nas várias páginas. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim dá para entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
+A base azul-petróleo dá espaço para as fotos. O azul mineral aparece nas ações e no foco, enquanto o latão ajuda a destacar o item atual do menu. A DM Sans mantém a mesma leitura nas várias páginas. Usei preços em reais e comparações do dia a dia. A RAM, por exemplo, é como uma mesa de trabalho onde ficam as coisas que estão em uso. Assim dá para entender a função antes de conhecer todos os nomes de hardware. [Psicologia das cores](psicologia-cores.md)
 
 O painel tem tema, tamanho de texto, espaçamento, alto contraste e opções para sublinhar links ou reduzir movimento. Dá para conferir o efeito na prévia. O navegador guarda as escolhas. [Testes de acessibilidade](auditoria.md)

@@ -84,7 +84,7 @@
 
 .nav-menu a[href][aria-current="page"] {
   font-weight: 720;
-  border-inline-start-color: var(--accent);
+  border-inline-start-color: var(--metal);
 }
 
 .nav-icone {

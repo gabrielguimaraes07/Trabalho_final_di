@@ -292,16 +292,8 @@
 }
 
 .builds-link {
-  display: inline-flex;
-  align-items: center;
   justify-self: start;
-  min-block-size: 44px;
-  text-underline-offset: .2em;
-}
-.builds-completos .builds-link {
-  padding: .35rem .65rem;
-  border: 1px solid currentColor;
-  border-radius: 7px;
+  padding-inline: .65rem;
 }
 
 .builds-cta {

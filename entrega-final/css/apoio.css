@@ -93,6 +93,100 @@
   color: var(--text-2);
 }
 
+.login-pagina {
+  max-inline-size: 68rem;
+}
+
+.login-layout {
+  display: grid;
+  gap: clamp(1rem, 2.4vw, 1.75rem);
+  align-items: stretch;
+}
+
+.login-principal,
+.login-explorar {
+  min-inline-size: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+}
+
+.login-principal {
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding: clamp(1rem, 2.5vw, 2rem);
+}
+
+.login-principal .apoio-form {
+  padding: var(--space-1) 0 0;
+  border: 0;
+}
+
+.login-principal .login-status:empty {
+  position: absolute;
+}
+
+.login-abas button {
+  flex: 1 1 auto;
+}
+
+.login-principal .botao-primario {
+  justify-self: stretch;
+}
+
+.login-explorar {
+  display: grid;
+  grid-template-rows: minmax(12rem, 1fr) auto;
+}
+
+.login-explorar img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  border-start-start-radius: inherit;
+  border-start-end-radius: inherit;
+}
+
+.login-explorar-conteudo {
+  display: grid;
+  gap: .55rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.login-explorar-conteudo h2 {
+  margin: 0;
+  font-size: var(--font-20);
+}
+
+.login-explorar-conteudo p {
+  color: var(--text-2);
+}
+
+.login-explorar-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-block-start: .45rem;
+}
+
+:root[data-contraste="true"] :is(.login-principal, .login-explorar) {
+  border-color: var(--text);
+}
+
+@media (min-width: 65rem) {
+  .login-layout {
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 64.99rem) {
+  .login-explorar img {
+    max-block-size: 15rem;
+  }
+}
+
 .glossario-busca {
   inline-size: min(100%, 28rem);
 }

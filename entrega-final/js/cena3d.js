@@ -39,8 +39,10 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   const preferencia = matchMedia('(prefers-reduced-motion: reduce)');
   const ouvintes = new AbortController();
   const { signal } = ouvintes;
+  const esperaParaGirar = 2600;
   let pausado = false;
-  let ponteiroNaCena = false;
+  let interagindo = false;
+  let retomadaDoGiro;
   let visivel = true;
   let ativo = true;
   let quadroPendente;
@@ -72,6 +74,15 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     agendar();
   }
 
+  function adiarGiro() {
+    clearTimeout(retomadaDoGiro);
+    retomadaDoGiro = setTimeout(() => {
+      retomadaDoGiro = undefined;
+      agendar();
+    }, esperaParaGirar);
+    agendar();
+  }
+
   function posicionarCamera(alvo) {
     controles.target.copy(alvo);
     deslocamento.setFromSpherical(orbita);
@@ -97,8 +108,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
     vistaLivre.theta += angulo;
     vistaLivre.phi = THREE.MathUtils.clamp(vistaLivre.phi + inclinacao, controles.minPolarAngle, controles.maxPolarAngle);
     vistaLivre.radius = THREE.MathUtils.clamp(vistaLivre.radius * escala, controles.minDistance, controles.maxDistance);
-    pausado = true;
-    atualizarPausa();
+    adiarGiro();
   }
 
   function reposicionarVista(intervalo) {
@@ -179,8 +189,8 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
       }
     }
     const animarPecas = !pausado && !movimentoReduzido() && !pecaFocada;
-    controles.autoRotate = animarPecas && !emAproximacao && !ponteiroNaCena
-      && !cena.contains(document.activeElement);
+    controles.autoRotate = animarPecas && !emAproximacao && !vistaLivre && !interagindo
+      && retomadaDoGiro === undefined && !document.activeElement?.matches('.hotspot:focus-visible');
     const moveu = !emAproximacao && controles.update(intervalo);
 
     if (animarPecas) {
@@ -307,6 +317,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   function restaurar() {
     if (pecaFocada) return;
     vistaGeral = undefined;
+    adiarGiro();
     aproximar(undefined, 620);
   }
 
@@ -325,21 +336,19 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   controles.addEventListener('change', marcar);
   controles.addEventListener('start', () => {
     vistaLivre = undefined;
-    pausado = true;
-    atualizarPausa();
+    interagindo = true;
+    adiarGiro();
+  });
+  controles.addEventListener('end', () => {
+    interagindo = false;
+    adiarGiro();
   });
   cena.addEventListener('transitionend', ({ propertyName, target }) => {
     if (target === cena && propertyName === 'transform') marcar();
   }, { signal });
   window.addEventListener('resize', redimensionar, { signal });
-  cena.addEventListener('pointerenter', evento => {
-    ponteiroNaCena = evento.pointerType !== 'touch';
-  }, { signal });
-  cena.addEventListener('pointerleave', () => {
-    ponteiroNaCena = false;
-    agendar();
-  }, { signal });
   cena.addEventListener('focusin', evento => {
+    adiarGiro();
     if (evento.target.hasAttribute('data-fora') && !voo && !pecaFocada) {
       controles.autoRotate = false;
       camera.position.copy(posicaoInicial);
@@ -352,6 +361,8 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   document.addEventListener('visibilitychange', agendar, { signal });
   pausa.addEventListener('click', () => {
     pausado = !pausado;
+    clearTimeout(retomadaDoGiro);
+    retomadaDoGiro = undefined;
     atualizarPausa();
   }, { signal });
 
@@ -397,6 +408,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
   let inicio;
   canvas.addEventListener('pointermove', evento => {
     if (pecaFocada) return;
+    if (evento.pointerType === 'mouse' && !evento.buttons) adiarGiro();
     if (inicio?.id === evento.pointerId && Math.hypot(evento.clientX - inicio.x, evento.clientY - inicio.y) > 6) {
       inicio = undefined;
     }
@@ -427,6 +439,7 @@ export function iniciarCena({ cena, canvas, botoes, destacar, abrir, usarImagem,
 
   canvas.addEventListener('webglcontextlost', () => {
     ativo = false;
+    clearTimeout(retomadaDoGiro);
     ouvintes.abort();
     controles.dispose();
     observadorTamanho.disconnect();

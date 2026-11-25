@@ -3,7 +3,7 @@
 ## Revisão mais recente
 
 - **Navegação.** No Chromium, foram testadas larguras de 320, 390, 1.170, 1.260 e 1.440 px. O menu lateral recolheu, mostrou o rótulo no foco e permaneceu fixo ao rolar. No celular, **Menu** abriu o painel, e Esc devolveu o foco ao botão.
-- **Gabinete.** O modelo girou por mouse, toque simulado e teclado. O arraste manteve a gaveta fechada e pausou o giro automático. A seleção abriu a gaveta com fotos e preços. Também foram conferidos zoom, restauração da vista, movimento reduzido e a imagem de reserva sem WebGL.
+- **Gabinete.** O modelo girou por mouse, toque simulado e teclado. Arrastar manteve a gaveta fechada, e o giro automático voltou depois de alguns segundos sem mexer. O botão de pausa manteve o giro desligado. A seleção abriu a gaveta com fotos e preços. Também foram conferidos zoom, restauração da vista, movimento reduzido e a imagem de reserva sem WebGL.
 - **Catálogo e glossário.** O painel de filtros abriu no celular, a categoria escolhida na lateral atualizou a aba, e limpar os filtros voltou a mostrar os 62 produtos. A comparação abriu e a busca aceitou termos e siglas. O link direto para **Socket** chegou à definição e **Ver mais** mostrou o complemento.
 - **Visual.** As nove páginas carregaram a DM Sans localmente em 1.440 px. O início e o catálogo também foram conferidos em 320 e 390 px. O tema claro e a opção de alto contraste usaram fundo sólido. [Capturas atualizadas](design-site.md#capturas-da-versão-publicada)
 
@@ -32,7 +32,7 @@ A entrega parcial foi aberta em uma subpasta, como no GitHub Pages. O gabinete g
 
 ## Contraste
 
-No cálculo da entrega atual, o texto secundário mediu pelo menos **6,29:1** no escuro e **5,31:1** no claro. O item atual do menu deu **5,89:1** no escuro e **5,66:1** no claro. As paradas do degradê entram no cálculo do tema escuro. [Cálculo atual](wcag-contraste.md)
+Na paleta azul-petróleo, o texto secundário mediu pelo menos **6,65:1** no escuro e **5,71:1** no claro nos fundos verificados. O item atual do menu deu **6,57:1** no escuro e **6,25:1** no claro. Também conferi o texto de apoio da montagem guiada quando o mouse passa sobre o cartão. [Cálculo atual](wcag-contraste.md)
 
 Em uma revisão anterior, a transparência da gaveta foi um dos pontos que precisaram de ajuste. No tema escuro, uma legenda chegou a **3,84:1** com um fundo claro atrás da gaveta. A mudança de opacidade e de cor levou o cálculo para **5,26:1** no escuro e **5,71:1** no claro, mesmo nos fundos mais desfavoráveis usados no teste.
 

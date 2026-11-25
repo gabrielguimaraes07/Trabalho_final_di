@@ -56,15 +56,20 @@ function resumo(cores, corAtrasDoVidro, paradasDoGradiente = []) {
     ...paradasDoGradiente.map(token => cores[token].canais),
     compor(cores['--glass'], corAtrasDoVidro),
   ];
+  const fundoSelecionado = cores['--accent-soft'].canais;
+  const fundosDaAcao = [fundoSelecionado, cores['--accent-soft-hover'].canais];
   const verificacoes = [
     ['Texto principal', '--text', fundos, 4.5],
     ['Texto secundário', '--text-2', fundos, 4.5],
     ['Links', '--accent', fundos, 4.5],
-    ['Item selecionado do menu', '--accent', [cores['--accent-soft'].canais], 4.5],
+    ['Item selecionado do menu', '--accent', [fundoSelecionado], 4.5],
+    ['Contorno lateral do item selecionado e seta da montagem guiada', '--metal', fundosDaAcao, 3],
+    ['Texto de apoio no cartão da montagem guiada', '--text-2', fundosDaAcao, 4.5],
     ['Mensagens de confirmação', '--success', fundos, 4.5],
     ['Mensagens de erro', '--danger', fundos, 4.5],
-    ['Texto branco no botão principal', '--btn-text', [cores['--btn-primary'].canais], 4.5],
+    ['Texto no botão principal', '--btn-text', [cores['--btn-primary'].canais, cores['--btn-hover'].canais], 4.5],
     ['Contorno de foco', '--accent', fundos, 3],
+    ['Borda dos campos', '--field-line', [cores['--bg'].canais, cores['--surface'].canais], 3],
     ['Botão principal em relação ao fundo', '--btn-primary', fundos, 3],
   ];
 

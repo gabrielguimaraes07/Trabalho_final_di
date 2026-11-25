@@ -14,9 +14,13 @@ A montagem manual estava difícil de seguir, então pedi que ficasse mais claro 
 
 No carrinho, pedi uma tela que servisse para simular a compra. A IA ajudou a montar a revisão dos itens e a conferir se quantidades, subtotais e total batiam com a seleção. Também ajudou a testar o aviso de incompatibilidade e o que acontece ao cancelar a troca de uma montagem salva.
 
-## Login, carrossel e acessibilidade
+## Contato e login
 
-Na página de login, o Codex me ajudou a organizar as abas **Entrar** e **Criar conta**, mostrar os avisos de preenchimento e conferir se dava para trocar de aba pelas setas. A sessão é de demonstração e fica no navegador.
+Na página **Contato**, o Codex me ajudou a montar o formulário e as perguntas frequentes. Também ajudou a validar campos como o e-mail, colocar os avisos perto de cada campo e mostrar uma confirmação quando o formulário está preenchido. O envio é uma simulação. [Tela de contato](capturas/apresentacao-contato.jpg)
+
+Na página de login, o Codex me ajudou a organizar as abas **Entrar** e **Criar conta**, mostrar os avisos de preenchimento e conferir se dava para trocar de aba pelas setas. Na revisão final, também ajudou a reorganizar a tela e a colocar atalhos para quem quer abrir o catálogo ou testar uma montagem. A sessão é de demonstração e fica no navegador. [Tela de login](capturas/apresentacao-login.jpg)
+
+## Carrossel e acessibilidade
 
 No carrossel da página inicial, ele me ajudou a colocar as fotos, ligar as setas e os indicadores e acertar a pausa e a troca automática. Usei o **OpenAI ImageGen** para três ilustrações da parcial. Na final, pedi fotos de ambientes reais, e o Codex também ajudou a buscar e organizar essas referências. [Créditos das imagens](referencias.md#ambientes-reais)
 
@@ -24,7 +28,9 @@ Na aba de acessibilidade, pedi ajuda para montar a troca entre modo claro e escu
 
 ## Acabamento da versão final
 
-Usei o laboratório visual para escolher os ajustes que queria aproveitar. Pedi ao Codex que aplicasse o menu lateral, reorganizasse os filtros do catálogo e resumisse o glossário. Também pedi ajuda para suavizar a câmera do gabinete e testar os controles por teclado. Depois de ver a prévia, escolhi o G em um quadrado azul, a troca da fonte e um degradê mais leve para o fundo.
+Usei o laboratório visual para escolher os ajustes que queria aproveitar. Na página inicial, o Codex me ajudou a organizar o título e os dois caminhos de montagem ao lado do gabinete. Também ajudou a ligar a página ao menu fixo à esquerda, com destaque para a seção aberta e um botão de menu para o celular. No catálogo, pedi ajuda para reorganizar os filtros. Também usei o Codex para resumir o glossário, suavizar a câmera do gabinete e testar os controles por teclado.
+
+Depois de ver a prévia, escolhi a fonte DM Sans e a paleta azul-petróleo. Pedi que o Codex aprofundasse um pouco o tom escuro, mantendo os detalhes em latão, e conferisse o contraste das novas cores. [Página inicial](capturas/apresentacao-inicio.jpg)
 
 ## Setups e organização do GitHub
 

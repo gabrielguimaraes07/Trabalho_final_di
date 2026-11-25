@@ -5,18 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Acesso fictício do projeto acadêmico GGTECH.">
     <title>Entrar — GGTECH</title>
-    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=marca-2">
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=petroleo-1">
     <script src="js/tema.js?v=interfaces-11"></script>
-    <link rel="stylesheet" href="css/tokens.css?v=tipografia-1">
-    <link rel="stylesheet" href="css/base.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/tokens.css?v=petroleo-2">
+    <link rel="stylesheet" href="css/base.css?v=petroleo-1">
     <link rel="stylesheet" href="css/layout.css?v=lateral-1">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-11">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
-    <link rel="stylesheet" href="css/apoio.css?v=interfaces-8">
-    <link rel="stylesheet" href="css/laboratorio.css?v=tipografia-1">
-    <link rel="stylesheet" href="css/navegacao.css?v=marca-2">
+    <link rel="stylesheet" href="css/componentes.css?v=inicio-1">
+    <link rel="stylesheet" href="css/loja.css?v=inicio-1">
+    <link rel="stylesheet" href="css/apoio.css?v=inicio-1">
+    <link rel="stylesheet" href="css/laboratorio.css?v=petroleo-1">
+    <link rel="stylesheet" href="css/navegacao.css?v=petroleo-1">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
-    <script type="module" src="js/principal.js?v=lateral-1"></script>
+    <script type="module" src="js/principal.js?v=inicio-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -54,70 +54,86 @@
       </ul>
     </nav>
 
-    <main class="apoio-pagina formularios-pagina container" id="conteudo" data-pagina-login tabindex="-1">
-      <header class="apoio-cabecalho">
-        <h1>Área de acesso</h1>
-        <p>Simulação acadêmica. Use um e-mail e uma senha fictícios.</p>
-      </header>
+    <main class="apoio-pagina login-pagina container" id="conteudo" data-pagina-login tabindex="-1">
+      <div class="login-layout">
+        <section class="login-principal" aria-labelledby="titulo-login">
+          <header class="apoio-cabecalho">
+            <h1 id="titulo-login">Sua conta no GGTECH</h1>
+            <p>Este acesso é só para demonstração. Use um e-mail e uma senha inventados.</p>
+          </header>
 
-      <div class="login-conteudo" hidden>
-        <div class="login-abas" role="tablist" aria-label="Tipo de acesso">
-          <button id="aba-entrar" type="button" role="tab" aria-controls="painel-entrar" aria-selected="true">Entrar</button>
-          <button id="aba-criar" type="button" role="tab" aria-controls="painel-criar" aria-selected="false" tabindex="-1">Criar conta</button>
-        </div>
-        <section id="painel-entrar" role="tabpanel" aria-labelledby="aba-entrar">
-          <form class="apoio-form" novalidate>
-            <div class="estoque-campo">
-              <label for="entrar-email">E-mail</label>
-              <input id="entrar-email" data-valida="email" type="email" required autocomplete="off" aria-describedby="entrar-email-erro">
-              <p id="entrar-email-erro" class="apoio-erro" aria-live="polite"></p>
+          <div class="login-conteudo" hidden>
+            <div class="login-abas" role="tablist" aria-label="Tipo de acesso">
+              <button id="aba-entrar" type="button" role="tab" aria-controls="painel-entrar" aria-selected="true">Entrar</button>
+              <button id="aba-criar" type="button" role="tab" aria-controls="painel-criar" aria-selected="false" tabindex="-1">Criar conta</button>
             </div>
-            <div class="estoque-campo">
-              <label for="entrar-senha">Senha fictícia</label>
-              <div class="login-senha">
-                <input id="entrar-senha" data-valida="senha" type="password" required minlength="6" autocomplete="new-password" aria-describedby="entrar-senha-ajuda entrar-senha-erro">
-                <button class="botao-contorno" type="button" data-mostrar-senha aria-controls="entrar-senha">Mostrar senha</button>
-              </div>
-              <p id="entrar-senha-ajuda" class="apoio-ajuda">Use pelo menos 6 caracteres.</p>
-              <p id="entrar-senha-erro" class="apoio-erro" aria-live="polite"></p>
-            </div>
-            <button class="botao-primario estoque-adicionar apoio-enviar" type="submit">Entrar</button>
-          </form>
+            <section id="painel-entrar" role="tabpanel" aria-labelledby="aba-entrar">
+              <form class="apoio-form" novalidate>
+                <div class="estoque-campo">
+                  <label for="entrar-email">E-mail</label>
+                  <input id="entrar-email" data-valida="email" type="email" required autocomplete="off" aria-describedby="entrar-email-erro">
+                  <p id="entrar-email-erro" class="apoio-erro" aria-live="polite"></p>
+                </div>
+                <div class="estoque-campo">
+                  <label for="entrar-senha">Senha fictícia</label>
+                  <div class="login-senha">
+                    <input id="entrar-senha" data-valida="senha" type="password" required minlength="6" autocomplete="new-password" aria-describedby="entrar-senha-ajuda entrar-senha-erro">
+                    <button class="botao-contorno" type="button" data-mostrar-senha aria-controls="entrar-senha">Mostrar senha</button>
+                  </div>
+                  <p id="entrar-senha-ajuda" class="apoio-ajuda">Use pelo menos 6 caracteres.</p>
+                  <p id="entrar-senha-erro" class="apoio-erro" aria-live="polite"></p>
+                </div>
+                <button class="botao-primario estoque-adicionar apoio-enviar" type="submit">Entrar</button>
+              </form>
+            </section>
+            <section id="painel-criar" role="tabpanel" aria-labelledby="aba-criar" hidden>
+              <form class="apoio-form" novalidate>
+                <div class="estoque-campo">
+                  <label for="criar-nome">Nome</label>
+                  <input id="criar-nome" data-valida="nome" type="text" required autocomplete="off" aria-describedby="criar-nome-erro">
+                  <p id="criar-nome-erro" class="apoio-erro" aria-live="polite"></p>
+                </div>
+                <div class="estoque-campo">
+                  <label for="criar-email">E-mail</label>
+                  <input id="criar-email" data-valida="email" type="email" required autocomplete="off" aria-describedby="criar-email-erro">
+                  <p id="criar-email-erro" class="apoio-erro" aria-live="polite"></p>
+                </div>
+                <div class="estoque-campo">
+                  <label for="criar-senha">Senha fictícia</label>
+                  <div class="login-senha">
+                    <input id="criar-senha" data-valida="senha" type="password" required minlength="6" autocomplete="new-password" aria-describedby="criar-senha-ajuda criar-senha-erro">
+                    <button class="botao-contorno" type="button" data-mostrar-senha aria-controls="criar-senha">Mostrar senha</button>
+                  </div>
+                  <p id="criar-senha-ajuda" class="apoio-ajuda">Use pelo menos 6 caracteres.</p>
+                  <p id="criar-senha-erro" class="apoio-erro" aria-live="polite"></p>
+                </div>
+                <button class="botao-primario estoque-adicionar apoio-enviar" type="submit">Criar conta</button>
+              </form>
+            </section>
+          </div>
+
+          <section class="apoio-form login-sessao" aria-labelledby="sessao-titulo" hidden>
+            <h2 id="sessao-titulo" tabindex="-1">Minha conta</h2>
+            <p class="login-usuario"></p>
+            <p class="login-email"></p>
+            <button type="button" class="botao-contorno apoio-enviar login-sair">Sair</button>
+          </section>
+          <p class="apoio-status login-status" role="status"></p>
+          <noscript><p>Ative o JavaScript para usar esta simulação.</p></noscript>
         </section>
-        <section id="painel-criar" role="tabpanel" aria-labelledby="aba-criar" hidden>
-          <form class="apoio-form" novalidate>
-            <div class="estoque-campo">
-              <label for="criar-nome">Nome</label>
-              <input id="criar-nome" data-valida="nome" type="text" required autocomplete="off" aria-describedby="criar-nome-erro">
-              <p id="criar-nome-erro" class="apoio-erro" aria-live="polite"></p>
+
+        <aside class="login-explorar" aria-labelledby="titulo-login-explorar">
+          <img src="recursos/img/ambientes/gamer-avancado-mesa.webp" width="1120" height="630" alt="Mesa com monitor curvo, teclado e gabinete branco iluminado.">
+          <div class="login-explorar-conteudo">
+            <h2 id="titulo-login-explorar">Quer só explorar?</h2>
+            <p>O catálogo e o simulador funcionam sem conta. Dá para ver os preços e testar uma montagem quando quiser.</p>
+            <div class="login-explorar-acoes">
+              <a class="botao-texto" href="./estoque.html">Ver peças e preços</a>
+              <a class="botao-contorno" href="./montador.html">Começar uma montagem</a>
             </div>
-            <div class="estoque-campo">
-              <label for="criar-email">E-mail</label>
-              <input id="criar-email" data-valida="email" type="email" required autocomplete="off" aria-describedby="criar-email-erro">
-              <p id="criar-email-erro" class="apoio-erro" aria-live="polite"></p>
-            </div>
-            <div class="estoque-campo">
-              <label for="criar-senha">Senha fictícia</label>
-              <div class="login-senha">
-                <input id="criar-senha" data-valida="senha" type="password" required minlength="6" autocomplete="new-password" aria-describedby="criar-senha-ajuda criar-senha-erro">
-                <button class="botao-contorno" type="button" data-mostrar-senha aria-controls="criar-senha">Mostrar senha</button>
-              </div>
-              <p id="criar-senha-ajuda" class="apoio-ajuda">Use pelo menos 6 caracteres.</p>
-              <p id="criar-senha-erro" class="apoio-erro" aria-live="polite"></p>
-            </div>
-            <button class="botao-primario estoque-adicionar apoio-enviar" type="submit">Criar conta</button>
-          </form>
-        </section>
+          </div>
+        </aside>
       </div>
-
-      <section class="apoio-form login-sessao" aria-labelledby="sessao-titulo" hidden>
-        <h2 id="sessao-titulo" tabindex="-1">Minha conta</h2>
-        <p class="login-usuario"></p>
-        <p class="login-email"></p>
-        <button type="button" class="botao-contorno apoio-enviar login-sair">Sair</button>
-      </section>
-      <p class="apoio-status login-status" role="status"></p>
-      <noscript><p>Ative o JavaScript para usar esta simulação.</p></noscript>
     </main>
 
     <footer class="site-footer">

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conheça as peças do seu primeiro PC com a GGTECH, um simulador acadêmico para quem está começando.">
-    <title>GGTECH — Monte seu primeiro PC sem medo</title>
-    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=marca-2">
+    <title>GGTECH — Monte seu PC peça por peça</title>
+    <link rel="icon" type="image/svg+xml" href="recursos/icones/favicon.svg?v=petroleo-1">
     <script src="js/tema.js?v=interfaces-11"></script>
-    <link rel="stylesheet" href="css/tokens.css?v=tipografia-1">
-    <link rel="stylesheet" href="css/base.css?v=tipografia-1">
+    <link rel="stylesheet" href="css/tokens.css?v=petroleo-2">
+    <link rel="stylesheet" href="css/base.css?v=petroleo-1">
     <link rel="stylesheet" href="css/layout.css?v=lateral-1">
-    <link rel="stylesheet" href="css/componentes.css?v=interfaces-19">
-    <link rel="stylesheet" href="css/loja.css?v=interfaces-8">
-    <link rel="stylesheet" href="css/montador.css?v=interfaces-8">
-    <link rel="stylesheet" href="css/laboratorio.css?v=tipografia-1">
-    <link rel="stylesheet" href="css/navegacao.css?v=marca-2">
+    <link rel="stylesheet" href="css/componentes.css?v=inicio-1">
+    <link rel="stylesheet" href="css/loja.css?v=inicio-1">
+    <link rel="stylesheet" href="css/montador.css?v=inicio-1">
+    <link rel="stylesheet" href="css/laboratorio.css?v=petroleo-1">
+    <link rel="stylesheet" href="css/navegacao.css?v=petroleo-1">
     <link rel="stylesheet" href="css/acessibilidade.css?v=interfaces-11">
     <script type="importmap">
       {
@@ -27,7 +27,7 @@
         }
       }
     </script>
-    <script type="module" src="js/principal.js?v=lateral-1"></script>
+    <script type="module" src="js/principal.js?v=inicio-1"></script>
   </head>
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -68,11 +68,19 @@
     <main id="conteudo" tabindex="-1">
       <section class="hero container" aria-labelledby="titulo-inicio">
         <div class="hero-copy">
-          <h1 id="titulo-inicio">Monte seu primeiro PC <span>sem medo.</span></h1>
-          <p>Veja o que cada peça faz e monte um PC para o seu dia a dia, seja pra jogar, estudar, trabalhar ou criar conteúdo.</p>
+          <h1 id="titulo-inicio">Quanto custa o PC que você <span>quer montar?</span></h1>
+          <p>Gire o gabinete para conhecer as peças. Depois, veja o que cabe no seu orçamento ou monte o PC do seu jeito, componente por componente.</p>
           <div class="hero-acoes">
-            <a class="botao-primario" href="./montador.html">Começar pela montagem guiada</a>
-            <a class="botao-contorno" href="./simulador.html">Escolher cada peça</a>
+            <a class="hero-acao hero-acao-guiada" href="./montador.html">
+              <span class="hero-acao-icone"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#guiada"/></svg></span>
+              <span><strong>Montar pelo orçamento</strong><small>Receba uma sugestão em três passos</small></span>
+              <svg class="hero-acao-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
+            <a class="hero-acao" href="./simulador.html">
+              <span class="hero-acao-icone"><svg class="nav-icone" aria-hidden="true"><use href="recursos/icones/navegacao.svg#manual"/></svg></span>
+              <span><strong>Montar peça por peça</strong><small>Escolha e combine os componentes</small></span>
+              <svg class="hero-acao-seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+            </a>
           </div>
         </div>
 
@@ -159,7 +167,7 @@
 
       <section class="secao-inicio container" aria-labelledby="titulo-pecas">
         <h2 id="titulo-pecas" data-revelar-titulo>Conheça os componentes do seu PC</h2>
-        <p><a href="./guia.html">Abrir o guia completo das 19 categorias</a></p>
+        <p><a class="botao-texto" href="./guia.html">Abrir o guia completo das 19 categorias</a></p>
         <ul class="grade-pecas">
           <li class="cartao-peca">
             <img src="recursos/img/apresentacao/r5600g.webp" alt="Foto de AMD Ryzen 5 5600G" width="720" height="540" loading="lazy" decoding="async">
@@ -297,7 +305,7 @@
         </div>
         <p class="gaveta-status" id="gaveta-status" role="status"></p>
         <ul class="gaveta-lista" id="gaveta-lista"></ul>
-        <a class="gaveta-link-estoque" id="gaveta-link-estoque" href="./estoque.html">Ver todas no catálogo</a>
+        <a class="gaveta-link-estoque botao-texto" id="gaveta-link-estoque" href="./estoque.html">Ver todas no catálogo</a>
       </div>
     </dialog>
   </body>

@@ -21,13 +21,13 @@ I made GGTECH to help people build their first PC. You can look inside a 3D case
 
 I started with `index.html` and set up the header, navigation, main content, and footer. At the top, I put the two ways to start a build next to the 3D case. The part cards, carousel, and ready-made builds sit farther down the page. The **Pular para o conteúdo** (Skip to content) link takes keyboard users straight to the main content.
 
-I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. The project bundles DM Sans and uses a subtle blue-gray to charcoal gradient in dark mode. The white G on a blue square identifies the project in the header and browser tab. `layout.css` handles page structure, and `navegacao.css` styles the sidebar. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
+I used plain CSS and split the styles by what they do. `tokens.css` holds the colors for both themes, text sizes, and spacing so a button can look the same on the home page and in the catalog. The project bundles DM Sans and uses a petrol-blue gradient in dark mode, with muted blue controls and brass accents. The light G on a petrol-blue square identifies the project in the header and browser tab. `layout.css` handles page structure, and `navegacao.css` styles the sidebar. [Color palette](entrega-final/docs/paleta.md) · [Color psychology](entrega-final/docs/psicologia-cores.md)
 
 ### 2. The 3D PC case
 
 `modelo-pc.js` builds the case and its parts from Three.js shapes and materials. `cena3d.js` figures out which part you clicked and moves the camera toward it, slowing down as it gets close. The catalog then opens on the right on a computer and below the model on a phone. It shows photos, prices, and a link to use a part in the manual builder.
 
-You can turn the case with a mouse, touch, or the arrow keys. Automatic rotation pauses when you take control. Use the zoom buttons or **Restaurar vista** (Reset view) to adjust the framing. The part buttons still work with the fallback image if WebGL is unavailable. In **Por dentro do seu PC** (Inside your PC), scrolling or using the slider pulls the parts apart so you can see where they fit.
+You can turn the case with a mouse, touch, or the arrow keys. Automatic rotation pauses while you explore and resumes after a few seconds of inactivity. The **Pausar giro** (Pause rotation) button keeps the case still until you choose to resume. Use the zoom buttons or **Restaurar vista** (Reset view) to adjust the framing. The part buttons still work with the fallback image if WebGL is unavailable. In **Por dentro do seu PC** (Inside your PC), scrolling or using the slider pulls the parts apart so you can see where they fit.
 
 ### 3. The first examples
 
@@ -37,7 +37,7 @@ Codex helped me organize the setup photos and connect the carousel arrows, slide
 
 ### 4. The menu, login, and reading options
 
-On desktop, navigation stays fixed on the left. You can collapse it to icons and read the labels on hover or keyboard focus. Sign-in, accessibility, and the cart stay together in the header. The footer also links to **Contato** (Contact), where you'll find the form and frequently asked questions. On a phone, use the **Menu** button to open and close navigation. Codex helped me set up the **Entrar** (Sign in) and **Criar conta** (Create account) tabs and the messages for the demo login.
+On desktop, navigation stays fixed on the left. You can collapse it to icons and read the labels on hover or keyboard focus. Sign-in, accessibility, and the cart stay together in the header. The footer also links to **Contato** (Contact), where you'll find the form and frequently asked questions. On a phone, use the **Menu** button to open and close navigation. Codex helped me connect the home page to the sidebar, set up the tabs and messages for the demo login, and validate the contact form. [Sign in](entrega-final/docs/capturas/apresentacao-login.jpg) · [Contact](entrega-final/docs/capturas/apresentacao-contato.jpg)
 
 Codex also helped me build the accessibility panel. You can switch between light and dark themes, make the text bigger, change spacing, increase contrast, and underline links. The preview shows the changes right away, and the browser saves your choices. With **Reduzir movimento** (Reduce motion) on, the case and carousel stop moving automatically, and the camera goes straight to the selected part. [Interface choices](entrega-final/docs/ihc-ux-ui.md)
 

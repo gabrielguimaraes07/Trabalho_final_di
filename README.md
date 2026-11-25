@@ -21,13 +21,13 @@ Fiz o GGTECH para ajudar quem quer montar o primeiro PC. Dá para olhar as peça
 
 Comecei pelo `index.html`, com cabeçalho, menu, conteúdo e rodapé. Na parte de cima, deixei dois caminhos para montar o PC e coloquei o gabinete 3D ao lado. Mais abaixo ficaram os cartões das peças, o carrossel e os setups prontos. O link **Pular para o conteúdo** leva quem usa o teclado direto à parte principal.
 
-Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Usei a fonte DM Sans, que vem no próprio projeto, e um degradê discreto de azul acinzentado para grafite no tema escuro. O G branco no quadrado azul identifica a marca no cabeçalho e na aba do navegador. A estrutura das páginas fica em `layout.css`, e a navegação lateral em `navegacao.css`. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
+Separei os estilos em CSS puro. Em `tokens.css` ficam as cores dos dois temas, os tamanhos de letra e os espaçamentos. Assim, um botão usa as mesmas cores na página inicial e no catálogo. Usei a fonte DM Sans, que vem no próprio projeto, e um degradê azul-petróleo no tema escuro, com azul mineral nos controles e detalhes em latão. O G claro no quadrado azul-petróleo identifica a marca no cabeçalho e na aba do navegador. A estrutura das páginas fica em `layout.css`, e a navegação lateral em `navegacao.css`. [Paleta](entrega-final/docs/paleta.md) · [Psicologia das cores](entrega-final/docs/psicologia-cores.md)
 
 ### 2. O gabinete em 3D
 
 O `modelo-pc.js` monta o gabinete e as peças com formas e materiais do Three.js. No `cena3d.js`, o clique identifica qual peça foi selecionada e leva a câmera até ela. A aproximação desacelera perto da peça. Quando termina, o catálogo abre à direita no computador e embaixo no celular. Ali aparecem as fotos, os preços e o atalho para usar a peça na montagem manual.
 
-Dá para girar o gabinete com mouse, toque ou setas do teclado. O giro automático pausa quando a pessoa assume o controle. Os botões de zoom e **Restaurar vista** ajudam a retomar o enquadramento. As categorias abaixo do modelo continuam disponíveis na imagem de reserva caso o navegador fique sem WebGL. Em **Por dentro do seu PC**, as peças se separam com a rolagem ou com o controle de separação.
+Dá para girar o gabinete com mouse, toque ou setas do teclado. O giro automático pausa durante o uso e volta depois de alguns segundos sem interação. O botão **Pausar giro** mantém o modelo parado até escolher **Retomar giro**. Os botões de zoom e **Restaurar vista** ajudam a retomar o enquadramento. As categorias abaixo do modelo continuam disponíveis na imagem de reserva caso o navegador fique sem WebGL. Em **Por dentro do seu PC**, as peças se separam com a rolagem ou com o controle de separação.
 
 ### 3. Os primeiros exemplos
 
@@ -37,7 +37,7 @@ Com ajuda do Codex, organizei as fotos de **Ambientes de referência** e liguei 
 
 ### 4. O menu, o login e a leitura
 
-No computador, o menu fica fixo à esquerda. Dá para recolher a barra para deixar só os ícones, e os nomes aparecem ao passar o mouse ou chegar pelo teclado. Entrar, Acessibilidade e Carrinho ficam juntos no alto da página. O rodapé também dá acesso a **Contato**, onde ficam o formulário e as perguntas frequentes. No celular, dá para abrir e fechar a navegação pelo botão **Menu**. Usei o Codex para ajudar a organizar as abas **Entrar** e **Criar conta** e os avisos do login de demonstração.
+No computador, o menu fica fixo à esquerda. Dá para recolher a barra para deixar só os ícones, e os nomes aparecem ao passar o mouse ou chegar pelo teclado. Entrar, Acessibilidade e Carrinho ficam juntos no alto da página. O rodapé também dá acesso a **Contato**, onde ficam o formulário e as perguntas frequentes. No celular, dá para abrir e fechar a navegação pelo botão **Menu**. O Codex me ajudou a ligar a página inicial ao menu lateral, organizar as abas e os avisos do login de demonstração e validar o formulário de contato. [Login](entrega-final/docs/capturas/apresentacao-login.jpg) · [Contato](entrega-final/docs/capturas/apresentacao-contato.jpg)
 
 O Codex também me ajudou no painel de acessibilidade. Dá para trocar entre modo claro e escuro, aumentar a fonte, mudar o espaçamento, reforçar o contraste e sublinhar os links. A prévia mostra as mudanças na hora, e as preferências ficam no navegador. Com **Reduzir movimento** ativo, o giro automático e o carrossel automático param, e o enquadramento da peça muda direto ao clicar. [Escolhas de interface](entrega-final/docs/ihc-ux-ui.md)
 

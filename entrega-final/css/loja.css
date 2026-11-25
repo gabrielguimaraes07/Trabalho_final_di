@@ -43,8 +43,6 @@
   background: var(--btn-primary);
   color: var(--btn-text);
   font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: .18em;
 }
 
 .estoque-painel {
@@ -82,7 +80,11 @@
   color: var(--accent);
   cursor: pointer;
 }
-.login-abas button[aria-selected="true"] { border-color: var(--accent); font-weight: 700; text-decoration: underline; }
+.login-abas button[aria-selected="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 700;
+}
 
 .estoque-campo {
   display: grid;
@@ -155,8 +157,7 @@
 }
 
 .estoque-sugestoes li:is(:hover, [aria-selected="true"]) {
-  background: var(--bg);
-  text-decoration: underline;
+  background: var(--accent-soft);
 }
 
 .estoque-status {
@@ -266,11 +267,7 @@
 }
 
 .gaveta-link-estoque {
-  display: inline-flex;
-  align-items: center;
   justify-self: start;
-  min-block-size: 44px;
-  text-underline-offset: .2em;
 }
 
 .nav-actions .botao-carrinho {

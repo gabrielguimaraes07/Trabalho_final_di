@@ -23,18 +23,28 @@
   border: 1px solid var(--accent);
   background: transparent;
   color: var(--accent);
+  text-decoration: none;
 }
 
-.botao-texto {
-  border-color: transparent;
-  text-decoration: underline;
-  text-underline-offset: .2em;
+a.botao-contorno[href] {
+  text-decoration: none;
 }
 
-:is(.botao-contorno, .botao-texto, .botao-primario):hover {
+.botao-texto,
+a.botao-texto[href] {
+  border-color: var(--field-line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text);
+}
+
+:is(.botao-texto, a.botao-texto[href]):not(:disabled):hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+:is(.botao-contorno, .botao-texto, .botao-primario):not(:disabled):hover {
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: .2em;
 }
 
 .visualizador {

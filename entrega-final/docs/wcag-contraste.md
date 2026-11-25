@@ -6,27 +6,33 @@ O cálculo compara os fundos da página, dos cartões e das áreas translúcidas
 
 ## Tema escuro
 
-- **Texto principal.** 13,32:1.
-- **Texto secundário.** 6,29:1.
-- **Links.** 5,93:1.
-- **Item selecionado do menu.** 5,89:1.
-- **Mensagens de confirmação.** 7,17:1.
-- **Mensagens de erro.** 4,79:1.
-- **Texto branco no botão principal.** 4,70:1.
-- **Contorno de foco.** 5,93:1.
-- **Botão principal em relação ao fundo.** 3,09:1.
+- **Texto principal.** 10,14:1.
+- **Texto secundário.** 6,65:1.
+- **Links.** 6,12:1.
+- **Item selecionado do menu.** 6,57:1.
+- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,44:1.
+- **Texto de apoio no cartão da montagem guiada.** 5,99:1.
+- **Mensagens de confirmação.** 6,36:1.
+- **Mensagens de erro.** 6,27:1.
+- **Texto no botão principal.** 9,45:1.
+- **Contorno de foco.** 6,12:1.
+- **Borda dos campos.** 5,20:1.
+- **Botão principal em relação ao fundo.** 6,44:1.
 
 ## Tema claro
 
-- **Texto principal.** 14,32:1.
-- **Texto secundário.** 5,31:1.
-- **Links.** 5,65:1.
-- **Item selecionado do menu.** 5,66:1.
-- **Mensagens de confirmação.** 5,39:1.
-- **Mensagens de erro.** 5,42:1.
-- **Texto branco no botão principal.** 4,70:1.
-- **Contorno de foco.** 5,65:1.
-- **Botão principal em relação ao fundo.** 4,00:1.
+- **Texto principal.** 12,01:1.
+- **Texto secundário.** 5,71:1.
+- **Links.** 6,20:1.
+- **Item selecionado do menu.** 6,25:1.
+- **Contorno lateral do item selecionado e seta da montagem guiada.** 4,55:1.
+- **Texto de apoio no cartão da montagem guiada.** 5,27:1.
+- **Mensagens de confirmação.** 5,85:1.
+- **Mensagens de erro.** 5,77:1.
+- **Texto no botão principal.** 6,63:1.
+- **Contorno de foco.** 6,20:1.
+- **Borda dos campos.** 3,99:1.
+- **Botão principal em relação ao fundo.** 5,58:1.
 
 Para refazer o cálculo, rode `node scripts/contraste.js`. O script lê as cores de `css/tokens.css`.
 

@@ -21,7 +21,7 @@
   flex: none;
   inline-size: 1.5rem;
   block-size: 1.5rem;
-  background: url("../recursos/icones/favicon.svg?v=marca-2") center / contain no-repeat;
+  background: url("../recursos/icones/favicon.svg?v=petroleo-1") center / contain no-repeat;
 }
 
 .nav-menu a[href] {
@@ -34,12 +34,31 @@
   color: var(--accent);
 }
 
-.nav-actions .nav-conta {
-  text-underline-offset: .2em;
+.nav-conta[href] {
+  padding-inline: .7rem;
+  border: 1px solid var(--field-line);
+  background-color: var(--surface);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav-conta[href]:is(:hover, [aria-current="page"]) {
+  border-color: var(--accent);
 }
 
 .site-footer {
   border-block-start: 1px solid var(--line);
+}
+
+.rodape-links a[href] {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.rodape-links a[href]:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: .22em;
 }
 
 .botao-primario[href]:not([aria-disabled="true"]):hover,
@@ -58,8 +77,8 @@ button.botao-primario:not(:disabled):hover {
 }
 
 .hero h1 {
-  max-inline-size: 14ch;
-  font-size: clamp(2.45rem, 1.45rem + 3.55vw, 4.75rem);
+  max-inline-size: 15ch;
+  font-size: clamp(2.45rem, 1.55rem + 3.15vw, 4.65rem);
   font-weight: 800;
   letter-spacing: -.045em;
 }
@@ -75,11 +94,84 @@ button.botao-primario:not(:disabled):hover {
 }
 
 .hero-acoes {
-  gap: .75rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: .65rem;
+  inline-size: min(100%, 25rem);
 }
 
-.hero-acoes .botao-contorno[href] {
+.hero-acoes a.hero-acao {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: clamp(.55rem, 1.4vw, .9rem);
+  min-block-size: 4.25rem;
+  padding: .6rem .85rem .6rem .6rem;
+  border: 1px solid var(--field-line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  color: var(--text);
+  line-height: 1.3;
+  text-align: start;
   text-decoration: none;
+}
+
+.hero-acoes a.hero-acao-guiada {
+  border-color: var(--metal);
+  background-color: var(--accent-soft);
+}
+
+.hero-acoes a.hero-acao:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-soft);
+}
+
+.hero-acoes a.hero-acao-guiada:hover {
+  border-color: var(--metal);
+  background-color: var(--accent-soft-hover);
+}
+
+.hero-acao strong,
+.hero-acao small {
+  display: block;
+  overflow-wrap: anywhere;
+}
+
+.hero-acao small {
+  margin-block-start: .15rem;
+  color: var(--text-2);
+  font-size: var(--font-14);
+}
+
+.hero-acao-icone {
+  display: grid;
+  place-items: center;
+  inline-size: 2.65rem;
+  aspect-ratio: 1;
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--accent);
+}
+
+.hero-acao-guiada .hero-acao-icone {
+  background: var(--btn-primary);
+  color: var(--btn-text);
+}
+
+.hero-acao-seta {
+  inline-size: 1.2rem;
+  stroke: var(--accent);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.hero-acao-guiada .hero-acao-seta {
+  stroke: var(--metal);
+}
+
+:root[data-sublinhar-links="true"] .hero-acoes a.hero-acao {
+  text-decoration: underline;
 }
 
 .visualizador {
@@ -88,8 +180,9 @@ button.botao-primario:not(:disabled):hover {
   min-inline-size: 0;
   padding: clamp(.65rem, 2vw, 1rem);
   border: 1px solid var(--line);
+  border-block-start-color: var(--metal);
   border-radius: var(--radius-card);
-  background: var(--bg);
+  background: var(--surface-inset);
 }
 
 .visualizador-cabecalho {
@@ -122,7 +215,16 @@ button.botao-primario:not(:disabled):hover {
 .cena-pc-area > .cena-pc {
   overflow: visible;
   border-radius: var(--radius-card);
-  background: radial-gradient(ellipse at 51% 53%, var(--accent-soft), transparent 68%);
+  background: radial-gradient(ellipse at 51% 53%, var(--palco-luz), transparent 71%);
+}
+
+:root:not([data-contraste="true"]) .cena-pc-area > .cena-pc:not([data-aproximado], :has(> .pc-estatico:not([hidden]))) {
+  background-image:
+    radial-gradient(ellipse at 51% 53%, var(--palco-luz), transparent 71%),
+    linear-gradient(var(--palco-grade) 1px, transparent 1px),
+    linear-gradient(90deg, var(--palco-grade) 1px, transparent 1px);
+  background-size: auto, 1.5rem 1.5rem, 1.5rem 1.5rem;
+  background-position: center;
 }
 
 .cena-pc[data-aproximado] {
@@ -183,7 +285,7 @@ button.botao-primario:not(:disabled):hover {
 }
 
 .hotspot::before {
-  border-color: #fff;
+  border-color: var(--btn-text);
   background: var(--btn-primary);
   box-shadow: 0 0 0 4px var(--accent-soft);
 }
@@ -270,7 +372,6 @@ button.botao-primario:not(:disabled):hover {
   border-color: var(--accent);
   background: var(--accent-soft);
   color: var(--accent);
-  text-underline-offset: .25em;
 }
 
 .estoque-painel {
@@ -467,18 +568,15 @@ button.botao-primario:not(:disabled):hover {
   .hero h1 span {
     white-space: normal;
   }
-
-  .hero-acoes > a {
-    flex: 1 1 100%;
-    justify-content: center;
-    text-align: center;
-  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  :root:not([data-reduzir-movimento="true"]) :is(.nav-menu a, .botao-primario, .botao-contorno, .estoque-abas button) {
+  :root:not([data-reduzir-movimento="true"]) :is(.nav-menu a, .nav-conta, .botao-primario, .botao-contorno, .botao-texto, .estoque-abas button, .hero-acao) {
     transition: background-color .16s ease, border-color .16s ease, color .16s ease;
   }
+
+  :root:not([data-reduzir-movimento="true"]) .hero-acao-seta { transition: transform .16s ease; }
+  :root:not([data-reduzir-movimento="true"]) .hero-acao:hover .hero-acao-seta { transform: translateX(.18rem); }
 
   :root:not([data-reduzir-movimento="true"]) .hotspot::before {
     transition: inline-size .15s ease, block-size .15s ease, box-shadow .15s ease;
@@ -507,7 +605,9 @@ button.botao-primario:not(:disabled):hover {
 :root[data-contraste="true"] {
   --surface-inset: var(--surface);
   --accent-soft: var(--bg);
+  --accent-soft-hover: var(--surface);
   --brand-blue: var(--accent);
+  --metal: var(--accent);
   --line: var(--text-2);
   --field-line: var(--text-2);
   --btn-hover: var(--btn-primary);
@@ -555,7 +655,7 @@ button.botao-primario:not(:disabled):hover {
 .estoque-produto-foto { aspect-ratio: 4 / 3; }
 .estoque-produto-foto img { max-block-size: 100%; object-fit: contain; }
 .estoque-detalhe summary { color: var(--accent); font-weight: 650; text-underline-offset: .2em; }
-.estoque-detalhe summary:hover { text-decoration: underline; }
+.estoque-detalhe summary:hover { background-color: var(--accent-soft); }
 
 .glossario-lista { gap: .5rem 1rem; }
 .glossario-lista .glossario-definicao {

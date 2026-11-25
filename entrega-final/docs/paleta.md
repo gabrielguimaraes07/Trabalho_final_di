@@ -1,21 +1,21 @@
 # Paleta do GGTECH
 
-A entrega final combina grafite, azul acinzentado e um azul mais vivo nos controles. As cores ficam em `css/tokens.css` e o degradê é aplicado por `css/base.css`.
+A entrega final usa azul-petróleo na base, azul mineral nas ações e um tom de latão nos detalhes. As cores ficam em `css/tokens.css` e o degradê é aplicado por `css/base.css`.
 
 ## Tema escuro
 
-- **Fundos.** A página usa `#12161C`, com um degradê que começa em `#202A37` e passa por `#181E27`. Os cartões usam `#18181B` e o menu lateral, `#101013`.
-- **Texto.** Quase branco (`#F5F5F7`) nos títulos, nomes e preços. Cinza (`#AAAAB3`) nas legendas e informações de apoio.
-- **Destaques.** Azul (`#55AAFF`) nos links e no foco, com fundo `#142B43` para o item selecionado no menu. Verde (`#30D158`) para confirmar e vermelho (`#FF5D52`) para avisar de um problema.
+- **Fundos.** O petróleo profundo (`#0C1A20`) é a base da página. O degradê passa por `#203F49` e `#142932`. Os cartões usam `#152A32` e o menu lateral, `#0A161B`.
+- **Texto.** Os títulos, nomes e preços usam um branco com leve toque de verde (`#EDF5F2`). As legendas e os textos de apoio ficam em `#B7CBCB`.
+- **Destaques.** Os links e o foco usam azul mineral (`#83CBD2`). O latão (`#D5A17C`) aparece na seta da montagem guiada e na borda do item atual do menu. As confirmações ficam em verde (`#72D6A5`) e os avisos em coral (`#FFAD9E`).
 
 ## Tema claro
 
-- **Fundos.** Cinza bem claro (`#F4F5F7`) na página e branco (`#FFFFFF`) nos cartões.
-- **Texto.** Grafite (`#1D1D1F`) nos títulos, nomes e preços. Cinza mais escuro (`#606067`) nos detalhes.
-- **Destaques.** Azul mais fechado (`#005BB5`) nos links, no foco e na seleção. Verde (`#176E32`) para confirmar e vermelho (`#B52825`) para avisar de um problema.
+- **Fundos.** O fundo é claro e levemente esverdeado (`#EDF2EF`), com cartões em `#FCFDF9`.
+- **Texto.** O petróleo escuro (`#152B30`) aparece nos títulos, nomes e preços. Os detalhes usam `#455D60`.
+- **Destaques.** Os links e o foco usam um petróleo mais fechado (`#245B63`), e os detalhes de latão escurecem (`#89563B`). As confirmações ficam em verde (`#176347`) e os avisos em coral escuro (`#9C352A`).
 
-Nos dois temas, o azul `#0071E3` aparece nos botões de destaque com texto branco. A camada translúcida usa 97% de opacidade no escuro e 96% no claro. Em alto contraste, ela ganha fundo sólido e o degradê da página sai de cena.
+Os botões principais usam texto escuro sobre azul mineral no tema escuro e texto claro sobre petróleo no tema claro. A camada translúcida usa 97% de opacidade no escuro e 96% no claro. Em alto contraste, o cabeçalho e as gavetas ficam com fundo sólido. O degradê e a grade atrás do gabinete dão lugar a superfícies lisas.
 
-O ícone do GGTECH tem um G branco sobre `#0064CC`. A fonte DM Sans é servida pelo próprio projeto, com tamanhos que continuam ajustáveis no painel de acessibilidade. [Licença da fonte](../recursos/fontes/dm-sans-ofl.txt)
+O ícone do GGTECH tem um G claro sobre petróleo (`#214952`). A fonte DM Sans é servida pelo próprio projeto, com tamanhos que continuam ajustáveis no painel de acessibilidade. [Licença da fonte](../recursos/fontes/dm-sans-ofl.txt)
 
 [Como as cores funcionam na interface](psicologia-cores.md)

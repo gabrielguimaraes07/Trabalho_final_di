@@ -1,16 +1,16 @@
 # Design do site
 
-O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial dá dois caminhos para começar. **Começar pela montagem guiada** abre a seleção por uso e orçamento. **Escolher cada peça** leva direto ao simulador manual.
+O GGTECH foi pensado para quem quer montar o primeiro PC e ainda está aprendendo o nome, a função e o preço de cada peça. A página inicial dá dois caminhos para começar. **Montar pelo orçamento** abre a seleção por uso e orçamento. **Montar peça por peça** leva direto ao simulador manual.
 
 ## Identidade visual e navegação
 
-O gabinete é a primeira coisa que ganha destaque. Usei um fundo em degradê de azul acinzentado para grafite, a fonte DM Sans e um G branco em um quadrado azul. O ícone aparece no cabeçalho, no rodapé e na aba do navegador. No catálogo, a foto, o nome e o preço vêm antes dos detalhes da peça nos dois temas. O azul marca links, seleções e foco no teclado. Nos avisos de montagem e orçamento, a cor chama a atenção e o texto explica o que aconteceu. [Psicologia das cores](psicologia-cores.md)
+O gabinete é a primeira coisa que ganha destaque. Usei um fundo em degradê azul-petróleo, a fonte DM Sans e um G claro em um quadrado azul-petróleo. O ícone aparece no cabeçalho, no rodapé e na aba do navegador. No catálogo, a foto, o nome e o preço vêm antes dos detalhes da peça nos dois temas. O azul mineral marca links e o foco no teclado. O latão aparece na borda do item atual e em alguns detalhes da abertura. Nos avisos de montagem e orçamento, a cor chama a atenção e o texto explica o que aconteceu. [Psicologia das cores](psicologia-cores.md)
 
 No computador, a barra lateral fica visível durante a rolagem e pode ser recolhida. Ela mostra o item atual, e os nomes aparecem ao focar os ícones ou ao passar o mouse no modo recolhido. No celular, o botão **Menu** abre o painel, e Esc fecha e devolve o foco. Entrar, Acessibilidade e Carrinho ficam no cabeçalho nos dois tamanhos. Na montagem manual, as áreas de escolha e resumo ficam lado a lado no computador. No celular, a barra com o total leva ao resumo completo. [Início no celular](capturas/apresentacao-celular.jpg) · [Montagem manual](capturas/apresentacao-simulador.jpg)
 
 ## Explorar o gabinete e aprender sobre as peças
 
-Na página inicial, dá para girar o PC com mouse, toque ou setas. A rotação automática dá lugar ao controle manual assim que a pessoa começa a mexer. A câmera desacelera perto da peça e, ao fechar a gaveta, retoma a visão anterior. Também há botões de zoom e de restauração da vista. Ao escolher uma categoria, a gaveta lateral explica o que a peça faz e mostra modelos, fotos e preços. A busca na gaveta filtra por nome ou marca. Os botões abaixo do gabinete abrem as mesmas categorias. Se o 3D ficar indisponível, o site mostra uma imagem do gabinete com os controles em texto. [Gaveta de peças](capturas/apresentacao-gabinete.jpg)
+Na página inicial, dá para girar o PC com mouse, toque ou setas. O giro automático para durante a exploração e volta após alguns segundos sem mexer. **Pausar giro** mantém a rotação desligada até escolher **Retomar giro**. A câmera desacelera perto da peça e, ao fechar a gaveta, retoma a visão anterior. Também há botões de zoom e de restauração da vista. Ao escolher uma categoria, a gaveta lateral explica o que a peça faz e mostra modelos, fotos e preços. A busca na gaveta filtra por nome ou marca. Os botões abaixo do gabinete abrem as mesmas categorias. Se o 3D ficar indisponível, o site mostra uma imagem do gabinete com os controles em texto. [Gaveta de peças](capturas/apresentacao-gabinete.jpg)
 
 Na seção **Por dentro do seu PC**, a rolagem e a régua de separação mostram onde cada peça fica. Os cartões da página inicial usam exemplos do dia a dia, como a RAM comparada a uma mesa de trabalho. O guia reúne fotos, preços e diferenças entre modelos de 19 categorias. O glossário explica 29 termos. Cada termo tem uma definição curta, com o significado da sigla quando houver. Exemplos e complementos ficam em **Ver mais**, e as explicações também podem aparecer junto das especificações do catálogo. [Glossário](capturas/apresentacao-glossario.jpg)
 
@@ -28,7 +28,7 @@ Dá para comparar até três modelos do mesmo tipo. As escolhas ficam em uma bar
 
 ## Revisar o carrinho e pedir ajuda
 
-O carrinho mostra as quantidades e o total e aponta diferenças em relação ao orçamento. Antes da confirmação simulada, a revisão apresenta os itens e os avisos de compatibilidade. As páginas de acesso e contato demonstram sessões e formulários fictícios. As perguntas frequentes ficam na página de contato. [Orçamento](capturas/final-carrinho-orcamento.png) · [Compatibilidade](capturas/final-carrinho-compatibilidade.png) · [Contato](capturas/versao-final-contato.jpg)
+O carrinho mostra as quantidades e o total e aponta diferenças em relação ao orçamento. Antes da confirmação simulada, a revisão apresenta os itens e os avisos de compatibilidade. As páginas de acesso e contato demonstram sessões e formulários fictícios. As perguntas frequentes ficam na página de contato. [Orçamento](capturas/final-carrinho-orcamento.png) · [Compatibilidade](capturas/final-carrinho-compatibilidade.png) · [Contato](capturas/apresentacao-contato.jpg) · [Login](capturas/apresentacao-login.jpg)
 
 ## Acessibilidade
 
@@ -38,7 +38,7 @@ O link para pular ao conteúdo e os indicadores de foco ajudam quem usa teclado.
 
 [Início](capturas/apresentacao-inicio.jpg) · [Gabinete](capturas/apresentacao-gabinete.jpg) · [Glossário](capturas/apresentacao-glossario.jpg) · [Catálogo](capturas/apresentacao-catalogo.jpg) · [Montagem guiada](capturas/apresentacao-montador.jpg) · [Simulador](capturas/apresentacao-simulador.jpg) · [Celular](capturas/apresentacao-celular.jpg) · [Painel de acessibilidade](capturas/apresentacao-acessibilidade.jpg)
 
-Essas capturas mostram a entrega com o menu lateral, o fundo novo e a DM Sans. Para testar os controles, abra o site ou rode o projeto no computador. [Site](https://gabrielguimaraes07.github.io/Trabalho_final_di/) · [Como rodar](../README.md#como-rodar-no-seu-computador)
+Essas capturas mostram a entrega com o menu lateral, a paleta azul-petróleo e a DM Sans. Para testar os controles, abra o site ou rode o projeto no computador. [Site](https://gabrielguimaraes07.github.io/Trabalho_final_di/) · [Como rodar](../README.md#como-rodar-no-seu-computador)
 
 ## Capturas da primeira versão final
 
